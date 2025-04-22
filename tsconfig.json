@@ -1,0 +1,57 @@
+{
+	"compilerOptions": {
+		// 指定模块系统为 ES6
+		"module": "ES2022",
+		// 指定要包含在编译中的库文件, 这里使用ES6的库文件
+		"lib": [
+			"ES2022",
+			"dom"
+		],
+		// 指定目标环境为ES6
+		"target": "ES2022",
+		// 强制文件名的大小写一致
+		"forceConsistentCasingInFileNames": true,
+		// 是否在生成的代码中使用缩进
+		"pretty": false,
+		// 是否启用严格模式
+		"strict": true,
+		// 不生成输出文件
+		"noEmit": false,
+		// 不允许隐式的any类型
+		"noImplicitAny": false,
+		// 不允许隐式的 this关键字
+		"noImplicitThis": false,
+		// 函数参数和返回值必须显式地指定类型
+		"strictFunctionTypes": false,
+		// 禁止将 null和 undefined 赋值给其他类型的变量
+		"strictNullChecks": true,
+		// 删除注释
+		"removeComments": false,
+		// 指定基础路径, 用于解析非相对模块名称
+		"baseUrl": "../",
+		// 指定模块解析方式
+		"moduleResolution": "node",
+		// 指定需要包含的类型声明文件的路径数组
+		"types": [],
+		// 指定输出目录
+		"outDir": "../JS_cache",
+		// 生成声明文件, 开启后会自动生成声明文件
+		"declaration": false,
+		// 指定类型声明文件的根目录
+		"typeRoots": [
+			"./node_modules/@types",
+		],
+		// 启用实验性的装饰器支持, 允许使用 @decorator 语法
+		"experimentalDecorators": true,
+		// 发射装饰器元数据, 用于反射 API 获取装饰器信息
+		"emitDecoratorMetadata": true,
+	},
+	// 指定需要包含在编译过程中的文件或目录
+	"include": [
+		"*"
+	],
+	// 指定需要排除在编译过程之外的文件或目录
+	"exclude": [
+		"./node_modules"
+	]
+}

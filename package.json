@@ -1,0 +1,28 @@
+{
+	"type": "module",
+	"dependencies": {
+		"@minecraft/server": "^2.0.0-beta.1.21.80-preview.27",
+		"@minecraft/server-ui": "^2.0.0-beta.1.21.80-preview.27"
+	},
+	"overrides": {
+		"@minecraft/server-ui": {
+			"@minecraft/server": "$@minecraft/server"
+		}
+	},
+	"devDependencies": {
+		"@rollup/plugin-node-resolve": "^16.0.0",
+		"@rollup/plugin-terser": "^0.4.4",
+		"rollup": "^4.34.1",
+		"rollup-plugin-visualizer": "^5.14.0",
+		"typescript": "^5.8.2"
+	},
+	"scripts": {
+		"a": "tsc && yarn rollup ../JS_cache/THE_OTHER_SHORE.js --file ../development_behavior_packs/幻梦-Dream_BP/scripts/THE_OTHER_SHORE.js",
+		"azip": "tsc && rollup --config rollup.config.js",
+		"b": "tsc ./starryMapChain/THE_OTHER_SHORE.ts --moduleResolution node --target es2022 --outDir ../JS_cache && yarn rollup ../JS_cache/starryMapChain/THE_OTHER_SHORE.js --file ../development_behavior_packs/轻量连锁_服务端/scripts/THE_OTHER_SHORE.js",
+		"bzip": "tsc ./starryMapChain/THE_OTHER_SHORE.ts --moduleResolution node --target es2022 --removeComments --outDir ../JS_cache && rollup --config ./starryMapChain/rollup.config.js",
+		"c": "tsc ./starryMapExplode/THE_OTHER_SHORE.ts --moduleResolution node --target es2022 --removeComments --outDir ../JS_cache && yarn rollup ../JS_cache/starryMapExplode/THE_OTHER_SHORE.js --file ../development_behavior_packs/律令禁止_服务端/scripts/THE_OTHER_SHORE.js",
+		"d": "tsc ./starrySword/THE_OTHER_SHORE.ts --moduleResolution node --target es2022 --removeComments --outDir ../JS_cache && yarn rollup ../JS_cache/starrySword/THE_OTHER_SHORE.js --file ../development_behavior_packs/多元武器_服务端/scripts/THE_OTHER_SHORE.js",
+		"e": "tsc ./THE_OTHER_SHORE.ts --moduleResolution node --target es2022 --outDir ../JS_cache && yarn rollup ../JS_cache/THE_OTHER_SHORE.js --file C:/Users/196530/AppData/Local/Packages/Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/幻梦-Dream_BP/scripts/THE_OTHER_SHORE.js"
+	}
+}

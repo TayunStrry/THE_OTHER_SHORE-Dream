@@ -1,0 +1,47 @@
+{
+	"code_standardization_information": {
+		"TypeScript": {
+			"execution_version": "OPAl-Script_2024-09-06",
+			"version_change_log": [
+				"2024-09-06: 初始版本发布",
+				"2024-10-01: 增加了新的接口命名示例"
+			],
+			"demo_case": {
+				"variable_or_object_property": [
+					"errorInfo",
+					"getBlock"
+				],
+				"class_or_function": [
+					"CodePack",
+					"DetectStack"
+				],
+				"import_statement": [
+					"code_id",
+					"source"
+				],
+				"interface": [
+					"SAVE_RUNE_HURT",
+					"LOCATION_RANGE_SIZE"
+				]
+			},
+			"compiler_directives": "tsc",
+			"packager_instruction": [
+				// 仅需使用 rollup 打包
+				"yarn rollup ../JS_cache/THE_OTHER_SHORE.js --file ../development_behavior_packs/幻梦-Dream_BP/scripts/THE_OTHER_SHORE.js",
+				// 使用 rollup 打包,并压缩 JS 代码
+				"yarn run rollup --config rollup.config.js",
+				"yarn rollup ../JS_cache/THE_OTHER_SHORE.js --file ../development_behavior_packs/幻梦-Dream_BP/scripts/THE_OTHER_SHORE.js --plugin rollup-plugin-terser"
+			],
+			"lock": "npm.packageManager"
+		}
+	},
+	"text_optimization_standards": [
+		"优化要求: 提高文本内容的可读性和语法的通顺性",
+		"行数调整: 在必要时可增加行数, 以提高可读性",
+		"行宽限制: 尽量避免每行超过36个字符, 以保持文本的整洁",
+		"内容平衡: 保持文本的专业性和指导性之间的平衡",
+		"视角选择: 使用第三人称视角编写文本, 保持客观性",
+		"特殊符号: 不允许删除文本中的特殊符号, 保持原意",
+		"待优化的具体文本内容: ()"
+	]
+}
