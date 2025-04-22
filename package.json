@@ -23,6 +23,7 @@
 		"bzip": "tsc ./starryMapChain/THE_OTHER_SHORE.ts --moduleResolution node --target es2022 --removeComments --outDir ../JS_cache && rollup --config ./starryMapChain/rollup.config.js",
 		"c": "tsc ./starryMapExplode/THE_OTHER_SHORE.ts --moduleResolution node --target es2022 --removeComments --outDir ../JS_cache && yarn rollup ../JS_cache/starryMapExplode/THE_OTHER_SHORE.js --file ../development_behavior_packs/律令禁止_服务端/scripts/THE_OTHER_SHORE.js",
 		"d": "tsc ./starrySword/THE_OTHER_SHORE.ts --moduleResolution node --target es2022 --removeComments --outDir ../JS_cache && yarn rollup ../JS_cache/starrySword/THE_OTHER_SHORE.js --file ../development_behavior_packs/多元武器_服务端/scripts/THE_OTHER_SHORE.js",
-		"e": "tsc ./THE_OTHER_SHORE.ts --moduleResolution node --target es2022 --outDir ../JS_cache && yarn rollup ../JS_cache/THE_OTHER_SHORE.js --file C:/Users/196530/AppData/Local/Packages/Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/幻梦-Dream_BP/scripts/THE_OTHER_SHORE.js"
+		"e": "tsc ./THE_OTHER_SHORE.ts --moduleResolution node --target es2022 --outDir ../JS_cache && yarn rollup ../JS_cache/THE_OTHER_SHORE.js --file C:/Users/196530/AppData/Local/Packages/Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/幻梦-Dream_BP/scripts/THE_OTHER_SHORE.js",
+		"git": "git add . && git commit -m 'update' && git push"
 	}
 }

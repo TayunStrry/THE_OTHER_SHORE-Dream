@@ -2076,9 +2076,34 @@ components.set(componentPrefix + 'destroy_the_core',
 		}
 	}
 );
-
-type MINERAL_MACHINE = {
-	[key: string]: { weight: number, dimension: string }
+interface BASE_MINERAL_MACHINE {
+	/**
+	 * 需要修改的方块状态
+	 */
+	revise?: number;
+	/**
+	 * 每次执行时的能耗
+	 */
+	consumption?: number;
+	/**
+	 * 产出矿石的概率(0%-100%)
+	 */
+	probability?: number;
+	/**
+	 * 加倍产出矿石的概率(0%-100%)
+	 */
+	doubling_probability?: number;
+	/**
+	 * 矿脉区块产出矿石的最大数量
+	 */
+	limit?: number;
+	/**
+	 * 矿脉区块大小
+	 */
+	chunk_size?: number;
+};
+type MINERAL_MACHINE = BASE_MINERAL_MACHINE & {
+	[dimension: string]: { [mineral: string]: number | undefined; } | undefined;
 };
 /*
  * 矿井单元
@@ -2089,15 +2114,36 @@ components.set(componentPrefix + 'mineral_machine',
 			/**
 			 * * 方块组件参数 的 解构
 			 */
+			const { block, dimension, state } = TickComponentTrigger(source);
+			/**
+			 * 方块组件属性值解析
+			 */
+			const { revise, consumption, probability, doubling_probability: doubling, limit, chunk_size: chunkSize } = data.params;
+			/**
+			 * 矿脉权重表
+			 */
+			const weightTable: Map<string, number> = new Map();
+			// 获取当前维度的参数对象
+			const proto = data.params[dimension.id];
+			// 如果当前维度没有参数对象，则返回
+			if (proto == undefined) return;
+			// 使用解构赋值直接从Object.entries获取键值对
+			for (const [mineral, weight] of Object.entries(proto)) if (mineral !== undefined && weight !== undefined) weightTable.set(mineral, weight)
+
+		}
+	}
+);
+/*
+components.set(componentPrefix + 'mineral_machine',
+	{
+		onTick(source: server.BlockComponentTickEvent, data: { params: MINERAL_MACHINE }) {
 			const analysis = TickComponentTrigger(source);
 			function beforeEvent() {
-				// 播放音效 与 粒子效果
 				analysis.dimension?.playSound('block.stonecutter.use', analysis.block.location);
 				// 复位状态
 				opal.TrySetPermutation(analysis.block, 'STATE:value', analysis.state.getState('STATE:value') as number + 1);
 			};
 			function afterEvent() {
-				// 播放音效 与 粒子效果
 				analysis.dimension?.playSound('random.anvil_land', analysis.block.location);
 				// 执行功能
 				mineral_project.Mine(analysis.block);
@@ -2107,12 +2153,10 @@ components.set(componentPrefix + 'mineral_machine',
 			};
 			if (analysis.state.getState('STATE:value') as number != 8) beforeEvent();
 			else if (analysis.state.getState('STATE:value') as number == 8) afterEvent();
-			for (const key in data.params) {
-				console.log(data.params[key].dimension, data.params[key].weight);
-			}
 		}
 	}
 );
+*/
 /*
  * 能量节点
  */
