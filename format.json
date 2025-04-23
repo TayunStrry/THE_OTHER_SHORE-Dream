@@ -43,5 +43,8 @@
 		"视角选择: 使用第三人称视角编写文本, 保持客观性",
 		"特殊符号: 不允许删除文本中的特殊符号, 保持原意",
 		"待优化的具体文本内容: ()"
+	],
+	"git": [
+		"https://github.com/TayunStrry/THE_OTHER_SHORE-Dream"
 	]
 }
