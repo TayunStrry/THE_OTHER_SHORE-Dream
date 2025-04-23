@@ -8,7 +8,7 @@
 - There is an aspiration to align the Bedrock edition mod community with that of the Java version, especially focusing on basic research in construction.
 - This document introduces "The Other Shore:Dream," a mod for Minecraft Bedrock.
 
-![Naxiatu Thinking](纳西妲.jpg)
+![Naxiatu Thinking](静态_纳西妲.jpg)
 
 ## Installation Guide
 1. **Purchase and Install**: Obtain the latest official and test versions of Minecraft Bedrock.
@@ -55,6 +55,6 @@
 - **Additional Map and Structure Play Modes**: Enhancing playability and adding more fun elements to the game.
 - **Further Optimization and Industrial Modules**: Deepening the development and optimization of magic industry themes, enhancing gaming experiences.
 
-![Naxiatu Bouncing](纳西妲.gif)
+![蹦蹦跳跳的纳西妲](动态_纳西妲.gif)
 
 This introduction provides a comprehensive overview of "The Other Shore:Dream" mod for Minecraft Bedrock. For any specific questions or further information, feel free to reach out through the contact details provided.
