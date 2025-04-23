@@ -1,0 +1,20 @@
+{
+	// 格式版本
+	"format_version": "1.19.80",
+	// 熔炼配方
+	"minecraft:recipe_furnace": {
+		// 配方 唯一识别符
+		"description": {
+			"identifier": "starry:starry_map:ferric_chloride"
+		},
+		// 工作站 标签
+		"tags": [
+			"blast_furnace",
+			"furnace"
+		],
+		// 输入物品
+		"input": "starry_map:mine.ferric_chloride",
+		// 输出物品
+		"output": "starry_map:ferric_chloride"
+	}
+}

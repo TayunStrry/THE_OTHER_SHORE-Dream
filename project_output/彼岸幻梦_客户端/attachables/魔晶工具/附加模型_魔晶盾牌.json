@@ -1,0 +1,31 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:attachable": {
+		"description": {
+			"identifier": "starry_map:magic_crystal_shield",
+			"materials": {
+				"default": "opal_light_only"
+			},
+			"textures": {
+				"default": "textures/物品贴图/魔法工具/魔晶盾牌"
+			},
+			"geometry": {
+				"default": "geometry.item.magic_crystal_shield"
+			},
+			"scripts": {
+				"pre_animation": [
+					"variable.cooldown = c.item_slot == 'main_hand' ? q.cooldown_time_remaining('slot.weapon.mainhand') : q.cooldown_time_remaining('slot.weapon.offhand');"
+				],
+				"animate": [
+					"hold_use"
+				]
+			},
+			"animations": {
+				"hold_use": "animation.item.magic_crystal_shield"
+			},
+			"render_controllers": [
+				"controller.render.magic_equipment"
+			]
+		}
+	}
+}

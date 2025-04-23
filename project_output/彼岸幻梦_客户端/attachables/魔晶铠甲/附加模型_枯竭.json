@@ -1,0 +1,23 @@
+{
+	"format_version": "1.21.70",
+	"minecraft:attachable": {
+		"description": {
+			"identifier": "starry_map:exhausted_armor",
+			"materials": {
+				"enchanted": "armor_enchanted",
+				"default": "armor",
+				"light": "opal_light_only"
+			},
+			"textures": {
+				"enchanted": "textures/misc/enchanted_item_glint",
+				"default": "textures/实体贴图/魔晶铠甲/枯竭"
+			},
+			"geometry": {
+				"default": "geometry.magic_crystal_armor"
+			},
+			"render_controllers": [
+				"controller.render.magic_armor"
+			]
+		}
+	}
+}

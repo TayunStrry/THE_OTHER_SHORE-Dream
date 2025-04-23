@@ -1,0 +1,68 @@
+{
+    "format_version": "1.21.90",
+    "minecraft:item": {
+        "description": {
+            "identifier": "starry_map:morning_dream_cake",
+            "menu_category": {
+                "category": "items"
+            }
+        },
+        "components": {
+            // 方块挖掘
+            "minecraft:can_destroy_in_creative": false,
+            // 手持物品
+            "minecraft:allow_off_hand": false,
+            "minecraft:hand_equipped": false,
+            // 基础属性
+            "minecraft:icon": {
+                "textures": {
+                    "default": "item_texture:曦光绮梦"
+                }
+            },
+            "minecraft:max_stack_size": 1,
+            "minecraft:food": {
+                "can_always_eat": true,
+                "nutrition": 7,
+                "saturation_modifier": 0.5
+                //,"using_converts_to": "minecraft:bowl"
+            },
+            "minecraft:use_animation": "eat",
+            "minecraft:use_modifiers": {
+                "use_duration": 1.5,
+                "movement_modifier": 0.5
+            },
+            // 自定义组件
+            "opal:item.use_effect": {
+                /*
+                 * 要施加的状态效果
+                 */
+                "effects": [
+                    "fire_resistance",
+                    "regeneration"
+                ],
+                /*
+                 * 状态效果的最小持续时间
+                 */
+                "min_duration": 20,
+                /*
+                 * 状态效果的最大持续时间
+                 */
+                "max_duration": 600,
+                /*
+                 * 状态效果放大器
+                 */
+                "amplifier": 2,
+                /*
+                 * 生命值修改
+                 */
+                "health_changes": 0
+            },
+            // 物品标签
+            "minecraft:tags": {
+                "tags": [
+                    "tags:item_delicacies.series"
+                ]
+            }
+        }
+    }
+}

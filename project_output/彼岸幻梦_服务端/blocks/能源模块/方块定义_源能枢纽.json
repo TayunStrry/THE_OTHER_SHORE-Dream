@@ -1,0 +1,75 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "items"
+			},
+			"identifier": "starry_map:source_energy_hub",
+			"states": {
+				"STATE:is_storage": [
+					true,
+					false
+				]
+			}
+		},
+		"components": {
+			// 方块含水
+			"minecraft:liquid_detection": {
+				"detection_rules": [
+					{
+						"on_liquid_touches": "no_reaction",
+						"can_contain_liquid": true,
+						"liquid_type": "water"
+					}
+				]
+			},
+			// 防爆与挖掘
+			"minecraft:destructible_by_explosion": false,
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			// 摩擦力
+			"minecraft:friction": 0.35,
+			// 方块光照
+			"minecraft:light_dampening": 0,
+			"minecraft:light_emission": 1,
+			// 模型与纹理
+			"minecraft:geometry": {
+				"identifier": "geometry.block.energy.source_energy_hub",
+				"bone_visibility": {
+					"transmit": "q.block_state('STATE:is_storage') == false"
+				}
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "polished_diorite_slab",
+					"render_method": "alpha_test"
+				},
+				"stone_6": {
+					"texture": "cauldron_side",
+					"render_method": "alpha_test"
+				},
+				"stone_7": {
+					"texture": "crying_obsidian",
+					"render_method": "alpha_test"
+				},
+				"transmit": {
+					"texture": "flowing_lava",
+					"render_method": "alpha_test"
+				},
+				"flame": {
+					"texture": "fire_0",
+					"render_method": "alpha_test"
+				}
+			},
+			// 事件触发器
+			"opal:interact.source_energy_hub": {},
+			// 方块标签
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"tag:tags:energy_module.series": {},
+			"tag:tags:energy_module.power": {},
+			"tag:iron_pick_diggable": {}
+		}
+	}
+}

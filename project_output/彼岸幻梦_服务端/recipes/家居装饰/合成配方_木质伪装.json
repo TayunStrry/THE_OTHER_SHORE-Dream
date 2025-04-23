@@ -1,0 +1,29 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "starry:starry_map:wood_camouflage"
+		},
+		"tags": [
+			"tags:desktop_make"
+		],
+		"pattern": [
+			"MMM",
+			"MXM",
+			"MMM"
+		],
+		"assume_symmetry": false,
+		"key": {
+			"M": {
+				"item": "minecraft:stripped_oak_log"
+			},
+			"X": {
+				"item": "minecraft:cut_copper"
+			}
+		},
+		"result": {
+			"item": "starry_map:wood_camouflage",
+			"count": 16
+		}
+	}
+}

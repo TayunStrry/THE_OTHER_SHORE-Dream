@@ -1,0 +1,58 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "starry_map:execute.roaring",
+			"materials": {
+				"blend": "opal_blend_only",
+				"default": "entity_alphatest",
+				"light": "opal_light_only"
+			},
+			"enable_attachables": true,
+			"textures": {
+				"facade": "textures/实体贴图/神恩使徒/啸天/坐骑",
+				"heart": "textures/实体贴图/神恩使徒/啸天/血量",
+				"void": "textures/void"
+			},
+			"geometry": {
+				"default": "geometry.entity.roaring",
+				"heart": "geometry.entity.roaring_heart"
+			},
+			"scripts": {
+				"animate": [
+					"control_attitude",
+					"control_watch",
+					"control_blink",
+					"is_baby",
+					"defa"
+				],
+				"pre_animation": [
+					"variable.move_speed = (Math.cos(q.modified_distance_moved * 40) * (q.modified_move_speed / v.gliding_speed_value)) * 55;"
+				]
+			},
+			"animations": {
+				"control_blink":"controller.animation.blink_your_eyes",
+				"blink":"animation.entity.roaring.blink_your_eyes",
+				"grow": "animation.entity.roaring.grow",
+				"baby": "animation.entity.roaring.is_baby",
+				"control_attitude": "controller.animation.roaring_on_posture",
+				"control_watch": "controller.animation.watch.default",
+				"defa": "animation.entity.roaring.basic_action",
+				"is_baby": "controller.animation.roaring_of_grow",
+				"jump": "animation.entity.roaring.jump_move",
+				"move": "animation.entity.animal_move.basic",
+				"sitt": "animation.entity.roaring.sit_down",
+				"swimming": "animation.entity.roaring.swimming",
+				"watch_basic": "animation.humanoid.look_at_target.default",
+				"watch_swimming": "animation.humanoid.look_at_target.default"
+			},
+			"render_controllers": [
+				"controller.render.display_heart",
+				"controller.render.roaring"
+			],
+			"spawn_egg": {
+				"texture": "item_texture:神恩使徒.啸天"
+			}
+		}
+	}
+}

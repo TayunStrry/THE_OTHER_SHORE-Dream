@@ -1,0 +1,44 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:item": {
+		"description": {
+			"identifier": "starry_map:forestry_guidelines"
+		},
+		"components": {
+			// 方块挖掘
+			"minecraft:can_destroy_in_creative": false,
+			// 手持物品
+			"minecraft:allow_off_hand": false,
+			"minecraft:hand_equipped": true,
+			// 基础属性
+			"minecraft:icon": {
+				"textures": {
+					"default": "item_texture:林业指南"
+				}
+			},
+			"minecraft:durability": {
+				"max_durability": 50
+			},
+			"minecraft:cooldown": {
+				"category": "林业指南",
+				"duration": 5
+			},
+			"minecraft:enchantable": {
+				"slot": "elytra",
+				"value": 32
+			},
+			"minecraft:hover_text_color": "light_purple",
+			"minecraft:max_stack_size": 1,
+			// 自定义组件
+			"opal:item.forestry_guidelines": {},
+			// 物品标签
+			"minecraft:tags": {
+				"tags": [
+					"tags:use_energy_to_restore_durability",
+					"tags:magic_literature:series",
+					"minecraft:bookshelf_books"
+				]
+			}
+		}
+	}
+}

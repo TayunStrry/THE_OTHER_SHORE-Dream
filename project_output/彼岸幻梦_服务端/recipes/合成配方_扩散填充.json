@@ -1,0 +1,50 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "starry:starry_map:diffusion.universal_diffusion"
+		},
+		"tags": [
+			"tags:desktop_make"
+		],
+		"pattern": [
+			"121",
+			"343",
+			"567"
+		],
+		"key": {
+			"1": {
+				"item": "starry_map:wafer.steel_rock_eutectic"
+			},
+			"2": {
+				"item": "starry_map:space_transition"
+			},
+			"3": {
+				"item": "starry_map:eternal_energy"
+			},
+			"4": {
+				"item": "starry_map:block_placement"
+			},
+			"5": {
+				"item": "starry_map:gear.gold_carbonate"
+			},
+			"6": {
+				"item": "starry_map:coil.steel_rock_eutectic"
+			},
+			"7": {
+				"item": "starry_map:gear.ferric_phosphate"
+			}
+		},
+		"result": [
+			{
+				"item": "starry_map:diffusion.universal_diffusion",
+				"count": 2
+			},
+			{
+				"item": "starry_map:space_transition",
+				"count": 1
+			}
+		],
+		"assume_symmetry": false
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "items"
+			},
+			"identifier": "starry_map:resist_explosions"
+		},
+		"components": {
+			// 防爆与挖掘
+			"minecraft:destructible_by_explosion": false,
+			"minecraft:destructible_by_mining": false,
+			// 摩擦力
+			"minecraft:friction": 0.35,
+			// 方块光照
+			"minecraft:light_dampening": 0,
+			"minecraft:light_emission": 15,
+			// 模型与纹理
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "block_texture:resist_explosions",
+					"render_method": "opaque"
+				}
+			},
+			// 方块标签
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"tag:tags:realm_block.series": {},
+			"tag:iron_pick_diggable": {}
+		}
+	}
+}

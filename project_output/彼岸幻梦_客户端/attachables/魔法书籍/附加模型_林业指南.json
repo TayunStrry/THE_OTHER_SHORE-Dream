@@ -1,0 +1,40 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:attachable": {
+		"description": {
+			"identifier": "starry_map:forestry_guidelines",
+			"materials": {
+				"enchanted": "armor_enchanted",
+				"default": "armor"
+			},
+			"textures": {
+				"enchanted": "textures/misc/enchanted_item_glint",
+				"default": "textures/实体贴图/魔法书籍/林业指南"
+			},
+			"geometry": {
+				"default": "geometry.item.magic_literature_book"
+			},
+			"scripts": {
+				"animate": [
+					"control_hold",
+					"item_float"
+				]
+			},
+			"animations": {
+				// 打开动画
+				"item_open": "animation.item.magic_literature_book.open",
+				// 翻书动画
+				"item_flip": "animation.item.magic_literature_book.flip",
+				// 浮动动画
+				"item_float": "animation.item.magic_literature_book.float",
+				// 关闭动画
+				"item_done": "animation.item.magic_literature_book.close",
+				// 动画控制器 - 手持书本
+				"control_hold": "controller.animation.item.magic_literature_book"
+			},
+			"render_controllers": [
+				"controller.render.armor"
+			]
+		}
+	}
+}

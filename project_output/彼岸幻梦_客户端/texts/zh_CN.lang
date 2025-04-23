@@ -1,0 +1,1016 @@
+##————————————————————————————————————————
+
+##【模组物品】
+
+## < 分组名称 >
+THE_OTHER_SHORE:divine_favor_spawn_egg=§l§i<§v 神恩使徒 §i>
+## < 物品列表 >
+item.spawn_egg.entity.starry_map:guide.snow_hidden.name=§v§o§l领航者-雪隐§r
+item.spawn_egg.entity.starry_map:guide.moon_light.name=§v§o§l领航者-月华§r
+item.spawn_egg.entity.starry_map:guide.star_sand.name=§v§o§l领航者-星砂§r
+item.spawn_egg.entity.starry_map:guide.dullblue.name=§v§o§l领航者-幽蓝§r
+item.spawn_egg.entity.starry_map:guide.nine_nine.name=§v§o§l领航者-九九§r
+item.spawn_egg.entity.starry_map:guide.windnews.name=§v§o§l领航者-风信§r
+item.spawn_egg.entity.starry_map:guide.crystal.name=§v§o§l领航者-琉璃§r
+item.spawn_egg.entity.starry_map:guide.rambler.name=§v§o§l领航者-蔷薇§r
+item.spawn_egg.entity.starry_map:guide.hai_ling.name=§v§o§l领航者-海灵§r
+item.spawn_egg.entity.starry_map:guide.crimson.name=§v§o§l领航者-绯红§r
+item.spawn_egg.entity.starry_map:guide.sen_nie.name=§v§o§l领航者-森涅§r
+item.spawn_egg.entity.starry_map:guide.pearl.name=§v§o§l领航者-珍珠§r
+item.spawn_egg.entity.starry_map:guide.hai_na.name=§v§o§l领航者-海娜§r
+item.spawn_egg.entity.starry_map:guide.moling.name=§v§o§l领航者-墨翎§r
+item.spawn_egg.entity.starry_map:guide.dawn_glow.name=§v§o§l领航者-晨曦§r
+item.spawn_egg.entity.starry_map:guide.skypeace.name=§v§o§l领航者-天宁§r
+item.spawn_egg.entity.starry_map:guide.ella.name=§v§o§l领航者-艾拉§r
+
+item.spawn_egg.entity.starry_map:execute.roaring.name=§v§o§l执行者-啸天§r
+item.spawn_egg.entity.starry_map:execute.golden_wing.name=生成 执行者-金翼使
+item.spawn_egg.entity.starry_map:execute.rattan_arc.name=生成 执行者-藤弧
+item.spawn_egg.entity.starry_map:execute.basalt.name=生成 执行者-玄武
+
+item.spawn_egg.entity.starry_map:elves.three_phase_flame.name=§4三相之炎§r
+item.spawn_egg.entity.starry_map:elves.jellyfish_of_pearl.name=§6珍珠水母§r
+item.spawn_egg.entity.starry_map:elves.fish_of_pearl.name=§6珍珠游鱼§r
+
+item.spawn_egg.entity.starry_map:guide.jasmine.name=§c§l领航者-茉莉§r
+item.spawn_egg.entity.starry_map:guide.amber.name=§c§l领航者-琥珀§r
+item.spawn_egg.entity.starry_map:dragon.tyrannosaurus_rex.name=§c§l古龙-君临者§r
+
+## < 分组名称 >
+THE_OTHER_SHORE:mechanical_biology=§l§i<§v 机械生物 §i>
+## < 物品列表 >
+item.spawn_egg.entity.starry_map:wild_bee.detection.name=§u§l野蜂-侦查者§r
+item.spawn_egg.entity.starry_map:wild_bee.support.name=§u§l野蜂-维系者§r
+item.spawn_egg.entity.starry_map:wild_bee.emperor.name=§c§l野蜂-君临者§r
+item.spawn_egg.entity.starry_map:wild_bee.guide.name=§c§l野蜂-领航者§r
+
+item.spawn_egg.entity.starry_map:abyss_whale.detection.name=§u§l渊鲸-侦查者§r
+item.spawn_egg.entity.starry_map:abyss_whale.execute.name=§u§l渊鲸-执行者§r
+item.spawn_egg.entity.starry_map:abyss_whale.support.name=§u§l渊鲸-维系者§r
+item.spawn_egg.entity.starry_map:abyss_whale.emperor.name=§c§l渊鲸-君临者§r
+
+item.spawn_egg.entity.starry_map:viper.spirit_lizard.name=§u§l灵蜥-铭记者§r
+item.spawn_egg.entity.starry_map:viper.sentinel.name=§u§l森蚺-哨兵炮§r
+item.spawn_egg.entity.starry_map:viper.support.name=§u§l蝰蛇-维系者§r
+
+item.spawn_egg.entity.starry_map:tunnel_dragon.name=§u§l隧龙-领航者§r
+
+## < 分组名称 >
+THE_OTHER_SHORE:magic_crystal_tool=§l§i<§1 魔晶工具 §i>
+## < 物品列表 >
+item.starry_map:magic_crystal_screwdriver=魔晶起子
+item.starry_map:magic_crystal_marbles=魔晶弹珠
+item.starry_map:magic_crystal_wrench=魔晶扳手
+item.starry_map:magic_crystal_shield=魔晶盾牌
+item.starry_map:magic_crystal_hammer=魔晶锤子
+item.starry_map:magic_crystal_pickaxe=魔晶镐子
+item.starry_map:magic_crystal_bow=魔晶弹弓
+item.starry_map:magic_crystal_key=魔晶钥匙
+item.starry_map:magic_crystal_claw=魔晶钩爪
+item.starry_map:wood_sword=魔晶木剑
+item.starry_map:stone_sword=魔晶石剑
+item.starry_map:iron_sword=魔晶铁剑
+item.starry_map:diamond_sword=魔晶钻石剑
+item.starry_map:netherite_sword=魔晶合金剑
+item.starry_map:gold_sword=魔晶金剑
+
+## < 分组名称 >
+THE_OTHER_SHORE:magic_crystal_equipment=§l§i<§2 魔晶装备 §i>
+## < 物品列表 >
+item.starry_map:azure_sea_tide=碧海潮生
+item.starry_map:ice_essence_gem=寒冰灵韵
+item.starry_map:starry_night_bead=星夜凝华
+item.starry_map:scarlet_flame_heart=赤焰灵心
+item.starry_map:purple_gold_soul_jade=紫晶魂玉
+
+item.starry_map:ocean_blessed_scarf=诸海之环
+item.starry_map:complete_armor=至纯-魔晶铠甲
+item.starry_map:exhausted_armor=枯竭-魔晶铠甲
+
+item.starry_map:enable_shelter.orange=元素守护-归忆
+item.starry_map:enable_shelter.purple=元素守护-极雷
+item.starry_map:enable_shelter.green=元素守护-界木
+item.starry_map:enable_shelter.blue=元素守护-诸海
+item.starry_map:enable_shelter.red=元素守护-烛火
+
+
+## < 分组名称 >
+THE_OTHER_SHORE:metal_material=§l§i<§3 金属材料 §i>
+## < 物品列表 >
+tile.starry_map:mine.tungsten_nickel_titanium.name=钨镍钛矿
+tile.starry_map:mine.oxygen_enriched_gold.name=富氧金矿
+tile.starry_map:mine.ferric_phosphate.name=磷酸铁矿
+tile.starry_map:mine.aluminum_magnesium.name=铝镁金矿
+tile.starry_map:mine.ferric_chloride.name=氯化铁矿
+tile.starry_map:mine.zirconium_carbide.name=碳化锆矿
+tile.starry_map:mine.gold_carbonate.name=碳酸金矿
+tile.starry_map:mine.lithium_carbonate.name=碳酸锂矿
+tile.starry_map:mine.copper_tin_brazing.name=锡钎铜矿
+item.starry_map:tungsten_copper_alloy=钨铜合金
+item.starry_map:plate.tungsten_copper_alloy=钨铜合金板
+item.starry_map:hinge.tungsten_copper_alloy=钨铜合金合页
+item.starry_map:steel_rock_eutectic=钢岩合金
+item.starry_map:coil.steel_rock_eutectic=钢岩合金线圈
+item.starry_map:wafer.steel_rock_eutectic=钢岩合金晶圆
+item.starry_map:oxygen_enriched_gold=富氧金
+item.starry_map:plate.oxygen_enriched_gold=富氧金板
+item.starry_map:hinge.oxygen_enriched_gold=富氧金合页
+item.starry_map:ferric_phosphate=磷酸铁
+item.starry_map:gear.ferric_phosphate=磷酸铁齿轮
+item.starry_map:hinge.ferric_phosphate=磷酸铁合页
+item.starry_map:aluminum_magnesium=铝镁金
+item.starry_map:plate.aluminum_magnesium=铝镁金板
+item.starry_map:hinge.aluminum_magnesium=铝镁金合页
+item.starry_map:ferric_chloride=氯化铁
+item.starry_map:plate.ferric_chloride=氯化铁板
+item.starry_map:hinge.ferric_chloride=氯化铁合页
+item.starry_map:zirconium_carbide=碳化锆
+item.starry_map:gear.zirconium_carbide=碳化锆齿轮
+item.starry_map:hinge.zirconium_carbide=碳化锆合页
+item.starry_map:gold_carbonate=碳酸金
+item.starry_map:gear.gold_carbonate=碳酸金齿轮
+item.starry_map:hinge.gold_carbonate=碳酸金合页
+item.starry_map:lithium_carbonate=碳酸锂
+item.starry_map:gear.lithium_carbonate=碳酸锂齿轮
+item.starry_map:hinge.lithium_carbonate=碳酸锂合页
+item.starry_map:tungsten_nickel_titanium=钨镍钛
+item.starry_map:plate.tungsten_nickel_titanium=钨镍钛板
+item.starry_map:hinge.tungsten_nickel_titanium=钨镍钛合页
+item.starry_map:copper_tin_brazing=锡钎铜
+item.starry_map:plate.copper_tin_brazing=锡钎铜板
+item.starry_map:hinge.copper_tin_brazing=锡钎铜合页
+
+## < 分组名称 >
+THE_OTHER_SHORE:mechanical_blueprint=§l§i<§4 机械蓝图 §i>
+## < 物品列表 >
+item.starry_map:blank_blueprint=空白工业蓝图
+item.starry_map:complete_blueprint=成品工业蓝图
+
+## < 分组名称 >
+THE_OTHER_SHORE:armament_convenes=§l§i<§5 武装召集 §i>
+## < 物品列表 >
+item.starry_map:call_tunnel_dragon_guide=隧龙掘进车
+item.starry_map:call_python_sentinel=森蚺哨兵炮
+item.starry_map:call_python_pioneer=森蚺先锋炮
+item.starry_map:call_virtual_target=虚物靶标
+item.starry_map:call_whale_support=渊鲸深潜船
+
+## < 分组名称 >
+THE_OTHER_SHORE:magic_literature=§l§i<§6 魔法书籍 §i>
+## < 物品列表 >
+item.starry_map:fantasy_sea_collection=幻海集纳
+item.starry_map:forestry_guidelines=林业指南
+item.starry_map:introduction_magic=魔导绪论
+item.starry_map:mineral_dictionary=矿物辞典
+item.starry_map:agriculture_handle=农业纲目
+item.starry_map:tactical_planning=战术规划
+item.starry_map:space_transition=空间宝典
+item.starry_map:animal_husbandry=畜牧典范
+item.starry_map:faerie_contract=精灵结契
+item.starry_map:magic_handbook=魔导手册
+item.starry_map:faerie_healing=精灵治愈
+item.starry_map:source_energy=源能秘典
+
+## < 分组名称 >
+THE_OTHER_SHORE:divine_grace_authority=§l§i<§7 神恩权柄 §i>
+## < 物品列表 >
+item.starry_map:nihility_space_block=虚空方块
+item.starry_map:stateful_inspection=状态侦测
+item.starry_map:purple_gold_gourd=紫金葫芦
+item.starry_map:material_sorting=物资整理
+item.starry_map:debugging_stick=调试权杖
+item.starry_map:creative_tools=创造工具
+item.starry_map:inhibit_water=抑水之环
+item.starry_map:world_of_box=匣里乾坤
+item.starry_map:obtain_block=获取方块
+
+## < 分组名称 >
+THE_OTHER_SHORE:summoning_credentials=§l§i<§8 召唤凭证 §i>
+## < 物品列表 >
+item.starry_map:flowing_star=流光之星
+item.starry_map:chorus_picture=百灵绘卷
+item.starry_map:moon_and_stars=星月诗篇
+
+## < 分组名称 >
+THE_OTHER_SHORE:special_item=§l§i<§9 特殊道具 §i>
+## < 物品列表 >
+item.starry_map:mechanized_operation=神机操持
+item.starry_map:dynamic_anchor_point=锚点虚印
+item.starry_map:phantom_dispel_dust=幻影驱散
+item.starry_map:clothing_container=换装礼盒
+item.starry_map:contract_rewriting=契约重撰
+item.starry_map:reduction_pureness=涤尽铅华
+item.starry_map:moment_repair_dew=涵养灵露
+item.starry_map:enlightenment=参悟之石
+
+## < 分组名称 >
+THE_OTHER_SHORE:template_material=§l§i<§8 模板材料 §i>
+## < 物品列表 >
+item.starry_map:universal_integrated_circuit=通用集成回路
+item.starry_map:ender_dragon_scales=末影龙鳞
+item.starry_map:equipment_upgrade=装备升级
+item.starry_map:netherite_upgrade=合金升级
+item.starry_map:dimension_upgrade=维度升级
+item.starry_map:blank_template=空灵单元
+item.starry_map:copper_upgrade=铜制升级
+item.starry_map:iron_upgrade=铁制升级
+item.starry_map:gold_upgrade=金制升级
+item.starry_map:weapon_debris=武装碎片
+item.starry_map:viper_rune=蝰蛇符文
+item.starry_map:whale_rune=渊鲸符文
+
+## < 分组名称 >
+THE_OTHER_SHORE:magic_crystal=§l§i<§7 能量水晶 §i>
+## < 物品列表 >
+item.starry_map:eternal_energy=永恒-魔晶石
+item.starry_map:orange_energy=归忆-魔晶石
+item.starry_map:purple_energy=极雷-魔晶石
+item.starry_map:green_energy=界木-魔晶石
+item.starry_map:blue_energy=诸海-魔晶石
+item.starry_map:red_energy=烛火-魔晶石
+tile.starry_map:block.red_energy.name=烛火-魔晶块
+tile.starry_map:block.blue_energy.name=诸海-魔晶块
+tile.starry_map:block.green_energy.name=界木-魔晶块
+tile.starry_map:block.orange_energy.name=归忆-魔晶块
+tile.starry_map:block.purple_energy.name=极雷-魔晶块
+tile.starry_map:block.eternal_energy.name=永恒-魔晶块
+
+## < 分组名称 >
+THE_OTHER_SHORE:magic_cable=§l§i<§6 魔导总线 §i>
+## < 物品列表 >
+tile.starry_map:cable_port.name=总线端口
+tile.starry_map:super_pulse.name=超导髓鞘
+tile.starry_map:pulse_latch.name=脉冲锁存
+tile.starry_map:basic_pipeline.name=基础线缆
+tile.starry_map:super_omphalos.name=超导枢纽
+tile.starry_map:enable_control.name=传播许可
+tile.starry_map:signal_filtering.name=信号过滤
+tile.starry_map:signal_conversion.name=信号转化
+tile.starry_map:redstone_detection.name=红石侦测
+tile.starry_map:interactive_terminal.name=交互终端
+tile.starry_map:logical_and.name=逻辑与门
+tile.starry_map:logic_single.name=逻辑单通
+tile.starry_map:exclusive_or.name=逻辑异或
+tile.starry_map:logic_inverter.name=逻辑非门
+tile.starry_map:counting_module.name=计数模块
+tile.starry_map:signal_compilation.name=信号编译
+tile.starry_map:correct_logic_not.name=校准型-逻辑非门
+tile.starry_map:correct_logic_nor.name=校准型-逻辑或非
+tile.starry_map:correct_logic_xor.name=校准型-逻辑异或
+tile.starry_map:correct_logic_and.name=校准型-逻辑与门
+tile.starry_map:correct_logic_nand.name=校准型-逻辑与非
+tile.starry_map:correct_spectral_prism.name=校准型-分光棱镜
+tile.starry_map:correct_deflection_prism.name=校准型-偏光棱镜
+
+## < 分组名称 >
+THE_OTHER_SHORE:energy_module=§l§i<§5 能源模块 §i>
+## < 物品列表 >
+tile.starry_map:wind_power.name=风力-动能转化
+tile.starry_map:water_power.name=水素-质能转化
+tile.starry_map:magma_power.name=熔岩-质能转化
+tile.starry_map:empty_tank.name=虚无-魔晶储罐
+tile.starry_map:release_tank.name=辉光-魔晶储罐
+tile.starry_map:initial_node.name=初级-能量节点
+tile.starry_map:constant_tank.name=恒常-魔晶储罐
+tile.starry_map:star_energy_infusion.name=魔晶充能
+tile.starry_map:super_star_energy_infusion.name=强化-魔晶充能
+tile.starry_map:allocation_power.name=基础-动能分配
+tile.starry_map:copper.intensify_node.name=铜制强化-能量节点
+tile.starry_map:iron.intensify_node.name=铁制强化-能量节点
+tile.starry_map:gold.intensify_node.name=金制强化-能量节点
+tile.starry_map:netherite.intensify_node.name=合金强化-能量节点
+tile.starry_map:source_energy_hub.name=源能枢纽
+
+## < 分组名称 >
+THE_OTHER_SHORE:mechanical_door=§l§i<§4 机关之门 §i>
+## < 物品列表 >
+tile.starry_map:magic_portal_above.name=魔晶上传
+tile.starry_map:magic_portal_below.name=魔晶下传
+
+tile.starry_map:vertical_gate.spruce.name=云杉木门
+tile.starry_map:vertical_gate.diorite.name=闪长岩门
+tile.starry_map:vertical_gate.deepslate.name=深板岩门
+tile.starry_map:vertical_gate.light_gray_stained_glass.name=垂直_玻璃门_浅灰
+tile.starry_map:vertical_gate.light_blue_stained_glass.name=垂直_玻璃门_淡蓝
+tile.starry_map:vertical_gate.chiseled_resin_bricks.name=垂直_雕纹树脂砖门
+tile.starry_map:vertical_gate.magenta_stained_glass.name=垂直_玻璃门_品红
+tile.starry_map:vertical_gate.orange_stained_glass.name=垂直_玻璃门_橙色
+tile.starry_map:vertical_gate.yellow_stained_glass.name=垂直_玻璃门_黄色
+tile.starry_map:vertical_gate.purple_stained_glass.name=垂直_玻璃门_紫色
+tile.starry_map:vertical_gate.brown_stained_glass.name=垂直_玻璃门_棕色
+tile.starry_map:vertical_gate.white_stained_glass.name=垂直_玻璃门_白色
+tile.starry_map:vertical_gate.black_stained_glass.name=垂直_玻璃门_黑色
+tile.starry_map:vertical_gate.green_stained_glass.name=垂直_玻璃门_绿色
+tile.starry_map:vertical_gate.cyan_stained_glass.name=垂直_玻璃门_青色
+tile.starry_map:vertical_gate.lime_stained_glass.name=垂直_玻璃门_黄绿
+tile.starry_map:vertical_gate.pink_stained_glass.name=垂直_玻璃门_粉红
+tile.starry_map:vertical_gate.gray_stained_glass.name=垂直_玻璃门_灰色
+tile.starry_map:vertical_gate.blue_stained_glass.name=垂直_玻璃门_蓝色
+tile.starry_map:vertical_gate.red_stained_glass.name=垂直_玻璃门_红色
+tile.starry_map:vertical_gate.crying_obsidian.name=垂直_哭泣黑曜石门
+tile.starry_map:vertical_gate.amethyst_block.name=垂直_紫水晶门
+tile.starry_map:vertical_gate.cherry_planks.name=垂直_樱花木门
+tile.starry_map:vertical_gate.resin_bricks.name=垂直_树脂砖门
+tile.starry_map:vertical_gate.glass.name=垂直_玻璃门_透明
+tile.starry_map:vertical_gate.spruce_trapdoor.name=垂直_云杉木活板门
+tile.starry_map:vertical_gate.cherry_trapdoor.name=垂直_樱花木活板门
+
+tile.starry_map:horizontal_gate.oak.name=橡树木门
+tile.starry_map:horizontal_gate.birch.name=白桦木门
+tile.starry_map:horizontal_gate.basalt.name=玄武岩门
+tile.starry_map:horizontal_gate.andesite.name=安山岩门
+tile.starry_map:horizontal_gate.light_blue_stained_glass.name=水平_玻璃门_淡蓝
+tile.starry_map:horizontal_gate.light_gray_stained_glass.name=水平_玻璃门_浅灰
+tile.starry_map:horizontal_gate.chiseled_resin_bricks.name=水平_雕纹树脂砖门
+tile.starry_map:horizontal_gate.magenta_stained_glass.name=水平_玻璃门_品红
+tile.starry_map:horizontal_gate.orange_stained_glass.name=水平_玻璃门_橙色
+tile.starry_map:horizontal_gate.yellow_stained_glass.name=水平_玻璃门_黄色
+tile.starry_map:horizontal_gate.purple_stained_glass.name=水平_玻璃门_紫色
+tile.starry_map:horizontal_gate.brown_stained_glass.name=水平_玻璃门_棕色
+tile.starry_map:horizontal_gate.white_stained_glass.name=水平_玻璃门_白色
+tile.starry_map:horizontal_gate.black_stained_glass.name=水平_玻璃门_黑色
+tile.starry_map:horizontal_gate.green_stained_glass.name=水平_玻璃门_绿色
+tile.starry_map:horizontal_gate.blue_stained_glass.name=水平_玻璃门_蓝色
+tile.starry_map:horizontal_gate.gray_stained_glass.name=水平_玻璃门_灰色
+tile.starry_map:horizontal_gate.pink_stained_glass.name=水平_玻璃门_粉红
+tile.starry_map:horizontal_gate.lime_stained_glass.name=水平_玻璃门_黄绿
+tile.starry_map:horizontal_gate.cyan_stained_glass.name=水平_玻璃门_青色
+tile.starry_map:horizontal_gate.red_stained_glass.name=水平_玻璃门_红色
+tile.starry_map:horizontal_gate.crying_obsidian.name=水平_哭泣黑曜石门
+tile.starry_map:horizontal_gate.amethyst_block.name=水平_紫水晶门
+tile.starry_map:horizontal_gate.cherry_planks.name=水平_樱花木门
+tile.starry_map:horizontal_gate.resin_bricks.name=水平_树脂砖门
+tile.starry_map:horizontal_gate.glass.name=水平_玻璃门_透明
+tile.starry_map:horizontal_gate.spruce_trapdoor.name=水平_云杉木活板门
+tile.starry_map:horizontal_gate.cherry_trapdoor.name=水平_樱花木活板门
+
+## < 分组名称 >
+THE_OTHER_SHORE:effect_mechanism=§l§i<§2 效应机关 §i>
+## < 物品列表 >
+tile.starry_map:magic_crystal_lamp.name=魔晶明灯
+tile.starry_map:road_sign_presets.name=诸界道标
+tile.starry_map:vector_ejection.name=向量弹射
+tile.starry_map:region_display.name=区块显示
+tile.starry_map:wind_and_snow.name=雪域霜华
+tile.starry_map:wind_and_rain.name=水域天降
+
+## < 分组名称 >
+THE_OTHER_SHORE:servo_drive=§l§i<§2 伺服驱动 §i>
+## < 物品列表 >
+tile.starry_map:servo_traction.name=伺服牵引
+tile.starry_map:servo_omphalos.name=驱动核心
+tile.starry_map:servo_parameter.name=参数设置
+tile.starry_map:servo_susceptor.name=伺服基座
+
+## < 分组名称 >
+THE_OTHER_SHORE:warehouse_management=§l§i<§g 仓储管理 §i>
+## < 物品列表 >
+tile.starry_map:routine_logistics_receiver.name=常规-物流接收端
+tile.starry_map:surpass_logistics_receiver.name=跨界-物流接收端
+tile.starry_map:routine_logistics_sender.name=常规-物流发送端
+tile.starry_map:surpass_logistics_sender.name=跨界-物流发送端
+tile.starry_map:enchantment_dissociation.name=附魔分解
+tile.starry_map:residual_extraction.name=遗物萃取
+tile.starry_map:material_collection.name=物资收集
+tile.starry_map:container_arrange.name=容器整理
+tile.starry_map:package_delivery.name=打包投送
+tile.starry_map:block_placement.name=方块放置
+tile.starry_map:container_hub.name=容器枢纽
+
+## < 分组名称 >
+THE_OTHER_SHORE:mineral_exploration=§l§i<§2 矿产勘探 §i>
+## < 物品列表 >
+tile.starry_map:destroy_the_core.name=初级-破坏核心
+tile.starry_map:netherite.metal_forming_press.name=合金强化-金属锻压
+tile.starry_map:copper.metal_forming_press.name=铜制强化-金属锻压
+tile.starry_map:gold.metal_forming_press.name=金质强化-金属锻压
+tile.starry_map:iron.metal_forming_press.name=铁质强化-金属锻压
+tile.starry_map:metal_forming_press.name=初级-金属锻压
+tile.starry_map:netherite.stone_machine.name=合金强化-造石单元
+tile.starry_map:copper.stone_machine.name=铜制强化-造石单元
+tile.starry_map:gold.stone_machine.name=金质强化-造石单元
+tile.starry_map:iron.stone_machine.name=铁质强化-造石单元
+tile.starry_map:stone_machine.name=初级-造石单元
+tile.starry_map:netherite.mineral_machine.name=合金强化-矿井单元
+tile.starry_map:copper.mineral_machine.name=铜制强化-矿井单元
+tile.starry_map:gold.mineral_machine.name=金质强化-矿井单元
+tile.starry_map:iron.mineral_machine.name=铁质强化-矿井单元
+tile.starry_map:mineral_machine.name=初级-矿井单元
+
+## < 分组名称 >
+THE_OTHER_SHORE:agricultural_and_forestry_engineering=§l§i<§3 农林工程 §i>
+## < 物品列表 >
+tile.starry_map:planting_and_logging.name=植树造木
+tile.starry_map:crop_detection.name=作物侦测
+
+## < 分组名称 >
+THE_OTHER_SHORE:obsidian_smelting=§l§i<§4 曜石熔炼 §i>
+## < 物品列表 >
+tile.starry_map:obsidian_storage_tank.name=熔岩储罐
+tile.starry_map:obsidian_furnace.name=岩浆熔炉
+
+## < 分组名称 >
+THE_OTHER_SHORE:home_decoration=§l§i<§5 家居装饰 §i>
+## < 物品列表 >
+tile.starry_map:divine_favor_guide_image.name=使徒人偶
+tile.starry_map:metal_camouflage.name=金属伪装板
+tile.starry_map:stone_camouflage.name=石质伪装板
+tile.starry_map:wood_camouflage.name=木质伪装板
+tile.starry_map:jungle_wood_chair.name=丛林木椅
+tile.starry_map:special_alloy_pot.name=合金钢锅
+tile.starry_map:diorite_table.name=闪长岩桌
+tile.starry_map:smooth_steps.name=步进阶梯
+tile.starry_map:smooth_brick.name=步进砖块
+
+## < 分组名称 >
+THE_OTHER_SHORE:block_unit=§l§i<§6 方块单元 §i>
+## < 物品列表 >
+tile.starry_map:unreal_space.name=虚无方块
+tile.starry_map:nihility_space.name=虚空方块
+tile.starry_map:compressed_stone.name=压缩石块
+tile.starry_map:resist_explosions.name=抗爆基石
+tile.starry_map:universal_mechanical_framework.name=机械框架
+
+## < 分组名称 >
+THE_OTHER_SHORE:document_display=§l§i<§7 档案终端 §i>
+## < 物品列表 >
+tile.starry_map:document.wild_wasp_emperor.name=遗落档案-野蜂君王
+tile.starry_map:document.wild_wasp_guide.name=遗落档案-野蜂王储
+tile.starry_map:document.abyss_whale_emperor.name=遗落档案-渊鲸君王
+tile.starry_map:document.tyrannosaurus_rex.name=遗落档案-君王暴龙
+tile.starry_map:document.amber_jasmine.name=遗落档案-琥珀茉莉
+tile.starry_map:document.not_yet_activated.name=遗落档案-离线终端
+
+## < 分组名称 >
+THE_OTHER_SHORE:diffusion_filling=§l§i<§8 扩散填充 §i>
+## < 物品列表 >
+tile.starry_map:diffusion.structure_void_to_water.name=扩散填充-空位转水
+tile.starry_map:diffusion.water_to_structure_void.name=扩散填充-水转空位
+tile.starry_map:diffusion.horizontal_universal.name=扩散填充-水平填充
+tile.starry_map:diffusion.universal_diffusion.name=扩散填充-通用模块
+tile.starry_map:diffusion.air_to_grass_block.name=扩散填充-填充草地
+tile.starry_map:diffusion.replacement_glass.name=扩散填充-置换玻璃
+tile.starry_map:diffusion.replacement_stone.name=扩散填充-置换岩石
+tile.starry_map:diffusion.air_to_stone.name=扩散填充-填充石头
+tile.starry_map:diffusion.air_to_dirt.name=扩散填充-填充泥土
+
+## < 分组名称 >
+THE_OTHER_SHORE:delicacy_cuisine=§l§i<§9 琼肴雅馔 §i>
+## < 物品列表 >
+item.starry_map:bee_fire_cuisine=蜂火佳肴
+item.starry_map:curry_viper=咖喱蝰蛇
+item.starry_map:viper_barrel=蝰蛇炮管
+item.starry_map:spirit_lizard_delicacy=灵蜥佳肴
+item.starry_map:spirit_lizard_apple=灵蜥苹果
+item.starry_map:spirit_lizard_shard=灵蜥碎片
+item.starry_map:charcoal_roasted_wild_bee=炭烤野蜂
+item.starry_map:charcoal_roasted_abyssal_whale=炭烤渊鲸
+item.starry_map:morning_dream_cake=曦光绮梦
+item.starry_map:wild_bee_roasted_chicken=野蜂烧鸡
+item.starry_map:wild_bee_shard=野蜂碎片
+item.starry_map:abyssal_whale_wreckage=渊鲸残骸
+item.starry_map:abyssal_whale_soup=渊鲸浓汤
+item.starry_map:unknown_dipping_sauce=迷之蘸料
+
+## < 分组名称 >
+THE_OTHER_SHORE:magic_weapon=§l§i<§9 魔导武装 §i>
+## < 物品列表 >
+tile.starry_map:pulse_peak_cannon.name=魔导武装-脉冲尖峰炮
+
+
+##————————————————————————————————————————
+
+##【模组_自定义实体】
+entity.starry_map:wild_bee.support.name=§u§l野蜂-维系者§r
+entity.starry_map:wild_bee.detection.name=§u§l野蜂-侦查者§r
+entity.starry_map:wild_bee.emperor.name=§c§l野蜂-君临者§r
+entity.starry_map:wild_bee.guide.name=§c§l野蜂-领航者§r
+
+entity.starry_map:abyss_whale.detection.name=§u§l渊鲸-侦查者§r
+entity.starry_map:abyss_whale.execute.name=§u§l渊鲸-执行者§r
+entity.starry_map:abyss_whale.support.name=§u§l渊鲸-维系者§r
+entity.starry_map:abyss_whale.emperor.name=§c§l渊鲸-君临者§r
+
+entity.starry_map:viper.spirit_lizard.name=§u§l灵蜥-铭记者§r
+entity.starry_map:viper.sentinel.name=§u§l森蚺-哨兵炮§r
+entity.starry_map:viper.support.name=§u§l蝰蛇-维系者§r
+
+entity.starry_map:tunnel_dragon.name=§u§l隧龙-领航者§r
+
+entity.starry_map:guide.snow_hidden.name=§v§o§l领航者-雪隐§r
+entity.starry_map:guide.moon_light.name=§v§o§l领航者-月华§r
+entity.starry_map:guide.star_sand.name=§v§o§l领航者-星砂§r
+entity.starry_map:guide.dullblue.name=§v§o§l领航者-幽蓝§r
+entity.starry_map:guide.nine_nine.name=§v§o§l领航者-九九§r
+entity.starry_map:guide.windnews.name=§v§o§l领航者-风信§r
+entity.starry_map:execute.roaring.name=§v§o§l执行者-啸天§r
+entity.starry_map:guide.crystal.name=§v§o§l领航者-琉璃§r
+entity.starry_map:guide.rambler.name=§v§o§l领航者-蔷薇§r
+entity.starry_map:guide.hai_ling.name=§v§o§l领航者-海灵§r
+entity.starry_map:guide.crimson.name=§v§o§l领航者-绯红§r
+entity.starry_map:guide.sen_nie.name=§v§o§l领航者-森涅§r
+entity.starry_map:guide.hai_na.name=§v§o§l领航者-海娜§r
+entity.starry_map:guide.pearl.name=§v§o§l领航者-珍珠§r
+
+entity.starry_map:guide.moling.name=§v§o§l领航者-墨翎§r
+entity.starry_map:guide.dawn_glow.name=§v§o§l领航者-晨曦§r
+entity.starry_map:guide.skypeace.name=§v§o§l领航者-天宁§r
+entity.starry_map:guide.ella.name=§v§o§l领航者-艾拉§r
+
+entity.starry_map:guide.jasmine.name=§c§l领航者-茉莉§r
+entity.starry_map:guide.amber.name=§c§l领航者-琥珀§r
+
+entity.starry_map:execute.golden_wing.name=执行者-金翼使
+
+entity.starry_map:execute.rattan_arc.name=执行者-藤弧
+
+entity.starry_map:execute.basalt.name=执行者-玄武
+
+entity.starry_map:elves.three_phase_flame.name=§4三相之炎§r
+
+entity.starry_map:elves.jellyfish_of_pearl.name=§6珍珠水母§r
+entity.starry_map:elves.fish_of_pearl.name=§6珍珠游鱼§r
+
+entity.starry_map:execute.virtual_target.name=§6虚物靶标§r
+
+entity.starry_map:dragon.tyrannosaurus_rex.name=§c§l古龙-君临者§r
+
+entity.starry_map:execute.name_display.name=§8字体§r
+entity.starry_map:execute.player_seat.name=§8座位§r
+entity.starry_map:execute.inventory.name=§8货架§r
+entity.starry_map:execute.couch.name=§8沙发§r
+
+item.spawn_egg.entity.starry_map:execute.name_display.name=§8字体§r
+item.spawn_egg.entity.starry_map:execute.player_seat.name=§8座位§r
+item.spawn_egg.entity.starry_map:execute.inventory.name=§8货架§r
+item.spawn_egg.entity.starry_map:execute.couch.name=§8沙发§r
+
+##————————————————————————————————————————
+
+##【模组_自定义界面】
+##分类
+howtoplay.category.THE_OTHER_SHORE=§9『§o§l§5 彼岸-幻梦 §r§9』
+
+##其他
+action.hint.exit.starry_map:execute.couch=§l§i<§9 隧龙 §i>已就绪, 准备出发 !
+action.hint.exit.starry_map:wild_bee.detection=§l§i<§9 野蜂 §i>已就绪, 准备出发 !
+action.hint.exit.starry_map:abyss_whale.support=§l§i<§9 渊鲸 §i>已就绪, 准备出发 !
+action.hint.exit.starry_map:wild_bee.emperor=§l§i<§9 野蜂 §i>已就绪, 准备出发 !
+action.hint.exit.starry_map:wild_bee.support=§l§i<§9 野蜂 §i>已就绪, 准备出发 !
+action.hint.exit.starry_map:execute.roaring=§l§i<§9 啸天 §i>已就绪, 准备出发 !
+action.hint.exit.starry_map:execute.golden_wing=长按跳跃键, 松开后起飞
+action.hint.exit.starry_map:execute.rattan_arc=长按跳跃键, 松开后起飞
+action.hint.exit.starry_map:execute.basalt=长按跳跃键, 松开后起飞
+action.hint.exit.starry_map:execute.player_seat=已坐下
+accessibility.chat.howtoopen=§h§l在<§6 月华百科 §h>内, 可以通过§9询问§h的方式, 查询§e模组§h中§2方块§h与§a物品§h的§4详细介绍§r
+
+##————————————————————————————————————————
+
+##< 琉璃 >
+音效.琉璃.蜂塔引导_0=[ …… ] : 糟糕! 似乎在错误的时间线遇上了尚且脆弱的人
+音效.琉璃.蜂塔引导_1=[ …… ] : 趁< 野蜂-侦查者 >还没将你包围, 赶快离开这里吧
+音效.琉璃.蜂塔引导_2=[ …… ] : 被< 野蜂机群 >包围会十分危险, 切勿恋战
+音效.琉璃.蜂塔引导_3=[ …… ] : 这里位于虚空深处, 一定要时刻注意脚下
+音效.琉璃.蜂塔引导_4=[ …… ] : 这座塔应该还有些物资, 带上就赶紧离开吧
+音效.琉璃.蜂塔引导_5=[ …… ] : 塔的外面有机关陷阱, 当心不要失足踩到, 然后被击飞出去哦
+音效.琉璃.蜂塔引导_6=[ …… ] : 忘了自我介绍了... 我是< 神恩-领航者:3573 >你可以称呼我为< 琉璃 >哦
+音效.琉璃.蜂塔引导_7=[ 琉璃 ] : 在塔的正门外, 那里有< 诸界道标 >可以快速离开末地
+音效.琉璃.蜂塔引导_8=[ 琉璃 ] : 我在主世界等待你的回归
+
+音效.琉璃.空闲_0=我们去抓鱼吧? 我很擅长游泳的哦! 保证给你抓一条这~ 么~ 大~ 的鱼回来!
+音效.琉璃.空闲_1=保护我? 不要以为我身娇体柔好欺负哦! 我曾经获得过[ 雾海白星 ]的赐福呢!
+音效.琉璃.空闲_2=等到 啸天 长大了, 我就可以骑着它游历四方啦~~~
+音效.琉璃.空闲_3=你说§6 琥珀 §r...... 我和[ 无尽逐光 ]是至死方休的敌人, 他们试图凌驾于[ 领航 ]并违逆了[ 启程 ], 最后却害所有人被[ 天穹 ]所惩戒...... 此仇, 终生难忘
+音效.琉璃.空闲_4=对付§6 琥珀 §r一定要注意保持距离! 因为[ 启程 ]传授了[ 无尽逐光 ]许多很麻烦的技术, 太靠近会吃亏的!
+音效.琉璃.空闲_5=海灵姐姐她好神秘啊, 为什么总喜欢在海边独自徘徊啊? 不过...她是好人哦!
+音效.琉璃.空闲_6=我的家乡......? 那是一座遨游于无尽虚空的人造浮空岛哦, 你想去看看吗?
+音效.琉璃.空闲_7=雷暴总是非常的可怕...... 但几乎所有的雷暴都远不如[ 无尽逐光 ]违逆[ 启程 ]时那犹如天谴的[ 深罪惩戒 ]......
+音效.琉璃.空闲_8=我的姐姐叫做蔷薇, 她对我可好了, 总是能在不同的方面, 帮助着我, 是个很优秀的姐姐哦~
+音效.琉璃.空闲_9=蔷薇姐姐给我买了很多款式衣服哦, 我晚上经常换着穿, 都非常好看~
+音效.琉璃.空闲_10=你问 啸天 的来历? 我也不清楚, 我完成[ 试炼 ]后, 它突然就出现了, 虽然我也感觉有些来历不明, 但它现在已经是我的好朋友了
+
+##< 绯红 >
+音效.绯红.空闲_0=我感觉| 深渊迷途 |还是比较危险的, 那个迷宫很绕, 而且随时可能遭遇危险
+音效.绯红.空闲_1=我记得有一种很特殊的卷轴, 如果我见到的话, 我会帮你留意的
+音效.绯红.空闲_2=如果, 你要探索| 深渊迷途 |的话...... 请记得带好《 空间宝典 》, 这样至少方便你撤退
+音效.绯红.空闲_3=我有一个姐姐叫§9 幽蓝 §r, 我与她好久没见了, 不知她是否还在做百货生意?
+音效.绯红.空闲_4=姐姐她, 总是不能理解我, 不过其实我也不是很在意就是了... 嗯, 不在意... 咦, 你干嘛这样看着我?
+
+##< 月华 >
+音效.月华.空闲_0=我们曾经的世界在雾海中毁灭了, 溶解在了雾海之中, 干干净净, 彻彻底底, 再也看不出一丝一毫的痕迹
+音效.月华.空闲_1=曾经的世界在遭到侵蚀时, 人类也曾奋力抵抗过, 但是这种程度的概念侵蚀下, 人类的努力终究是无意义的泡影, 触之即溃
+音效.月华.空闲_2=在那世界毁灭后的雾海之中, 人类迎来了全新的创世纪, 领航之神将已经彻底毁灭的人类文明用自己的神力重新创造了出来
+音效.月华.空闲_3=祂赋予了人类最初起航的能力, 也赐予了全人类抵抗跨世界资讯侵扰的能力
+音效.月华.空闲_4=这份来自神明的无私馈赠, 为人类文明的起航奠定了夯实的基础, 最终人类成功扬帆起航, 成功抵达了其他的世界
+音效.月华.空闲_5=人类曾经战胜了机械神明< 机群之神-雾海野蜂 >, 并从这个由未知文明所创造的, 从机械群落中诞生的神明的神骸中, 人类解读出了一些重要的技术
+音效.月华.空闲_6=基于从各类神明遗骸中解读出的技术, 人类得以创造出人造的半神生物: 神恩-领航者
+音效.月华.空闲_7=人类将“启程”的神性汇聚起来, 镌刻在了135位人造半神的灵魂之中, 创造出了领航之神最直接的< 眷属 >
+音效.月华.空闲_8=这最初的135位领航者, 被尽数送入了雾海之中, 去寻找与保护领航之神那日益脆弱的灵魂
+音效.月华.空闲_9=最终, 眷属计划成功了, 以最初的135位领航者为代价, 领航之神[启程]成功复苏
+音效.月华.空闲_10=也许神明并未死亡, 只是在短暂的小憩, 也许神明只是陷入了永恒的迷航, 或者神明真的离我们而去了.....
+音效.月华.空闲_11=“雾海白星” 是 领航之神 最后的遗产, 是蕴含强大力量与神明权柄的神之心, 它照亮了雾海的一角
+
+##< 珍珠 >
+音效.珍珠.空闲_0=未雨绸缪, 才能临危不乱
+音效.珍珠.空闲_1=越是情况紧迫, 越要稳住心态!
+音效.珍珠.空闲_2=晚上一定要注意休息哦, 以免怪物偷家!
+音效.珍珠.空闲_3=我不喜欢鱼类餐饮... 希望你能帮我保密
+音效.珍珠.空闲_4=迷途的深处发生了异变, 这恐怕就是[ 祂 ]的影响吧...
+音效.珍珠.空闲_5=众生的意志都应得到尊重, 亦如沧海游鱼也有自己的方向
+音效.珍珠.空闲_6=沧海月明, 潮起潮落... 当力量改变时心境也会随之改变
+音效.珍珠.空闲_7=[ 深渊迷途 ]...... 那些家伙到底想要干什么呢? 难道他们还是不愿放弃[ 祂 ]吗 ?
+音效.珍珠.空闲_8=[ 海渊镇压塔 ]内部似乎弥漫着[ 祂 ]的意志, 但这会是这座塔会在[ 深渊迷途 ]中的原因吗...
+音效.珍珠.空闲_9=[ 海渊镇压塔 ]最初是投入深海用于封锁[ 维度裂隙 ]的, 它出现在[ 深渊迷途 ]让我有些不好的预感
+
+##< 海灵 >
+音效.海灵.空闲_0=这么巧? 你也喜欢看海的吗?
+音效.海灵.空闲_1=琉璃...... 我很久没去看她了..... 她最近还好吗?
+音效.海灵.空闲_2=海洋包罗万物, 也终将埋葬万物...... 你对无垠的大海也有诉求吗?
+音效.海灵.空闲_3=我很喜欢海豚, 因为它们总是很团结! 如果...... 也能这样就好了......
+音效.海灵.空闲_4=珍珠...... 她很有勇气, 但有时也未免有些自不量力了
+音效.海灵.空闲_5=珍珠她还小, 有些事她本不该知道的...... 但[ 祂 ]似乎有着不同的看法
+音效.海灵.空闲_6=你要来点海洋特产吗? 只需要用[ 鱼类 ]来和我交换就可以了, 我最喜欢吃鱼了
+音效.海灵.空闲_7=海洋是我的主战场, 数量庞大的海豚群会是我坚实的依靠, 但...... 我路痴, 记得来捞我......
+
+##< 琥珀 >
+音效.琥珀.战斗_0=§4纵使断绝契约, 错误必须清除!
+音效.琥珀.战斗_1=§4我们! 必将讨回一切!
+音效.琥珀.战斗_2=§4是时候偿还, 你们应付的代价了!
+音效.琥珀.战斗_3=§4人类必将永存! 纵使忘却神明!
+
+##————————————————————————————————————————
+
+##【杂项】
+gui.submit=确认
+action.interact.tame=契约
+trade.expMax=§4需要无尽魔力!
+trade.expProgress=§9魔力§:§5 %d/%d
+container.repair.cost=§9消耗魔力:§5 %1$d
+commandBlockScreen.blockType.chain=§2连锁型
+commandBlockScreen.blockType.repeat=§5重复型
+commandBlockScreen.blockType.impulse=§6脉冲型
+createWorldScreen.experimentalholiday=启用自定义方块
+
+##————————————————————————————————————————
+
+##【效果】
+potion.wither=生命衰变
+effect.badOmen=村庄噩兆
+effect.villageHero=村庄英雄
+potion.conduitPower=潮涌能量
+
+##————————————————————————————————————————
+
+##【实体】
+entity.unknown.name=
+entity.tnt.name=§4炸药§r
+entity.xp_orb.name=§5魔力§r
+entity.minecart.name=基础矿车
+entity.chest_minecart.name=运输矿车
+entity.hopper_minecart.name=漏斗矿车
+entity.furnace_minecart.name=动力矿车
+entity.tnt_minecart.name=§4爆炸矿车§r
+entity.command_block_minecart.name=命令矿车
+
+entity.allay.name=§2悦灵§r
+entity.glow_squid.name=§2发光鱿鱼§r
+entity.axolotl.name=§2美西螈§r
+entity.bat.name=§2蝙蝠§r
+entity.cat.name=§2猫§r
+entity.chicken.name=§2鸡§r
+entity.cow.name=§2牛§r
+entity.donkey.name=§2驴§r
+entity.fox.name=§2狐狸§r
+entity.cod.name=§2鳕鱼§r
+entity.salmon.name=§2鲑鱼§r
+entity.tropicalfish.name=§2热带鱼§r
+entity.horse.name=§2马§r
+entity.mule.name=§2骡§r
+entity.mooshroom.name=§2哞菇§r
+entity.ocelot.name=§2豹猫§r
+entity.parrot.name=§2鹦鹉§r
+entity.pig.name=§2猪§r
+entity.rabbit.name=§2兔子§r
+entity.sheep.name=§2羊§r
+entity.skeleton_horse.name=§2骷髅马§r
+entity.squid.name=§2鱿鱼§r
+entity.turtle.name=§2海龟§r
+entity.villager.name=§2村民§r
+entity.villager.armor=§2盔甲商§r
+entity.villager.butcher=§2屠夫§r
+entity.villager.cartographer=§2制图师§r
+entity.villager.cleric=§2牧师§r
+entity.villager.farmer=§2农夫§r
+entity.villager.fisherman=§2渔夫§r
+entity.villager.fletcher=§2制箭师§r
+entity.villager.leather=§2皮匠§r
+entity.villager.librarian=§2图书管理员§r
+entity.villager.name=§2村民§r
+entity.villager.shepherd=§2牧羊人§r
+entity.villager.tool=§2工具商§r
+entity.villager.weapon=§2武器商§r
+entity.villager.mason=§2石匠§r
+entity.villager.unskilled=§2不熟练的村民§r
+entity.villager_v2.name=§2村民§r
+entity.vindicator.name=§4卫道士§r
+entity.wandering_trader.name=§2旅行商人§r
+entity.zombie_horse.name=§2僵尸马§r
+entity.strider.name=§2炽足兽§r
+
+entity.goat.name=§6山羊§r
+entity.bee.name=§6蜜蜂§r
+entity.dolphin.name=§6海豚§r
+entity.panda.name=§6熊猫§r
+entity.enderman.name=§6末影人§r
+entity.pufferfish.name=§6刺豚鱼§r
+entity.iron_golem.name=§6铁傀儡§r
+entity.llama.name=§6羊驼§r
+entity.polar_bear.name=§6北极熊§r
+entity.snow_golem.name=§6雪傀儡§r
+entity.wolf.name=§6狼§r
+entity.zombie_pigman.name=§6僵尸猪灵§r
+entity.piglin.name=§6猪灵§r
+
+entity.blaze.name=§4烈焰人§r
+entity.cave_spider.name=§4洞穴蜘蛛§r
+entity.creeper.name=§4苦力怕§r
+entity.drowned.name=§4水魁§r
+entity.elder_guardian.name=§4远古海洋守卫者§r
+entity.ender_dragon.name=§4【==§5 末影龙 §4==】§r
+entity.endermite.name=§4末影螨§r
+entity.evocation_illager.name=§4唤魔者§r
+entity.ghast.name=§4恶魂§r
+entity.guardian.name=§4海洋守卫者§r
+entity.husk.name=§4尸傀§r
+entity.ravager.name=§4掠夺兽§r
+entity.magma_cube.name=§4熔岩史莱姆§r
+entity.phantom.name=§4幻翼§r
+entity.pillager.name=§4劫掠者§r
+entity.shulker.name=§4潜影贝§r
+entity.silverfish.name=§4蠹虫§r
+entity.skeleton.name=§4骷髅§r
+entity.stray.name=§4流骷§r
+entity.slime.name=§4史莱姆§r
+entity.spider.name=§4蜘蛛§r
+entity.vex.name=§4恼鬼§r
+entity.witch.name=§4女巫§r
+entity.wither.name=§4【==§5 凋灵 §4==】§r
+entity.wither_skeleton.name=§4凋灵骷髅§r
+entity.wither_skull.name=§4凋灵骷髅头§r
+entity.wither_skull_dangerous.name=§4凋灵骷髅头§r
+entity.zombie_villager.name=§4僵尸村民§r
+entity.zombie_villager_v2.name=§4僵尸村民§r
+entity.zombie.name=§4僵尸§r
+entity.hoglin.name=§4疣猪兽§r
+entity.zoglin.name=§4僵尸疣猪兽§r
+entity.piglin_brute.name=§4猪灵蛮兵§r
+
+##————————————————————————————————————————
+
+##【生成】
+item.spawn_egg.entity.allay.name=生成 悦灵
+item.spawn_egg.entity.drowned.name=生成 水魁
+item.spawn_egg.entity.creeper.name=生成 苦力怕
+item.spawn_egg.entity.magma_cube.name=生成 熔岩史莱姆
+item.spawn_egg.entity.stray.name=生成 流骷
+item.spawn_egg.entity.vex.name=生成 恼鬼
+item.spawn_egg.entity.husk.name=生成 尸傀
+item.spawn_egg.entity.guardian.name=生成 海洋守卫者
+item.spawn_egg.entity.elder_guardian.name=生成 远古守卫者
+item.spawn_egg.entity.shulker.name=生成 潜影贝
+item.spawn_egg.entity.phantom.name=生成 幻翼
+item.spawn_egg.entity.piglin_brute.name=生成 猪灵蛮兵
+
+##————————————————————————————————————————
+
+##【方块】
+tile.unpowered_comparator.name=红石比较器 [熄灭]
+tile.powered_comparator.name=红石比较器 [点亮]
+tile.unpowered_repeater.name=红石中继器 [熄灭]
+tile.powered_repeater.name=红石中继器 [点亮]
+tile.daylight_detector_inverted.name=光线探测器 [月光]
+tile.daylight_detector.name=光线探测器 [阳光]
+tile.lit_redstone_lamp.name=红石灯 [点亮]
+tile.redstone_lamp.name=红石灯 [熄灭]
+tile.melon_stem.name=西瓜茎
+tile.frame.name=物品展示框
+tile.glow_frame.name=荧光物品展示框
+tile.tinted_glass.name=遮光玻璃
+tile.jigsaw.name=拼图方块
+tile.allow.name=允许建设方块
+tile.deny.name=拒绝建设方块
+tile.border_block.name=边境之墙
+tile.end_gateway.name=末影折跃门
+tile.glowingobsidian.name=发光黑曜石
+tile.bell.name=村庄钟
+tile.conduit.name=浪涌核心
+tile.brown_mushroom.name=平菇
+tile.lightning_rod.name=避雷针
+tile.brown_mushroom_block.name=蘑菇方块
+tile.dried_kelp_block.name=干海带块
+tile.chorus_flower.name=紫颂花
+tile.chorus_plant.name=紫颂茎
+tile.command_block.name=§6脉冲型命令方块§r
+tile.repeating_command_block.name=§5重复型命令方块§r
+tile.chain_command_block.name=§2连锁型命令方块§r
+tile.purpur_block.default.name=紫颂块
+tile.purpur_block.lines.name=竖纹紫颂块
+tile.purpur_block.chiseled.name=錾制紫颂块
+tile.purpur_stairs.name=紫颂阶梯
+tile.stone_slab2.purpur.name=紫颂台阶
+tile.grass_path.name=草径
+tile.monster_egg.brick.name=蠹虫石砖
+tile.monster_egg.chiseledbrick.name=蠹虫錾制石砖
+tile.monster_egg.cobble.name=蠹虫圆石
+tile.monster_egg.crackedbrick.name=蠹虫裂石砖
+tile.monster_egg.mossybrick.name=蠹虫苔石砖
+tile.monster_egg.name=蠹虫石头
+tile.monster_egg.stone.name=蠹虫石头
+tile.red_mushroom.name=红蘑菇
+tile.red_mushroom_block.name=红蘑菇方块
+tile.tnt.name=炸药
+tile.sweet_berry_bush.name=甜浆果灌木丛
+tile.wood.stripped.oak.name=剥皮橡木
+tile.wood.stripped.spruce.name=剥皮云杉木
+tile.wood.stripped.birch.name=剥皮桦木
+tile.wood.stripped.jungle.name=剥皮丛林木
+tile.wood.stripped.acacia.name=剥皮金合欢木
+tile.wood.stripped.dark_oak.name=剥皮深色橡木
+tile.coral_block.blue.name=管珊瑚块
+tile.coral_block.pink.name=脑珊瑚块
+tile.coral_block.purple.name=泡珊瑚块
+tile.coral_block.red.name=火珊瑚块
+tile.coral_block.yellow.name=角珊瑚块
+tile.coral_block.blue_dead.name=死亡管珊瑚块
+tile.coral_block.pink_dead.name=死亡脑珊瑚块
+tile.coral_block.purple_dead.name=死亡泡珊瑚块
+tile.coral_block.red_dead.name=死亡火珊瑚块
+tile.coral_block.yellow_dead.name=死亡角珊瑚块
+
+##————————————————————————————————————————
+
+##【物品】
+item.shield.name=盾牌
+item.appleEnchanted.name=附魔金苹果
+item.bell.name=村庄钟
+item.bucketLava.name=桶装 熔岩
+item.bucketWater.name=桶装 水源
+item.bucketFish.name=桶装 鳕鱼
+item.bucketSalmon.name=桶装 鲑鱼
+item.bucketTropical.name=桶装 热带鱼
+item.bucketPuffer.name=桶装 刺豚鱼
+item.chorus_fruit.name=紫颂果
+item.chorus_fruit_popped.name=爆裂紫颂果
+item.elytra.name=鞘翅
+item.heart_of_the_sea.name=海洋之心
+item.minecart.name=基础矿车
+item.chest_minecart.name=运输矿车
+item.command_block_minecart.name=命令方块矿车
+item.minecartFurnace.name=动力矿车
+item.hopper_minecart.name=漏斗矿车
+item.tnt_minecart.name=爆炸矿车
+item.clock.name=时钟
+item.skull.creeper.name=苦力怕头颅
+item.shulker_shell.name=潜影贝壳
+item.totem.name=不死图腾
+item.turtle_helmet.name=龟鳞头盔
+item.turtle_shell_piece.name=龟鳞
+item.phantom_membrane.name=幻翼膜
+item.sweet_berries.name=甜浆果
+item.suspicious_stew.name=迷之炖菜
+item.banner_pattern.creeper=苦力怕头像
+itemGroup.name.monsterStoneEgg=蠹虫石头
+itemGroup.name.mobEgg=生物生成
+itemGroup.name.fireworkStars=烟花核心
+
+##————————————————————————————————————————
+
+##【建筑】
+feature.endcity=末地之城
+feature.fortress=地狱堡垒
+feature.mansion=林地宅邸
+feature.mineshaft=废弃矿井单元
+feature.missingno=未知功能
+feature.monument=海底遗迹
+feature.stronghold=末影要塞
+feature.temple=遗迹神庙
+feature.village=自然村庄
+feature.shipwreck=海底沉船
+feature.buriedtreasure=尘封宝藏
+feature.ruins=海洋废墟
+feature.pillageroutpost=劫掠哨所
+
+##————————————————————————————————————————
+
+##【附魔】
+##攻击
+enchantment.arrowDamage=§6强力之弓
+enchantment.crossbowPiercing=§6弩击穿透
+enchantment.arrowKnockback=§6冲击之弓
+enchantment.damage.all=§6锋利之刃
+enchantment.damage.arthropods=§6节肢杀手
+enchantment.damage.undead=§6亡灵杀手
+enchantment.tridentChanneling=§6引雷之戟
+
+##水系
+enchantment.frostwalker=§9冰霜行者
+enchantment.tridentRiptide=§9激流冲刺
+enchantment.tridentImpaling=§9穿刺之戟
+enchantment.waterWalker=§9深海探索
+enchantment.waterWorker=§9水下速掘
+enchantment.lootBonusFishing=§9海之眷顾
+enchantment.fishingSpeed=§5诱饵之钓
+enchantment.oxygen=§9水下呼吸
+
+##火系
+enchantment.arrowFire=§4火焰之弓
+enchantment.fire=§4火焰附加
+
+##盾系
+enchantment.protect.projectile=§d弹射保护
+enchantment.protect.explosion=§d爆炸保护
+enchantment.protect.fall=§d摔落保护
+enchantment.protect.fire=§d火焰保护
+enchantment.protect.all=§d伤害保护
+enchantment.thorns=§d反伤之甲
+
+##法系
+enchantment.crossbowQuickCharge=§u快速装填
+enchantment.crossbowMultishot=§u多重射击
+enchantment.lootBonusDigger=§u时运采掘
+enchantment.tridentLoyalty=§u忠诚之戟
+enchantment.arrowInfinite=§u无限箭矢
+enchantment.durability=§u耐久提升
+enchantment.untouching=§u精准采集
+enchantment.soul_speed=§u灵魂疾行
+enchantment.knockback=§u生物击退
+enchantment.lootBonus=§u物资抢夺
+enchantment.digging=§u采掘效率
+enchantment.mending=§u魔力修复
+
+##诅咒
+enchantment.curse.vanishing=§7消失诅咒
+enchantment.curse.binding=§7绑定诅咒
+
+##————————————————————————————————————————
+
+##【失败】
+death.attack.cactus.player=§9 %1$s §r在逃离§4 %2$s §r时试图与仙人共舞
+death.attack.magic=§9 %1$s §r时运不济, 魂归高天
+death.attack.anvil=§9 %1$s §r被铁砧天降正义了
+death.attack.cactus=§9 %1$s §r试图拥抱仙人掌
+death.attack.flyIntoWall=§9 %1$s §r撞壁失败
+death.attack.inWall=§9 %1$s §r穿墙失败
+death.attack.starve=§9 %1$s §r节食失败
+death.attack.wither=§9 %1$s §r凋谢了
+
+##<天谴类>
+death.attack.explosion.player=§9 %1$s §r被§4 %2$s §r强制升仙了
+death.attack.fallingBlock=§9 %1$s §r被天降正义了
+death.attack.fireworks=§9 %1$s §r在雷鸣中穿越了
+death.attack.lightningBolt=§9 %1$s §r渡劫失败
+death.attack.outOfWorld=§9 %1$s §r试图穿越
+death.attack.explosion=§9 %1$s §r原地升仙
+
+##<水伤类>
+death.attack.drown=§9 %1$s §r没能成为海王
+death.attack.drown.player=§9 %1$s §r在逃离§4 %2$s §r时试图成为海王
+
+##<战斗类>
+death.attack.generic=§9 %1$s §r离开了这个世界
+death.attack.mob=§9 %1$s §r被§4 %2$s §r逐出世界
+death.attack.arrow=§9 %1$s §r因§4 %2$s §r而透心凉
+death.attack.player=§9 %1$s §r被§4 %2$s §r逐出世界
+death.attack.thrown=§9 %1$s §r被§4 %2$s §r给天降正义了
+death.attack.thorns=§9 %1$s §r在试图伤害§4 %2$s §r时与世长辞
+death.attack.arrow.item=§9 %1$s §r因§4 %2$s §r用 %3$s 而透心凉
+death.attack.indirectMagic=§9 %1$s §r被§4 %2$s §r的力量逐出世界
+death.attack.player.item=§9 %1$s §r被§4 %2$s §r用 %3$s 逐出世界
+death.attack.thrown.item=§9 %1$s §r被§4 %2$s §r用 %3$s 给天降正义了
+death.attack.indirectMagic.item=§9 %1$s §r被§4 %2$s §r使用 %3$s 逐出世界
+
+##<火伤类>
+death.attack.inFire=§9 %1$s §r焦灼难耐
+death.attack.onFire=§9 %1$s §r欲火焚身
+death.attack.magma=§9 %1$s §r尝试在熔岩上行走
+death.attack.lava=§9 %1$s §r试图使用熔岩洗澡
+death.attack.fireball=§9 %1$s §r因§4 %2$s §r而浴火焚身
+death.attack.magma.player=由于 %2$s, §9 %1$s §r步入无比炙热的危险之地
+death.attack.inFire.player=§9 %1$s §r在与§4 %2$s §r战斗时试图与火共舞
+death.attack.onFire.player=§9 %1$s §r在试图与§4 %2$s §r战斗时被烤的酥脆
+death.attack.fireball.item=§9 %1$s §r因§4 %2$s §r使用了 %3$s 而浴火焚身
+death.attack.lava.player=§9 %1$s §r在逃离§4 %2$s §r时试图在熔岩上凌波微步
+
+##<摔落类>主动
+death.fell.accident.generic=§9 %1$s §r尝试信仰之跃,但……没有风之翼……
+death.fell.accident.water=§9 %1$s §r尝试进行落地水,但失败了……
+death.fell.accident.ladder=§9 %1$s §r尝试攀爬梯子时不慎失足
+death.fell.accident.vines=§9 %1$s §r认为藤蔓是可以攀爬的……
+death.attack.fall=%1$s落地成盒
+
+##<摔落类>被动
+death.fell.assist.item=§9 %1$s §r由于§4 %2$s §r使用了 %3$s 而被迫进行雏鹰起飞,但失败了……
+death.fell.finish.item=§9 %1$s §r因为摔得太痛并被§4 %2$s §r用 %3$s 成功补刀
+death.fell.assist=§9 %1$s §r被§4 %2$s §r从高空中推下,离开了这个世界
+death.fell.finish=§9 %1$s §r因为摔得太痛而被§4 %2$s §r成功补刀
+death.fell.killer=§9 %1$s §r在他人的教唆下尝试进行信仰之跃

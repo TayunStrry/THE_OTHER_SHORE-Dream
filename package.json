@@ -1,8 +1,11 @@
 {
 	"type": "module",
 	"dependencies": {
-		"@minecraft/server": "^2.0.0-beta.1.21.80-preview.27",
-		"@minecraft/server-ui": "^2.0.0-beta.1.21.80-preview.27"
+		"@minecraft/debug-utilities": "^1.0.0-beta.1.21.90-preview.20",
+		"@minecraft/server": "^2.1.0-beta.1.21.90-preview.20",
+		"@minecraft/server-ui": "^2.1.0-beta.1.21.90-preview.20",
+		"adm-zip": "^0.5.16",
+		"fs-extra": "^11.3.0"
 	},
 	"overrides": {
 		"@minecraft/server-ui": {
@@ -23,7 +26,9 @@
 		"bzip": "tsc ./starryMapChain/THE_OTHER_SHORE.ts --moduleResolution node --target es2022 --removeComments --outDir ../JS_cache && rollup --config ./starryMapChain/rollup.config.js",
 		"c": "tsc ./starryMapExplode/THE_OTHER_SHORE.ts --moduleResolution node --target es2022 --removeComments --outDir ../JS_cache && yarn rollup ../JS_cache/starryMapExplode/THE_OTHER_SHORE.js --file ../development_behavior_packs/律令禁止_服务端/scripts/THE_OTHER_SHORE.js",
 		"d": "tsc ./starrySword/THE_OTHER_SHORE.ts --moduleResolution node --target es2022 --removeComments --outDir ../JS_cache && yarn rollup ../JS_cache/starrySword/THE_OTHER_SHORE.js --file ../development_behavior_packs/多元武器_服务端/scripts/THE_OTHER_SHORE.js",
-		"e": "tsc ./THE_OTHER_SHORE.ts --moduleResolution node --target es2022 --outDir ../JS_cache && yarn rollup ../JS_cache/THE_OTHER_SHORE.js --file C:/Users/196530/AppData/Local/Packages/Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/幻梦-Dream_BP/scripts/THE_OTHER_SHORE.js",
-		"git": "git add . && git commit -m 'update' && git push"
+		"compile": "tsc ./THE_OTHER_SHORE.ts --moduleResolution node --target es2022 --outDir ../JS_cache && yarn rollup ../JS_cache/THE_OTHER_SHORE.js --file C:/Users/196530/AppData/Local/Packages/Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/幻梦-Dream_BP/scripts/THE_OTHER_SHORE.js",
+		"upload": "git add . && git commit -m 'update' && git push",
+		"pack": "node scripts/pre_release.js",
+		"open":"npm run compile && npm run pack && npm run upload"
 	}
 }

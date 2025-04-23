@@ -1,0 +1,86 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "starry_map:guide.windnews",
+			"materials": {
+				"blend_light": "opal_light_blend",
+				"default": "entity_alphatest",
+				"blend": "opal_blend_only",
+				"light": "opal_light_only"
+			},
+			"enable_attachables": true,
+			"textures": {
+				"inventory": "textures/实体贴图/神恩使徒/背包/蓝色",
+				"facade": "textures/实体贴图/神恩使徒/风信",
+				"heart": "textures/实体贴图/神恩使徒/血量",
+				"chair": "textures/实体贴图/神恩使徒/座椅/诸海",
+				"aims": "textures/实体贴图/神恩使徒/战斗武器",
+				"void": "textures/void"
+			},
+			"geometry": {
+				"inventory": "geometry.entity.travel_inventory",
+				"blessing": "geometry.entity.enable_blessing",
+				"default": "geometry.entity.girl_shape",
+				"heart": "geometry.entity.heart_bangle",
+				"chair": "geometry.entity.elements_swing_chair",
+				"aims": "geometry.entity.magic.haina"
+			},
+			"spawn_egg": {
+				"texture": "item_texture:神恩使徒.诸海"
+			},
+			"render_controllers": [
+				"controller.render.facade:variant.01",
+				"controller.render.display_heart",
+				"controller.render.variant_aims",
+				"controller.render.inventory",
+				"controller.render.chair"
+			],
+			"scripts": {
+				"pre_animation": [
+					"variable.move_speed = (Math.cos(q.modified_distance_moved * 40) * (q.modified_move_speed / v.gliding_speed_value)) * 55;",
+					"variable.enable_blessing = !q.is_invisible && (q.is_in_water || q.has_target || q.is_on_fire || q.is_in_lava);"
+				],
+				"animate": [
+					"control_can_chair",
+					"control_hold_use",
+					"control_attitude",
+					"control_attack",
+					"control_watch",
+					"control_blink",
+					"control_hold",
+					"initial"
+				]
+			},
+			"animations": {
+				// TODO : 动画控制器
+				"control_can_chair": "controller.animation.role_can_chair",
+				"control_attitude": "controller.animation.role_attitude",
+				"control_blink": "controller.animation.blink_your_eyes",
+				"control_watch": "controller.animation.watch.default",
+				"control_hold": "controller.animation.hold.default",
+				"control_hold_use": "controller.animation.hold.use",
+				"control_attack": "controller.animation.attack.general_1",
+				"control_move": "controller.animation.role_move",
+				// TODO : 实体动画
+				"blink": "animation.entity.role.blink_your_eyes",
+				"attack.0": "animation.entity.haila.attact_0",
+				"attack.1": "animation.entity.haila.attact_1",
+				"attack.2": "animation.entity.haila.attact_2",
+				"hold_item": "animation.humanoid.holding",
+				"initial": "animation.entity.role_initial.girl",
+				"sprint_speed": "animation.entity.role_move.sprint_speed",
+				"movement_speed": "animation.entity.role_move.movement_speed",
+				"riding_arms": "animation.entity.role_riding.arms",
+				"riding_legs": "animation.entity.role_riding.legs",
+				"is_sitting": "animation.entity.role_sitting.start",
+				"no_sitting": "animation.entity.role_sitting.done",
+				"swimming": "animation.entity.role_swimming.speed",
+				"use_hold_item": "animation.humanoid.use_item_progress",
+				"watch_basic": "animation.entity.role_watch.basic",
+				"watch_swimming": "animation.entity.role_watch.swimming",
+				"falling":"animation.entity.falling_from_height"
+			}
+		}
+	}
+}

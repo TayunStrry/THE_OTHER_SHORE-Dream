@@ -1,0 +1,32 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "starry:starry_map:magic_crystal_marbles"
+		},
+		"tags": [
+			"tags:desktop_make"
+		],
+		"pattern": [
+			"GBG",
+			"BTB",
+			"GBG"
+		],
+		"assume_symmetry": false,
+		"key": {
+			"T": {
+				"item": "starry_map:block.purple_energy"
+			},
+			"B": {
+				"item": "starry_map:wafer.steel_rock_eutectic"
+			},
+			"G": {
+				"item": "starry_map:gear.lithium_carbonate"
+			}
+		},
+		"result": {
+			"item": "starry_map:magic_crystal_marbles",
+			"count": 4
+		}
+	}
+}

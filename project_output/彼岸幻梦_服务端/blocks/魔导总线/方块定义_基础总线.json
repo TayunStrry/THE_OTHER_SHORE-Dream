@@ -1,0 +1,303 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "items"
+			},
+			"identifier": "starry_map:basic_pipeline",
+			"states": {
+				"STATE:is_storage": [
+					true,
+					false
+				],
+				"STATE:rune_type": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					9
+				],
+				"STATE:direction_positive.X": [
+					false,
+					true
+				],
+				"STATE:direction_negative.X": [
+					false,
+					true
+				],
+				"STATE:direction_positive.Y": [
+					false,
+					true
+				],
+				"STATE:direction_negative.Y": [
+					false,
+					true
+				],
+				"STATE:direction_positive.Z": [
+					false,
+					true
+				],
+				"STATE:direction_negative.Z": [
+					false,
+					true
+				]
+			}
+		},
+		"components": {
+			// 方块含水
+			"minecraft:liquid_detection": {
+				"detection_rules": [
+					{
+						"on_liquid_touches": "no_reaction",
+						"can_contain_liquid": true,
+						"liquid_type": "water"
+					}
+				]
+			},
+			// 防爆与挖掘
+			"minecraft:destructible_by_explosion": false,
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			// 摩擦力
+			"minecraft:friction": 0.35,
+			// 方块光照
+			"minecraft:light_dampening": 0,
+			"minecraft:light_emission": 1,
+			// 模型与纹理
+			"minecraft:geometry": {
+				"identifier": "geometry.block.cable_basic_pipeline",
+				"bone_visibility": {
+					"link_0": "q.block_state('STATE:direction_positive.Y') == true",
+					"link_1": "q.block_state('STATE:direction_positive.X') == true",
+					"link_2": "q.block_state('STATE:direction_negative.X') == true",
+					"link_3": "q.block_state('STATE:direction_negative.Z') == true",
+					"link_4": "q.block_state('STATE:direction_positive.Z') == true",
+					"link_5": "q.block_state('STATE:direction_negative.Y') == true",
+					"core_0": "q.block_state('STATE:direction_positive.Y') == false",
+					"core_1": "q.block_state('STATE:direction_positive.X') == false",
+					"core_2": "q.block_state('STATE:direction_negative.X') == false",
+					"core_3": "q.block_state('STATE:direction_negative.Z') == false",
+					"core_4": "q.block_state('STATE:direction_positive.Z') == false",
+					"core_5": "q.block_state('STATE:direction_negative.Y') == false",
+					"block": "q.block_state('STATE:is_storage') == true"
+				}
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "deepslate",
+					"render_method": "alpha_test"
+				}
+			},
+			// 自定义方块组件
+			"opal:place.magic_cable": {},
+			// 方块标签
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"tag:tags:magic_cable.port_positive.X": {},
+			"tag:tags:magic_cable.port_positive.Y": {},
+			"tag:tags:magic_cable.port_positive.Z": {},
+			"tag:tags:magic_cable.port_negative.X": {},
+			"tag:tags:magic_cable.port_negative.Y": {},
+			"tag:tags:magic_cable.port_negative.Z": {},
+			"tag:tags:magic_cable.series": {},
+			"tag:iron_pick_diggable": {}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('STATE:rune_type') != 0 && q.block_state('STATE:rune_type') != 9",
+				"components": {
+					"opal:tick.basic_pipeline": {},
+					"minecraft:tick": {
+						"interval_range": [
+							2,
+							2
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:rune_type') == 0",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "block_texture:plane_2",
+							"render_method": "alpha_test"
+						},
+						"duct": {
+							"texture": "block_texture:duct_0",
+							"render_method": "alpha_test"
+						},
+						"rune": {
+							"texture": "block_texture:rune_void",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:rune_type') == 1",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "block_texture:plane_2",
+							"render_method": "alpha_test"
+						},
+						"duct": {
+							"texture": "block_texture:duct_0",
+							"render_method": "alpha_test"
+						},
+						"rune": {
+							"texture": "block_texture:rune_blue",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:rune_type') == 2",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "block_texture:plane_2",
+							"render_method": "alpha_test"
+						},
+						"duct": {
+							"texture": "block_texture:duct_0",
+							"render_method": "alpha_test"
+						},
+						"rune": {
+							"texture": "block_texture:rune_red",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:rune_type') == 3",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "block_texture:plane_2",
+							"render_method": "alpha_test"
+						},
+						"duct": {
+							"texture": "block_texture:duct_0",
+							"render_method": "alpha_test"
+						},
+						"rune": {
+							"texture": "block_texture:rune_green",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:rune_type') == 4",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "block_texture:plane_2",
+							"render_method": "alpha_test"
+						},
+						"duct": {
+							"texture": "block_texture:duct_0",
+							"render_method": "alpha_test"
+						},
+						"rune": {
+							"texture": "block_texture:rune_orange",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:rune_type') == 5",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "block_texture:plane_2",
+							"render_method": "alpha_test"
+						},
+						"duct": {
+							"texture": "block_texture:duct_0",
+							"render_method": "alpha_test"
+						},
+						"rune": {
+							"texture": "block_texture:rune_purple",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:rune_type') == 6",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "block_texture:plane_2",
+							"render_method": "alpha_test"
+						},
+						"duct": {
+							"texture": "block_texture:duct_0",
+							"render_method": "alpha_test"
+						},
+						"rune": {
+							"texture": "block_texture:rune_white",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:rune_type') == 7",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "block_texture:plane_2",
+							"render_method": "alpha_test"
+						},
+						"duct": {
+							"texture": "block_texture:duct_0",
+							"render_method": "alpha_test"
+						},
+						"rune": {
+							"texture": "block_texture:rune_black",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:rune_type') == 9",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "block_texture:plane_2",
+							"render_method": "alpha_test"
+						},
+						"duct": {
+							"texture": "block_texture:duct_0",
+							"render_method": "alpha_test"
+						},
+						"rune": {
+							"texture": "block_texture:rune_void",
+							"render_method": "alpha_test"
+						}
+					},
+					"opal:tick.basic_pipeline": {},
+					"minecraft:tick": {
+						"interval_range": [
+							3,
+							3
+						]
+					}
+				}
+			}
+		]
+	}
+}

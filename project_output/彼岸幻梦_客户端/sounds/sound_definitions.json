@@ -1,0 +1,443 @@
+{
+    // TODO 联动
+    "音效.联动.琉璃->晨曦": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/联动/琉璃-晨曦"
+        ]
+    },
+    // * 晨曦
+    "音效.晨曦.空闲_0": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/晨曦/空闲_0"
+        ]
+    },
+    "音效.晨曦.空闲_1": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/晨曦/空闲_1"
+        ]
+    },
+    "音效.晨曦.空闲_2": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/晨曦/空闲_2"
+        ]
+    },
+    "音效.晨曦.战斗_0": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/晨曦/战斗_0"
+        ]
+    },
+    "音效.晨曦.战斗_1": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/晨曦/战斗_1"
+        ]
+    },
+    "音效.晨曦.战败": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/晨曦/战败"
+        ]
+    },
+    "音效.晨曦.登场": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/晨曦/登场"
+        ]
+    },
+    // * 月华
+    "音效.月华.空闲_0": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/moonlight/routine_0"
+        ]
+    },
+    "音效.月华.空闲_1": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/moonlight/routine_1"
+        ]
+    },
+    "音效.月华.空闲_2": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/moonlight/routine_2"
+        ]
+    },
+    "音效.月华.空闲_3": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/moonlight/routine_3"
+        ]
+    },
+    "音效.月华.空闲_4": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/moonlight/routine_4"
+        ]
+    },
+    "音效.月华.空闲_5": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/moonlight/routine_5"
+        ]
+    },
+    "音效.月华.空闲_6": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/moonlight/routine_6"
+        ]
+    },
+    "音效.月华.空闲_7": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/moonlight/routine_7"
+        ]
+    },
+    "音效.月华.空闲_8": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/moonlight/routine_8"
+        ]
+    },
+    "音效.月华.空闲_9": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/moonlight/routine_9"
+        ]
+    },
+    "音效.月华.空闲_10": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/moonlight/routine_10"
+        ]
+    },
+    "音效.月华.空闲_11": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/moonlight/routine_11"
+        ]
+    },
+    // * 珍珠
+    "音效.珍珠.空闲_0": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/pearl/routine_0"
+        ]
+    },
+    "音效.珍珠.空闲_1": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/pearl/routine_1"
+        ]
+    },
+    "音效.珍珠.空闲_2": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/pearl/routine_2"
+        ]
+    },
+    "音效.珍珠.空闲_3": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/pearl/routine_3"
+        ]
+    },
+    "音效.珍珠.空闲_4": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/pearl/routine_4"
+        ]
+    },
+    "音效.珍珠.空闲_5": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/pearl/routine_5"
+        ]
+    },
+    "音效.珍珠.空闲_6": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/pearl/routine_6"
+        ]
+    },
+    "音效.珍珠.空闲_7": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/pearl/routine_7"
+        ]
+    },
+    "音效.珍珠.空闲_8": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/pearl/routine_8"
+        ]
+    },
+    "音效.珍珠.空闲_9": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/pearl/routine_9"
+        ]
+    },
+    // * 琥珀
+    "音效.琥珀.战斗_0": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/amber/attack_0"
+        ]
+    },
+    "音效.琥珀.战斗_1": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/amber/attack_1"
+        ]
+    },
+    "音效.琥珀.战斗_2": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/amber/attack_2"
+        ]
+    },
+    "音效.琥珀.战斗_3": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/amber/attack_3"
+        ]
+    },
+    // * 琉璃
+    "音效.琉璃.空闲_0": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crystal/routine_0"
+        ]
+    },
+    "音效.琉璃.空闲_1": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crystal/routine_1"
+        ]
+    },
+    "音效.琉璃.空闲_2": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crystal/routine_2"
+        ]
+    },
+    "音效.琉璃.空闲_3": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crystal/routine_3"
+        ]
+    },
+    "音效.琉璃.空闲_4": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crystal/routine_4"
+        ]
+    },
+    "音效.琉璃.空闲_5": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crystal/routine_5"
+        ]
+    },
+    "音效.琉璃.空闲_6": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crystal/routine_6"
+        ]
+    },
+    "音效.琉璃.空闲_7": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crystal/routine_7"
+        ]
+    },
+    "音效.琉璃.空闲_8": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crystal/routine_8"
+        ]
+    },
+    "音效.琉璃.空闲_9": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crystal/routine_9"
+        ]
+    },
+    "音效.琉璃.空闲_10": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crystal/routine_10"
+        ]
+    },
+    // * 琉璃 - 剧情台词
+    "音效.琉璃.紫金葫芦_蓄力使用": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crystal/purple_gold_gourd/start"
+        ]
+    },
+    "音效.琉璃.紫金葫芦_捕捉成功": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crystal/purple_gold_gourd/catch"
+        ]
+    },
+    "音效.琉璃.紫金葫芦_继续等待": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crystal/purple_gold_gourd/wait"
+        ]
+    },
+    "音效.琉璃.紫金葫芦_捕获失败": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crystal/purple_gold_gourd/fail"
+        ]
+    },
+    "音效.琉璃.紫金葫芦_炼化结束": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crystal/purple_gold_gourd/done"
+        ]
+    },
+    "音效.琉璃.蜂塔引导_0": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crystal/plot_obsidianWaspTower_0"
+        ]
+    },
+    "音效.琉璃.蜂塔引导_1": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crystal/plot_obsidianWaspTower_1"
+        ]
+    },
+    "音效.琉璃.蜂塔引导_2": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crystal/plot_obsidianWaspTower_2"
+        ]
+    },
+    "音效.琉璃.蜂塔引导_3": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crystal/plot_obsidianWaspTower_3"
+        ]
+    },
+    "音效.琉璃.蜂塔引导_4": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crystal/plot_obsidianWaspTower_4"
+        ]
+    },
+    "音效.琉璃.蜂塔引导_5": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crystal/plot_obsidianWaspTower_5"
+        ]
+    },
+    "音效.琉璃.蜂塔引导_6": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crystal/plot_obsidianWaspTower_6"
+        ]
+    },
+    "音效.琉璃.蜂塔引导_7": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crystal/plot_obsidianWaspTower_7"
+        ]
+    },
+    "音效.琉璃.蜂塔引导_8": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crystal/plot_obsidianWaspTower_8"
+        ]
+    },
+    //* 绯红
+    "音效.绯红.空闲_0": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crimson/routine_0"
+        ]
+    },
+    "音效.绯红.空闲_1": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crimson/routine_1"
+        ]
+    },
+    "音效.绯红.空闲_2": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crimson/routine_2"
+        ]
+    },
+    "音效.绯红.空闲_3": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crimson/routine_3"
+        ]
+    },
+    "音效.绯红.空闲_4": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/crimson/routine_4"
+        ]
+    },
+    //* 海灵
+    "音效.海灵.空闲_0": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/hailing/routine_0"
+        ]
+    },
+    "音效.海灵.空闲_1": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/hailing/routine_1"
+        ]
+    },
+    "音效.海灵.空闲_2": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/hailing/routine_2"
+        ]
+    },
+    "音效.海灵.空闲_3": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/hailing/routine_3"
+        ]
+    },
+    "音效.海灵.空闲_4": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/hailing/routine_4"
+        ]
+    },
+    "音效.海灵.空闲_5": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/hailing/routine_5"
+        ]
+    },
+    "音效.海灵.空闲_6": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/hailing/routine_6"
+        ]
+    },
+    "音效.海灵.空闲_7": {
+        "category": "neutral",
+        "sounds": [
+            "sounds/hailing/routine_7"
+        ]
+    }
+}

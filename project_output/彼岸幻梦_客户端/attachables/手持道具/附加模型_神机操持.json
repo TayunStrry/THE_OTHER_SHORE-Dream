@@ -1,0 +1,30 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:attachable": {
+		"description": {
+			"identifier": "starry_map:mechanized_operation",
+			"materials": {
+				"enchanted": "armor_enchanted",
+				"default": "armor"
+			},
+			"textures": {
+				"enchanted": "textures/misc/enchanted_item_glint",
+				"default": "textures/物品贴图/特殊道具/神机操持"
+			},
+			"geometry": {
+				"default": "geometry.item.mechanized_operation"
+			},
+			"scripts": {
+				"animate": [
+					"hold_use"
+				]
+			},
+			"animations": {
+				"hold_use": "animation.item.stateful_inspection"
+			},
+			"render_controllers": [
+				"controller.render.armor"
+			]
+		}
+	}
+}

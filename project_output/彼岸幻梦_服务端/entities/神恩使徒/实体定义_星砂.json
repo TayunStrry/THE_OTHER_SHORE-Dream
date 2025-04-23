@@ -1,0 +1,825 @@
+{
+	"format_version": "1.21.10",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "starry_map:guide.star_sand",
+			"is_experimental": false,
+			"is_summonable": true,
+			"is_spawnable": true,
+			"properties": {
+				"property:voice_interval": {
+					"range": [
+						0,
+						999
+					],
+					"type": "int",
+					"default": "math.random_integer(30.0, 180.0)"
+				}
+			},
+			"scripts": {
+				"animate": [
+					"control_idle_state"
+				]
+			},
+			"animations": {
+				"control_idle_state": "controller.animation.server.during_leisure_time"
+			}
+		},
+		"component_groups": {
+			// 签订契约之前
+			"entity_module:contract_before": {
+				"minecraft:behavior.tempt": {
+					"speed_multiplier": 1,
+					"priority": 1,
+					"items": [
+						"minecraft:enchanted_golden_apple",
+						"starry_map:eternal_energy"
+					]
+				},
+				"minecraft:inventory": {
+					"container_type": "inventory",
+					"can_be_siphoned_from": false,
+					"restrict_to_owner": true,
+					"inventory_size": 27,
+					"private": true
+				}
+			},
+			// 签订契约之后
+			"entity_module:contract_after": {
+				"minecraft:behavior.owner_hurt_by_target": {
+					"priority": 7
+				},
+				"minecraft:behavior.owner_hurt_target": {
+					"priority": 8
+				},
+				"minecraft:behavior.find_mount": {
+					"max_failed_attempts": 99,
+					"within_radius": 5,
+					"start_delay": 5,
+					"priority": 19
+				},
+				"minecraft:behavior.follow_caravan": {
+					"speed_multiplier": 1.5,
+					"entity_count": 16,
+					"priority": 5,
+					"entity_types": {
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "starry"
+						},
+						"max_dist": 64
+					}
+				},
+				"minecraft:behavior.tempt": {
+					"speed_multiplier": 1,
+					"priority": 1,
+					"items": [
+						"starry_map:magic_crystal_screwdriver",
+						"starry_map:magic_crystal_marbles",
+						"starry_map:magic_crystal_shield",
+						"starry_map:magic_crystal_wrench",
+						"starry_map:magic_crystal_claw",
+						"starry_map:magic_crystal_bow",
+						"starry_map:magic_crystal_key"
+					]
+				},
+				"minecraft:leashable": {
+					"soft_distance": 5,
+					"max_distance": 15,
+					"hard_distance": 10,
+					"on_leash": {
+						"event": "minecraft:on_leash",
+						"target": "self"
+					},
+					"on_unleash": {
+						"event": "minecraft:on_unleash",
+						"target": "self"
+					}
+				},
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"on_interact": {
+								"filters": {
+									"all_of": [
+										{
+											"test": "is_sneaking",
+											"subject": "player",
+											"operator": "=="
+										},
+										{
+											"test": "is_owner",
+											"subject": "other",
+											"value": true
+										}
+									]
+								},
+								"event": "entity_event:change_state",
+								"target": "self"
+							},
+							"interact_text": "修改 < 角色状态 >",
+							"play_sounds": "armor.equip_diamond",
+							"use_item": false,
+							"cooldown": 1
+						},
+						{
+							"on_interact": {
+								"filters": {
+									"any_of": [
+										{
+											"test": "has_equipment",
+											"domain": "hand",
+											"subject": "other",
+											"value": "starry_map:enlightenment"
+										},
+										{
+											"test": "has_equipment",
+											"domain": "hand",
+											"subject": "other",
+											"value": "starry_map:stateful_inspection"
+										}
+									]
+								},
+								"event": "entity_event:script_cope",
+								"target": "self"
+							},
+							"interact_text": "",
+							"play_sounds": "beacon.activate",
+							"use_item": false,
+							"cooldown": 1
+						}
+					]
+				},
+				"minecraft:on_death": {
+					"event": "entity_event:death",
+					"target": "self"
+				},
+				"minecraft:is_tamed": {}
+			},
+			// 带上背包 并 穿戴装备
+			"entity_module:bring_bag_and_follow_along": {
+				"minecraft:inventory": {
+					"container_type": "inventory",
+					"can_be_siphoned_from": true,
+					"restrict_to_owner": true,
+					"inventory_size": 27,
+					"private": false
+				},
+				"minecraft:block_sensor": {
+					"sensor_radius": 5,
+					"on_break": [
+						{
+							"block_list": [
+								"minecraft:melon_block",
+								"minecraft:beetroot",
+								"minecraft:potatoes",
+								"minecraft:carrots",
+								"minecraft:pumpkin",
+								"minecraft:wheat"
+							],
+							"on_block_broken": "entity_event:prompt_farming"
+						}
+					]
+				},
+				"minecraft:is_chested": {}
+			},
+			// 坐下 或 自由行动
+			"entity_module:sittable_either_or_roam": {
+				"minecraft:home": {
+					"restriction_radius": 16,
+					"restriction_type": "all_movement"
+				},
+				"minecraft:behavior.stay_while_sitting": {
+					"priority": 0
+				},
+				"minecraft:behavior.harvest_farm_block": {
+					"search_cooldown_max_seconds": 2,
+					"search_height": 3,
+					"search_range": 32,
+					"search_count": 0,
+					"priority": 4
+				},
+				"minecraft:behavior.fertilize_farm_block": {
+					"search_cooldown_max_seconds": 2,
+					"priority": 3
+				},
+				"minecraft:break_blocks": {
+					"breakable_blocks": [
+						"minecraft:melon_block",
+						"minecraft:pumpkin"
+					]
+				},
+				"minecraft:tick_world": {
+					"distance_to_players": 128,
+					"never_despawn": true,
+					"radius": 2
+				},
+				"minecraft:inventory": {
+					"container_type": "inventory",
+					"can_be_siphoned_from": false,
+					"restrict_to_owner": true,
+					"inventory_size": 27,
+					"private": true
+				},
+				"minecraft:sittable": {}
+			},
+			// 空闲状态
+			"entity_module:leisure_state": {
+				"minecraft:variant": {
+					"value": 0
+				}
+			},
+			// 发动攻击后
+			"entity_module:angry_after": {
+				"minecraft:variant": {
+					"value": 1
+				},
+				"minecraft:timer": {
+					"time": 2,
+					"time_down_event": {
+						"event": "entity_event:attack_execute",
+						"target": "self"
+					}
+				},
+				"minecraft:angry": {
+					"duration": 24,
+					"broadcast_anger": true,
+					"broadcast_range": 32,
+					"broadcast_targets": [
+						"starry"
+					],
+					"broadcast_filters": {
+						"test": "is_visible",
+						"subject": "other",
+						"value": true
+					},
+					"filters": {
+						"test": "is_visible",
+						"subject": "target",
+						"value": true
+					},
+					"calm_event": {
+						"event": "entity_event:attack_done",
+						"target": "self"
+					}
+				}
+			},
+			// 发动攻击前
+			"entity_module:attack_before": {
+				"minecraft:variant": {
+					"value": 1
+				},
+				"minecraft:ageable": {
+					"duration": 2,
+					"grow_up": {
+						"event": "entity_event:attack_front",
+						"target": "self"
+					}
+				}
+			},
+			// 在陆地上
+			"entity_module:on_ground": {
+				"minecraft:behavior.random_stroll": {
+					"speed_multiplier": 1,
+					"priority": 30
+				}
+			},
+			// 在水中
+			"entity_module:on_water": {
+				"minecraft:behavior.random_swim": {
+					"priority": 30
+				},
+				"minecraft:behavior.swim_wander": {
+					"priority": 25
+				},
+				"minecraft:behavior.swim_idle": {
+					"priority": 35
+				}
+			}
+		},
+		"components": {
+			"minecraft:type_family": {
+				"family": [
+					"divine_favor_guide",
+					"starry"
+				]
+			},
+			"minecraft:collision_box": {
+				"width": 0.75,
+				"height": 2
+			},
+			"minecraft:scale": {
+				"value": 0.75
+			},
+			"minecraft:health": {
+				"value": 100
+			},
+			"minecraft:movement": {
+				"value": 0.3
+			},
+			"minecraft:underwater_movement": {
+				"value": 0.15
+			},
+			"minecraft:breathable": {
+				"generates_bubbles": true,
+				"breathes_solids": true,
+				"breathes_water": true,
+				"breathes_lava": true,
+				"breathes_air": true,
+				"suffocate_time": 10,
+				"total_supply": 15,
+				"inhale_time": 0
+			},
+			"minecraft:variable_max_auto_step": {
+				"jump_prevented_value": 2.5,
+				"controlled_value": 3,
+				"base_value": 2.0
+			},
+			"minecraft:shareables": {
+				"singular_pickup": true,
+				"all_items": true,
+				"items": [
+					{
+						"item": "minecraft:golden_apple"
+					}
+				]
+			},
+			"minecraft:nameable": {},
+			"minecraft:persistent": {},
+			"minecraft:fire_immune": true,
+			// 物理属性
+			"minecraft:pushable": {
+				"is_pushable_by_piston": true,
+				"is_pushable": true
+			},
+			"minecraft:physics": {
+				"push_towards_closest_space": true,
+				"has_collision": true,
+				"has_gravity": true
+			},
+			//事件触发器
+			"minecraft:environment_sensor": {
+				"triggers": [
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "has_tag",
+									"operator": "!=",
+									"value": "on_water"
+								},
+								{
+									"test": "in_water",
+									"operator": "==",
+									"value": true
+								}
+							]
+						},
+						"event": "entity_event:on_water"
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "has_tag",
+									"value": "on_water"
+								},
+								{
+									"test": "in_water",
+									"operator": "!=",
+									"value": true
+								}
+							]
+						},
+						"event": "entity_event:on_ground"
+					}
+				]
+			},
+			"minecraft:tameable": {
+				"probability": 1,
+				"tame_items": [
+					"minecraft:enchanted_golden_apple",
+					"starry_map:eternal_energy"
+				],
+				"tame_event": {
+					"event": "entity_event:create_contract_before",
+					"target": "self"
+				}
+			},
+			"minecraft:on_target_acquired": {
+				"event": "entity_event:attack_point",
+				"target": "self"
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "entity_attack",
+						"on_damage": {
+							"event": "entity_event:when_players_attack",
+							"target": "self",
+							"filters": {
+								"any_of": [
+									{
+										"test": "is_family",
+										"subject": "damager",
+										"value": "player"
+									}
+								]
+							}
+						},
+						"deals_damage": false
+					},
+					{
+						"cause": "all",
+						"on_damage": {
+							"event": "entity_event:under_attack",
+							"target": "self",
+							"filters": {
+								"any_of": [
+									{
+										"test": "has_equipment",
+										"value": "starry_map:ender_dragon_scales"
+									},
+									{
+										"test": "has_equipment",
+										"value": "starry_map:magic_crystal_shield"
+									},
+									{
+										"test": "has_equipment",
+										"value": "shield"
+									},
+									{
+										"test": "is_family",
+										"subject": "damager",
+										"value": "player"
+									},
+									{
+										"test": "is_family",
+										"subject": "damager",
+										"value": "starry"
+									}
+								]
+							}
+						},
+						"deals_damage": false
+					},
+					{
+						"cause": "fall",
+						"deals_damage": false
+					}
+				]
+			},
+			// 行为控制
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 10,
+				"entity_types": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "abyss"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "monster"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "warden"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "hoglin"
+								}
+							]
+						},
+						"within_default": 32
+					}
+				],
+				"must_reach": true,
+				"must_see": true
+			},
+			"minecraft:behavior.restrict_open_door": {
+				"priority": 15
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 18
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 12
+			},
+			"minecraft:behavior.look_at_player": {
+				"probability": 0.02,
+				"look_distance": 3,
+				"priority": 17
+			},
+			"minecraft:behavior.pickup_items": {
+				"can_pickup_to_hand_or_equipment": false,
+				"pickup_based_on_chance": false,
+				"can_pickup_any_item": true,
+				"speed_multiplier": 0.75,
+				"track_target": true,
+				"goal_radius": 1.45,
+				"priority": 6,
+				"max_dist": 9
+			},
+			"minecraft:behavior.open_door": {
+				"close_door_after": true,
+				"priority": 16
+			},
+			"minecraft:navigation.generic": {
+				// 常规移动
+				"avoid_damage_blocks": true,
+				"can_walk": true,
+				// 开门
+				"can_open_iron_doors": true,
+				"can_pass_doors": true,
+				"can_open_doors": true,
+				// 在流体中行动
+				"can_path_over_water": true,
+				"can_path_over_lava": true,
+				"is_amphibious": true,
+				"can_sink": true,
+				"can_swim": true
+			},
+			"minecraft:annotation.open_door": {},
+			"minecraft:movement.generic": {},
+			"minecraft:can_climb": {},
+			// 带宽优化
+			"minecraft:conditional_bandwidth_optimization": {
+				"conditional_values": {
+					"max_dropped_ticks": 20,
+					"max_optimized_distance": 200,
+					"use_motion_prediction_hints": true
+				},
+				"default_values": {
+					"max_dropped_ticks": 10,
+					"max_optimized_distance": 100,
+					"use_motion_prediction_hints": true
+				}
+			}
+		},
+		"events": {
+			// 实体诞生事件
+			"minecraft:entity_spawned": {
+				"add": {
+					"component_groups": [
+						"entity_module:contract_before",
+						"entity_module:on_ground"
+					]
+				}
+			},
+			// 实体进入水体事件
+			"entity_event:on_water": {
+				"queue_command": {
+					"command": [
+						"tag @s add on_water"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"entity_module:on_water"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"entity_module:on_ground"
+					]
+				}
+			},
+			// 实体离开水体事件
+			"entity_event:on_ground": {
+				"queue_command": {
+					"command": [
+						"tag @s remove on_water"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"entity_module:on_ground"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"entity_module:on_water"
+					]
+				}
+			},
+			// 实体死亡事件
+			"entity_event:death": {
+				"queue_command": {
+					"command": [
+						"opal:entity_death_preservation @s"
+					]
+				}
+			},
+			// 实体 农业询问 事件
+			"entity_event:prompt_farming": {
+				"queue_command": {
+					"command": [
+						"title @a[r=8] actionbar 【 @s 】: 我对农业也略知一二, 如果有需要我可以帮你哦?"
+					]
+				}
+			},
+			// 实体状态更改事件
+			"entity_event:change_state": {
+				"sequence": [
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "has_component",
+									"operator": "==",
+									"value": "minecraft:is_chested"
+								}
+							]
+						},
+						"queue_command": {
+							"command": [
+								"title @a[r=8] actionbar 【 @s 】: 我会在停留在这附近, 或者我就坐在这等你?",
+								"particle constant:general_tips ~ ~1.75 ~",
+								"opal:random_equip_or_clear  @s"
+							]
+						},
+						"add": {
+							"component_groups": [
+								"entity_module:sittable_either_or_roam"
+							]
+						},
+						"remove": {
+							"component_groups": [
+								"entity_module:bring_bag_and_follow_along"
+							]
+						},
+						"set_home_position": {}
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "has_component",
+									"operator": "!=",
+									"value": "minecraft:is_chested"
+								}
+							]
+						},
+						"queue_command": {
+							"command": [
+								"title @a[r=8] actionbar 【 @s 】: 我将随你一起行动, 并为你携带背包",
+								"particle constant:general_tips ~ ~1.75 ~",
+								"opal:random_equip_or_clear  @s"
+							]
+						},
+						"add": {
+							"component_groups": [
+								"entity_module:bring_bag_and_follow_along"
+							]
+						},
+						"remove": {
+							"component_groups": [
+								"entity_module:sittable_either_or_roam"
+							]
+						}
+					}
+				]
+			},
+			// 实体契约事件
+			"entity_event:create_contract_before": {
+				"queue_command": {
+					"command": [
+						"opal:entity_contract_rite"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"entity_module:contract_after",
+						"entity_module:bring_bag_and_follow_along"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"entity_module:contract_before"
+					]
+				}
+			},
+			// 实体攻击瞄准事件
+			"entity_event:attack_point": {
+				"queue_command": {
+					"command": [
+						"effect @s slowness 5 255 true",
+						"opal:voice_management_system @s 战斗"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"entity_module:attack_before"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"entity_module:leisure_state"
+					]
+				}
+			},
+			// 实体攻击执行事件
+			"entity_event:attack_execute": {
+				"queue_command": {
+					"command": [
+						"opal:divine_favor_attack @s starsand"
+					]
+				}
+			},
+			// 实体攻击执行事件
+			"entity_event:attack_front": {
+				"remove": {
+					"component_groups": [
+						"entity_module:attack_before"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"entity_module:angry_after"
+					]
+				}
+			},
+			// 实体攻击结束事件
+			"entity_event:attack_done": {
+				"add": {
+					"component_groups": [
+						"entity_module:leisure_state"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"entity_module:angry_after",
+						"entity_module:attack_before"
+					]
+				}
+			},
+			// 玩家命中事件
+			"entity_event:when_players_attack": {
+				"sequence": [
+					{
+						"filters": {
+							"test": "is_family",
+							"subject": "damager",
+							"value": "player"
+						},
+						"queue_command": {
+							"command": [
+								"title @a[r=15] actionbar §4§l<§c 律令:禁武 §4>§r : 请约束你的行为, 不要伤害< @s >"
+							]
+						}
+					}
+				]
+			},
+			// 实体遭受攻击事件
+			"entity_event:under_attack": {
+				"sequence": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "has_equipment",
+									"value": "starry_map:ender_dragon_scales"
+								},
+								{
+									"test": "has_equipment",
+									"value": "shield"
+								},
+								{
+									"test": "has_equipment",
+									"value": "starry_map:magic_crystal_shield"
+								}
+							]
+						},
+						"queue_command": {
+							"command": [
+								"playanimation @s animation.item.shield.resist default 1.0",
+								"playsound item.shield.block @a[r=8] ~~~"
+							]
+						}
+					},
+					{
+						"filters": {
+							"test": "has_equipment",
+							"value": "starry_map:magic_crystal_bow"
+						},
+						"queue_command": {
+							"command": [
+								"playanimation @s animation.item.common.resist default 1.0",
+								"playsound item.shield.block @a[r=8] ~~~"
+							]
+						}
+					}
+				]
+			}
+		}
+	}
+}

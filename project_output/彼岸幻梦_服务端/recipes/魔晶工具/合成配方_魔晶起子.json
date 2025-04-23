@@ -1,0 +1,28 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "starry:starry_map:magic_crystal_screwdriver"
+		},
+		"tags": [
+			"tags:desktop_make"
+		],
+		"pattern": [
+			" O ",
+			" O ",
+			"OXO"
+		],
+		"assume_symmetry": false,
+		"key": {
+			"O": {
+				"item": "starry_map:wafer.steel_rock_eutectic"
+			},
+			"X": {
+				"item": "starry_map:block.blue_energy"
+			}
+		},
+		"result": {
+			"item": "starry_map:magic_crystal_screwdriver"
+		}
+	}
+}

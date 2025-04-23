@@ -1,0 +1,274 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.block.material.collection",
+				"texture_width": 16,
+				"texture_height": 16,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2,
+				"visible_bounds_offset": [0, 1, 0]
+			},
+			"bones": [
+				{
+					"name": "interface",
+					"pivot": [0, 8, 0],
+					"cubes": [
+						{
+							"origin": [-2, 13, -2],
+							"size": [4, 3, 4],
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [16, 1], "material_instance": "interface"},
+								"east": {"uv": [0, 0], "uv_size": [16, 1], "material_instance": "interface"},
+								"south": {"uv": [0, 0], "uv_size": [16, 1], "material_instance": "interface"},
+								"west": {"uv": [0, 0], "uv_size": [16, 1], "material_instance": "interface"},
+								"up": {"uv": [16, 16], "uv_size": [-16, -16], "material_instance": "interface"},
+								"down": {"uv": [16, 16], "uv_size": [-16, -16], "material_instance": "interface"}
+							}
+						}
+					]
+				},
+				{
+					"name": "stone_1",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-6, 13, -1],
+							"size": [12, 1, 2],
+							"uv": {
+								"north": {"uv": [1, 1], "uv_size": [12, 1], "material_instance": "stone_1"},
+								"east": {"uv": [1, 1], "uv_size": [2, 1], "material_instance": "stone_1"},
+								"south": {"uv": [1, 1], "uv_size": [12, 1], "material_instance": "stone_1"},
+								"west": {"uv": [1, 1], "uv_size": [2, 1], "material_instance": "stone_1"},
+								"up": {"uv": [13, 3], "uv_size": [-12, -2], "material_instance": "stone_1"},
+								"down": {"uv": [13, 3], "uv_size": [-12, -2], "material_instance": "stone_1"}
+							}
+						},
+						{
+							"origin": [-13, -6, -1],
+							"size": [10, 1, 2],
+							"pivot": [0, 0, 0],
+							"rotation": [0, 0, 90],
+							"uv": {
+								"north": {"uv": [1, 1], "uv_size": [10, 1], "material_instance": "stone_1"},
+								"east": {"uv": [1, 1], "uv_size": [2, 1], "material_instance": "stone_1"},
+								"south": {"uv": [1, 1], "uv_size": [10, 1], "material_instance": "stone_1"},
+								"west": {"uv": [1, 1], "uv_size": [2, 1], "material_instance": "stone_1"},
+								"up": {"uv": [11, 3], "uv_size": [-10, -2], "material_instance": "stone_1"},
+								"down": {"uv": [11, 3], "uv_size": [-10, -2], "material_instance": "stone_1"}
+							}
+						},
+						{
+							"origin": [-13, 5, -1],
+							"size": [10, 1, 2],
+							"pivot": [0, 0, 0],
+							"rotation": [0, 0, 90],
+							"uv": {
+								"north": {"uv": [1, 1], "uv_size": [10, 1], "material_instance": "stone_1"},
+								"east": {"uv": [1, 1], "uv_size": [2, 1], "material_instance": "stone_1"},
+								"south": {"uv": [1, 1], "uv_size": [10, 1], "material_instance": "stone_1"},
+								"west": {"uv": [1, 1], "uv_size": [2, 1], "material_instance": "stone_1"},
+								"up": {"uv": [11, 3], "uv_size": [-10, -2], "material_instance": "stone_1"},
+								"down": {"uv": [11, 3], "uv_size": [-10, -2], "material_instance": "stone_1"}
+							}
+						},
+						{
+							"origin": [-6, 2, -1],
+							"size": [12, 1, 2],
+							"uv": {
+								"north": {"uv": [1, 1], "uv_size": [12, 1], "material_instance": "stone_1"},
+								"east": {"uv": [1, 1], "uv_size": [2, 1], "material_instance": "stone_1"},
+								"south": {"uv": [1, 1], "uv_size": [12, 1], "material_instance": "stone_1"},
+								"west": {"uv": [1, 1], "uv_size": [2, 1], "material_instance": "stone_1"},
+								"up": {"uv": [13, 3], "uv_size": [-12, -2], "material_instance": "stone_1"},
+								"down": {"uv": [13, 3], "uv_size": [-12, -2], "material_instance": "stone_1"}
+							}
+						}
+					]
+				},
+				{
+					"name": "stone_7",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-2, 12.8, -2],
+							"size": [4, 2, 4],
+							"inflate": 0.2,
+							"uv": {
+								"north": {"uv": [1, 1], "uv_size": [4, 2], "material_instance": "stone_7"},
+								"east": {"uv": [1, 1], "uv_size": [4, 2], "material_instance": "stone_7"},
+								"south": {"uv": [1, 1], "uv_size": [4, 2], "material_instance": "stone_7"},
+								"west": {"uv": [1, 1], "uv_size": [4, 2], "material_instance": "stone_7"},
+								"up": {"uv": [5, 5], "uv_size": [-4, -4], "material_instance": "stone_7"},
+								"down": {"uv": [5, 5], "uv_size": [-4, -4], "material_instance": "stone_7"}
+							}
+						},
+						{
+							"origin": [4.5, 6, -1],
+							"size": [2, 2, 2],
+							"inflate": 0.2,
+							"uv": {
+								"north": {"uv": [1, 1], "uv_size": [2, 2], "material_instance": "stone_7"},
+								"east": {"uv": [1, 1], "uv_size": [2, 2], "material_instance": "stone_7"},
+								"south": {"uv": [1, 1], "uv_size": [2, 2], "material_instance": "stone_7"},
+								"west": {"uv": [1, 1], "uv_size": [2, 2], "material_instance": "stone_7"},
+								"up": {"uv": [3, 3], "uv_size": [-2, -2], "material_instance": "stone_7"},
+								"down": {"uv": [3, 3], "uv_size": [-2, -2], "material_instance": "stone_7"}
+							}
+						},
+						{
+							"origin": [-6.5, 6, -1],
+							"size": [2, 2, 2],
+							"inflate": 0.2,
+							"uv": {
+								"north": {"uv": [1, 1], "uv_size": [2, 2], "material_instance": "stone_7"},
+								"east": {"uv": [1, 1], "uv_size": [2, 2], "material_instance": "stone_7"},
+								"south": {"uv": [1, 1], "uv_size": [2, 2], "material_instance": "stone_7"},
+								"west": {"uv": [1, 1], "uv_size": [2, 2], "material_instance": "stone_7"},
+								"up": {"uv": [3, 3], "uv_size": [-2, -2], "material_instance": "stone_7"},
+								"down": {"uv": [3, 3], "uv_size": [-2, -2], "material_instance": "stone_7"}
+							}
+						},
+						{
+							"origin": [-6, 0.5, -6],
+							"size": [12, 0.5, 12],
+							"inflate": 0.2,
+							"uv": {
+								"north": {"uv": [1, 1], "uv_size": [12, 0.5], "material_instance": "stone_7"},
+								"east": {"uv": [1, 1], "uv_size": [12, 0.5], "material_instance": "stone_7"},
+								"south": {"uv": [1, 1], "uv_size": [12, 0.5], "material_instance": "stone_7"},
+								"west": {"uv": [1, 1], "uv_size": [12, 0.5], "material_instance": "stone_7"},
+								"up": {"uv": [13, 13], "uv_size": [-12, -12], "material_instance": "stone_7"},
+								"down": {"uv": [13, 13], "uv_size": [-12, -12], "material_instance": "stone_7"}
+							}
+						},
+						{
+							"origin": [-6.5, 0.2, -6.5],
+							"size": [13, 1, 2],
+							"inflate": 0.2,
+							"uv": {
+								"north": {"uv": [1, 1], "uv_size": [13, 1], "material_instance": "stone_7"},
+								"east": {"uv": [1, 1], "uv_size": [2, 1], "material_instance": "stone_7"},
+								"south": {"uv": [1, 1], "uv_size": [13, 1], "material_instance": "stone_7"},
+								"west": {"uv": [1, 1], "uv_size": [2, 1], "material_instance": "stone_7"},
+								"up": {"uv": [14, 3], "uv_size": [-13, -2], "material_instance": "stone_7"},
+								"down": {"uv": [14, 3], "uv_size": [-13, -2], "material_instance": "stone_7"}
+							}
+						},
+						{
+							"origin": [-6.5, 0.2, 4.5],
+							"size": [13, 1, 2],
+							"inflate": 0.2,
+							"uv": {
+								"north": {"uv": [1, 1], "uv_size": [13, 1], "material_instance": "stone_7"},
+								"east": {"uv": [1, 1], "uv_size": [2, 1], "material_instance": "stone_7"},
+								"south": {"uv": [1, 1], "uv_size": [13, 1], "material_instance": "stone_7"},
+								"west": {"uv": [1, 1], "uv_size": [2, 1], "material_instance": "stone_7"},
+								"up": {"uv": [14, 3], "uv_size": [-13, -2], "material_instance": "stone_7"},
+								"down": {"uv": [14, 3], "uv_size": [-13, -2], "material_instance": "stone_7"}
+							}
+						},
+						{
+							"origin": [-6, 0, -6],
+							"size": [1, 1, 8],
+							"inflate": 0.2,
+							"pivot": [-5.5, 1.2, -6.2],
+							"rotation": [50, 0, 0],
+							"uv": {
+								"north": {"uv": [1, 1], "uv_size": [1, 1], "material_instance": "stone_7"},
+								"east": {"uv": [1, 1], "uv_size": [8, 1], "material_instance": "stone_7"},
+								"south": {"uv": [1, 1], "uv_size": [1, 1], "material_instance": "stone_7"},
+								"west": {"uv": [1, 1], "uv_size": [8, 1], "material_instance": "stone_7"},
+								"up": {"uv": [2, 9], "uv_size": [-1, -8], "material_instance": "stone_7"},
+								"down": {"uv": [2, 9], "uv_size": [-1, -8], "material_instance": "stone_7"}
+							}
+						},
+						{
+							"origin": [5, 0, -6],
+							"size": [1, 1, 8],
+							"inflate": 0.2,
+							"pivot": [-5.5, 1.2, -6.2],
+							"rotation": [50, 0, 0],
+							"uv": {
+								"north": {"uv": [1, 1], "uv_size": [1, 1], "material_instance": "stone_7"},
+								"east": {"uv": [1, 1], "uv_size": [8, 1], "material_instance": "stone_7"},
+								"south": {"uv": [1, 1], "uv_size": [1, 1], "material_instance": "stone_7"},
+								"west": {"uv": [1, 1], "uv_size": [8, 1], "material_instance": "stone_7"},
+								"up": {"uv": [2, 9], "uv_size": [-1, -8], "material_instance": "stone_7"},
+								"down": {"uv": [2, 9], "uv_size": [-1, -8], "material_instance": "stone_7"}
+							}
+						},
+						{
+							"origin": [16, 0, 6.4],
+							"size": [1, 1, 8],
+							"inflate": 0.2,
+							"pivot": [5.5, 1.2, 6.2],
+							"rotation": [-130, 0, 180],
+							"uv": {
+								"north": {"uv": [1, 1], "uv_size": [1, 1], "material_instance": "stone_7"},
+								"east": {"uv": [1, 1], "uv_size": [8, 1], "material_instance": "stone_7"},
+								"south": {"uv": [1, 1], "uv_size": [1, 1], "material_instance": "stone_7"},
+								"west": {"uv": [1, 1], "uv_size": [8, 1], "material_instance": "stone_7"},
+								"up": {"uv": [2, 9], "uv_size": [-1, -8], "material_instance": "stone_7"},
+								"down": {"uv": [2, 9], "uv_size": [-1, -8], "material_instance": "stone_7"}
+							}
+						},
+						{
+							"origin": [5, 0, 6.4],
+							"size": [1, 1, 8],
+							"inflate": 0.2,
+							"pivot": [5.5, 1.2, 6.2],
+							"rotation": [-130, 0, 180],
+							"uv": {
+								"north": {"uv": [1, 1], "uv_size": [1, 1], "material_instance": "stone_7"},
+								"east": {"uv": [1, 1], "uv_size": [8, 1], "material_instance": "stone_7"},
+								"south": {"uv": [1, 1], "uv_size": [1, 1], "material_instance": "stone_7"},
+								"west": {"uv": [1, 1], "uv_size": [8, 1], "material_instance": "stone_7"},
+								"up": {"uv": [2, 9], "uv_size": [-1, -8], "material_instance": "stone_7"},
+								"down": {"uv": [2, 9], "uv_size": [-1, -8], "material_instance": "stone_7"}
+							}
+						}
+					]
+				},
+				{
+					"name": "transmit",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-5, 3, -0.5],
+							"size": [10, 10, 1],
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [16, 16], "material_instance": "transmit"},
+								"east": {"uv": [0, 0], "uv_size": [16, 16], "material_instance": "transmit"},
+								"south": {"uv": [0, 0], "uv_size": [16, 16], "material_instance": "transmit"},
+								"west": {"uv": [0, 0], "uv_size": [16, 16], "material_instance": "transmit"},
+								"up": {"uv": [16, 16], "uv_size": [-16, -16], "material_instance": "transmit"},
+								"down": {"uv": [16, 16], "uv_size": [-16, -16], "material_instance": "transmit"}
+							}
+						}
+					]
+				},
+				{
+					"name": "felt_0",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-6, -0.1, -6],
+							"size": [12, 1, 12],
+							"inflate": -0.2,
+							"uv": {
+								"north": {"uv": [1, 1], "uv_size": [14, 1], "material_instance": "felt_0"},
+								"east": {"uv": [1, 1], "uv_size": [14, 1], "material_instance": "felt_0"},
+								"south": {"uv": [1, 1], "uv_size": [14, 1], "material_instance": "felt_0"},
+								"west": {"uv": [1, 1], "uv_size": [14, 1], "material_instance": "felt_0"},
+								"up": {"uv": [15, 15], "uv_size": [-14, -14], "material_instance": "felt_0"},
+								"down": {"uv": [15, 15], "uv_size": [-14, -14], "material_instance": "felt_0"}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

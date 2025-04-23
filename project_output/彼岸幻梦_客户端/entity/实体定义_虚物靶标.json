@@ -1,0 +1,28 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "starry_map:execute.virtual_target",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"facade": "textures/实体贴图/虚物靶标"
+			},
+			"geometry": {
+				"default": "geometry.entity.virtual_target"
+			},
+			"scripts": {
+				"animate": [
+					"open"
+				]
+			},
+			"animations": {
+				"open": "animation.entity.core_rotate.target"
+			},
+			"render_controllers": [
+				"controller.render.facade:variant.01"
+			]
+		}
+	}
+}

@@ -1,0 +1,14 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.player_to_individuation.revise": {
+			"loop": true,
+			"animation_length": 1,
+			"bones": {
+				"arms": {
+					"position": [0, -8, 0]
+				}
+			}
+		}
+	}
+}

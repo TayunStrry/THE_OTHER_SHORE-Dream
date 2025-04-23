@@ -1,0 +1,14 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:structure_template_feature": {
+		"description": {
+			"identifier": "feature:structure_large_bonfire"
+		},
+		"structure_name": "ecosystems:large_bonfire",
+		"facing_direction": "south",
+		"adjustment_radius": 8,
+		"constraints": {
+			"grounded": {}
+		}
+	}
+}

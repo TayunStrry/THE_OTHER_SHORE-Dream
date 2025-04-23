@@ -1,0 +1,35 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:item": {
+		"description": {
+			"identifier": "starry_map:azure_sea_tide"
+		},
+		"components": {
+			// 手持物品
+			"minecraft:allow_off_hand": true,
+			"minecraft:hand_equipped": false,
+			// 基础属性
+			"minecraft:durability": {
+				"max_durability": 1000
+			},
+			"minecraft:enchantable": {
+				"value": 30,
+				"slot": "elytra"
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "item_texture:碧海潮生"
+				}
+			},
+			"minecraft:hover_text_color": "material_gold",
+			"minecraft:max_stack_size": 1,
+			// 物品标签
+			"minecraft:tags": {
+				"tags": [
+					"tags:use_energy_to_restore_durability",
+					"tags:magic_equipment.series"
+				]
+			}
+		}
+	}
+}

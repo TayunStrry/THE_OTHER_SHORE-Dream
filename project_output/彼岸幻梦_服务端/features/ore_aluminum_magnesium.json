@@ -1,0 +1,42 @@
+{
+	"format_version": "1.17.0",
+	"minecraft:ore_feature": {
+		"description": {
+			"identifier": "feature:ore_aluminum_magnesium"
+		},
+		"count": 8,
+		"replace_rules": [
+			{
+				"places_block": {
+					"name": "starry_map:mine.aluminum_magnesium"
+				},
+				"may_replace": [
+					{
+						"name": "minecraft:stone"
+					},
+					{
+						"name": "minecraft:andesite"
+					},
+					{
+						"name": "minecraft:deepslate"
+					},
+					{
+						"name": "minecraft:diorite"
+					},
+					{
+						"name": "minecraft:granite"
+					},
+					{
+						"name": "minecraft:sandstone"
+					},
+					{
+						"name": "minecraft:calcite"
+					},
+					{
+						"name": "minecraft:cobblestone"
+					}
+				]
+			}
+		]
+	}
+}

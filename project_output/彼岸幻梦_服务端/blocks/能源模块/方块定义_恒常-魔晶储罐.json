@@ -1,0 +1,76 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "items"
+			},
+			"identifier": "starry_map:constant_tank",
+			"states": {
+				"STATE:output": [
+					0,
+					1
+				]
+			}
+		},
+		"components": {
+			// 掉落物置换
+			"minecraft:loot": "loot_tables/package_nihility.json",
+			// 方块含水
+			"minecraft:liquid_detection": {
+				"detection_rules": [
+					{
+						"on_liquid_touches": "no_reaction",
+						"can_contain_liquid": true,
+						"liquid_type": "water"
+					}
+				]
+			},
+			// 防爆与挖掘
+			"minecraft:destructible_by_explosion": false,
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			// 摩擦力
+			"minecraft:friction": 0.35,
+			// 方块光照
+			"minecraft:light_dampening": 0,
+			"minecraft:light_emission": 15,
+			// 模型与纹理
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "block_texture:magic_crystal_tank.constant",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:geometry": {
+				"identifier": "geometry.block.energy.release_tank",
+				"bone_visibility": {
+					"done": "q.block_state('STATE:output') == 0",
+					"open": "q.block_state('STATE:output') == 1",
+					"energy_1": false,
+					"energy_2": false,
+					"energy_3": false,
+					"energy_4": false,
+					"energy_5": false,
+					"energy_6": false,
+					"energy_7": false,
+					"energy_8": true
+				}
+			},
+			// 事件触发器
+			"opal:destroy.crystal_tank": {},
+			"opal:tick.crystal_tank": {},
+			"minecraft:tick": {
+				"interval_range": [
+					100,
+					200
+				]
+			},
+			// 方块标签
+			"tag:tags:energy_module.series": {},
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"tag:iron_pick_diggable": {}
+		}
+	}
+}

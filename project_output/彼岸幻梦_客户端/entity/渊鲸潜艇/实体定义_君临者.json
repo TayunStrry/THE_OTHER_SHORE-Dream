@@ -1,0 +1,39 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "starry_map:abyss_whale.emperor",
+			"materials": {
+				"default": "entity_alphatest",
+				"light": "opal_light_only"
+			},
+			"textures": {
+				"facade": "textures/实体贴图/渊鲸/君临者",
+				"heart": "textures/实体贴图/渊鲸/血量"
+			},
+			"geometry": {
+				"default": "geometry.entity.whale_emperor",
+				"heart": "geometry.entity.whale_emperor_heart"
+			},
+			"scripts": {
+				"animate": [
+					"basic",
+					"control_watch"
+				],
+				"should_update_bones_and_effects_offscreen": true
+			},
+			"animations": {
+				"control_watch": "controller.animation.attack.general_0",
+				"attack": "animation.entity.whale.battle",
+				"basic": "animation.entity.machine_move.whale"
+			},
+			"render_controllers": [
+				"controller.render.display_heart",
+				"controller.render.facade:variant.01"
+			],
+			"spawn_egg": {
+				"texture": "item_texture:machine_brain.渊鲸_君临者"
+			}
+		}
+	}
+}

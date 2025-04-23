@@ -1,0 +1,28 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "starry:starry_map:magic_crystal_wrench"
+		},
+		"tags": [
+			"tags:desktop_make"
+		],
+		"pattern": [
+			"ABA",
+			" A ",
+			" A "
+		],
+		"assume_symmetry": false,
+		"key": {
+			"A": {
+				"item": "starry_map:wafer.steel_rock_eutectic"
+			},
+			"B": {
+				"item": "starry_map:block.blue_energy"
+			}
+		},
+		"result": {
+			"item": "starry_map:magic_crystal_wrench"
+		}
+	}
+}

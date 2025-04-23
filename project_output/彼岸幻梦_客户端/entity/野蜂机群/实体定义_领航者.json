@@ -1,0 +1,33 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "starry_map:wild_bee.guide",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"facade": "textures/实体贴图/野蜂/领航者"
+			},
+			"geometry": {
+				"default": "geometry.entity.wasp"
+			},
+			"scripts": {
+				"animate": [
+					"control_attack"
+				]
+			},
+			"animations": {
+				"control_attack": "controller.animation.attack.wild_wasp",
+				"attack": "animation.entity.wasp.battle",
+				"basic": "animation.entity.wasp.routine"
+			},
+			"render_controllers": [
+				"controller.render.facade:variant.01"
+			],
+			"spawn_egg": {
+				"texture": "item_texture:machine_brain.野蜂_领航者"
+			}
+		}
+	}
+}

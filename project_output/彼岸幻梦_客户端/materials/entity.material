@@ -1,0 +1,137 @@
+{
+    // 材质配置对象, 用于定义不同材质的属性和行为
+    "materials": {
+        // 定义材质版本
+        "version": "1.0.0",
+        //! 发光材质
+        "opal_light_only:entity": {
+            "+states": [
+                //todo DisableCulling: 控制是否禁用面片剔除
+                "DisableCulling"
+            ],
+            "+defines": [
+                //todo USE_EMISSIVE: 控制是否使用自发光效果
+                "USE_EMISSIVE"
+            ]
+        },
+        //! 混合材质
+        "opal_blend_only:entity": {
+            "+states": [
+                //todo Blending: 控制是否启用混合
+                "Blending",
+                //todo DisableCulling: 控制是否禁用面片剔除
+                "DisableCulling"
+            ],
+            "+defines": [
+                //todo ALPHA_TEST: 控制是否启用透明度测试
+                "ALPHA_TEST"
+            ]
+        },
+        //! 混合 与 UV动画 材质
+        "opal_blend_uv_animation:entity": {
+            "+states": [
+                //todo Blending: 控制是否启用混合
+                "Blending",
+                //todo DisableCulling: 控制是否禁用面片剔除
+                "DisableCulling"
+            ],
+            "+defines": [
+                //todo ALPHA_TEST: 控制是否启用透明度测试
+                "ALPHA_TEST",
+                // todo USE_UV_ANIM: 控制是否启用 UV 动画
+                "USE_UV_ANIM"
+            ]
+        },
+        //! 发光 与 正面剔除 材质
+        "opal_light_culling:entity": {
+            "+states": [
+                //todo InvertCulling: 开启正面剔除并且禁用背面剔除
+                "InvertCulling"
+            ],
+            "+defines": [
+                //todo USE_EMISSIVE: 控制是否使用自发光效果
+                "USE_EMISSIVE"
+            ]
+        },
+        //! 混合发光材质
+        "opal_light_blend:entity": {
+            "+states": [
+                //todo Blending: 控制是否启用混合
+                "Blending",
+                //todo DisableCulling: 控制是否禁用面片剔除
+                "DisableCulling"
+            ],
+            "+defines": [
+                //todo USE_EMISSIVE: 控制是否使用自发光效果
+                "USE_EMISSIVE"
+            ]
+        },
+        //! 混合发光 与 正面剔除 材质
+        "opal_blend_light_by_culling:entity": {
+            "+states": [
+                //todo Blending: 控制是否启用混合
+                "Blending",
+                //todo InvertCulling: 开启正面剔除并且禁用背面剔除
+                "InvertCulling"
+            ],
+            "+defines": [
+                //todo USE_EMISSIVE: 控制是否使用自发光效果
+                "USE_EMISSIVE"
+            ]
+        },
+        //! 透明度测试 与 蒙版遮罩 材质
+        "opal_alphatest_stencil:entity_alphatest": {
+            "+defines": [
+                // todo USE_SKINNING: 控制是否启用骨骼动画
+                "USE_SKINNING"
+            ],
+            "+states": [
+                // todo EnableStencilTest: 控制是否启用模板测试
+                "EnableStencilTest",
+                // todo StencilWrite: 控制是否写入模板值
+                "StencilWrite"
+            ],
+            "frontFace": {
+                "stencilFunc": "Always",
+                "stencilFailOp": "Replace",
+                "stencilDepthFailOp": "Replace",
+                "stencilPassOp": "Replace"
+            },
+            "backFace": {
+                "stencilFunc": "Always",
+                "stencilFailOp": "Replace",
+                "stencilDepthFailOp": "Replace",
+                "stencilPassOp": "Replace"
+            },
+            "stencilRef": 7
+        },
+        //! 混合发光 与 蒙版遮罩 材质
+        "opal_blend_light_stencil:entity_emissive": {
+            "+states": [
+                // todo DisableDepthWrite: 控制是否禁用深度写入
+                "DisableDepthWrite",
+                // todo EnableStencilTest: 控制是否启用模板测试
+                "EnableStencilTest",
+                // todo Blending: 控制是否启用混合
+                "Blending"
+            ],
+            "-defines": [
+                // todo FANCY: 控制是否启用 fancy 模式
+                "FANCY"
+            ],
+            "+defines": [
+                // todo USE_UV_ANIM: 控制是否启用 UV 动画
+                "USE_UV_ANIM"
+            ],
+            "frontFace": {
+                "stencilFunc": "NotEqual",
+                "stencilPassOp": "Replace"
+            },
+            "backFace": {
+                "stencilFunc": "NotEqual",
+                "stencilPassOp": "Replace"
+            },
+            "stencilRef": 7
+        }
+    }
+}

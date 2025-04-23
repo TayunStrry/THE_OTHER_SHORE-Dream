@@ -1,0 +1,41 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "starry:starry_map:magic_portal_below"
+		},
+		"tags": [
+			"tags:desktop_make"
+		],
+		"pattern": [
+			"030",
+			"121",
+			"545"
+		],
+		"assume_symmetry": false,
+		"key": {
+			"0": {
+				"item": "starry_map:steel_rock_eutectic"
+			},
+			"1": {
+				"item": "starry_map:plate.oxygen_enriched_gold"
+			},
+			"2": {
+				"item": "starry_map:universal_integrated_circuit"
+			},
+			"3": {
+				"item": "starry_map:universal_mechanical_framework"
+			},
+			"4": {
+				"item": "starry_map:wafer.steel_rock_eutectic"
+			},
+			"5": {
+				"item": "starry_map:gear.gold_carbonate"
+			}
+		},
+		"result": {
+			"item": "starry_map:magic_portal_below",
+			"count": 6
+		}
+	}
+}

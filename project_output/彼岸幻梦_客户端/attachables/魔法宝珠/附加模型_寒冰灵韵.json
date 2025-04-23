@@ -1,0 +1,28 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:attachable": {
+		"description": {
+			"identifier": "starry_map:ice_essence_gem",
+			"materials": {
+				"default": "opal_light_only"
+			},
+			"textures": {
+				"default": "textures/物品贴图/魔法宝珠/寒冰灵韵"
+			},
+			"geometry": {
+				"default": "geometry.item.starry_night_bead"
+			},
+			"scripts": {
+				"animate": [
+					"hold_use"
+				]
+			},
+			"animations": {
+				"hold_use": "animation.item.starry_night_bead"
+			},
+			"render_controllers": [
+				"controller.render.magic_equipment"
+			]
+		}
+	}
+}

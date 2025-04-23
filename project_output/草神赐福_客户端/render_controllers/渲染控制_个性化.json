@@ -1,0 +1,241 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.player_to_individuation.standby_animation": {
+			"geometry": "geometry.standby_animation",
+			"materials": [
+				{
+					"*": "material.blend_light"
+				},
+				{
+					"flowerRope": "material.light"
+				},
+				{
+					"birdcage": "material.light"
+				},
+				{
+					"flyingBird": "material.light"
+				}
+			],
+			"part_visibility": [
+				// TODO 待机动画模型
+				{
+					"swingSeat": "v.standby_animation == 5 && !v.is_first_person && !q.is_riding"
+				},
+				{
+					"flowerRope": "v.standby_animation == 2 && !v.is_first_person && !q.is_riding"
+				},
+				{
+					"birdcage": "v.standby_animation == 3 && !v.is_first_person && !q.is_riding"
+				},
+				{
+					"flyingBird": "v.standby_animation == 3 && !v.is_first_person && !q.is_riding"
+				},
+				{
+					"birdcageBlade": "v.standby_animation == 3 && !v.is_first_person && !q.is_riding"
+				},
+				{
+					"teacup": "v.standby_animation == 2 && !v.is_first_person && !q.is_riding"
+				},
+				{
+					"coaster": "v.standby_animation == 2 && !v.is_first_person && !q.is_riding"
+				},
+				{
+					"weaponry": "v.standby_animation == 7 && !v.is_first_person && !q.is_riding"
+				}
+			],
+			"textures": [
+				"texture.light"
+			]
+		},
+		"controller.render.player_to_individuation.switch_clothing": {
+			"materials": [
+				{
+					"*": "material.default"
+				},
+				{
+					"selectBox": "material.blend_light"
+				},
+				{
+					"frontSight": "material.blend_light"
+				},
+				{
+					"tailFoliage": "material.light"
+				},
+				{
+					"progressBar_0": "material.light"
+				},
+				{
+					"progressBar_1": "material.light"
+				},
+				{
+					"progressBar_2": "material.light"
+				},
+				{
+					"progressBar_3": "material.light"
+				},
+				{
+					"progressBar_4": "material.light"
+				},
+				{
+					"progressBar_5": "material.default"
+				},
+				{
+					"progressBar_6": "material.default"
+				},
+				{
+					"progressBar_7": "material.default"
+				},
+				{
+					"eyelidRightIris": "material.light"
+				},
+				{
+					"eyelidLeftIris": "material.light"
+				},
+				{
+					"foliage": "material.light"
+				},
+				{
+					"ribbon": "material.light"
+				},
+				{
+					"dress": "material.light"
+				},
+				{
+					"rightSole": "material.light"
+				},
+				{
+					"leftSole": "material.light"
+				},
+				{
+					"jewelryOfChest": "material.light"
+				},
+				{
+					"hairRight": "material.light"
+				},
+				{
+					"rightArm": "material.light"
+				},
+				{
+					"leftArm": "material.light"
+				},
+				{
+					"speedBar": "material.light"
+				},
+				{
+					"ponytailTip": "material.light"
+				},
+				{
+					"ponytailBelow": "material.light"
+				},
+				{
+					"firstPersonAim": "material.blend_light"
+				}
+			],
+			"part_visibility": [
+				// TODO 蓄力瞄准模型
+				{
+					"progressBar_0": "v.rechargeable_item && !v.is_first_person"
+				},
+				{
+					"progressBar_1": "v.rechargeable_item && !v.is_first_person"
+				},
+				{
+					"progressBar_2": "v.rechargeable_item && !v.is_first_person"
+				},
+				{
+					"progressBar_3": "v.rechargeable_item && !v.is_first_person"
+				},
+				{
+					"progressBar_4": "v.rechargeable_item && !v.is_first_person"
+				},
+				{
+					"progressBar_5": "v.rechargeable_item && !v.is_first_person"
+				},
+				{
+					"progressBar_6": "v.rechargeable_item && !v.is_first_person"
+				},
+				{
+					"progressBar_7": "v.rechargeable_item && !v.is_first_person"
+				},
+				{
+					"speedBarFrame": "v.rechargeable_item && !v.is_first_person"
+				},
+				{
+					"speedBar": "v.rechargeable_item && !v.is_first_person"
+				},
+				{
+					"frontSight": "v.rechargeable_item"
+				},
+				{
+					"selectBox": "v.rechargeable_item"
+				},
+				// TODO 猫娘特征模型
+				{
+					"catEarsLeft": "v.switch_clothing >= 1"
+				},
+				{
+					"catEarsRight": "v.switch_clothing >= 1"
+				},
+				{
+					"tail_0": "v.switch_clothing >= 2"
+				},
+				{
+					"tail_1": "v.switch_clothing >= 2"
+				},
+				{
+					"tail_2": "v.switch_clothing >= 2"
+				},
+				{
+					"tail_3": "v.switch_clothing >= 2"
+				},
+				{
+					"tail_4": "v.switch_clothing >= 2"
+				},
+				{
+					"tail_5": "v.switch_clothing >= 2"
+				},
+				{
+					"tailFoliage": "v.switch_clothing >= 3"
+				},
+				{
+					"formalHat": "!v.is_first_person"
+				}
+			],
+			"arrays": {
+				"textures": {
+					"array.texture": [
+						"texture.default",
+						"texture.light"
+					]
+				}
+				/*
+				,
+				"geometries": {
+				  "array.geometry": [
+					"geometry.default",
+					"geometry.cat_girl",
+					"geometry.cat_girl_tailless"
+				  ]
+				}
+				*/
+			},
+			//"geometry": "array.geometry[v.switch_clothing]",
+			"geometry": "geometry.default",
+			"textures": [
+				"array.texture[v.rechargeable_item || v.item_use]"
+			]
+		},
+		"controller.render.player_to_individuation.elytra": {
+			"geometry": "geometry.elytra",
+			"materials": [
+				{
+					"*": "material.blend_light"
+				}
+			],
+			"textures": [
+				"texture.elytra"
+			]
+		}
+	}
+}

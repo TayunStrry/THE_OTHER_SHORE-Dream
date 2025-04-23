@@ -1,0 +1,64 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:item": {
+		"description": {
+			"identifier": "starry_map:viper_barrel",
+			"menu_category": {
+				"category": "items"
+			}
+		},
+		"components": {
+			"minecraft:can_destroy_in_creative": false,
+			"minecraft:allow_off_hand": false,
+			"minecraft:hand_equipped": false,
+			"minecraft:icon": {
+				"textures": {
+					"default": "item_texture:蝰蛇炮管"
+				}
+			},
+			"minecraft:food": {
+				"saturation_modifier": 0.5,
+				"can_always_eat": true,
+				"nutrition": 1
+			},
+			"minecraft:use_modifiers": {
+				"movement_modifier": 0.5,
+				"use_duration": 1.5
+			},
+			// 自定义组件
+			"opal:item.use_effect": {
+                /*
+                 * 要施加的状态效果
+                 */
+				"effects": [
+					"fatal_poison",
+					"weakness",
+					"nausea"
+				],
+                /*
+                 * 状态效果的最小持续时间
+                 */
+                "min_duration": 200,
+                /*
+                 * 状态效果的最大持续时间
+                 */
+                "max_duration": 400,
+                /*
+                 * 状态效果放大器
+                 */
+                "amplifier": 0,
+                /*
+                 * 生命值修改
+                 */
+                "health_changes": -5
+			},
+			"minecraft:use_animation": "eat",
+			"minecraft:max_stack_size": 16,
+			"minecraft:tags": {
+				"tags": [
+					"tags:item_delicacies.series"
+				]
+			}
+		}
+	}
+}

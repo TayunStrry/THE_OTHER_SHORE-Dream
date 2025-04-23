@@ -1,0 +1,50 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "starry:starry_map:azure_sea_tide"
+		},
+		"tags": [
+			"tags:desktop_make"
+		],
+		"pattern": [
+			"123",
+			"456",
+			"789"
+		],
+		"assume_symmetry": false,
+		"key": {
+			"1": {
+				"item": "starry_map:block.blue_energy"
+			},
+			"2": {
+				"item": "minecraft:nautilus_shell"
+			},
+			"3": {
+				"item": "starry_map:block.blue_energy"
+			},
+			"4": {
+				"item": "minecraft:nautilus_shell"
+			},
+			"5": {
+				"item": "starry_map:whale_rune"
+			},
+			"6": {
+				"item": "minecraft:nautilus_shell"
+			},
+			"7": {
+				"item": "starry_map:block.blue_energy"
+			},
+			"8": {
+				"item": "minecraft:nautilus_shell"
+			},
+			"9": {
+				"item": "starry_map:block.blue_energy"
+			}
+		},
+		"result": {
+			"item": "starry_map:azure_sea_tide",
+			"count": 1
+		}
+	}
+}

@@ -1,0 +1,48 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "starry_map:execute.basalt",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/实体贴图/玄武"
+			},
+			"geometry": {
+				"default": "geometry.entity.basalt"
+			},
+			"animations": {
+				"controller": "controller.animation.rattan_arc_attitude",
+				"flying_particle": "animation.entity.basalt.flying_particle",
+				"flying_sound": "animation.entity.rattan_arc.flying_sound",
+				"flying": "animation.entity.basalt.flying",
+				"move": "animation.entity.basalt.move"
+			},
+			"scripts": {
+				"pre_animation": [
+					"variable.timeMultiplier = query.has_rider ? 0.39972 : 1.0;",
+					"variable.backLegMultiplier = query.has_rider ? 0.5 : 3.0;",
+					"variable.frontLegMultiplier = query.has_rider ? 2.0 : 8.0;",
+					"variable.legSpeedMultiplier = query.has_rider ? 2.0 : 5.0;"
+				],
+				"animate": [
+					"controller"
+				]
+			},
+			"sound_effects": {
+				"flying": "mob.phantom.flap"
+			},
+			"particle_effects": {
+				"flying_trajectory": "constant:track_color_indigo"
+			},
+			"render_controllers": [
+				"controller.render.default"
+			],
+			"spawn_egg": {
+				"base_color": "#5431ea",
+				"overlay_color": "#a2f4b7"
+			}
+		}
+	}
+}

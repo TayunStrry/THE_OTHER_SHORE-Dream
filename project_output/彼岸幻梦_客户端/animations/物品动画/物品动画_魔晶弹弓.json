@@ -1,0 +1,281 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.item.magic_crystal_bow.sneaking": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.25,
+			"bones": {
+				"before_cantilever_0": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [-15, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, -2, 1]
+					}
+				},
+				"crystal_1": {
+					"scale": {
+						"0.0": [1, 1, 1],
+						"0.25": [0, 0, 0]
+					}
+				},
+				"before_cantilever_1": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [-15, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, -2, 1]
+					}
+				},
+				"crystal_3": {
+					"scale": {
+						"0.0": [1, 1, 1],
+						"0.25": [0, 0, 0]
+					}
+				},
+				"after_cantilever_0": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [-15, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, -2, -1]
+					}
+				},
+				"crystal_4": {
+					"scale": {
+						"0.0": [1, 1, 1],
+						"0.25": [0, 0, 0]
+					}
+				},
+				"after_cantilever_1": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [-15, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, -2, -1]
+					}
+				},
+				"crystal_2": {
+					"scale": {
+						"0.0": [1, 1, 1],
+						"0.25": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.item.magic_crystal_bow.stretch": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.25,
+			"bones": {
+				"before_cantilever_0": {
+					"rotation": {
+						"0.25": [0, 0, 0],
+						"0.0": [-15, 0, 0]
+					},
+					"position": {
+						"0.25": [0, 0, 0],
+						"0.0": [0, -2, 1]
+					}
+				},
+				"crystal_1": {
+					"scale": {
+						"0.25": [1, 1, 1],
+						"0.0": [0, 0, 0]
+					}
+				},
+				"before_cantilever_1": {
+					"rotation": {
+						"0.25": [0, 0, 0],
+						"0.0": [-15, 0, 0]
+					},
+					"position": {
+						"0.25": [0, 0, 0],
+						"0.0": [0, -2, 1]
+					}
+				},
+				"crystal_3": {
+					"scale": {
+						"0.25": [1, 1, 1],
+						"0.0": [0, 0, 0]
+					}
+				},
+				"after_cantilever_0": {
+					"rotation": {
+						"0.25": [0, 0, 0],
+						"0.0": [-15, 0, 0]
+					},
+					"position": {
+						"0.25": [0, 0, 0],
+						"0.0": [0, -2, -1]
+					}
+				},
+				"crystal_4": {
+					"scale": {
+						"0.25": [1, 1, 1],
+						"0.0": [0, 0, 0]
+					}
+				},
+				"after_cantilever_1": {
+					"rotation": {
+						"0.25": [0, 0, 0],
+						"0.0": [-15, 0, 0]
+					},
+					"position": {
+						"0.25": [0, 0, 0],
+						"0.0": [0, -2, -1]
+					}
+				},
+				"crystal_2": {
+					"scale": {
+						"0.25": [1, 1, 1],
+						"0.0": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.item.magic_crystal_bow.power": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"before_cantilever_0": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.5": [0, -10, 0]
+					}
+				},
+				"before_cantilever_1": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.5": [0, 10, 0]
+					}
+				},
+				"after_cantilever_0": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.5": [0, 10, 0]
+					}
+				},
+				"after_cantilever_1": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.5": [0, -10, 0]
+					}
+				},
+				"item": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.5": ["c.is_first_person ? -10 : 0", "c.is_first_person ? 10 : 0", "c.is_first_person ? 0 : 0"]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.5": ["c.is_first_person ? 0 : 0", 0, "c.is_first_person ? 0 : 0"]
+					}
+				}
+			}
+		},
+		"animation.item.magic_crystal_bow.release": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"before_cantilever_0": {
+					"rotation": {
+						"0.5": [0, 0, 0],
+						"0.0": [0, -7.5, 0]
+					}
+				},
+				"before_cantilever_1": {
+					"rotation": {
+						"0.5": [0, 0, 0],
+						"0.0": [0, 7.5, 0]
+					}
+				},
+				"after_cantilever_0": {
+					"rotation": {
+						"0.5": [0, 0, 0],
+						"0.0": [0, 7.5, 0]
+					}
+				},
+				"after_cantilever_1": {
+					"rotation": {
+						"0.5": [0, 0, 0],
+						"0.0": [0, -7.5, 0]
+					}
+				}
+			}
+		},
+		"animation.item.magic_crystal_bow.homing": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"before_cantilever_0": {
+					"rotation": {
+						"0.0": [0, -10, 0],
+						"0.5": [0, 0, 0]
+					}
+				},
+				"before_cantilever_1": {
+					"rotation": {
+						"0.0": [0, 10, 0],
+						"0.5": [0, 0, 0]
+					}
+				},
+				"after_cantilever_0": {
+					"rotation": {
+						"0.0": [0, 10, 0],
+						"0.5": [0, 0, 0]
+					}
+				},
+				"after_cantilever_1": {
+					"rotation": {
+						"0.0": [0, -10, 0],
+						"0.5": [0, 0, 0]
+					}
+				},
+				"item": {
+					"rotation": {
+						"0.0": ["c.is_first_person ? -10 : 0", "c.is_first_person ? 10 : 0", "c.is_first_person ? 0 : 0"],
+						"0.5": [0, 0, 0]
+					},
+					"position": {
+						"0.0": ["c.is_first_person ? 0 : 0", 0, "c.is_first_person ? 0 : 0"],
+						"0.5": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.item.magic_crystal_bow.basis": {
+			"loop": true,
+			"bones": {
+				"item": {
+					"rotation": [
+						"c.is_first_person ? (c.item_slot != 'main_hand' ? 65 : 0): 0",
+						"c.is_first_person ? (c.item_slot != 'main_hand' ? -20 : 45): 0",
+						"c.is_first_person ? (c.item_slot != 'main_hand' ? 10 : -45) : 0"
+					],
+					"position": [
+						"c.is_first_person ? (c.item_slot == 'main_hand' ? 0 : -20): 0",
+						"c.is_first_person ? (c.item_slot == 'main_hand' ? 0 : 10): 0",
+						"c.is_first_person ? (c.item_slot == 'main_hand' ? 0 : 30): 0"
+					],
+					"scale": 0.8
+				},
+				"sight": {
+					"rotation": [0, "q.is_riding ? q.target_y_rotation : 0", "q.is_sneaking ? (q.life_time * 75) : 0"],
+					"scale": "c.item_slot == 'main_hand' && c.is_first_person && !q.is_riding ? (q.is_sneaking ? 1 : 0.75) : 0"
+				},
+				"sneaking": {
+					"position": [0, 0, "math.cos(q.life_time * 45) * 2"],
+					"scale": "c.item_slot == 'main_hand' && c.is_first_person ? (q.is_sneaking ? 1 : 0) : 0"
+				}
+			}
+		}
+	}
+}

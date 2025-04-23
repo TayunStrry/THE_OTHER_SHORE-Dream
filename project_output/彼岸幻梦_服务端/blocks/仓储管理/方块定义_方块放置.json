@@ -1,0 +1,122 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "items"
+			},
+			"identifier": "starry_map:block_placement",
+			"states": {
+				"STATE:rune_type": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7
+				],
+				"STATE:energy": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6
+				]
+			}
+		},
+		"components": {
+			// 方块含水
+			"minecraft:liquid_detection": {
+				"detection_rules": [
+					{
+						"on_liquid_touches": "no_reaction",
+						"can_contain_liquid": true,
+						"liquid_type": "water"
+					}
+				]
+			},
+			// 防爆与挖掘
+			"minecraft:destructible_by_explosion": false,
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			// 摩擦力
+			"minecraft:friction": 0.35,
+			// 方块光照
+			"minecraft:light_dampening": 0,
+			"minecraft:light_emission": 1,
+			// 模型与纹理
+			"minecraft:geometry": {
+				"identifier": "geometry.block.material.placement",
+				"bone_visibility": {
+					"energy_1": "q.block_state('STATE:energy') == 1",
+					"energy_2": "q.block_state('STATE:energy') == 2",
+					"energy_3": "q.block_state('STATE:energy') == 3",
+					"energy_4": "q.block_state('STATE:energy') == 4",
+					"energy_5": "q.block_state('STATE:energy') == 5",
+					"energy_6": "q.block_state('STATE:energy') == 6"
+				}
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "nether_brick",
+					"render_method": "alpha_test"
+				},
+				"interface_0": {
+					"texture": "block_texture:interface_0",
+					"render_method": "alpha_test"
+				},
+				"interface_1": {
+					"texture": "block_texture:interface_1",
+					"render_method": "alpha_test"
+				},
+				"stone_1": {
+					"texture": "polished_diorite_slab",
+					"render_method": "alpha_test"
+				},
+				"plane_0": {
+					"texture": "block_texture:plane_0",
+					"render_method": "alpha_test"
+				},
+				"felt_0": {
+					"texture": "block_texture:felt_blue",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:transformation": {
+				"scale": [
+					0.9,
+					0.9,
+					0.9
+				]
+			},
+			// 方块标签
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"tag:tags:magic_cable.port_positive.X": {},
+			"tag:tags:magic_cable.port_positive.Z": {},
+			"tag:tags:magic_cable.port_negative.X": {},
+			"tag:tags:magic_cable.port_negative.Z": {},
+			"tag:tags:control_material.series": {},
+			"tag:tags:magic_cable.series": {},
+			"tag:iron_pick_diggable": {}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('STATE:rune_type') != 0",
+				"components": {
+					"opal:tick.block_placement": {},
+					"minecraft:tick": {
+						"interval_range": [
+							5,
+							5
+						]
+					}
+				}
+			}
+		]
+	}
+}

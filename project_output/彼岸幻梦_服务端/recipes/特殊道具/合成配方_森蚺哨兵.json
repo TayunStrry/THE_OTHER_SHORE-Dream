@@ -1,0 +1,35 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "starry:starry_map:call_python_sentinel"
+		},
+		"tags": [
+			"tags:desktop_make"
+		],
+		"pattern": [
+			"123",
+			"242",
+			"321"
+		],
+		"assume_symmetry": false,
+		"key": {
+			"1": {
+				"item": "starry_map:lithium_carbonate"
+			},
+			"2": {
+				"item":"starry_map:weapon_debris"
+			},
+			"3": {
+				"item": "starry_map:plate.oxygen_enriched_gold"
+			},
+			"4": {
+				"item": "starry_map:viper_rune"
+			}
+		},
+		"result": {
+			"item": "starry_map:call_python_sentinel",
+			"count": 1
+		}
+	}
+}

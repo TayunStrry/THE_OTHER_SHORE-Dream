@@ -1,0 +1,18 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.entity.free_pointer": {
+			"loop": "hold_on_last_frame",
+			"override_previous_animation": true,
+			"bones": {
+				"rotate": {
+					"rotation": ["q.property('property:x_axle_rotate')", "q.property('property:y_axle_rotate')", 0]
+				},
+				"length": {
+					"position": [0, 0, "q.property('property:length')"],
+					"scale": [1, 1, "q.property('property:length')"]
+				}
+			}
+		}
+	}
+}

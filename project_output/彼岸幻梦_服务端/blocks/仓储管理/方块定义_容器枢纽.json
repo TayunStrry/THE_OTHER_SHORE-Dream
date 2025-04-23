@@ -1,0 +1,141 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "items"
+			},
+			"identifier": "starry_map:container_hub",
+			"traits": {
+				"minecraft:placement_direction": {
+					"enabled_states": [
+						"minecraft:cardinal_direction"
+					]
+				}
+			}
+		},
+		"components": {
+			// 方块含水
+			"minecraft:liquid_detection": {
+				"detection_rules": [
+					{
+						"on_liquid_touches": "no_reaction",
+						"can_contain_liquid": true,
+						"liquid_type": "water"
+					}
+				]
+			},
+			// 防爆与挖掘
+			"minecraft:destructible_by_explosion": false,
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			// 摩擦力
+			"minecraft:friction": 0.35,
+			// 方块光照
+			"minecraft:light_dampening": 0,
+			"minecraft:light_emission": 15,
+			// 模型与纹理
+			"minecraft:geometry": {
+				"identifier": "geometry.block.material.container_hub"
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "polished_diorite_slab",
+					"render_method": "alpha_test"
+				},
+				"plane_0": {
+					"texture": "block_texture:plane_0",
+					"render_method": "alpha_test"
+				},
+				"stone_0": {
+					"texture": "deepslate",
+					"render_method": "alpha_test"
+				},
+				"felt_0": {
+					"texture": "block_texture:felt_blue",
+					"render_method": "alpha_test"
+				},
+				"metal_alloy": {
+					"texture": "netherite_block",
+					"render_method": "alpha_test"
+				},
+				"metal_iron": {
+					"texture": "iron_block",
+					"render_method": "alpha_test"
+				},
+				"metal_copper": {
+					"texture": "chiseled_copper",
+					"render_method": "alpha_test"
+				},
+				"transmit": {
+					"texture": "block_texture:transmit.green",
+					"render_method": "alpha_test"
+				}
+			},
+			// 自定义组件
+			"opal:interact.container_hub": {},
+			"opal:tick.container_hub": {},
+			"minecraft:tick": {
+				"interval_range": [
+					100,
+					200
+				]
+			},
+			// 方块标签
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"tag:tags:realm_block.series": {},
+			"tag:iron_pick_diggable": {}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							180,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							270,
+							0
+						]
+					}
+				}
+			}
+		]
+	}
+}

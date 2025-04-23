@@ -1,0 +1,43 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "starry:starry_map:universal_integrated_circuit"
+		},
+		"tags": [
+			"tags:desktop_make"
+		],
+		"pattern": [
+			"123",
+			"454",
+			"627"
+		],
+		"key": {
+			"1": {
+				"item": "starry_map:gear.ferric_phosphate"
+			},
+			"2": {
+				"item": "starry_map:wafer.steel_rock_eutectic"
+			},
+			"3": {
+				"item": "starry_map:gear.zirconium_carbide"
+			},
+			"4": {
+				"item": "starry_map:coil.steel_rock_eutectic"
+			},
+			"5": {
+				"item": "starry_map:blank_template"
+			},
+			"6": {
+				"item": "starry_map:gear.gold_carbonate"
+			},
+			"7": {
+				"item": "starry_map:gear.lithium_carbonate"
+			}
+		},
+		"result": {
+			"item": "starry_map:universal_integrated_circuit"
+		},
+		"assume_symmetry": false
+	}
+}

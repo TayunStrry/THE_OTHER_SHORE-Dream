@@ -1,0 +1,183 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "minecraft:player",
+			//"min_engine_version": "1.8.0",
+			"materials": {
+				"blend_light": "opal_light_blend",
+				"default": "entity_alphatest",
+				"light": "opal_light_only"
+			},
+			"textures": {
+				"elytra": "textures/个性化_鞘翅",
+				"default": "textures/个性化_默认",
+				"light": "textures/个性化_发光"
+			},
+			"geometry": {
+				"standby_animation": "geometry.player_to_individuation.standby_animation",
+				"default": "geometry.player_to_individuation.default",
+				"elytra": "geometry.player_to_individuation.elytra"
+			},
+			"scripts": {
+				"pre_animation": [
+					// todo 根据客户端状态设置模型缩放比例
+					"v.client_state = q.is_in_ui ? q.model_scale * 1.6 : q.model_scale == 1.0 ? 2.0 : q.is_local_player ? 3.0 : 4.0;",
+					// todo 判断是否持有可充能物品
+					"v.rechargeable_item = v.client_state >= 3 && ((q.is_item_name_any('slot.weapon.mainhand', 'starry_map:magic_crystal_bow', 'minecraft:bow', 'minecraft:trident', 'minecraft:crossbow') && q.main_hand_item_use_duration != 0.0) || q.item_is_charged);",
+					// todo 判断是否持有一把充能的弩
+					"v.is_crossbow = (v.client_state >= 3 && q.is_item_name_any('slot.weapon.mainhand', 'minecraft:crossbow') && q.item_is_charged);",
+					// todo 判断是否在游泳
+					"v.is_swiming = v.client_state >= 3 && v.swim_amount != 0.0;",
+					// todo 判断是否正在使用主手物品
+					"v.item_use = q.main_hand_item_use_duration != 0.0 && v.client_state >= 3;",
+					// todo 设置 浮空高度, 如果骑乘则为 12, 否则为 4
+					"v.floating_height = q.is_riding ? 12 : 4;",
+					// todo 判断是否处于非待机模式
+					"v.no_standby_mode = (q.is_sleeping + q.is_sneaking + v.is_swiming + q.is_jumping + q.is_moving + v.item_use + v.attack_time + v.is_crossbow + v.is_first_person) != 0.0;",
+					// todo 基于移动速度修改肢体旋转
+					"v.move_speed = (Math.cos(q.modified_distance_moved * 40) * (q.modified_move_speed / v.gliding_speed_value)) * 55;",
+					// todo 设置换装标识符
+					"v.switch_clothing = q.equipment_count - 1;"
+				],
+				"initialize": [
+					// todo 纳西妲 当前手持物品名称
+					"v.current_item_name = 'minecraft:air';",
+					// todo 纳西妲 待机动画标识符
+					"v.standby_animation = 0;",
+					// todo 纳西妲 充能结束标识符
+					"v.after_charging = 0;",
+					// todo 纳西妲 换装标识符
+					"v.switch_clothing = 0;"
+				],
+				"animate": [
+					{
+						"controller.attack_with_items": "!v.rechargeable_item && v.is_first_person"
+					},
+					{
+						"controller.items_and_aiming": "!v.is_first_person"
+					},
+					{
+						"controller.first_person_body": "v.is_first_person"
+					},
+					{
+						"controller.first_person": "v.is_first_person"
+					},
+					{
+						"controller.switch_item": "!v.is_first_person"
+					},
+					{
+						"controller.elytra": "v.client_state >= 3 && q.is_item_name_any('slot.armor.chest', 'minecraft:elytra')"
+					},
+					{
+						"revise": "v.is_first_person"
+					},
+					"controller.special_effects",
+					"controller.fall_into_water",
+					"first_person_additional"
+				],
+				"scale": "0.55"
+			},
+			"animations": {
+				//todo 动画控制器
+				"controller.flying_and_jumping": "controller.animation.player_to_individuation.flying_and_jumping",
+				"controller.first_person_body": "controller.animation.player_to_individuation.first_person_body",
+				"controller.standby_animation": "controller.animation.player_to_individuation.standby_animation",
+				"controller.attack_with_items": "controller.animation.player_to_individuation.attack_with_items",
+				"controller.items_and_aiming": "controller.animation.player_to_individuation.items_and_aiming",
+				"controller.fall_into_water": "controller.animation.player_to_individuation.fall_into_water",
+				"controller.special_effects": "controller.animation.player_to_individuation.special_effects",
+				"controller.action_in_water": "controller.animation.player_to_individuation.action_in_water",
+				"controller.action_in_air": "controller.animation.player_to_individuation.action_in_air",
+				"controller.first_person": "controller.animation.player_to_individuation.first_person",
+				"controller.switch_item": "controller.animation.player_to_individuation.switch_item",
+				"controller.elytra": "controller.animation.player_to_individuation.elytra",
+				"controller.blink": "controller.animation.player_to_individuation.blink",
+				// todo 纳西妲 初始化状态
+				"initialization": "animation.player_to_individuation.initialization",
+				"look_target": "animation.player_to_individuation.look_target",
+				// todo 纳西妲 眨眼
+				"blink": "animation.player_to_individuation.blink",
+				// todo 纳西妲 显示准星
+				"display_crosshair": "animation.player_to_individuation.display_crosshair",
+				// todo 纳西妲 行走动画
+				"move": "animation.player_to_individuation.move",
+				"fast_move": "animation.player_to_individuation.fast_move",
+				"super_move": "animation.player_to_individuation.super_move",
+				// todo 纳西妲 跳跃动画
+				"flight": "animation.player_to_individuation.flight",
+				"jump": "animation.player_to_individuation.jump",
+				// todo 纳西妲 潜行动画
+				"sneak": "animation.player_to_individuation.sneak",
+				"sneak_move": "animation.player_to_individuation.sneak_move",
+				// todo 纳西妲 武器蓄力动画
+				"use_bow": "animation.player_to_individuation.use_bow",
+				"use_trident": "animation.player_to_individuation.use_trident",
+				"use_crossbow": "animation.player_to_individuation.use_crossbow",
+				"charged_crossbow": "animation.player_to_individuation.charged_crossbow",
+				// todo 纳西妲 使用物品动画
+				"use_food": "animation.player_to_individuation.use_food",
+				"use_brush": "animation.player_to_individuation.use_brush",
+				"use_potion": "animation.player_to_individuation.use_potion",
+				"use_spyglass": "animation.player_to_individuation.use_spyglass",
+				// todo 纳西妲 近战攻击动画
+				"basic_attack": "animation.player_to_individuation.basic_attack",
+				"sneak_attack": "animation.player_to_individuation.sneak_attack",
+				"sneak_move_attack": "animation.player_to_individuation.sneak_move_attack",
+				"fast_move_attack": "animation.player_to_individuation.fast_move_attack",
+				// todo 纳西妲 驾驶坐骑动画
+				"ride": "animation.player_to_individuation.ride",
+				// todo 纳西妲 游泳动画
+				"float_swim": "animation.player_to_individuation.float_swim",
+				"swim": "animation.player_to_individuation.swim",
+				// todo 纳西妲 睡觉动画
+				"sleep": "animation.player_to_individuation.sleep",
+				// todo 纳西妲 爬行动画
+				"creep": "animation.player_to_individuation.creep",
+				"static_creep": "animation.player_to_individuation.static_creep",
+				// todo 纳西妲 待机动画
+				"standby_animation_0": "animation.player_to_individuation.standby_animation.0",
+				"standby_animation_1": "animation.player_to_individuation.standby_animation.1",
+				// todo 纳西妲 第一人称动画
+				"first_person_additional": "animation.player_to_individuation.first_person_additional",
+				"first_person_slingshot": "animation.player_to_individuation.first_person_slingshot",
+				"first_person_spyglass": "animation.player_to_individuation.first_person_spyglass",
+				"first_person_default": "animation.player_to_individuation.first_person_default",
+				"first_person_trident": "animation.player_to_individuation.first_person_trident",
+				"first_person_attack": "animation.player_to_individuation.first_person_attack",
+				"first_person_shield": "animation.player_to_individuation.first_person_shield",
+				"first_person_static": "animation.player_to_individuation.first_person_static",
+				"first_person_moving": "animation.player_to_individuation.first_person_moving",
+				"first_person_hammer": "animation.player_to_individuation.first_person_hammer",
+				"first_person_apply": "animation.player_to_individuation.first_person_apply",
+				"first_person_sneak": "animation.player_to_individuation.first_person_sneak",
+				"first_person_bow": "animation.player_to_individuation.first_person_bow",
+				// todo 纳西妲 修订动画
+				"revise": "animation.player_to_individuation.revise",
+				// todo 纳西妲 切换物品
+				"change_item": "animation.player_to_individuation.change_item",
+				// todo 纳西妲 鞘翅动画
+				"elytra.gliding": "animation.item.elytra.gliding",
+				"elytra.default": "animation.item.elytra.default",
+				"elytra.sundry": "animation.item.elytra.sundry"
+			},
+			"particle_effects": {
+				// 玩家与水碰撞时的效果
+				"impact": "constant:water_impact",
+				// 玩家在水中溅起的水花效果
+				"splash": "constant:water_splash",
+				// 玩家在水中产生的涟漪效果
+				"ripples": "constant:water_ripples"
+			},
+			"render_controllers": [
+				"controller.render.player_to_individuation.standby_animation",
+				"controller.render.player_to_individuation.switch_clothing",
+				{
+					"controller.render.player_to_individuation.elytra": "v.client_state >= 3 && q.is_item_name_any('slot.armor.chest', 'minecraft:elytra')"
+				}
+			],
+			"hide_armor": true,
+			"enable_attachables": true
+		}
+	}
+}

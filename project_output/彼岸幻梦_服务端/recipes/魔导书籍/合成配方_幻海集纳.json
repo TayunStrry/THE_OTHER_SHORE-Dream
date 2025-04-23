@@ -1,0 +1,47 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "starry:starry_map:fantasy_sea_collection"
+		},
+		"tags": [
+			"tags:desktop_make"
+		],
+		"pattern": [
+			"010",
+			"234",
+			"254"
+		],
+		"assume_symmetry": false,
+		"key": {
+			"0": {
+				"item": "minecraft:paper"
+			},
+			"1": {
+				"item": "starry_map:space_transition"
+			},
+			"2": {
+				"item": "starry_map:block.orange_energy"
+			},
+			"3": {
+				"item": "starry_map:magic_handbook"
+			},
+			"4": {
+				"item": "starry_map:block.blue_energy"
+			},
+			"5": {
+				"item": "minecraft:ender_eye"
+			}
+		},
+		"result": [
+			{
+				"item": "starry_map:fantasy_sea_collection",
+				"count": 1
+			},
+			{
+				"item": "starry_map:space_transition",
+				"count": 1
+			}
+		]
+	}
+}

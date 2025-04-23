@@ -1,0 +1,31 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "starry_map:elves.three_phase_flame",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"facade": "textures/实体贴图/神恩使徒/战斗效果"
+			},
+			"geometry": {
+				"default": "geometry.entity.amulet"
+			},
+			"scripts": {
+				"animate": [
+					"attact"
+				]
+			},
+			"animations": {
+				"attact": "animation.amulet.attack"
+			},
+			"render_controllers": [
+				"controller.render.facade:variant.01"
+			],
+			"spawn_egg": {
+				"texture": "item_texture:基础图标"
+			}
+		}
+	}
+}

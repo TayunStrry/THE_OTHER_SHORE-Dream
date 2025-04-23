@@ -1,0 +1,464 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.role_attitude": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"move": "q.state_time >= 1.0"
+						}
+					]
+				},
+				"move": {
+					"animations": [
+						{
+							"control_move": "!q.is_riding && !q.is_sitting && !q.has_target"
+						}
+					],
+					"transitions": [
+						{
+							"falling": "!q.is_riding && !q.is_sitting && !q.is_on_ground && !q.is_in_water && q.vertical_speed <= -1"
+						},
+						{
+							"riding": "q.is_riding && q.state_time >= 0.5"
+						},
+						{
+							"swimming": "v.swim_amount && !q.is_riding && !q.has_target && !q.is_sitting && q.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.15
+				},
+				"falling": {
+					"animations": [
+						"falling"
+					],
+					"transitions": [
+						{
+							"move": "(q.vertical_speed > -0.15 && q.vertical_speed < 0.15) || q.is_riding || q.is_sitting || q.is_on_ground || q.is_in_water"
+						}
+					],
+					"blend_transition": 0.15
+				},
+				"riding": {
+					"animations": [
+						"riding_arms",
+						"riding_legs"
+					],
+					"transitions": [
+						{
+							"move": "!q.is_riding && q.all_animations_finished"
+						},
+						{
+							"swimming": "v.swim_amount && !q.is_riding && !q.has_target && q.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.35
+				},
+				"swimming": {
+					"animations": [
+						"swimming"
+					],
+					"transitions": [
+						{
+							"move": "!v.swim_amount && q.all_animations_finished"
+						},
+						{
+							"riding": "q.is_riding && q.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.35
+				}
+			}
+		},
+		"controller.animation.role_move": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"movement_speed": "q.is_moving && q.state_time >= 0.3 && query.equipment_count != 0"
+						},
+						{
+							"sprint_speed": "q.is_moving && q.state_time >= 0.3 && query.equipment_count == 0"
+						}
+					],
+					"blend_transition": 0.15,
+					"blend_via_shortest_path": true
+				},
+				"movement_speed": {
+					"animations": [
+						"movement_speed"
+					],
+					"transitions": [
+						{
+							"default": "q.is_moving == 0 && q.state_time >= 0.3"
+						}
+					],
+					"blend_transition": 0.275,
+					"blend_via_shortest_path": true
+				},
+				"sprint_speed": {
+					"animations": [
+						"sprint_speed"
+					],
+					"transitions": [
+						{
+							"default": "q.is_moving == 0 && q.state_time >= 0.3"
+						}
+					],
+					"blend_transition": 0.275,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.role_can_chair": {
+			"initial_state": "no_sitting",
+			"states": {
+				"no_sitting": {
+					"animations": [
+						"no_sitting"
+					],
+					"transitions": [
+						{
+							"is_sitting": "q.is_sitting && !q.is_riding && q.all_animations_finished && !q.has_target"
+						}
+					],
+					"blend_transition": 0.15
+				},
+				"is_sitting": {
+					"animations": [
+						"is_sitting"
+					],
+					"transitions": [
+						{
+							"no_sitting": "((!q.is_sitting || q.is_riding) && q.all_animations_finished) || q.has_target"
+						}
+					],
+					"blend_transition": 0.15
+				}
+			}
+		},
+		"controller.animation.watch.default": {
+			"initial_state": "void",
+			"states": {
+				"void": {
+					"transitions": [
+						{
+							"swimming": "!q.has_target && q.is_swimming"
+						},
+						{
+							"default": "!q.has_target && !q.is_swimming"
+						}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true
+				},
+				"default": {
+					"animations": [
+						"watch_basic"
+					],
+					"transitions": [
+						{
+							"swimming": "q.is_swimming && q.all_animations_finished"
+						},
+						{
+							"void": "q.has_target && q.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true
+				},
+				"swimming": {
+					"animations": [
+						"watch_swimming"
+					],
+					"transitions": [
+						{
+							"default": "!q.is_swimming && q.all_animations_finished"
+						},
+						{
+							"void": "q.has_target && q.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.hold.default": {
+			"initial_state": "hold",
+			"states": {
+				"void": {
+					"transitions": [
+						{
+							"hold": "!q.has_target && !q.is_swimming && !q.is_sitting && !q.is_riding"
+						}
+					]
+				},
+				"hold": {
+					"animations": [
+						"hold_item"
+					],
+					"transitions": [
+						{
+							"void": "q.has_target || q.is_swimming || q.is_sitting || q.is_riding"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.hold.use": {
+			"initial_state": "void",
+			"states": {
+				"void": {
+					"transitions": [
+						{
+							"hold_use": "(v.use_item_interval_progress > 0.0) || (v.use_item_startup_progress > 0.0)"
+						}
+					]
+				},
+				"hold_use": {
+					"animations": [
+						"use_hold_item"
+					],
+					"transitions": [
+						{
+							"void": "(v.use_item_interval_progress <= 0.0) && (v.use_item_startup_progress <= 0.0)"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.roaring_of_grow": {
+			"initial_state": "baby",
+			"states": {
+				"void": {},
+				"grow": {
+					"animations": [
+						"grow"
+					],
+					"transitions": [
+						{
+							"void": "q.mark_variant != 1"
+						}
+					]
+				},
+				"baby": {
+					"animations": [
+						"baby"
+					],
+					"transitions": [
+						{
+							"grow": "q.is_baby && q.mark_variant == 1"
+						},
+						{
+							"void": "q.is_baby != 1"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.roaring_on_posture": {
+			"initial_state": "move",
+			"states": {
+				"move": {
+					"animations": [
+						"move"
+					],
+					"transitions": [
+						{
+							"jump": "!q.is_sitting && !q.is_on_ground && !q.is_in_water && q.vertical_speed >= 1"
+						},
+						{
+							"is_sitting": "q.is_sitting"
+						},
+						{
+							"swimming": "v.swim_amount > 0.0 && q.is_in_water"
+						}
+					],
+					"blend_transition": 0.35,
+					"blend_via_shortest_path": true
+				},
+				"jump": {
+					"animations": [
+						"jump"
+					],
+					"transitions": [
+						{
+							"move": "(q.vertical_speed > -0.15 && q.vertical_speed < 0.15) || q.is_sitting || q.is_on_ground || q.is_in_water"
+						}
+					],
+					"blend_transition": 0.35,
+					"blend_via_shortest_path": true
+				},
+				"is_sitting": {
+					"animations": [
+						"sitt"
+					],
+					"transitions": [
+						{
+							"move": "!q.is_sitting"
+						}
+					],
+					"blend_transition": 0.35,
+					"blend_via_shortest_path": true
+				},
+				"swimming": {
+					"animations": [
+						"swimming"
+					],
+					"transitions": [
+						{
+							"move": "v.swim_amount <= 0.0 && !q.is_in_water"
+						}
+					],
+					"blend_transition": 1,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.tunnel_dragon": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"travel": "q.ground_speed > 0"
+						}
+					]
+				},
+				"travel": {
+					"animations": [
+						"open"
+					],
+					"transitions": [
+						{
+							"default": "q.ground_speed == 0"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.spirit_lizard": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"travel": "q.ground_speed > 0"
+						}
+					]
+				},
+				"travel": {
+					"animations": [
+						"travel"
+					],
+					"transitions": [
+						{
+							"default": "q.ground_speed == 0 && q.all_animations_finished"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.blink_your_eyes": {
+			"initial_state": "void",
+			"states": {
+				"void": {
+					"transitions": [
+						{
+							"blink": "!q.is_sitting && math.random_integer(-512, 512) == 16"
+						}
+					]
+				},
+				"blink": {
+					"animations": [
+						"blink"
+					],
+					"transitions": [
+						{
+							"void": "q.all_animations_finished"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.golden_wing_attitude": {
+			"initial_state": "flying",
+			"states": {
+				"static": {
+					"animations": [
+						"static"
+					],
+					"transitions": [
+						{
+							"flying": "q.has_player_rider && !q.is_on_ground && !q.is_in_lava && !q.is_in_water && q.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.35,
+					"blend_via_shortest_path": true
+				},
+				"flying": {
+					"animations": [
+						"flying",
+						"flying_sound"
+					],
+					"transitions": [
+						{
+							"static": "(!q.has_player_rider || q.is_on_ground || q.is_in_lava || q.is_in_water || q.ground_speed == 0) && q.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.35,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.rattan_arc_attitude": {
+			"initial_state": "static",
+			"states": {
+				"static": {
+					"transitions": [
+						{
+							"move": "(q.is_on_ground && q.ground_speed != 0) || q.is_in_water"
+						},
+						{
+							"flying": "q.has_player_rider && !q.is_on_ground && !q.is_in_lava && !q.is_in_water"
+						}
+					],
+					"blend_transition": 1,
+					"blend_via_shortest_path": true
+				},
+				"move": {
+					"animations": [
+						"move"
+					],
+					"transitions": [
+						{
+							"static": "q.is_on_ground && q.ground_speed == 0 && !q.is_in_water && q.all_animations_finished"
+						},
+						{
+							"flying": "q.has_player_rider && !q.is_on_ground && !q.is_in_lava && !q.is_in_water && q.all_animations_finished"
+						}
+					],
+					"blend_transition": 1,
+					"blend_via_shortest_path": true
+				},
+				"flying": {
+					"animations": [
+						"flying",
+						"flying_sound",
+						"flying_particle"
+					],
+					"transitions": [
+						{
+							"move": "!q.has_player_rider || q.is_on_ground || q.is_in_water"
+						}
+					],
+					"blend_transition": 1,
+					"blend_via_shortest_path": true
+				}
+			}
+		}
+	}
+}

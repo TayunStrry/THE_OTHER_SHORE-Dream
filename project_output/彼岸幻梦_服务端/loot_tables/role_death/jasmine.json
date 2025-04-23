@@ -1,0 +1,71 @@
+{
+	"pools": [
+		// 魔晶石
+		{
+			"rolls": {
+				"min": 4,
+				"max": 8
+			},
+			"entries": [
+				{
+					"type": "item",
+					"name": "starry_map:purple_energy",
+					"weight": 1
+				},
+				{
+					"type": "item",
+					"name": "starry_map:green_energy",
+					"weight": 1
+				},
+				{
+					"type": "item",
+					"name": "starry_map:blue_energy",
+					"weight": 1
+				},
+				{
+					"type": "item",
+					"name": "starry_map:red_energy",
+					"weight": 1
+				},
+				{
+					"type": "item",
+					"name": "starry_map:orange_energy",
+					"weight": 1
+				}
+			]
+		},
+		// 魔导书籍
+		{
+			"conditions": [
+				{
+					"condition": "random_chance_with_looting",
+					"looting_multiplier": 0.075,
+					"chance": 0.15
+				}
+			],
+			"rolls": 2,
+			"entries": [
+				{
+					"type": "item",
+					"name": "starry_map:magic_handbook",
+					"weight": 4
+				},
+				{
+					"type": "item",
+					"name": "starry_map:tactical_planning",
+					"weight": 1
+				},
+				{
+					"type": "item",
+					"name": "starry_map:source_energy",
+					"weight": 1
+				},
+				{
+					"type": "item",
+					"name": "starry_map:faerie_healing",
+					"weight": 1
+				}
+			]
+		}
+	]
+}

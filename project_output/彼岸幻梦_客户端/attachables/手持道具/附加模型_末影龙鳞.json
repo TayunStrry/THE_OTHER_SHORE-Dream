@@ -1,0 +1,31 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:attachable": {
+		"description": {
+			"identifier": "starry_map:ender_dragon_scales",
+			"materials": {
+				"default": "opal_light_only"
+			},
+			"textures": {
+				"default": "textures/物品贴图/模板单元/末影龙鳞"
+			},
+			"geometry": {
+				"default": "geometry.item.ender_dragon_scales"
+			},
+			"scripts": {
+				"pre_animation": [
+					"variable.cooldown = c.item_slot == 'main_hand' ? q.cooldown_time_remaining('slot.weapon.mainhand') : q.cooldown_time_remaining('slot.weapon.offhand');"
+				],
+				"animate": [
+					"hold_use"
+				]
+			},
+			"animations": {
+				"hold_use": "animation.item.magic_crystal_shield"
+			},
+			"render_controllers": [
+				"controller.render.magic_equipment"
+			]
+		}
+	}
+}

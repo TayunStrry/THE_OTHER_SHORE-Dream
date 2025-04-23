@@ -1,0 +1,37 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "starry_map:viper.support",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"facade_0": "textures/实体贴图/蝰蛇/默认",
+				"facade_1": "textures/实体贴图/蝰蛇/草原",
+				"facade_2": "textures/实体贴图/蝰蛇/海洋",
+				"facade_3": "textures/实体贴图/蝰蛇/雪原"
+			},
+			"geometry": {
+				"default": "geometry.entity.viper_support"
+			},
+			"scripts": {
+				"animate": [
+					"control_watch",
+					"observe"
+				]
+			},
+			"animations": {
+				"control_watch": "controller.animation.attack.general_0",
+				"observe": "animation.entity.viper.observe",
+				"attack": "animation.entity.viper.attack"
+			},
+			"render_controllers": [
+				"controller.render.facade:propertie.04"
+			],
+			"spawn_egg": {
+				"texture": "item_texture:machine_brain.蝰蛇_维系者"
+			}
+		}
+	}
+}

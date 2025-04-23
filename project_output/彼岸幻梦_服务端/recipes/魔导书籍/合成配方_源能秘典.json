@@ -1,0 +1,31 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "starry:starry_map:source_energy"
+		},
+		"tags": [
+			"tags:desktop_make"
+		],
+		"pattern": [
+			"GCG",
+			"CSC",
+			"GCG"
+		],
+		"assume_symmetry": false,
+		"key": {
+			"S": {
+				"item": "starry_map:magic_handbook"
+			},
+			"C": {
+				"item": "minecraft:paper"
+			},
+			"G": {
+				"item": "starry_map:block.purple_energy"
+			}
+		},
+		"result": {
+			"item": "starry_map:source_energy"
+		}
+	}
+}

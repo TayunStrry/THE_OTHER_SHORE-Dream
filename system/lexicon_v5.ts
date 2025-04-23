@@ -530,7 +530,7 @@ function isPlayerAuthorized(user: server.Player): boolean {
 	/**
 	 * 获取当前维度下处于创造模式的玩家列表
 	 */
-	const creativePlayers = user.dimension.getPlayers({ gameMode: server.GameMode.creative });
+	const creativePlayers = user.dimension.getPlayers({ gameMode: server.GameMode.Creative });
 	/**
 	 * 判断给定玩家是否在创造模式玩家列表中
 	 */

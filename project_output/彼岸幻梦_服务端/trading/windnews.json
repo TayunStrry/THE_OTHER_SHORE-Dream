@@ -1,0 +1,1265 @@
+{
+	"tiers": [
+		{
+			"groups": [
+				//todo 富氧金
+				{
+					"num_to_select": 1,
+					"trades": [
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:orange_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:oxygen_enriched_gold",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:red_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:oxygen_enriched_gold",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:blue_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:oxygen_enriched_gold",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:green_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:oxygen_enriched_gold",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:purple_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:oxygen_enriched_gold",
+									"quantity": 8
+								}
+							]
+						}
+					]
+				},
+				//todo 磷酸铁
+				{
+					"num_to_select": 1,
+					"trades": [
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:orange_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:ferric_phosphate",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:red_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:ferric_phosphate",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:blue_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:ferric_phosphate",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:green_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:ferric_phosphate",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:purple_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:ferric_phosphate",
+									"quantity": 8
+								}
+							]
+						}
+					]
+				},
+				//todo 铝镁金
+				{
+					"num_to_select": 1,
+					"trades": [
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:orange_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:aluminum_magnesium",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:red_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:aluminum_magnesium",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:blue_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:aluminum_magnesium",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:green_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:aluminum_magnesium",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:purple_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:aluminum_magnesium",
+									"quantity": 8
+								}
+							]
+						}
+					]
+				},
+				//todo 氯化铁
+				{
+					"num_to_select": 1,
+					"trades": [
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:orange_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:ferric_chloride",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:red_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:ferric_chloride",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:blue_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:ferric_chloride",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:green_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:ferric_chloride",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:purple_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:ferric_chloride",
+									"quantity": 8
+								}
+							]
+						}
+					]
+				},
+				//todo 碳化锆
+				{
+					"num_to_select": 1,
+					"trades": [
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:orange_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:zirconium_carbide",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:red_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:zirconium_carbide",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:blue_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:zirconium_carbide",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:green_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:zirconium_carbide",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:purple_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:zirconium_carbide",
+									"quantity": 8
+								}
+							]
+						}
+					]
+				},
+				//todo 碳酸金
+				{
+					"num_to_select": 1,
+					"trades": [
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:orange_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:gold_carbonate",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:red_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:gold_carbonate",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:blue_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:gold_carbonate",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:green_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:gold_carbonate",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:purple_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:gold_carbonate",
+									"quantity": 8
+								}
+							]
+						}
+					]
+				},
+				//todo 碳酸锂
+				{
+					"num_to_select": 1,
+					"trades": [
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:orange_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:lithium_carbonate",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:red_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:lithium_carbonate",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:blue_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:lithium_carbonate",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:green_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:lithium_carbonate",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:purple_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:lithium_carbonate",
+									"quantity": 8
+								}
+							]
+						}
+					]
+				},
+				//todo 钨镍钛
+				{
+					"num_to_select": 1,
+					"trades": [
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:orange_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:tungsten_nickel_titanium",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:red_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:tungsten_nickel_titanium",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:blue_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:tungsten_nickel_titanium",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:green_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:tungsten_nickel_titanium",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:purple_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:tungsten_nickel_titanium",
+									"quantity": 8
+								}
+							]
+						}
+					]
+				},
+				//todo 锡钎铜
+				{
+					"num_to_select": 1,
+					"trades": [
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:orange_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:copper_tin_brazing",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:red_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:copper_tin_brazing",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:blue_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:copper_tin_brazing",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:green_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:copper_tin_brazing",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:purple_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:copper_tin_brazing",
+									"quantity": 8
+								}
+							]
+						}
+					]
+				},
+				//todo 钢岩合金
+				{
+					"num_to_select": 1,
+					"trades": [
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:orange_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:steel_rock_eutectic",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:red_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:steel_rock_eutectic",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:blue_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:steel_rock_eutectic",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:green_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:steel_rock_eutectic",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:purple_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:steel_rock_eutectic",
+									"quantity": 8
+								}
+							]
+						}
+					]
+				},
+				//todo 钨铜合金
+				{
+					"num_to_select": 1,
+					"trades": [
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:orange_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:tungsten_copper_alloy",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:red_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:tungsten_copper_alloy",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:blue_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:tungsten_copper_alloy",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:green_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:tungsten_copper_alloy",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:purple_energy",
+									"quantity": 24
+								},
+								{
+									"item": "minecraft:cobblestone",
+									"quantity": 8
+								}
+							],
+							"gives": [
+								{
+									"item": "starry_map:tungsten_copper_alloy",
+									"quantity": 8
+								}
+							]
+						}
+					]
+				},
+				//todo 附魔书
+				{
+					"num_to_select": 5,
+					"trades": [
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:orange_energy",
+									"quantity": 8
+								},
+								{
+									"item": "starry_map:ender_dragon_scales",
+									"quantity": 1
+								}
+							],
+							"gives": [
+								{
+									"item": "book",
+									"quantity": 1,
+									"functions": [
+										{
+											"base_cost": 1,
+											"per_level_cost": 2,
+											"base_random_cost": 16,
+											"per_level_random_cost": 32,
+											"function": "enchant_book_for_trading"
+										}
+									]
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:red_energy",
+									"quantity": 8
+								},
+								{
+									"item": "starry_map:ender_dragon_scales",
+									"quantity": 1
+								}
+							],
+							"gives": [
+								{
+									"item": "book",
+									"quantity": 1,
+									"functions": [
+										{
+											"base_cost": 1,
+											"per_level_cost": 2,
+											"base_random_cost": 16,
+											"per_level_random_cost": 32,
+											"function": "enchant_book_for_trading"
+										}
+									]
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:blue_energy",
+									"quantity": 8
+								},
+								{
+									"item": "starry_map:ender_dragon_scales",
+									"quantity": 1
+								}
+							],
+							"gives": [
+								{
+									"item": "book",
+									"quantity": 1,
+									"functions": [
+										{
+											"base_cost": 1,
+											"per_level_cost": 2,
+											"base_random_cost": 16,
+											"per_level_random_cost": 32,
+											"function": "enchant_book_for_trading"
+										}
+									]
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:green_energy",
+									"quantity": 8
+								},
+								{
+									"item": "starry_map:ender_dragon_scales",
+									"quantity": 1
+								}
+							],
+							"gives": [
+								{
+									"item": "book",
+									"quantity": 1,
+									"functions": [
+										{
+											"base_cost": 1,
+											"per_level_cost": 2,
+											"base_random_cost": 16,
+											"per_level_random_cost": 32,
+											"function": "enchant_book_for_trading"
+										}
+									]
+								}
+							]
+						},
+						{
+							"max_uses": 16,
+							"wants": [
+								{
+									"item": "starry_map:purple_energy",
+									"quantity": 8
+								},
+								{
+									"item": "starry_map:ender_dragon_scales",
+									"quantity": 1
+								}
+							],
+							"gives": [
+								{
+									"item": "book",
+									"quantity": 1,
+									"functions": [
+										{
+											"base_cost": 1,
+											"per_level_cost": 2,
+											"base_random_cost": 16,
+											"per_level_random_cost": 32,
+											"function": "enchant_book_for_trading"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

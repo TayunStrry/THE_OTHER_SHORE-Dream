@@ -47,18 +47,33 @@
   "resolved" "https://registry.npmjs.org/@minecraft/common/-/common-1.1.0.tgz"
   "version" "1.1.0"
 
-"@minecraft/server-ui@^2.0.0-beta.1.21.80-preview.27":
-  "integrity" "sha512-XfTCCd/ZixlDkhYk2wHBDfser+QtxqM3Vq1DBtxu/JsSdcJM2rsIHPmWPjm+S/CWFg/X8GuWzYTWGn16P9RHNg=="
-  "resolved" "https://registry.npmjs.org/@minecraft/server-ui/-/server-ui-2.0.0-beta.1.21.80-preview.27.tgz"
-  "version" "2.0.0-beta.1.21.80-preview.27"
+"@minecraft/debug-utilities@^1.0.0-beta.1.21.90-preview.20":
+  "integrity" "sha512-Ydts1XXc9DVSgbdAYbaIjKGWZ1fhYdao2glOH9ZNnLn4U/Da7TeI+ZNRVlLnIdCtDnErsZHUQWlIoIgQWWjcpw=="
+  "resolved" "https://registry.npmjs.org/@minecraft/debug-utilities/-/debug-utilities-1.0.0-beta.1.21.90-preview.20.tgz"
+  "version" "1.0.0-beta.1.21.90-preview.20"
   dependencies:
     "@minecraft/common" "^1.0.0"
-    "@minecraft/server" "^2.0.0-beta.1.21.80-preview.27"
+    "@minecraft/server" "^1.17.0 || ^2.0.0-rc.1.21.90-preview.20"
 
-"@minecraft/server@^2.0.0-beta.1.21.80-preview.27":
-  "integrity" "sha512-rnbpW+SX8fuUAsnAYCyxHQ0iS/P2iCga/HIOb3ff4RXUsypiPjTFFxKzQ6/ABN7dV0OdOsHFq19JmefcjfFSMA=="
-  "resolved" "https://registry.npmjs.org/@minecraft/server/-/server-2.0.0-beta.1.21.80-preview.27.tgz"
-  "version" "2.0.0-beta.1.21.80-preview.27"
+"@minecraft/server-ui@^2.1.0-beta.1.21.90-preview.20":
+  "integrity" "sha512-q8i5kAFSez3c1UMW4h531Am8CFLPevK6yTN9CRm5GogOPP1mv4BhQdtAVg0ldBZKkdPZbJndy0wC8hrC8DkK2g=="
+  "resolved" "https://registry.npmjs.org/@minecraft/server-ui/-/server-ui-2.1.0-beta.1.21.90-preview.20.tgz"
+  "version" "2.1.0-beta.1.21.90-preview.20"
+  dependencies:
+    "@minecraft/common" "^1.0.0"
+    "@minecraft/server" "^2.0.0-rc.1.21.90-preview.20"
+
+"@minecraft/server@^1.17.0 || ^2.0.0-rc.1.21.90-preview.20":
+  "integrity" "sha512-X3HKKezj3ZeUCBay6FJOtUq56rq8fnYRpgKaW7PgRcOJyIaLatuq/Ml01mQdUtxlKdMxZdkDS3w0SnENVfaudA=="
+  "resolved" "https://registry.npmjs.org/@minecraft/server/-/server-1.18.0.tgz"
+  "version" "1.18.0"
+  dependencies:
+    "@minecraft/common" "^1.1.0"
+
+"@minecraft/server@^2.1.0-beta.1.21.90-preview.20":
+  "integrity" "sha512-gNrHMnDr2ARHXI9UGe/zqNorJhJpU3Ca8rL7jAsDXfx9JtoIVCIVFCs/KSpL5DIk3gF1dbvhzqOrUTvtKvwLGQ=="
+  "resolved" "https://registry.npmjs.org/@minecraft/server/-/server-2.1.0-beta.1.21.90-preview.20.tgz"
+  "version" "2.1.0-beta.1.21.90-preview.20"
   dependencies:
     "@minecraft/common" "^1.1.0"
 
@@ -115,6 +130,11 @@
   "integrity" "sha512-cl669nCJTZBsL97OF4kUQm5g5hC2uihk0NxY3WENAC0TYdILVkAyHymAntgxGkl7K+t0cXIrH5siy5S4XkFycA=="
   "resolved" "https://registry.npmjs.org/acorn/-/acorn-8.14.0.tgz"
   "version" "8.14.0"
+
+"adm-zip@^0.5.16":
+  "integrity" "sha512-TGw5yVi4saajsSEgz25grObGHEUaDrniwvA2qwSC060KfqGPdglhvPMA2lPIoxs3PQIItj2iag35fONcQqgUaQ=="
+  "resolved" "https://registry.npmjs.org/adm-zip/-/adm-zip-0.5.16.tgz"
+  "version" "0.5.16"
 
 "ansi-regex@^5.0.1":
   "integrity" "sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ=="
@@ -184,6 +204,15 @@
   "resolved" "https://registry.npmjs.org/estree-walker/-/estree-walker-2.0.2.tgz"
   "version" "2.0.2"
 
+"fs-extra@^11.3.0":
+  "integrity" "sha512-Z4XaCL6dUDHfP/jT25jJKMmtxvuwbkrD1vNSMFlo9lNLY2c5FHYSQgHPRZUjAB26TpDEoW9HCOgplrdbaPV/ew=="
+  "resolved" "https://registry.npmjs.org/fs-extra/-/fs-extra-11.3.0.tgz"
+  "version" "11.3.0"
+  dependencies:
+    "graceful-fs" "^4.2.0"
+    "jsonfile" "^6.0.1"
+    "universalify" "^2.0.0"
+
 "function-bind@^1.1.2":
   "integrity" "sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA=="
   "resolved" "https://registry.npmjs.org/function-bind/-/function-bind-1.1.2.tgz"
@@ -193,6 +222,11 @@
   "integrity" "sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg=="
   "resolved" "https://registry.npmjs.org/get-caller-file/-/get-caller-file-2.0.5.tgz"
   "version" "2.0.5"
+
+"graceful-fs@^4.1.6", "graceful-fs@^4.2.0":
+  "integrity" "sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ=="
+  "resolved" "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.11.tgz"
+  "version" "4.2.11"
 
 "hasown@^2.0.2":
   "integrity" "sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ=="
@@ -229,6 +263,15 @@
   "version" "2.2.0"
   dependencies:
     "is-docker" "^2.0.0"
+
+"jsonfile@^6.0.1":
+  "integrity" "sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ=="
+  "resolved" "https://registry.npmjs.org/jsonfile/-/jsonfile-6.1.0.tgz"
+  "version" "6.1.0"
+  dependencies:
+    "universalify" "^2.0.0"
+  optionalDependencies:
+    "graceful-fs" "^4.1.6"
 
 "open@^8.4.0":
   "integrity" "sha512-7x81NCL719oNbsq/3mh+hVrAWmFuEYUqrq/Iw3kUzH8ReypT9QQ0BLoJS7/G9k6N81XjW4qHWtjWwe/9eLy1EQ=="
@@ -378,6 +421,11 @@
   "integrity" "sha512-aJn6wq13/afZp/jT9QZmwEjDqqvSGp1VT5GVg+f/t6/oVyrgXM6BY1h9BRh/O5p3PlUPAe+WuiEZOmb/49RqoQ=="
   "resolved" "https://registry.npmjs.org/typescript/-/typescript-5.8.2.tgz"
   "version" "5.8.2"
+
+"universalify@^2.0.0":
+  "integrity" "sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw=="
+  "resolved" "https://registry.npmjs.org/universalify/-/universalify-2.0.1.tgz"
+  "version" "2.0.1"
 
 "wrap-ansi@^7.0.0":
   "integrity" "sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q=="

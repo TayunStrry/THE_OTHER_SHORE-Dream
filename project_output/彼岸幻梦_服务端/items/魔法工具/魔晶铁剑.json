@@ -1,0 +1,46 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:item": {
+		"description": {
+			"identifier": "starry_map:iron_sword"
+		},
+		"components": {
+			"minecraft:can_destroy_in_creative": false,
+			// 手持物品
+			"minecraft:allow_off_hand": false,
+			"minecraft:hand_equipped": true,
+			// 基础属性
+			"minecraft:durability": {
+				"max_durability": 1000
+			},
+			"minecraft:cooldown": {
+				"category": "inject_magic.iron_sword",
+				"duration": 0.5
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "item_texture:xenomagic_infusion.iron_sword"
+				}
+			},
+			"minecraft:hover_text_color": "material_amethyst",
+			"minecraft:max_stack_size": 1,
+			"minecraft:glint": true,
+			"minecraft:damage": 14,
+			// 物品附魔
+			"minecraft:enchantable": {
+				"slot": "sword",
+				"value": 32
+			},
+			// 自定义组件
+			"opal:item.magic_crystal_wrench": {},
+			// 物品标签
+			"minecraft:tags": {
+				"tags": [
+					"tags:use_energy_to_restore_durability",
+					"tags:magic_tool.series",
+					"minecraft:is_sword"
+				]
+			}
+		}
+	}
+}

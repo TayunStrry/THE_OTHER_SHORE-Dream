@@ -1,0 +1,34 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "starry:starry_map:contract_rewriting"
+		},
+		"tags": [
+			"tags:desktop_make"
+		],
+		"pattern": [
+			" 01",
+			" 20",
+			"3  "
+		],
+		"assume_symmetry": false,
+		"key": {
+			"0": {
+				"item": "starry_map:wafer.steel_rock_eutectic"
+			},
+			"1": {
+				"item": "starry_map:eternal_energy"
+			},
+			"2": {
+				"item": "starry_map:block.purple_energy"
+			},
+			"3": {
+				"item": "minecraft:stick"
+			}
+		},
+		"result": {
+			"item": "starry_map:contract_rewriting"
+		}
+	}
+}

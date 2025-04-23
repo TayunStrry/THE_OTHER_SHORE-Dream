@@ -1,0 +1,994 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.block.divine_favor_guide_image",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 7.5,
+				"visible_bounds_offset": [0, 2.25, 0]
+			},
+			"bones": [
+				{
+					"name": "girl",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-4, 2.05133, -2.78316],
+							"size": [8, 12, 4],
+							"pivot": [0, 8.05133, -0.78316],
+							"rotation": [-7.5, 0, 0],
+							"uv": {
+								"north": {"uv": [20, 20], "uv_size": [8, 12], "material_instance": "girl"},
+								"east": {"uv": [16, 20], "uv_size": [4, 12], "material_instance": "girl"},
+								"south": {"uv": [32, 20], "uv_size": [8, 12], "material_instance": "girl"},
+								"west": {"uv": [28, 20], "uv_size": [4, 12], "material_instance": "girl"},
+								"up": {"uv": [20, 16], "uv_size": [8, 4], "material_instance": "girl"},
+								"down": {"uv": [28, 20], "uv_size": [8, -4], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-4, 2.11977, -3.82737],
+							"size": [8, 12, 4],
+							"inflate": 0.45,
+							"pivot": [0, 0.11977, -1.82737],
+							"rotation": [-7.5, 0, 0],
+							"uv": {
+								"north": {"uv": [20, 36], "uv_size": [8, 12], "material_instance": "girl"},
+								"east": {"uv": [16, 36], "uv_size": [4, 12], "material_instance": "girl"},
+								"south": {"uv": [32, 36], "uv_size": [8, 12], "material_instance": "girl"},
+								"west": {"uv": [28, 36], "uv_size": [4, 12], "material_instance": "girl"},
+								"up": {"uv": [20, 32], "uv_size": [8, 4], "material_instance": "girl"},
+								"down": {"uv": [28, 36], "uv_size": [8, -4], "material_instance": "girl"}
+							}
+						}
+					]
+				},
+				{
+					"name": "girl_0",
+					"parent": "girl",
+					"pivot": [0, 19, 0],
+					"rotation": [-5, 0, 0],
+					"cubes": [
+						{
+							"origin": [-4, 15, -4],
+							"size": [8, 8, 8],
+							"inflate": 1.45,
+							"uv": {
+								"north": {"uv": [8, 8], "uv_size": [8, 8], "material_instance": "girl"},
+								"east": {"uv": [0, 8], "uv_size": [8, 8], "material_instance": "girl"},
+								"south": {"uv": [24, 8], "uv_size": [8, 8], "material_instance": "girl"},
+								"west": {"uv": [16, 8], "uv_size": [8, 8], "material_instance": "girl"},
+								"up": {"uv": [8, 0], "uv_size": [8, 8], "material_instance": "girl"},
+								"down": {"uv": [16, 8], "uv_size": [8, -8], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-4, 15, -4],
+							"size": [8, 8, 8],
+							"inflate": 1.8,
+							"uv": {
+								"north": {"uv": [40, 8], "uv_size": [8, 8], "material_instance": "girl"},
+								"east": {"uv": [32, 8], "uv_size": [8, 8], "material_instance": "girl"},
+								"south": {"uv": [56, 8], "uv_size": [8, 8], "material_instance": "girl"},
+								"west": {"uv": [48, 8], "uv_size": [8, 8], "material_instance": "girl"},
+								"up": {"uv": [40, 0], "uv_size": [8, 8], "material_instance": "girl"},
+								"down": {"uv": [48, 8], "uv_size": [8, -8], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-4, 1.07265, 10.70882],
+							"size": [8, 6, 0],
+							"inflate": 1.45,
+							"pivot": [0, 4.07265, 10.70882],
+							"rotation": [50, 0, 0],
+							"uv": {
+								"south": {"uv": [54, 26], "uv_size": [8, 6], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-4, 8.01782, 4.61807],
+							"size": [8, 6, 0],
+							"inflate": 1.45,
+							"pivot": [0, 11.01782, 4.61807],
+							"rotation": [32.5, 0, 0],
+							"uv": {
+								"south": {"uv": [54, 20], "uv_size": [8, 6], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-3.4, 15.5, -3],
+							"size": [6.8, 3, 0],
+							"inflate": 1.45,
+							"uv": {
+								"north": {"uv": [11, 13], "uv_size": [2, 3], "material_instance": "girl"},
+								"east": {"uv": [11, 13], "uv_size": [2, 3], "material_instance": "girl"},
+								"south": {"uv": [11, 13], "uv_size": [2, 3], "material_instance": "girl"},
+								"west": {"uv": [11, 13], "uv_size": [2, 3], "material_instance": "girl"},
+								"up": {"uv": [13, 16], "uv_size": [-2, -3], "material_instance": "girl"},
+								"down": {"uv": [13, 16], "uv_size": [-2, -3], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-3, 16, -3.75],
+							"size": [6, 2, 0],
+							"inflate": 1.4,
+							"uv": {
+								"north": {"uv": [13, 16], "uv_size": [6, 3], "material_instance": "girl"},
+								"east": {"uv": [13, 16], "uv_size": [1, 3], "material_instance": "girl"},
+								"south": {"uv": [13, 16], "uv_size": [6, 3], "material_instance": "girl"},
+								"west": {"uv": [13, 16], "uv_size": [1, 3], "material_instance": "girl"},
+								"up": {"uv": [19, 17], "uv_size": [-6, -1], "material_instance": "girl"},
+								"down": {"uv": [19, 19], "uv_size": [-6, -1], "material_instance": "girl"}
+							}
+						}
+					]
+				},
+				{
+					"name": "girl_1",
+					"parent": "girl",
+					"pivot": [-5, 11.52139, -0.32632],
+					"rotation": [-80, 15, 0],
+					"reset": true,
+					"cubes": [
+						{
+							"origin": [-7, 8.02139, -2.32632],
+							"size": [3, 6, 4],
+							"inflate": 0.01,
+							"uv": {
+								"north": {"uv": [44, 20], "uv_size": [3, 6], "material_instance": "girl"},
+								"east": {"uv": [40, 20], "uv_size": [4, 6], "material_instance": "girl"},
+								"south": {"uv": [51, 20], "uv_size": [3, 6], "material_instance": "girl"},
+								"west": {"uv": [47, 20], "uv_size": [4, 6], "material_instance": "girl"},
+								"up": {"uv": [44, 16], "uv_size": [3, 4], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-7, 8.02139, -2.32632],
+							"size": [3, 6, 4],
+							"inflate": 0.35,
+							"uv": {
+								"north": {"uv": [44, 36], "uv_size": [3, 6], "material_instance": "girl"},
+								"east": {"uv": [40, 36], "uv_size": [4, 6], "material_instance": "girl"},
+								"south": {"uv": [51, 36], "uv_size": [3, 6], "material_instance": "girl"},
+								"west": {"uv": [47, 36], "uv_size": [4, 6], "material_instance": "girl"},
+								"up": {"uv": [44, 32], "uv_size": [3, 4], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-7, 7.4544, -2.30837],
+							"size": [3, 1.13397, 3.9641],
+							"pivot": [-5.5, 8.02139, -0.32632],
+							"rotation": [-150, 0, 0],
+							"uv": {
+								"north": {"uv": [44, 25], "uv_size": [3, 1], "material_instance": "girl"},
+								"east": {"uv": [40, 25], "uv_size": [4, 1], "material_instance": "girl"},
+								"south": {"uv": [51, 25], "uv_size": [3, 1], "material_instance": "girl"},
+								"west": {"uv": [47, 25], "uv_size": [4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-7, 7.52139, -2.32632],
+							"size": [3, 1, 4],
+							"pivot": [-5.5, 8.02139, -0.32632],
+							"rotation": [-120, 0, 0],
+							"uv": {
+								"north": {"uv": [44, 25], "uv_size": [3, 1], "material_instance": "girl"},
+								"east": {"uv": [40, 25], "uv_size": [4, 1], "material_instance": "girl"},
+								"south": {"uv": [51, 25], "uv_size": [3, 1], "material_instance": "girl"},
+								"west": {"uv": [47, 25], "uv_size": [4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-7, 7.4544, -2.30837],
+							"size": [3, 1.13397, 3.9641],
+							"pivot": [-5.5, 8.02139, -0.32632],
+							"rotation": [-90, 0, 0],
+							"uv": {
+								"north": {"uv": [44, 25], "uv_size": [3, 1], "material_instance": "girl"},
+								"east": {"uv": [40, 25], "uv_size": [4, 1], "material_instance": "girl"},
+								"south": {"uv": [51, 25], "uv_size": [3, 1], "material_instance": "girl"},
+								"west": {"uv": [47, 25], "uv_size": [4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-7, 7.52139, -2.32632],
+							"size": [3, 1, 4],
+							"pivot": [-5.5, 8.02139, -0.32632],
+							"rotation": [-60, 0, 0],
+							"uv": {
+								"north": {"uv": [44, 25], "uv_size": [3, 1], "material_instance": "girl"},
+								"east": {"uv": [40, 25], "uv_size": [4, 1], "material_instance": "girl"},
+								"south": {"uv": [51, 25], "uv_size": [3, 1], "material_instance": "girl"},
+								"west": {"uv": [47, 25], "uv_size": [4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-7, 7.4544, -2.30837],
+							"size": [3, 1.13397, 3.9641],
+							"pivot": [-5.5, 8.02139, -0.32632],
+							"rotation": [-30, 0, 0],
+							"uv": {
+								"north": {"uv": [44, 25], "uv_size": [3, 1], "material_instance": "girl"},
+								"east": {"uv": [40, 25], "uv_size": [4, 1], "material_instance": "girl"},
+								"south": {"uv": [51, 25], "uv_size": [3, 1], "material_instance": "girl"},
+								"west": {"uv": [47, 25], "uv_size": [4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-7, 7.52139, -2.32632],
+							"size": [3, 1, 4],
+							"uv": {
+								"north": {"uv": [44, 25], "uv_size": [3, 1], "material_instance": "girl"},
+								"east": {"uv": [40, 25], "uv_size": [4, 1], "material_instance": "girl"},
+								"south": {"uv": [51, 25], "uv_size": [3, 1], "material_instance": "girl"},
+								"west": {"uv": [47, 25], "uv_size": [4, 1], "material_instance": "girl"}
+							}
+						}
+					]
+				},
+				{
+					"name": "girl_2",
+					"parent": "girl_1",
+					"pivot": [-4, 8.02139, -0.32632],
+					"rotation": [-17.5, 0, 0],
+					"cubes": [
+						{
+							"origin": [-7, 2.02139, -2.32632],
+							"size": [3, 6, 4],
+							"inflate": 0.02,
+							"uv": {
+								"north": {"uv": [44, 26], "uv_size": [3, 6], "material_instance": "girl"},
+								"east": {"uv": [40, 26], "uv_size": [4, 6], "material_instance": "girl"},
+								"south": {"uv": [51, 26], "uv_size": [3, 6], "material_instance": "girl"},
+								"west": {"uv": [47, 26], "uv_size": [4, 6], "material_instance": "girl"},
+								"down": {"uv": [47, 20], "uv_size": [3, -4], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-7, 2.02139, -2.32632],
+							"size": [3, 6, 4],
+							"inflate": 0.3,
+							"uv": {
+								"north": {"uv": [44, 42], "uv_size": [3, 6], "material_instance": "girl"},
+								"east": {"uv": [40, 42], "uv_size": [4, 6], "material_instance": "girl"},
+								"south": {"uv": [51, 42], "uv_size": [3, 6], "material_instance": "girl"},
+								"west": {"uv": [47, 42], "uv_size": [4, 6], "material_instance": "girl"},
+								"down": {"uv": [47, 36], "uv_size": [3, -4], "material_instance": "girl"}
+							}
+						}
+					]
+				},
+				{
+					"name": "girl_3",
+					"parent": "girl",
+					"pivot": [5, 11.52139, -0.32632],
+					"rotation": [-80, -15, 0],
+					"reset": true,
+					"cubes": [
+						{
+							"origin": [4, 8.02139, -2.32632],
+							"size": [3, 6, 4],
+							"inflate": 0.01,
+							"pivot": [5.5, 11.02139, -0.32632],
+							"rotation": [0, 180, 0],
+							"uv": {
+								"north": {"uv": [46, 52], "uv_size": [-3, 6], "material_instance": "girl"},
+								"east": {"uv": [43, 52], "uv_size": [-4, 6], "material_instance": "girl"},
+								"south": {"uv": [39, 52], "uv_size": [-3, 6], "material_instance": "girl"},
+								"west": {"uv": [36, 52], "uv_size": [-4, 6], "material_instance": "girl"},
+								"up": {"uv": [39, 48], "uv_size": [-3, 4], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [4, 8.02139, -2.32632],
+							"size": [3, 6, 4],
+							"inflate": 0.35,
+							"pivot": [5.5, 11.02139, -0.32632],
+							"rotation": [0, 180, 0],
+							"uv": {
+								"north": {"uv": [62, 52], "uv_size": [-3, 6], "material_instance": "girl"},
+								"east": {"uv": [59, 52], "uv_size": [-4, 6], "material_instance": "girl"},
+								"south": {"uv": [55, 52], "uv_size": [-3, 6], "material_instance": "girl"},
+								"west": {"uv": [52, 52], "uv_size": [-4, 6], "material_instance": "girl"},
+								"up": {"uv": [55, 48], "uv_size": [-3, 4], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [4, 7.4544, -2.30837],
+							"size": [3, 1.13397, 3.9641],
+							"pivot": [5.5, 8.02139, -0.32632],
+							"rotation": [-150, 0, 0],
+							"uv": {
+								"north": {"uv": [43, 57], "uv_size": [3, 1], "material_instance": "girl"},
+								"east": {"uv": [32, 57], "uv_size": [4, 1], "material_instance": "girl"},
+								"south": {"uv": [36, 57], "uv_size": [3, 1], "material_instance": "girl"},
+								"west": {"uv": [39, 57], "uv_size": [4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [4, 7.52139, -2.32632],
+							"size": [3, 1, 4],
+							"pivot": [5.5, 8.02139, -0.32632],
+							"rotation": [-120, 0, 0],
+							"uv": {
+								"north": {"uv": [43, 57], "uv_size": [3, 1], "material_instance": "girl"},
+								"east": {"uv": [32, 57], "uv_size": [4, 1], "material_instance": "girl"},
+								"south": {"uv": [36, 57], "uv_size": [3, 1], "material_instance": "girl"},
+								"west": {"uv": [39, 57], "uv_size": [4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [4, 7.4544, -2.30837],
+							"size": [3, 1.13397, 3.9641],
+							"pivot": [5.5, 8.02139, -0.32632],
+							"rotation": [-90, 0, 0],
+							"uv": {
+								"north": {"uv": [43, 57], "uv_size": [3, 1], "material_instance": "girl"},
+								"east": {"uv": [32, 57], "uv_size": [4, 1], "material_instance": "girl"},
+								"south": {"uv": [36, 57], "uv_size": [3, 1], "material_instance": "girl"},
+								"west": {"uv": [39, 57], "uv_size": [4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [4, 7.52139, -2.32632],
+							"size": [3, 1, 4],
+							"pivot": [5.5, 8.02139, -0.32632],
+							"rotation": [-60, 0, 0],
+							"uv": {
+								"north": {"uv": [43, 57], "uv_size": [3, 1], "material_instance": "girl"},
+								"east": {"uv": [32, 57], "uv_size": [4, 1], "material_instance": "girl"},
+								"south": {"uv": [36, 57], "uv_size": [3, 1], "material_instance": "girl"},
+								"west": {"uv": [39, 57], "uv_size": [4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [4, 7.4544, -2.30837],
+							"size": [3, 1.13397, 3.9641],
+							"pivot": [5.5, 8.02139, -0.32632],
+							"rotation": [-30, 0, 0],
+							"uv": {
+								"north": {"uv": [43, 57], "uv_size": [3, 1], "material_instance": "girl"},
+								"east": {"uv": [32, 57], "uv_size": [4, 1], "material_instance": "girl"},
+								"south": {"uv": [36, 57], "uv_size": [3, 1], "material_instance": "girl"},
+								"west": {"uv": [39, 57], "uv_size": [4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [4, 7.52139, -2.32632],
+							"size": [3, 1, 4],
+							"uv": {
+								"north": {"uv": [43, 57], "uv_size": [3, 1], "material_instance": "girl"},
+								"east": {"uv": [32, 57], "uv_size": [4, 1], "material_instance": "girl"},
+								"south": {"uv": [36, 57], "uv_size": [3, 1], "material_instance": "girl"},
+								"west": {"uv": [39, 57], "uv_size": [4, 1], "material_instance": "girl"}
+							}
+						}
+					]
+				},
+				{
+					"name": "girl_7",
+					"parent": "girl_3",
+					"pivot": [4, 8.02139, -0.32632],
+					"rotation": [-17.5, 0, 0],
+					"reset": true,
+					"cubes": [
+						{
+							"origin": [4, 2.02139, -2.32632],
+							"size": [3, 6, 4],
+							"inflate": 0.02,
+							"pivot": [5.5, 5.02139, -0.32632],
+							"rotation": [0, 180, 0],
+							"uv": {
+								"north": {"uv": [46, 58], "uv_size": [-3, 6], "material_instance": "girl"},
+								"east": {"uv": [43, 58], "uv_size": [-4, 6], "material_instance": "girl"},
+								"south": {"uv": [39, 58], "uv_size": [-3, 6], "material_instance": "girl"},
+								"west": {"uv": [36, 58], "uv_size": [-4, 6], "material_instance": "girl"},
+								"down": {"uv": [42, 52], "uv_size": [-3, -4], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [4, 2.02139, -2.32632],
+							"size": [3, 6, 4],
+							"inflate": 0.3,
+							"pivot": [5.5, 5.02139, -0.32632],
+							"rotation": [0, 180, 0],
+							"uv": {
+								"north": {"uv": [62, 58], "uv_size": [-3, 6], "material_instance": "girl"},
+								"east": {"uv": [59, 58], "uv_size": [-4, 6], "material_instance": "girl"},
+								"south": {"uv": [55, 58], "uv_size": [-3, 6], "material_instance": "girl"},
+								"west": {"uv": [52, 58], "uv_size": [-4, 6], "material_instance": "girl"},
+								"down": {"uv": [58, 52], "uv_size": [-3, -4], "material_instance": "girl"}
+							}
+						}
+					]
+				},
+				{
+					"name": "girl_8",
+					"parent": "girl",
+					"pivot": [-2, 2.10266, -1.56631],
+					"rotation": [-97.8595, 17.3455, -2.3567],
+					"cubes": [
+						{
+							"origin": [-3.9, -3.89734, -3.56631],
+							"size": [4, 6, 4],
+							"inflate": 0.01,
+							"uv": {
+								"north": {"uv": [4, 20], "uv_size": [4, 6], "material_instance": "girl"},
+								"east": {"uv": [0, 20], "uv_size": [4, 6], "material_instance": "girl"},
+								"south": {"uv": [12, 20], "uv_size": [4, 6], "material_instance": "girl"},
+								"west": {"uv": [8, 20], "uv_size": [4, 6], "material_instance": "girl"},
+								"up": {"uv": [8, 20], "uv_size": [-4, -4], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-3.8859, -3.94204, -3.92236],
+							"size": [4, 6, 4],
+							"inflate": 0.35,
+							"uv": {
+								"north": {"uv": [4, 36], "uv_size": [4, 6], "material_instance": "girl"},
+								"east": {"uv": [0, 36], "uv_size": [4, 6], "material_instance": "girl"},
+								"south": {"uv": [12, 36], "uv_size": [4, 6], "material_instance": "girl"},
+								"west": {"uv": [8, 36], "uv_size": [4, 6], "material_instance": "girl"},
+								"up": {"uv": [4, 32], "uv_size": [4, 4], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-3.9, -4.46433, -3.54836],
+							"size": [4, 1.13397, 3.9641],
+							"pivot": [-1.4, -3.89734, -1.56631],
+							"rotation": [-150, 0, 0],
+							"uv": {
+								"north": {"uv": [0, 25], "uv_size": [4, 1], "material_instance": "girl"},
+								"east": {"uv": [0, 25], "uv_size": [4, 1], "material_instance": "girl"},
+								"south": {"uv": [0, 25], "uv_size": [4, 1], "material_instance": "girl"},
+								"west": {"uv": [0, 25], "uv_size": [4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-3.9, -4.39734, -3.56631],
+							"size": [4, 1, 4],
+							"pivot": [-1.4, -3.89734, -1.56631],
+							"rotation": [-120, 0, 0],
+							"uv": {
+								"north": {"uv": [0, 25], "uv_size": [4, 1], "material_instance": "girl"},
+								"east": {"uv": [0, 25], "uv_size": [4, 1], "material_instance": "girl"},
+								"south": {"uv": [0, 25], "uv_size": [4, 1], "material_instance": "girl"},
+								"west": {"uv": [0, 25], "uv_size": [4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-3.9, -4.46433, -3.54836],
+							"size": [4, 1.13397, 3.9641],
+							"pivot": [-1.4, -3.89734, -1.56631],
+							"rotation": [-90, 0, 0],
+							"uv": {
+								"north": {"uv": [0, 25], "uv_size": [4, 1], "material_instance": "girl"},
+								"east": {"uv": [0, 25], "uv_size": [4, 1], "material_instance": "girl"},
+								"south": {"uv": [0, 25], "uv_size": [4, 1], "material_instance": "girl"},
+								"west": {"uv": [0, 25], "uv_size": [4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-3.9, -4.39734, -3.56631],
+							"size": [4, 1, 4],
+							"pivot": [-1.4, -3.89734, -1.56631],
+							"rotation": [-60, 0, 0],
+							"uv": {
+								"north": {"uv": [0, 25], "uv_size": [4, 1], "material_instance": "girl"},
+								"east": {"uv": [0, 25], "uv_size": [4, 1], "material_instance": "girl"},
+								"south": {"uv": [0, 25], "uv_size": [4, 1], "material_instance": "girl"},
+								"west": {"uv": [0, 25], "uv_size": [4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-3.9, -4.46433, -3.54836],
+							"size": [4, 1.13397, 3.9641],
+							"pivot": [-1.4, -3.89734, -1.56631],
+							"rotation": [-30, 0, 0],
+							"uv": {
+								"north": {"uv": [0, 25], "uv_size": [4, 1], "material_instance": "girl"},
+								"east": {"uv": [0, 25], "uv_size": [4, 1], "material_instance": "girl"},
+								"south": {"uv": [0, 25], "uv_size": [4, 1], "material_instance": "girl"},
+								"west": {"uv": [0, 25], "uv_size": [4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-3.9, -4.39734, -3.56631],
+							"size": [4, 1, 4],
+							"uv": {
+								"north": {"uv": [0, 25], "uv_size": [4, 1], "material_instance": "girl"},
+								"east": {"uv": [0, 25], "uv_size": [4, 1], "material_instance": "girl"},
+								"south": {"uv": [0, 25], "uv_size": [4, 1], "material_instance": "girl"},
+								"west": {"uv": [0, 25], "uv_size": [4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-3.9, -4.21844, -3.61425],
+							"size": [3.9, 0.64221, 4.09587],
+							"inflate": 0.18,
+							"pivot": [-1.4, -3.89734, -1.56631],
+							"rotation": [-150, 0, 0],
+							"uv": {
+								"north": {"uv": [4, 42], "uv_size": [4, 1], "material_instance": "girl"},
+								"east": {"uv": [0, 42], "uv_size": [4, 1], "material_instance": "girl"},
+								"south": {"uv": [8, 42], "uv_size": [-4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-3.9, -4.39734, -3.56631],
+							"size": [3.9, 1, 4],
+							"inflate": 0.18,
+							"pivot": [-1.4, -3.89734, -1.56631],
+							"rotation": [-120, 0, 0],
+							"uv": {
+								"north": {"uv": [4, 42], "uv_size": [4, 1], "material_instance": "girl"},
+								"east": {"uv": [0, 42], "uv_size": [4, 1], "material_instance": "girl"},
+								"south": {"uv": [8, 42], "uv_size": [-4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-3.9, -4.21844, -3.61425],
+							"size": [3.9, 0.64221, 4.09587],
+							"inflate": 0.18,
+							"pivot": [-1.4, -3.89734, -1.56631],
+							"rotation": [-90, 0, 0],
+							"uv": {
+								"north": {"uv": [4, 42], "uv_size": [4, 1], "material_instance": "girl"},
+								"east": {"uv": [0, 42], "uv_size": [4, 1], "material_instance": "girl"},
+								"south": {"uv": [8, 42], "uv_size": [-4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-3.9, -4.39734, -3.56631],
+							"size": [3.9, 1, 4],
+							"inflate": 0.18,
+							"pivot": [-1.4, -3.89734, -1.56631],
+							"rotation": [-60, 0, 0],
+							"uv": {
+								"north": {"uv": [4, 42], "uv_size": [4, 1], "material_instance": "girl"},
+								"east": {"uv": [0, 42], "uv_size": [4, 1], "material_instance": "girl"},
+								"south": {"uv": [8, 42], "uv_size": [-4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-3.9, -4.21844, -3.61425],
+							"size": [3.9, 0.64221, 4.09587],
+							"inflate": 0.18,
+							"pivot": [-1.4, -3.89734, -1.56631],
+							"rotation": [-30, 0, 0],
+							"uv": {
+								"north": {"uv": [4, 42], "uv_size": [4, 1], "material_instance": "girl"},
+								"east": {"uv": [0, 42], "uv_size": [4, 1], "material_instance": "girl"},
+								"south": {"uv": [8, 42], "uv_size": [-4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-3.9, -4.39734, -3.56631],
+							"size": [3.9, 1, 4],
+							"inflate": 0.18,
+							"uv": {
+								"north": {"uv": [4, 42], "uv_size": [4, 1], "material_instance": "girl"},
+								"east": {"uv": [0, 42], "uv_size": [4, 1], "material_instance": "girl"},
+								"south": {"uv": [8, 42], "uv_size": [-4, 1], "material_instance": "girl"}
+							}
+						}
+					]
+				},
+				{
+					"name": "girl_4",
+					"parent": "girl_8",
+					"pivot": [-2, -3.89734, -1.56631],
+					"rotation": [15, 0, 0],
+					"cubes": [
+						{
+							"origin": [-3.89818, -9.89103, -3.6121],
+							"size": [4, 6, 4],
+							"inflate": 0.02,
+							"uv": {
+								"north": {"uv": [4, 26], "uv_size": [4, 6], "material_instance": "girl"},
+								"east": {"uv": [0, 26], "uv_size": [4, 6], "material_instance": "girl"},
+								"south": {"uv": [12, 26], "uv_size": [4, 6], "material_instance": "girl"},
+								"west": {"uv": [8, 26], "uv_size": [4, 6], "material_instance": "girl"},
+								"down": {"uv": [8, 20], "uv_size": [4, -4], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-3.88538, -9.84653, -3.93513],
+							"size": [4, 6, 4],
+							"inflate": 0.3,
+							"uv": {
+								"north": {"uv": [4, 42], "uv_size": [4, 6], "material_instance": "girl"},
+								"east": {"uv": [0, 42], "uv_size": [4, 6], "material_instance": "girl"},
+								"south": {"uv": [12, 42], "uv_size": [4, 6], "material_instance": "girl"},
+								"west": {"uv": [8, 42], "uv_size": [4, 6], "material_instance": "girl"},
+								"down": {"uv": [8, 36], "uv_size": [4, -4], "material_instance": "girl"}
+							}
+						}
+					]
+				},
+				{
+					"name": "girl_5",
+					"parent": "girl",
+					"pivot": [2, 2.10266, -1.56631],
+					"rotation": [-97.8595, -17.3455, 2.3567],
+					"cubes": [
+						{
+							"origin": [-0.1, -3.89734, -3.56631],
+							"size": [4, 6, 4],
+							"inflate": 0.01,
+							"uv": {
+								"north": {"uv": [20, 52], "uv_size": [4, 6], "material_instance": "girl"},
+								"east": {"uv": [16, 52], "uv_size": [4, 6], "material_instance": "girl"},
+								"south": {"uv": [28, 52], "uv_size": [4, 6], "material_instance": "girl"},
+								"west": {"uv": [24, 52], "uv_size": [4, 6], "material_instance": "girl"},
+								"up": {"uv": [24, 48], "uv_size": [-4, 4], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-0.1141, -3.94204, -3.92236],
+							"size": [4, 6, 4],
+							"inflate": 0.35,
+							"uv": {
+								"north": {"uv": [4, 52], "uv_size": [4, 6], "material_instance": "girl"},
+								"east": {"uv": [0, 52], "uv_size": [4, 6], "material_instance": "girl"},
+								"south": {"uv": [12, 52], "uv_size": [4, 6], "material_instance": "girl"},
+								"west": {"uv": [8, 52], "uv_size": [4, 6], "material_instance": "girl"},
+								"up": {"uv": [4, 48], "uv_size": [4, 4], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-0.1, -4.46433, -3.54836],
+							"size": [4, 1.13397, 3.9641],
+							"pivot": [2.4, -3.89734, -1.56631],
+							"rotation": [-150, 0, 0],
+							"uv": {
+								"north": {"uv": [32, 57], "uv_size": [-4, 1], "material_instance": "girl"},
+								"east": {"uv": [20, 57], "uv_size": [-4, 1], "material_instance": "girl"},
+								"south": {"uv": [24, 57], "uv_size": [-4, 1], "material_instance": "girl"},
+								"west": {"uv": [28, 57], "uv_size": [-4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-0.1, -4.39734, -3.56631],
+							"size": [4, 1, 4],
+							"pivot": [2.4, -3.89734, -1.56631],
+							"rotation": [-120, 0, 0],
+							"uv": {
+								"north": {"uv": [32, 57], "uv_size": [-4, 1], "material_instance": "girl"},
+								"east": {"uv": [20, 57], "uv_size": [-4, 1], "material_instance": "girl"},
+								"south": {"uv": [24, 57], "uv_size": [-4, 1], "material_instance": "girl"},
+								"west": {"uv": [28, 57], "uv_size": [-4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-0.1, -4.46433, -3.54836],
+							"size": [4, 1.13397, 3.9641],
+							"pivot": [2.4, -3.89734, -1.56631],
+							"rotation": [-90, 0, 0],
+							"uv": {
+								"north": {"uv": [32, 57], "uv_size": [-4, 1], "material_instance": "girl"},
+								"east": {"uv": [20, 57], "uv_size": [-4, 1], "material_instance": "girl"},
+								"south": {"uv": [24, 57], "uv_size": [-4, 1], "material_instance": "girl"},
+								"west": {"uv": [28, 57], "uv_size": [-4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-0.1, -4.39734, -3.56631],
+							"size": [4, 1, 4],
+							"pivot": [2.4, -3.89734, -1.56631],
+							"rotation": [-60, 0, 0],
+							"uv": {
+								"north": {"uv": [32, 57], "uv_size": [-4, 1], "material_instance": "girl"},
+								"east": {"uv": [20, 57], "uv_size": [-4, 1], "material_instance": "girl"},
+								"south": {"uv": [24, 57], "uv_size": [-4, 1], "material_instance": "girl"},
+								"west": {"uv": [28, 57], "uv_size": [-4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-0.1, -4.46433, -3.54836],
+							"size": [4, 1.13397, 3.9641],
+							"pivot": [2.4, -3.89734, -1.56631],
+							"rotation": [-30, 0, 0],
+							"uv": {
+								"north": {"uv": [32, 57], "uv_size": [-4, 1], "material_instance": "girl"},
+								"east": {"uv": [20, 57], "uv_size": [-4, 1], "material_instance": "girl"},
+								"south": {"uv": [24, 57], "uv_size": [-4, 1], "material_instance": "girl"},
+								"west": {"uv": [28, 57], "uv_size": [-4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-0.1, -4.39734, -3.56631],
+							"size": [4, 1, 4],
+							"uv": {
+								"north": {"uv": [32, 57], "uv_size": [-4, 1], "material_instance": "girl"},
+								"east": {"uv": [20, 57], "uv_size": [-4, 1], "material_instance": "girl"},
+								"south": {"uv": [24, 57], "uv_size": [-4, 1], "material_instance": "girl"},
+								"west": {"uv": [28, 57], "uv_size": [-4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-1.1, -4.21844, -3.61425],
+							"size": [3.9, 0.64221, 4.09587],
+							"inflate": 0.18,
+							"pivot": [1.4, -3.89734, -1.56631],
+							"rotation": [30, 0, 180],
+							"uv": {
+								"north": {"uv": [8, 58], "uv_size": [-4, 1], "material_instance": "girl"},
+								"east": {"uv": [12, 58], "uv_size": [-4, 1], "material_instance": "girl"},
+								"south": {"uv": [4, 58], "uv_size": [4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-1.1, -4.39734, -3.56631],
+							"size": [3.9, 1, 4],
+							"inflate": 0.18,
+							"pivot": [1.4, -3.89734, -1.56631],
+							"rotation": [60, 0, 180],
+							"uv": {
+								"north": {"uv": [8, 58], "uv_size": [-4, 1], "material_instance": "girl"},
+								"east": {"uv": [12, 58], "uv_size": [-4, 1], "material_instance": "girl"},
+								"south": {"uv": [4, 58], "uv_size": [4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-1.1, -4.21844, -3.61425],
+							"size": [3.9, 0.64221, 4.09587],
+							"inflate": 0.18,
+							"pivot": [1.4, -3.89734, -1.56631],
+							"rotation": [90, 0, 180],
+							"uv": {
+								"north": {"uv": [8, 58], "uv_size": [-4, 1], "material_instance": "girl"},
+								"east": {"uv": [12, 58], "uv_size": [-4, 1], "material_instance": "girl"},
+								"south": {"uv": [4, 58], "uv_size": [4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-1.1, -4.39734, -3.56631],
+							"size": [3.9, 1, 4],
+							"inflate": 0.18,
+							"pivot": [1.4, -3.89734, -1.56631],
+							"rotation": [120, 0, 180],
+							"uv": {
+								"north": {"uv": [8, 58], "uv_size": [-4, 1], "material_instance": "girl"},
+								"east": {"uv": [12, 58], "uv_size": [-4, 1], "material_instance": "girl"},
+								"south": {"uv": [4, 58], "uv_size": [4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-1.1, -4.21844, -3.61425],
+							"size": [3.9, 0.64221, 4.09587],
+							"inflate": 0.18,
+							"pivot": [1.4, -3.89734, -1.56631],
+							"rotation": [150, 0, 180],
+							"uv": {
+								"north": {"uv": [8, 58], "uv_size": [-4, 1], "material_instance": "girl"},
+								"east": {"uv": [12, 58], "uv_size": [-4, 1], "material_instance": "girl"},
+								"south": {"uv": [4, 58], "uv_size": [4, 1], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [1.7, -4.39734, -3.56631],
+							"size": [3.9, 1, 4],
+							"inflate": 0.18,
+							"pivot": [2.8, 0.10266, -1.56631],
+							"rotation": [-180, 0, 180],
+							"uv": {
+								"north": {"uv": [8, 58], "uv_size": [-4, 1], "material_instance": "girl"},
+								"east": {"uv": [12, 58], "uv_size": [-4, 1], "material_instance": "girl"},
+								"south": {"uv": [4, 58], "uv_size": [4, 1], "material_instance": "girl"}
+							}
+						}
+					]
+				},
+				{
+					"name": "girl_6",
+					"parent": "girl_5",
+					"pivot": [2, -3.89734, -1.56631],
+					"rotation": [15, 0, 0],
+					"cubes": [
+						{
+							"origin": [-0.10182, -9.89103, -3.6121],
+							"size": [4, 6, 4],
+							"inflate": 0.02,
+							"uv": {
+								"north": {"uv": [28, 58], "uv_size": [4, 6], "material_instance": "girl"},
+								"east": {"uv": [16, 58], "uv_size": [4, 6], "material_instance": "girl"},
+								"south": {"uv": [20, 58], "uv_size": [4, 6], "material_instance": "girl"},
+								"west": {"uv": [24, 58], "uv_size": [4, 6], "material_instance": "girl"},
+								"down": {"uv": [28, 52], "uv_size": [-4, -4], "material_instance": "girl"}
+							}
+						},
+						{
+							"origin": [-0.11462, -9.84653, -3.93513],
+							"size": [4, 6, 4],
+							"inflate": 0.3,
+							"uv": {
+								"north": {"uv": [4, 58], "uv_size": [4, 6], "material_instance": "girl"},
+								"east": {"uv": [0, 58], "uv_size": [4, 6], "material_instance": "girl"},
+								"south": {"uv": [12, 58], "uv_size": [4, 6], "material_instance": "girl"},
+								"west": {"uv": [12, 58], "uv_size": [-4, 6], "material_instance": "girl"},
+								"down": {"uv": [12, 52], "uv_size": [-4, -4], "material_instance": "girl"}
+							}
+						}
+					]
+				},
+				{
+					"name": "casket",
+					"pivot": [0, 6, 13],
+					"cubes": [
+						{
+							"origin": [-11, 7, 6],
+							"size": [22, 24, 8],
+							"inflate": 0.5,
+							"pivot": [0, 6, 13],
+							"rotation": [90, 0, 180],
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [22, 24], "material_instance": "casket"},
+								"east": {"uv": [0, 0], "uv_size": [8, 24], "material_instance": "casket"},
+								"south": {"uv": [0, 0], "uv_size": [22, 24], "material_instance": "casket"},
+								"west": {"uv": [0, 0], "uv_size": [8, 24], "material_instance": "casket"},
+								"up": {"uv": [22, 8], "uv_size": [-22, -8], "material_instance": "casket"},
+								"down": {"uv": [22, 8], "uv_size": [-22, -8], "material_instance": "casket"}
+							}
+						},
+						{
+							"origin": [-11, 7, 14],
+							"size": [22, 24, 4],
+							"inflate": 0.15,
+							"pivot": [0, 6, 13],
+							"rotation": [90, 0, 180],
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [22, 24], "material_instance": "casket"},
+								"east": {"uv": [0, 0], "uv_size": [4, 24], "material_instance": "casket"},
+								"south": {"uv": [0, 0], "uv_size": [22, 24], "material_instance": "casket"},
+								"west": {"uv": [0, 0], "uv_size": [4, 24], "material_instance": "casket"},
+								"up": {"uv": [22, 4], "uv_size": [-22, -4], "material_instance": "casket"},
+								"down": {"uv": [22, 4], "uv_size": [-22, -4], "material_instance": "casket"}
+							}
+						}
+					]
+				},
+				{
+					"name": "frame",
+					"pivot": [5.44009, 14.5044, -4.62446],
+					"cubes": [
+						{
+							"origin": [4, -5.7, -6.9],
+							"size": [2, 25.1, 4],
+							"pivot": [5, 6.9, -0.2],
+							"rotation": [90, 0, 0],
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [2, 25.1], "material_instance": "frame"},
+								"east": {"uv": [0, 0], "uv_size": [4, 25.1], "material_instance": "frame"},
+								"south": {"uv": [0, 0], "uv_size": [2, 25.1], "material_instance": "frame"},
+								"west": {"uv": [0, 0], "uv_size": [4, 25.1], "material_instance": "frame"},
+								"up": {"uv": [2, 4], "uv_size": [-2, -4], "material_instance": "frame"},
+								"down": {"uv": [2, 4], "uv_size": [-2, -4], "material_instance": "frame"}
+							}
+						},
+						{
+							"origin": [4, -6.1, -2.9],
+							"size": [2, 26, 9.6],
+							"pivot": [5, 6.9, -0.2],
+							"rotation": [90, 0, 0],
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [2, 26], "material_instance": "frame"},
+								"east": {"uv": [0, 0], "uv_size": [9.6, 26], "material_instance": "frame"},
+								"south": {"uv": [0, 0], "uv_size": [2, 26], "material_instance": "frame"},
+								"west": {"uv": [0, 0], "uv_size": [9.6, 26], "material_instance": "frame"},
+								"up": {"uv": [2, 9.6], "uv_size": [-2, -9.6], "material_instance": "frame"},
+								"down": {"uv": [2, 9.6], "uv_size": [-2, -9.6], "material_instance": "frame"}
+							}
+						},
+						{
+							"origin": [2.7, 5.9, -17.7],
+							"size": [3.8, 2, 23],
+							"pivot": [0, 6.9, -6.2],
+							"rotation": [90, 0, 90],
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [3.8, 2], "material_instance": "frame"},
+								"east": {"uv": [0, 0], "uv_size": [23, 2], "material_instance": "frame"},
+								"south": {"uv": [0, 0], "uv_size": [3.8, 2], "material_instance": "frame"},
+								"west": {"uv": [0, 0], "uv_size": [23, 2], "material_instance": "frame"},
+								"up": {"uv": [3.8, 23], "uv_size": [-3.8, -23], "material_instance": "frame"},
+								"down": {"uv": [3.8, 23], "uv_size": [-3.8, -23], "material_instance": "frame"}
+							}
+						},
+						{
+							"origin": [-7.1, 5.9, -18.2],
+							"size": [9.9, 2, 24],
+							"pivot": [0, 6.9, -6.2],
+							"rotation": [90, 0, 90],
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [9.9, 2], "material_instance": "frame"},
+								"east": {"uv": [0, 0], "uv_size": [24, 2], "material_instance": "frame"},
+								"south": {"uv": [0, 0], "uv_size": [9.9, 2], "material_instance": "frame"},
+								"west": {"uv": [0, 0], "uv_size": [24, 2], "material_instance": "frame"},
+								"up": {"uv": [9.9, 24], "uv_size": [-9.9, -24], "material_instance": "frame"},
+								"down": {"uv": [9.9, 24], "uv_size": [-9.9, -24], "material_instance": "frame"}
+							}
+						},
+						{
+							"origin": [4, 12.8, -7.2],
+							"size": [2, 2, 2],
+							"inflate": -0.1,
+							"pivot": [5, 13.8, -6.2],
+							"rotation": [90, 0, 90],
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [2, 2], "material_instance": "frame"},
+								"east": {"uv": [0, 0], "uv_size": [2, 2], "material_instance": "frame"},
+								"south": {"uv": [0, 0], "uv_size": [2, 2], "material_instance": "frame"},
+								"west": {"uv": [0, 0], "uv_size": [2, 2], "material_instance": "frame"},
+								"up": {"uv": [2, 2], "uv_size": [-2, -2], "material_instance": "frame"},
+								"down": {"uv": [2, 2], "uv_size": [-2, -2], "material_instance": "frame"}
+							}
+						},
+						{
+							"origin": [4, 8.8, -7.2],
+							"size": [1, 5, 2],
+							"inflate": -0.3,
+							"pivot": [5, 13.8, -6.2],
+							"rotation": [130, 0, 90],
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [1, 5], "material_instance": "frame"},
+								"east": {"uv": [0, 0], "uv_size": [2, 5], "material_instance": "frame"},
+								"south": {"uv": [0, 0], "uv_size": [1, 5], "material_instance": "frame"},
+								"west": {"uv": [0, 0], "uv_size": [2, 5], "material_instance": "frame"},
+								"up": {"uv": [1, 2], "uv_size": [-1, -2], "material_instance": "frame"},
+								"down": {"uv": [1, 2], "uv_size": [-1, -2], "material_instance": "frame"}
+							}
+						},
+						{
+							"origin": [4, 8.8, -7.2],
+							"size": [1, 5, 2],
+							"inflate": -0.3,
+							"pivot": [5, 13.8, -6.2],
+							"rotation": [50, 0, 90],
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [1, 5], "material_instance": "frame"},
+								"east": {"uv": [0, 0], "uv_size": [2, 5], "material_instance": "frame"},
+								"south": {"uv": [0, 0], "uv_size": [1, 5], "material_instance": "frame"},
+								"west": {"uv": [0, 0], "uv_size": [2, 5], "material_instance": "frame"},
+								"up": {"uv": [1, 2], "uv_size": [-1, -2], "material_instance": "frame"},
+								"down": {"uv": [1, 2], "uv_size": [-1, -2], "material_instance": "frame"}
+							}
+						},
+						{
+							"origin": [4, 10.8, -7.2],
+							"size": [1, 3, 2],
+							"inflate": -0.3,
+							"pivot": [5, 13.8, -6.2],
+							"rotation": [-50, 0, 90],
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [1, 3], "material_instance": "frame"},
+								"east": {"uv": [0, 0], "uv_size": [2, 3], "material_instance": "frame"},
+								"south": {"uv": [0, 0], "uv_size": [1, 3], "material_instance": "frame"},
+								"west": {"uv": [0, 0], "uv_size": [2, 3], "material_instance": "frame"},
+								"up": {"uv": [1, 2], "uv_size": [-1, -2], "material_instance": "frame"},
+								"down": {"uv": [1, 2], "uv_size": [-1, -2], "material_instance": "frame"}
+							}
+						},
+						{
+							"origin": [4, 10.8, -7.2],
+							"size": [1, 3, 2],
+							"inflate": -0.3,
+							"pivot": [5, 13.8, -6.2],
+							"rotation": [-130, 0, 90],
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [1, 3], "material_instance": "frame"},
+								"east": {"uv": [0, 0], "uv_size": [2, 3], "material_instance": "frame"},
+								"south": {"uv": [0, 0], "uv_size": [1, 3], "material_instance": "frame"},
+								"west": {"uv": [0, 0], "uv_size": [2, 3], "material_instance": "frame"},
+								"up": {"uv": [1, 2], "uv_size": [-1, -2], "material_instance": "frame"},
+								"down": {"uv": [1, 2], "uv_size": [-1, -2], "material_instance": "frame"}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

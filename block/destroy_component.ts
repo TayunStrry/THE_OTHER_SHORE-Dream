@@ -48,11 +48,11 @@ interface DESTROY_COMPONENT {
  *
  * @param source - 方块组件参数
  */
-function DestroyComponentTrigger(source: server.BlockComponentPlayerDestroyEvent): DESTROY_COMPONENT {
+function DestroyComponentTrigger(source: server.BlockComponentPlayerBreakEvent): DESTROY_COMPONENT {
 	/**
 	 ** 方块状态
 	 */
-	const state = source.destroyedBlockPermutation;
+	const state = source.brokenBlockPermutation;
 	/**
 	 ** 方块维度
 	 */
@@ -77,7 +77,7 @@ function DestroyComponentTrigger(source: server.BlockComponentPlayerDestroyEvent
  */
 components.set(componentPrefix + 'crystal_tank',
 	{
-		onPlayerDestroy(source: server.BlockComponentPlayerDestroyEvent) {
+		onPlayerBreak(source: server.BlockComponentPlayerBreakEvent) {
 			/**
 			 * * 方块破坏组件参数解构
 			 */

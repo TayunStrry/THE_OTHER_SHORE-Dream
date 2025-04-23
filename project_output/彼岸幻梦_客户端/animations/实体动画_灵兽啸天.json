@@ -1,0 +1,180 @@
+{
+	"format_version": "1.10.10",
+	"animations": {
+		"animation.entity.roaring.basic_action": {
+			"loop": true,
+			"bones": {
+				"tail": {
+					"rotation": ["(q.health + 35) - math.cos(q.life_time * 45) * 10", 0, "math.cos(q.life_time * 45) * 10"]
+				},
+				"head": {
+					"rotation": ["math.cos(q.life_time * 45) * 2", 0, 0]
+				},
+				"pedals_left": {
+					"rotation": ["math.cos(q.life_time * 45) * -5", 0, "math.cos(q.life_time * 45) * 5"]
+				},
+				"pedals_right": {
+					"rotation": ["math.cos(q.life_time * 45) * 5", 0, "math.cos(q.life_time * 45) * -5"]
+				}
+			}
+		},
+		"animation.entity.roaring.is_baby": {
+			"loop": true,
+			"bones": {
+				"head": {
+					"position": [0, 1, 0],
+					"scale": 1.6
+				}
+			}
+		},
+		"animation.entity.roaring.sit_down": {
+			"loop": true,
+			"bones": {
+				"head": {
+					"rotation": ["30+ math.cos(q.life_time * 100) * 2.0", 0, 0],
+					"position": [0, 1, 1]
+				},
+				"tail": {
+					"rotation": ["35 - this", "math.cos(q.life_time * 100) * 15.0", 0]
+				}
+			}
+		},
+		"animation.entity.roaring.jump_move": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 2,
+			"bones": {
+				"xiao_tian": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.5": [-25, 0, 0],
+						"1.5": [25, 0, 0]
+					}
+				},
+				"body_0": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.5": [-15, 0, 0],
+						"1.5": [15, 0, 0]
+					}
+				},
+				"leg0": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.5": [-50, 0, 0],
+						"1.5": [-50, 0, 0]
+					}
+				},
+				"leg1": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.5": [-65, 0, 0],
+						"1.5": [-65, 0, 0]
+					},
+					"position": {
+						"0.5": [0, 0, 0],
+						"1.5": [0, 1, 0]
+					}
+				},
+				"leg2": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.5": [35, 0, 0],
+						"1.5": [65, 0, 0]
+					},
+					"position": {
+						"0.5": [0, 0, 0],
+						"1.5": [0, 1, 1]
+					}
+				},
+				"leg3": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.5": [15, 0, 0],
+						"1.5": [65, 0, 0]
+					},
+					"position": {
+						"0.5": [0, 0, 0],
+						"1.5": [0, 1, 1]
+					}
+				},
+				"Driver": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.5": [-5, 0, 0],
+						"1.5": [15, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.5": [0, 1, 0],
+						"1.5": [0, 0, 2]
+					}
+				},
+				"tail": {
+					"rotation": [0, "v.move_speed * 0.35", 0]
+				},
+				"pedals_right": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.5": [-25, 0, 0],
+						"1.0": [0, 0, 0],
+						"1.5": [40, 0, 0]
+					}
+				},
+				"pedals_left": {
+					"rotation": {
+						"0.0": [25, 0, 0],
+						"0.5": [25, 0, 0],
+						"1.0": [0, 0, 0],
+						"1.5": [-40, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.entity.roaring.grow": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 8,
+			"bones": {
+				"head": {
+					"scale": {
+						"0.0": [1.6, 1.6, 1.6],
+						"7.5": [1, 1, 1]
+					}
+				}
+			}
+		},
+		"animation.entity.roaring.swimming": {
+			"loop": true,
+			"bones": {
+				"leg0": {
+					"rotation": ["variable.swim_amount * 75.0", 0, 0]
+				},
+				"leg1": {
+					"rotation": ["variable.swim_amount * 75.0", 0, 0]
+				},
+				"leg2": {
+					"rotation": ["variable.swim_amount * 75.0", 0, 0]
+				},
+				"leg3": {
+					"rotation": ["variable.swim_amount * 75.0", 0, 0]
+				},
+				"tail": {
+					"rotation": [45, 0, "q.life_time * 360.0"]
+				}
+			}
+		},
+		"animation.entity.roaring.blink_your_eyes": {
+			"animation_length": 0.4,
+			"bones": {
+				"eyelid": {
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.1": [0, 0.05, -1.02],
+						"0.3": [0, 0.05, -1.02],
+						"0.4": [0, 0, 0]
+					},
+					"scale": [1, 1.05, 1]
+				}
+			}
+		}
+	}
+}

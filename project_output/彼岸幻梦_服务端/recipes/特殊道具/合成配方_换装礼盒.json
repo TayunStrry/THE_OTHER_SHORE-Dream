@@ -1,0 +1,31 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "starry:starry_map:clothing_container"
+		},
+		"tags": [
+			"tags:desktop_make"
+		],
+		"pattern": [
+			"202",
+			"010",
+			"202"
+		],
+		"assume_symmetry": false,
+		"key": {
+			"0": {
+				"item": "minecraft:leather"
+			},
+			"1": {
+				"item": "minecraft:chest"
+			},
+			"2": {
+				"item": "minecraft:gold_ingot"
+			}
+		},
+		"result": {
+			"item": "starry_map:clothing_container"
+		}
+	}
+}

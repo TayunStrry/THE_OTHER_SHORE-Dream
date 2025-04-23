@@ -1,0 +1,208 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.attack.general_0": {
+			"initial_state": "void",
+			"states": {
+				"void": {
+					"transitions": [
+						{"attack": "q.has_target"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"attack": {
+					"animations": ["attack"],
+					"transitions": [
+						{"void": "!q.has_target && q.all_animations_finished"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.attack.general_1": {
+			"initial_state": "default",
+			"states": {
+				"attack": {
+					"animations": ["attack.0", "attack.1"],
+					"transitions": [
+						{"default": "!q.has_target || q.variant != 1"}
+					]
+				},
+				"default": {
+					"animations": ["attack.2"],
+					"transitions": [
+						{"attack": "q.has_target && q.variant == 1 && !q.is_riding"}
+					]
+				}
+			}
+		},
+		"controller.animation.attack.general_2": {
+			"initial_state": "disengage",
+			"states": {
+				"disengage": {
+					"animations": ["disengage"],
+					"transitions": [
+						{"execute_battle": "q.has_target && q.state_time >= 0.15"}
+					]
+				},
+				"execute_battle": {
+					"animations": ["execute_battle"],
+					"transitions": [
+						{"disengage": "!q.has_target && q.state_time >= 1.15"}
+					],
+					"blend_transition": 0.5
+				}
+			}
+		},
+		"controller.animation.attack.amber": {
+			"initial_state": "void",
+			"states": {
+				"void": {
+					"transitions": [
+						{"attack": "q.has_target"}
+					]
+				},
+				"attack": {
+					"animations": ["attack.0", "attack.1"],
+					"transitions": [
+						{"void": "!q.has_target"}
+					]
+				}
+			}
+		},
+		"controller.animation.attack.hailing": {
+			"initial_state": "void",
+			"states": {
+				"void": {
+					"transitions": [
+						{"attack": "q.has_target && q.variant == 1"}
+					]
+				},
+				"attack": {
+					"animations": ["attack.0", "attack.1"],
+					"transitions": [
+						{"void": "!q.has_target || !q.variant == 1"}
+					]
+				}
+			}
+		},
+		"controller.animation.attack.jasmine": {
+			"initial_state": "attack.end",
+			"states": {
+				"attack.end": {
+					"animations": ["attack.end"],
+					"transitions": [
+						{"attack.start": "q.variant != 0 && !q.is_riding"}
+					]
+				},
+				"attack.start": {
+					"animations": ["attack.start"],
+					"transitions": [
+						{"attack.end": "q.variant == 0 || q.is_riding"},
+						{"attack.loop": "q.variant == 2"}
+					]
+				},
+				"attack.loop": {
+					"animations": ["attack.loop", "attack.fight"],
+					"transitions": [
+						{"attack.end": "q.variant == 0 || q.is_riding"}
+					]
+				}
+			}
+		},
+		"controller.animation.attack.moonlight": {
+			"initial_state": "attack.end",
+			"states": {
+				"attack.end": {
+					"animations": ["attack.end"],
+					"transitions": [
+						{"attack.start": "q.variant == 1 && !q.is_riding && q.has_target"}
+					],
+					"blend_transition": 0.1
+				},
+				"attack.start": {
+					"animations": ["attack.start"],
+					"particle_effects": [
+						{
+							"effect": "burst",
+							"locator": "energy"
+						},
+						{
+							"effect": "power",
+							"locator": "power"
+						}
+					],
+					"transitions": [
+						{"attack.end": "q.variant == 0  || q.is_riding"},
+						{"attack.loop": "q.variant == 2"}
+					],
+					"blend_transition": 0.1
+				},
+				"attack.loop": {
+					"animations": ["attack.loop", "attack.fight"],
+					"transitions": [
+						{"attack.end": "q.variant == 0 || q.is_riding || !q.has_target"}
+					],
+					"blend_transition": 0.1
+				}
+			}
+		},
+		"controller.animation.attack.pearl": {
+			"initial_state": "attack.end",
+			"states": {
+				"attack.end": {
+					"animations": ["attack.end"],
+					"transitions": [
+						{"attack.start": "q.variant == 1 && !q.is_riding && q.has_target"}
+					]
+				},
+				"attack.start": {
+					"animations": ["attack.start"],
+					"particle_effects": [
+						{
+							"effect": "burst",
+							"locator": "energy"
+						}
+					],
+					"transitions": [
+						{"attack.end": "q.variant == 0 || q.is_riding"},
+						{"attack.loop": "q.variant == 2"}
+					]
+				},
+				"attack.loop": {
+					"animations": ["attack.loop", "attack.fight"],
+					"particle_effects": [
+						{
+							"effect": "power",
+							"locator": "energy"
+						}
+					],
+					"transitions": [
+						{"attack.end": "q.variant == 0 || q.is_riding || !q.has_target"}
+					]
+				}
+			}
+		},
+		"controller.animation.attack.wild_wasp": {
+			"initial_state": "basic",
+			"states": {
+				"basic": {
+					"animations": ["basic"],
+					"transitions": [
+						{"attack": "q.has_target && q.all_animations_finished"}
+					],
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true
+				},
+				"attack": {
+					"animations": ["attack"],
+					"transitions": [
+						{"basic": "!q.has_target && q.all_animations_finished"}
+					]
+				}
+			}
+		}
+	}
+}

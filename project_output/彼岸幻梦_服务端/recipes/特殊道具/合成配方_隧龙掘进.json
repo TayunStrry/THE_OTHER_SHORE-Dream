@@ -1,0 +1,38 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "starry:starry_map:call_tunnel_dragon_guide"
+		},
+		"tags": [
+			"tags:desktop_make"
+		],
+		"pattern": [
+			"121",
+			"343",
+			"151"
+		],
+		"assume_symmetry": false,
+		"key": {
+			"1": {
+				"item": "starry_map:weapon_debris"
+			},
+			"2": {
+				"item": "starry_map:universal_integrated_circuit"
+			},
+			"3": {
+				"item": "starry_map:coil.steel_rock_eutectic"
+			},
+			"4": {
+				"item": "starry_map:viper_rune"
+			},
+			"5": {
+				"item": "starry_map:mineral_dictionary"
+			}
+		},
+		"result": {
+			"item": "starry_map:call_tunnel_dragon_guide",
+			"count": 1
+		}
+	}
+}

@@ -1,0 +1,230 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "items"
+			},
+			"identifier": "starry_map:vertical_gate.lime_stained_glass",
+			"states": {
+				"STATE:rune_type": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					9
+				],
+				"STATE:center": [
+					0,
+					1
+				],
+				"STATE:about": [
+					0,
+					1,
+					2,
+					3,
+					4
+				]
+			}
+		},
+		"components": {
+			// 防爆与挖掘
+			"minecraft:destructible_by_explosion": false,
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			// 摩擦力
+			"minecraft:friction": 0.35,
+			// 方块光照
+			"minecraft:light_dampening": 0,
+			"minecraft:light_emission": 1,
+			// 模型与纹理
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "lime_stained_glass",
+					"render_method": "blend"
+				}
+			},
+			"minecraft:geometry": {
+				"identifier": "geometry.block.vertical_gate",
+				"bone_visibility": {
+					"about0": "q.block_state('STATE:about') == 0",
+					"open1to3": "(q.block_state('STATE:about') == 1 || q.block_state('STATE:about') == 3) && q.block_state('STATE:rune_type') == 0",
+					"open2to4": "(q.block_state('STATE:about') == 2 || q.block_state('STATE:about') == 4) && q.block_state('STATE:rune_type') == 0",
+					"close1": "q.block_state('STATE:about') == 1 && q.block_state('STATE:center') == 0",
+					"close2": "q.block_state('STATE:about') == 2 && q.block_state('STATE:center') == 0",
+					"close3": "q.block_state('STATE:about') == 3 && q.block_state('STATE:center') == 0",
+					"close4": "q.block_state('STATE:about') == 4 && q.block_state('STATE:center') == 0"
+				}
+			},
+			// 事件触发器
+			"opal:interact.vertical_gate": {},
+			// 方块标签
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"tag:tags:machine_gate.vertical_gate": {},
+			"tag:tags:machine_gate.series": {},
+			"tag:tags:magic_cable.series": {},
+			"tag:iron_pick_diggable": {}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('STATE:rune_type') != 0 && q.block_state('STATE:rune_type') != 9",
+				"components": {
+					"opal:interact.vertical_gate": {},
+					"opal:tick.vertical_gate": {},
+					"minecraft:tick": {
+						"interval_range": [
+							2,
+							2
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:about') == 0",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [
+							-8,
+							0,
+							-8
+						],
+						"size": [
+							8,
+							16,
+							8
+						]
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-4,
+							0,
+							-4
+						],
+						"size": [
+							8,
+							16,
+							8
+						]
+					},
+					"tag:tags:magic_cable.port_positive.Y": {},
+					"tag:tags:magic_cable.port_negative.Y": {}
+				}
+			},
+			{
+				"condition": "( q.block_state('STATE:about') == 1 || q.block_state('STATE:about') == 3 ) && q.block_state('STATE:rune_type') == 0",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [
+							-8,
+							0,
+							-2
+						],
+						"size": [
+							16,
+							16,
+							4
+						]
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-8,
+							0,
+							-2
+						],
+						"size": [
+							16,
+							16,
+							4
+						]
+					},
+					"tag:tags:magic_cable.port_positive.Y": {},
+					"tag:tags:magic_cable.port_negative.Y": {},
+					"tag:tags:magic_cable.port_positive.X": {},
+					"tag:tags:magic_cable.port_negative.X": {}
+				}
+			},
+			{
+				"condition": "( q.block_state('STATE:about') == 2 || q.block_state('STATE:about') == 4 ) && q.block_state('STATE:rune_type') == 0",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [
+							-2,
+							0,
+							-8
+						],
+						"size": [
+							4,
+							16,
+							16
+						]
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-2,
+							0,
+							-8
+						],
+						"size": [
+							4,
+							16,
+							16
+						]
+					},
+					"tag:tags:magic_cable.port_positive.Y": {},
+					"tag:tags:magic_cable.port_negative.Y": {},
+					"tag:tags:magic_cable.port_positive.Z": {},
+					"tag:tags:magic_cable.port_negative.Z": {}
+				}
+			},
+			{
+				"condition": "( q.block_state('STATE:about') == 2 || q.block_state('STATE:about') == 4 ) && q.block_state('STATE:rune_type') != 0",
+				"components": {
+					"minecraft:collision_box": false,
+					"minecraft:selection_box": {
+						"origin": [
+							-2,
+							0,
+							-8
+						],
+						"size": [
+							4,
+							16,
+							16
+						]
+					},
+					"tag:tags:magic_cable.port_positive.Y": {},
+					"tag:tags:magic_cable.port_negative.Y": {},
+					"tag:tags:magic_cable.port_positive.Z": {},
+					"tag:tags:magic_cable.port_negative.Z": {}
+				}
+			},
+			{
+				"condition": "( q.block_state('STATE:about') == 1 || q.block_state('STATE:about') == 3 ) && q.block_state('STATE:rune_type') != 0",
+				"components": {
+					"minecraft:collision_box": false,
+					"minecraft:selection_box": {
+						"origin": [
+							-8,
+							0,
+							-2
+						],
+						"size": [
+							16,
+							16,
+							4
+						]
+					},
+					"tag:tags:magic_cable.port_positive.Y": {},
+					"tag:tags:magic_cable.port_negative.Y": {},
+					"tag:tags:magic_cable.port_positive.X": {},
+					"tag:tags:magic_cable.port_negative.X": {}
+				}
+			}
+		]
+	}
+}

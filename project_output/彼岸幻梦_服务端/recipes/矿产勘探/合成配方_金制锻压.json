@@ -1,0 +1,27 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "starry:starry_map:gold.metal_forming_press"
+		},
+		"tags": [
+			"tags:desktop_make"
+		],
+		"pattern": [
+			"ABA"
+		],
+		"assume_symmetry": false,
+		"key": {
+			"A": {
+				"item": "starry_map:iron.metal_forming_press"
+			},
+			"B": {
+				"item": "starry_map:gold_upgrade"
+			}
+		},
+		"result": {
+			"item": "starry_map:gold.metal_forming_press",
+			"count": 2
+		}
+	}
+}

@@ -1,0 +1,37 @@
+{
+    "format_version": "1.19.80",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "starry:starry_map:complete_armor"
+        },
+        "tags": [
+            "tags:desktop_make"
+        ],
+        "pattern": [
+            "GZG",
+            "1K1",
+            "GXG"
+        ],
+        "assume_symmetry": false,
+        "key": {
+            "Z": {
+                "item": "starry_map:equipment_upgrade"
+            },
+            "X": {
+                "item": "starry_map:block.blue_energy"
+            },
+            "1": {
+                "item": "starry_map:lithium_carbonate"
+            },
+            "G": {
+                "item": "starry_map:steel_rock_eutectic"
+            },
+            "K": {
+                "item": "starry_map:exhausted_armor"
+            }
+        },
+        "result": {
+            "item": "starry_map:complete_armor"
+        }
+    }
+}

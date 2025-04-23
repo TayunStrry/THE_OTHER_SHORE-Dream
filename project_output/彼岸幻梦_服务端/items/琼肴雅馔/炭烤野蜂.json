@@ -1,0 +1,39 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:item": {
+		"description": {
+			"identifier": "starry_map:charcoal_roasted_wild_bee",
+			"menu_category": {
+				"category": "items"
+			}
+		},
+		"components": {
+			"minecraft:can_destroy_in_creative": false,
+			"minecraft:allow_off_hand": false,
+			"minecraft:hand_equipped": false,
+			"minecraft:icon": {
+				"textures": {
+					"default": "item_texture:炭烤野蜂"
+				}
+			},
+			"minecraft:max_stack_size": 16,
+			"minecraft:use_animation": "eat",
+			"minecraft:use_modifiers": {
+				"use_duration": 1.5,
+				"movement_modifier": 0.5
+			},
+			"minecraft:food": {
+				"can_always_eat": true,
+				"nutrition": 1,
+				"saturation_modifier": 0.5,
+				"using_converts_to": "minecraft:stick"
+			},
+			"opal:item.general_food_effects_wild_bee": {},
+			"minecraft:tags": {
+				"tags": [
+					"tags:item_delicacies.series"
+				]
+			}
+		}
+	}
+}

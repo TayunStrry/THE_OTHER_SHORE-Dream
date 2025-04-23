@@ -1,0 +1,55 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.entity.heart_bangle",
+				"texture_width": 28,
+				"texture_height": 2,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 4.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "chair_anchor",
+					"pivot": [0, 79, 0]
+				},
+				{
+					"name": "body",
+					"parent": "chair_anchor",
+					"pivot": [0, 24, 0]
+				},
+				{
+					"name": "rightArm",
+					"parent": "body",
+					"pivot": [-5, 21.5, 0],
+					"reset": true
+				},
+				{
+					"name": "rightForeArm",
+					"parent": "rightArm",
+					"pivot": [-4, 18, 0]
+				},
+				{
+					"name": "bracelet",
+					"parent": "rightForeArm",
+					"pivot": [-5.5, 15.5, 0],
+					"cubes": [
+						{
+							"origin": [-7, 15, -2],
+							"size": [3, 1, 4],
+							"inflate": 0.35,
+							"uv": {
+								"north": {"uv": [8, 0], "uv_size": [6, 2]},
+								"east": {"uv": [0, 0], "uv_size": [8, 2]},
+								"south": {"uv": [14, 0], "uv_size": [6, 2]},
+								"west": {"uv": [20, 0], "uv_size": [8, 2]}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,14 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:structure_template_feature": {
+		"description": {
+			"identifier": "feature:structure_wild_wasp_towers_plateau"
+		},
+		"structure_name": "ecosystems:wild_wasp_towers_plateau",
+		"facing_direction": "south",
+		"adjustment_radius": 8,
+		"constraints": {
+			"grounded": {}
+		}
+	}
+}

@@ -1,0 +1,25 @@
+{
+    "format_version": "1.10.10",
+    "animations": {
+		"animation.entity.crystal.attact": {
+			"loop": true,
+			"bones": {
+				"rightArm": {
+					"rotation": ["q.target_x_rotation - 90.0 + math.sin(q.life_time * 75) * 3 - this", -15.0, "(math.cos(q.life_time * 100) * 3) + 3"]
+				},
+				"leftArm": {
+					"rotation": ["q.target_x_rotation - 90.0 + math.sin(q.life_time * 75) * 3 - this", 15.0, "(math.cos(q.life_time * 100) * 3) + 3"]
+				},
+				"aims": {
+					"rotation": ["q.target_x_rotation - 90.0 + math.sin(q.life_time * 75) * 3 - this", 0.0, 0.0]
+				},
+				"main": {
+					"rotation": [0.0, "q.life_time * 175.0", 0.0]
+				},
+				"small": {
+					"rotation": [0.0, "q.life_time * -175.0", 0.0]
+				}
+			}
+		}
+    }
+}

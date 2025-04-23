@@ -1,0 +1,31 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:item": {
+		"description": {
+			"identifier": "starry_map:eternal_energy"
+		},
+		"components": {
+			// 手持物品
+			"minecraft:allow_off_hand": false,
+			"minecraft:hand_equipped": false,
+			// 基础属性
+			"minecraft:icon": {
+				"textures": {
+					"default": "item_texture:永恒_魔晶石"
+				}
+			},
+			"minecraft:hover_text_color": "minecoin_gold",
+			"minecraft:max_stack_size": 16,
+			"minecraft:glint": true,
+			// 物品标签
+			"minecraft:tags": {
+				"tags": [
+					"tags:energy_crystal.series",
+					"minecraft:transform_materials",
+					//"minecraft:trim_materials",
+					"tags:eternal_crystal"
+				]
+			}
+		}
+	}
+}

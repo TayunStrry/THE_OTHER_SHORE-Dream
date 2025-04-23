@@ -1,0 +1,56 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "starry:starry_map:obsidian_storage_tank"
+		},
+		"tags": [
+			"tags:desktop_make"
+		],
+		"pattern": [
+			"123",
+			"456",
+			"789"
+		],
+		"key": {
+			"1": {
+				"item": "starry_map:hinge.copper_tin_brazing"
+			},
+			"2": {
+				"item": "starry_map:source_energy"
+			},
+			"3": {
+				"item": "starry_map:hinge.copper_tin_brazing"
+			},
+			"4": {
+				"item": "starry_map:block.red_energy"
+			},
+			"5": {
+				"item": "starry_map:universal_mechanical_framework"
+			},
+			"6": {
+				"item": "starry_map:block.red_energy"
+			},
+			"7": {
+				"item": "starry_map:hinge.aluminum_magnesium"
+			},
+			"8": {
+				"item": "starry_map:universal_integrated_circuit"
+			},
+			"9": {
+				"item": "starry_map:hinge.aluminum_magnesium"
+			}
+		},
+		"result": [
+			{
+				"item": "starry_map:obsidian_storage_tank",
+				"count": 3
+			},
+			{
+				"item": "starry_map:source_energy",
+				"count": 1
+			}
+		],
+		"assume_symmetry": false
+	}
+}

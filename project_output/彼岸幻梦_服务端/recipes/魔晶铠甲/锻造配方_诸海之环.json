@@ -1,0 +1,15 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_smithing_transform": {
+		"description": {
+			"identifier": "starry:starry_map:ocean_blessed_scarf"
+		},
+		"tags": [
+			"smithing_table"
+		],
+		"template": "starry_map:equipment_upgrade",
+		"base": "starry_map:complete_armor",
+		"addition": "minecraft:netherite_ingot",
+		"result": "starry_map:ocean_blessed_scarf"
+	}
+}

@@ -1,0 +1,29 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:item": {
+		"description": {
+			"identifier": "starry_map:blue_energy"
+		},
+		"components": {
+			// 手持物品
+			"minecraft:allow_off_hand": false,
+			"minecraft:hand_equipped": false,
+			// 基础属性
+			"minecraft:icon": {
+				"textures": {
+					"default": "item_texture:诸海_魔晶石"
+				}
+			},
+			"minecraft:hover_text_color": "minecoin_gold",
+			"minecraft:max_stack_size": 64,
+			"minecraft:glint": true,
+			// 物品标签
+			"minecraft:tags": {
+				"tags": [
+					"tags:energy_crystal.series",
+					"tags:blue_crystal"
+				]
+			}
+		}
+	}
+}

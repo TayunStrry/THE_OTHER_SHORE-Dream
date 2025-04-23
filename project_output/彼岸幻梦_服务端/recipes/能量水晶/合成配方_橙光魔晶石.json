@@ -1,0 +1,22 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "starry:starry_map:orange_energy"
+		},
+		"tags": [
+			"tags:desktop_make"
+		],
+		"group": "starry",
+		"priority": 1,
+		"ingredients": [
+			{
+				"item": "starry_map:block.orange_energy"
+			}
+		],
+		"result": {
+			"item": "starry_map:orange_energy",
+			"count": 9
+		}
+	}
+}

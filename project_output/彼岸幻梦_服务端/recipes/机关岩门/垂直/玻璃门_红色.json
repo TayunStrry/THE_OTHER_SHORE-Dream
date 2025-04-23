@@ -1,0 +1,29 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "starry:starry_map:vertical_gate.red_stained_glass"
+		},
+		"tags": [
+			"tags:desktop_make"
+		],
+		"pattern": [
+			"***",
+			"*S*",
+			"***"
+		],
+		"assume_symmetry": false,
+		"key": {
+			"S": {
+				"item": "starry_map:vertical_gate.diorite"
+			},
+			"*": {
+				"item": "minecraft:red_stained_glass"
+			}
+		},
+		"result": {
+			"item": "starry_map:vertical_gate.red_stained_glass",
+			"count": 6
+		}
+	}
+}

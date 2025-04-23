@@ -1,0 +1,99 @@
+{
+    "format_version": "1.10.10",
+    "animations": {
+        "animation.entity.viper.observe": {
+            "loop": "hold_on_last_frame",
+            "animation_length": 0.5,
+            "bones": {
+                "mechanical_arm": {
+                    "relative_to": {
+                        "rotation": "entity"
+                    },
+                    "rotation": [
+                        0,
+                        "q.target_y_rotation",
+                        0
+                    ]
+                },
+                "machine_gun": {
+                    "relative_to": {
+                        "rotation": "entity"
+                    },
+                    "rotation": [
+                        "math.clamp(q.target_x_rotation, -25, 15)",
+                        "q.target_y_rotation",
+                        0
+                    ]
+                }
+            }
+        },
+        "animation.entity.viper.attack": {
+            "loop": true,
+            "animation_length": 0.5,
+            "bones": {
+                "gun_barrel0": {
+                    "rotation": {
+                        "0.0": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "0.5": [
+                            0,
+                            0,
+                            360
+                        ]
+                    },
+                    "position": {
+                        "0.0": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "0.25": [
+                            0,
+                            0,
+                            1
+                        ],
+                        "0.5": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                },
+                "gun_barrel1": {
+                    "rotation": {
+                        "0.0": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "0.5": [
+                            0,
+                            0,
+                            -360
+                        ]
+                    },
+                    "position": {
+                        "0.0": [
+                            0,
+                            0,
+                            0.5
+                        ],
+                        "0.25": [
+                            0,
+                            0,
+                            1
+                        ],
+                        "0.5": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

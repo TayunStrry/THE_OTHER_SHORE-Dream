@@ -1,0 +1,51 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.player_to_individuation.elytra": {
+			"states": {
+				"default": {
+					"animations": [
+						"elytra.default"
+					],
+					"transitions": [
+						{
+							"gliding": "q.is_gliding"
+						},
+						{
+							"sundry": "q.is_sneaking || q.is_sleeping || q.is_swimming || q.is_riding || q.is_in_water"
+						}
+					],
+					"blend_transition": 0.25,
+					"blend_via_shortest_path": true
+				},
+				"gliding": {
+					"animations": [
+						"elytra.gliding"
+					],
+					"transitions": [
+						{
+							"sundry": "q.is_sneaking || q.is_sleeping || q.is_swimming || q.is_riding || q.is_in_water"
+						},
+						{
+							"default": "!q.is_gliding"
+						}
+					],
+					"blend_transition": 0.25,
+					"blend_via_shortest_path": true
+				},
+				"sundry": {
+					"animations": [
+						"elytra.sundry"
+					],
+					"transitions": [
+						{
+							"default": "!q.is_sneaking && !q.is_sleeping && !q.is_swimming && !q.is_riding && !q.is_in_water"
+						}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true
+				}
+			}
+		}
+	}
+}

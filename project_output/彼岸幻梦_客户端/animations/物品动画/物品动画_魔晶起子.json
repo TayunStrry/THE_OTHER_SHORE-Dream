@@ -1,0 +1,73 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.item.magic_crystal_screwdriver.base": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1,
+			"bones": {
+				"item": {
+					"rotation": ["c.is_first_person ? 40 : 0", "c.is_first_person ? 55 : 0", "c.is_first_person ? -10 : 0"],
+					"scale": 1.25
+				}
+			}
+		},
+		"animation.item.magic_crystal_screwdriver.open": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.75,
+			"bones": {
+				"probe": {
+					"rotation": {
+						"0.0": [0, 360, 0],
+						"0.75": [0, 90, 0]
+					},
+					"position": {
+						"0.0": [0, -7.5, 0],
+						"0.75": [0, 0, 0]
+					},
+					"scale": {
+						"0.5": [0.5, 0.5, 0.5],
+						"0.75": [1, 1, 1]
+					}
+				},
+				"knob": {
+					"rotation": {
+						"0.0": [0, 360, 0],
+						"0.75": [0, 90, 0]
+					}
+				}
+			}
+		},
+		"animation.item.magic_crystal_screwdriver.close": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"probe": {
+					"rotation": {
+						"0.0": [0, 90, 0],
+						"0.5": [0, 360, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.5": [0, -7.5, 0]
+					},
+					"scale": {
+						"0.0": [1, 1, 1],
+						"0.2": [0.5, 0.5, 0.5]
+					}
+				},
+				"sand_iron_0": {
+					"position": {
+						"0.0": [0, 1, 0],
+						"0.5": [0, 0, 0]
+					}
+				},
+				"knob": {
+					"rotation": {
+						"0.0": [0, 90, 0],
+						"0.5": [0, 360, 0]
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,301 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "items"
+			},
+			"identifier": "starry_map:logic_inverter",
+			"traits": {
+				"minecraft:placement_position": {
+					"enabled_states": [
+						"minecraft:block_face"
+					]
+				}
+			},
+			"states": {
+				"STATE:rune_type": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					9
+				],
+				"STATE:price": [
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9
+				]
+			}
+		},
+		"components": {
+			// 方块含水
+			"minecraft:liquid_detection": {
+				"detection_rules": [
+					{
+						"on_liquid_touches": "no_reaction",
+						"can_contain_liquid": true,
+						"liquid_type": "water"
+					}
+				]
+			},
+			// 防爆与挖掘
+			"minecraft:destructible_by_explosion": false,
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			// 摩擦力
+			"minecraft:friction": 0.35,
+			// 方块光照
+			"minecraft:light_dampening": 0,
+			"minecraft:light_emission": 1,
+			// 模型与纹理
+			"minecraft:geometry": {
+				"identifier": "geometry.block.cable_logic_inverter",
+				"bone_visibility": {
+					"value_1": "q.block_state('STATE:price') == 1",
+					"value_2": "q.block_state('STATE:price') == 2",
+					"value_3": "q.block_state('STATE:price') == 3",
+					"value_4": "q.block_state('STATE:price') == 4",
+					"value_5": "q.block_state('STATE:price') == 5",
+					"value_6": "q.block_state('STATE:price') == 6",
+					"value_7": "q.block_state('STATE:price') == 7",
+					"value_8": "q.block_state('STATE:price') == 8",
+					"value_9": "q.block_state('STATE:price') == 9"
+				}
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "polished_diorite_slab",
+					"render_method": "alpha_test"
+				},
+				"stone_0": {
+					"texture": "deepslate",
+					"render_method": "alpha_test"
+				},
+				"plane_0": {
+					"texture": "block_texture:plane_0",
+					"render_method": "alpha_test"
+				},
+				"crystal": {
+					"texture": "block_texture:crystal_0",
+					"render_method": "alpha_test"
+				},
+				"interface": {
+					"texture": "block_texture:interface_0",
+					"render_method": "alpha_test"
+				}
+			},
+			// 自定义组件
+			"opal:interact.logic_inverter": {},
+			// 方块标签
+			"tag:tags:magic_cable.series": {},
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"tag:iron_pick_diggable": {}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('STATE:price') == 1",
+				"components": {
+					"opal:tick.logic_inverter": {},
+					"minecraft:tick": {
+						"interval_range": [
+							20,
+							20
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:price') == 2",
+				"components": {
+					"opal:tick.logic_inverter": {},
+					"minecraft:tick": {
+						"interval_range": [
+							40,
+							40
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:price') == 3",
+				"components": {
+					"opal:tick.logic_inverter": {},
+					"minecraft:tick": {
+						"interval_range": [
+							60,
+							60
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:price') == 4",
+				"components": {
+					"opal:tick.logic_inverter": {},
+					"minecraft:tick": {
+						"interval_range": [
+							80,
+							80
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:price') == 5",
+				"components": {
+					"opal:tick.logic_inverter": {},
+					"minecraft:tick": {
+						"interval_range": [
+							100,
+							100
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:price') == 6",
+				"components": {
+					"opal:tick.logic_inverter": {},
+					"minecraft:tick": {
+						"interval_range": [
+							120,
+							120
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:price') == 7",
+				"components": {
+					"opal:tick.logic_inverter": {},
+					"minecraft:tick": {
+						"interval_range": [
+							140,
+							140
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:price') == 8",
+				"components": {
+					"opal:tick.logic_inverter": {},
+					"minecraft:tick": {
+						"interval_range": [
+							160,
+							160
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:price') == 9",
+				"components": {
+					"opal:tick.logic_inverter": {},
+					"minecraft:tick": {
+						"interval_range": [
+							180,
+							180
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:block_face') == 'down'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							-90,
+							0,
+							0
+						]
+					},
+					"tag:tags:magic_cable.port_positive.Y": {},
+					"tag:tags:magic_cable.logic_negative.Y": {}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:block_face') == 'up'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							90,
+							0,
+							0
+						]
+					},
+					"tag:tags:magic_cable.port_negative.Y": {},
+					"tag:tags:magic_cable.logic_positive.Y": {}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:block_face') == 'north'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					},
+					"tag:tags:magic_cable.port_positive.Z": {},
+					"tag:tags:magic_cable.logic_negative.Z": {}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:block_face') == 'south'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							180,
+							0
+						]
+					},
+					"tag:tags:magic_cable.port_negative.Z": {},
+					"tag:tags:magic_cable.logic_positive.Z": {}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:block_face') == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					},
+					"tag:tags:magic_cable.port_positive.X": {},
+					"tag:tags:magic_cable.logic_negative.X": {}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:block_face') == 'east'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							270,
+							0
+						]
+					},
+					"tag:tags:magic_cable.port_negative.X": {},
+					"tag:tags:magic_cable.logic_positive.X": {}
+				}
+			}
+		]
+	}
+}

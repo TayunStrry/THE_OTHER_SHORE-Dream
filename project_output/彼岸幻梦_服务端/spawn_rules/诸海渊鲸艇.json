@@ -1,0 +1,46 @@
+{
+	"format_version": "1.8.0",
+	"minecraft:spawn_rules": {
+		"description": {
+			"identifier": "starry_map:abyss_whale.execute",
+			"population_control": "monster"
+		},
+		"conditions": [
+			{
+				"minecraft:world_age_filter": {
+					"min": 10
+				},
+				"minecraft:difficulty_filter": {
+					"min": "easy",
+					"max": "hard"
+				},
+				"minecraft:weight": {
+					"default": 10
+				},
+				"minecraft:biome_filter": [
+					{
+						"test": "has_biome_tag",
+						"operator": "==",
+						"value": "ocean"
+					},
+					{
+						"test": "has_biome_tag",
+						"operator": "!=",
+						"value": "frozen"
+					}
+				],
+				"minecraft:permute_type": [
+					{
+						"weight": 50
+					},
+					{
+						"weight": 1,
+						"entity_type": "starry_map:abyss_whale.support"
+					}
+				],
+				"minecraft:spawns_on_surface": {},
+				"minecraft:spawns_underwater": {}
+			}
+		]
+	}
+}

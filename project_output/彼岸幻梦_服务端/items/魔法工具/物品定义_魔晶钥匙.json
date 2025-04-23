@@ -1,0 +1,55 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:item": {
+		"description": {
+			"identifier": "starry_map:magic_crystal_key"
+		},
+		"components": {
+			// 方块挖掘
+			"minecraft:digger": {
+				"use_efficiency": true,
+				"destroy_speeds": [
+					{
+						"block": {
+							"tags": "q.any_tag('diamond_pick_diggable', 'iron_pick_diggable')"
+						},
+						"speed": 50
+					}
+				]
+			},
+			"minecraft:can_destroy_in_creative": false,
+			// 手持物品
+			"minecraft:allow_off_hand": false,
+			"minecraft:hand_equipped": true,
+			// 基础属性
+			"minecraft:durability": {
+				"max_durability": 1000
+			},
+			"minecraft:cooldown": {
+				"category": "魔晶钥匙",
+				"duration": 1
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "item_texture:魔晶钥匙"
+				}
+			},
+			"minecraft:hover_text_color": "material_amethyst",
+			"minecraft:max_stack_size": 1,
+			"minecraft:damage": 5,
+			// 物品附魔
+			"minecraft:enchantable": {
+				"slot": "axe",
+				"value": 32
+			},
+			// 物品标签
+			"minecraft:tags": {
+				"tags": [
+					"tags:use_energy_to_restore_durability",
+					"tags:magic_tool.series",
+					"minecraft:digger"
+				]
+			}
+		}
+	}
+}

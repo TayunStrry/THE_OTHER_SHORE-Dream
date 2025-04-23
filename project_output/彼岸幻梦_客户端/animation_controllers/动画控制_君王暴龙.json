@@ -1,0 +1,160 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.action.tyrannosaurus_rex": {
+			"initial_state": "appearing",
+			"states": {
+				"appearing": {
+					"animations": [
+						"appearing"
+					],
+					"transitions": [
+						{
+							"start_idle": "q.all_animations_finished && q.modified_move_speed == 0"
+						},
+						{
+							"start_walk": "q.all_animations_finished && q.modified_move_speed != 0"
+						},
+						{
+							"start_attack": "q.is_delayed_attacking && q.has_target"
+						},
+						{
+							"death": "q.property('property:already_death')"
+						}
+					],
+					"blend_transition": 0.5
+				},
+				"start_walk": {
+					"animations": [
+						"walk"
+					],
+					"transitions": [
+						{
+							"start_idle": "(q.all_animations_finished && q.modified_move_speed < 0.3) || (q.is_delayed_attacking && q.modified_move_speed < 0.3)"
+						},
+						{
+							"death": "q.property('property:already_death')"
+						}
+					],
+					"blend_transition": 0.5
+				},
+				"start_idle": {
+					"animations": [
+						"idle"
+					],
+					"transitions": [
+						{
+							"start_attack": "q.is_delayed_attacking && q.modified_move_speed < 0.3"
+						},
+						{
+							"start_leisure_0": "math.random_integer(-512, 512) == 16 && q.modified_move_speed < 0.3"
+						},
+						{
+							"start_leisure_1": "math.random_integer(-512, 512) == 32 && q.modified_move_speed < 0.3"
+						},
+						{
+							"start_leisure_2": "math.random_integer(-512, 512) == 64 && q.modified_move_speed < 0.3"
+						},
+						{
+							"start_leisure_3": "math.random_integer(-512, 512) == 72 && q.modified_move_speed < 0.3"
+						},
+						{
+							"start_walk": "q.modified_move_speed >= 0.3"
+						},
+						{
+							"death": "q.property('property:already_death')"
+						}
+					],
+					"blend_transition": {
+						"0.0": 1,
+						"0.0556": 0.99451,
+						"0.1111": 0.9561,
+						"0.1667": 0.85185,
+						"0.2222": 0.64883,
+						"0.2778": 0.35117,
+						"0.3333": 0.14815,
+						"0.3889": 0.0439,
+						"0.4444": 0.00549,
+						"0.5": 0
+					}
+				},
+				"start_attack": {
+					"animations": [
+						"attack"
+					],
+					"transitions": [
+						{
+							"start_idle": "q.all_animations_finished"
+						},
+						{
+							"death": "q.property('property:already_death')"
+						}
+					],
+					"blend_transition": 0.5
+				},
+				"start_leisure_0": {
+					"animations": [
+						"idle",
+						"leisure_0"
+					],
+					"transitions": [
+						{
+							"start_idle": "q.all_animations_finished || q.modified_move_speed >= 0.3 || q.has_target"
+						},
+						{
+							"death": "q.property('property:already_death')"
+						}
+					],
+					"blend_transition": 0.5
+				},
+				"start_leisure_1": {
+					"animations": [
+						"leisure_1"
+					],
+					"transitions": [
+						{
+							"start_idle": "q.all_animations_finished || q.modified_move_speed >= 0.3 || q.has_target"
+						},
+						{
+							"death": "q.property('property:already_death')"
+						}
+					],
+					"blend_transition": 0.5
+				},
+				"start_leisure_2": {
+					"animations": [
+						"leisure_2"
+					],
+					"transitions": [
+						{
+							"start_idle": "q.all_animations_finished || q.modified_move_speed >= 0.3 || q.has_target"
+						},
+						{
+							"death": "q.property('property:already_death')"
+						}
+					],
+					"blend_transition": 0.5
+				},
+				"start_leisure_3": {
+					"animations": [
+						"leisure_3"
+					],
+					"transitions": [
+						{
+							"start_idle": "q.all_animations_finished || q.modified_move_speed >= 0.3 || q.has_target"
+						},
+						{
+							"death": "q.property('property:already_death')"
+						}
+					],
+					"blend_transition": 0.5
+				},
+				"death": {
+					"animations": [
+						"death_0"
+					]
+				}
+			}
+		}
+	}
+}

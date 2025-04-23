@@ -1,0 +1,32 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "starry:starry_map:vertical_gate.spruce"
+		},
+		"tags": [
+			"tags:desktop_make"
+		],
+		"pattern": [
+			"T*T",
+			"*S*",
+			"T*T"
+		],
+		"assume_symmetry": false,
+		"key": {
+			"S": {
+				"item": "starry_map:universal_mechanical_framework"
+			},
+			"T": {
+				"item": "starry_map:tungsten_copper_alloy"
+			},
+			"*": {
+				"item": "minecraft:spruce_planks"
+			}
+		},
+		"result": {
+			"item": "starry_map:vertical_gate.spruce",
+			"count": 6
+		}
+	}
+}

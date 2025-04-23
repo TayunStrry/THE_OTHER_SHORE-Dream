@@ -1,0 +1,56 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "starry:starry_map:wind_and_rain"
+		},
+		"tags": [
+			"tags:desktop_make"
+		],
+		"pattern": [
+			"123",
+			"456",
+			"789"
+		],
+		"key": {
+			"1": {
+				"item": "starry_map:hinge.zirconium_carbide"
+			},
+			"2": {
+				"item": "starry_map:space_transition"
+			},
+			"3": {
+				"item": "starry_map:hinge.zirconium_carbide"
+			},
+			"4": {
+				"item": "starry_map:block.green_energy"
+			},
+			"5": {
+				"item": "starry_map:universal_mechanical_framework"
+			},
+			"6": {
+				"item": "starry_map:block.green_energy"
+			},
+			"7": {
+				"item": "starry_map:hinge.zirconium_carbide"
+			},
+			"8": {
+				"item": "starry_map:universal_integrated_circuit"
+			},
+			"9": {
+				"item": "starry_map:hinge.zirconium_carbide"
+			}
+		},
+		"result": [
+			{
+				"item": "starry_map:wind_and_rain",
+				"count": 1
+			},
+			{
+				"item": "starry_map:space_transition",
+				"count": 1
+			}
+		],
+		"assume_symmetry": false
+	}
+}

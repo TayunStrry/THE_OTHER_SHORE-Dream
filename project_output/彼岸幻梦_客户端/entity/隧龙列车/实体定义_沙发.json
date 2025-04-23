@@ -1,0 +1,23 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "starry_map:execute.couch",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "facade": "textures/实体贴图/隧龙/领航者"
+            },
+            "geometry": {
+                "default": "geometry.entity.tunnel_dragon.couch"
+            },
+            "render_controllers": [
+                "controller.render.facade:variant.01"
+            ],
+            "spawn_egg": {
+                "texture": "item_texture:基础图标"
+            }
+        }
+    }
+}

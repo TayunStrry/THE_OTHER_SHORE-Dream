@@ -1,0 +1,151 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "items"
+			},
+			"identifier": "starry_map:obsidian_furnace",
+			"states": {
+				"STATE:material": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8
+				],
+				"STATE:magma": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8
+				],
+				"STATE:stage": [
+					0,
+					1
+				],
+				"STATE:direction_0": [
+					0,
+					1
+				],
+				"STATE:direction_1": [
+					0,
+					1
+				],
+				"STATE:direction_2": [
+					0,
+					1
+				],
+				"STATE:direction_3": [
+					0,
+					1
+				]
+			}
+		},
+		"components": {
+			// 方块含水
+			"minecraft:liquid_detection": {
+				"detection_rules": [
+					{
+						"on_liquid_touches": "no_reaction",
+						"can_contain_liquid": true,
+						"liquid_type": "water"
+					}
+				]
+			},
+			// 防爆与挖掘
+			"minecraft:destructible_by_explosion": false,
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			// 摩擦力
+			"minecraft:friction": 0.35,
+			// 方块光照
+			"minecraft:light_dampening": 0,
+			"minecraft:light_emission": 1,
+			// 模型与纹理
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "crying_obsidian",
+					"render_method": "alpha_test"
+				},
+				"magma": {
+					"texture": "flowing_lava",
+					"render_method": "alpha_test"
+				},
+				"stone_1": {
+					"texture": "piston_bottom",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:geometry": {
+				"identifier": "geometry.block.obsidian.furnace",
+				"bone_visibility": {
+					"stone_cache_1": "q.block_state('STATE:material') == 1",
+					"stone_cache_2": "q.block_state('STATE:material') == 2",
+					"stone_cache_3": "q.block_state('STATE:material') == 3",
+					"stone_cache_4": "q.block_state('STATE:material') == 4",
+					"stone_cache_5": "q.block_state('STATE:material') == 5",
+					"stone_cache_6": "q.block_state('STATE:material') == 6",
+					"stone_cache_7": "q.block_state('STATE:material') == 7",
+					"stone_cache_8": "q.block_state('STATE:material') == 8",
+					"cache1": "q.block_state('STATE:magma') == 1",
+					"cache2": "q.block_state('STATE:magma') == 2",
+					"cache3": "q.block_state('STATE:magma') == 3",
+					"cache4": "q.block_state('STATE:magma') == 4",
+					"cache5": "q.block_state('STATE:magma') == 5",
+					"cache6": "q.block_state('STATE:magma') == 6",
+					"cache7": "q.block_state('STATE:magma') == 7",
+					"cache8": "q.block_state('STATE:magma') == 8",
+					"output_0": "q.block_state('STATE:direction_0') == 1",
+					"output_1": "q.block_state('STATE:direction_1') == 1",
+					"output_2": "q.block_state('STATE:direction_2') == 1",
+					"output_3": "q.block_state('STATE:direction_3') == 1"
+				}
+			},
+			// 事件触发器
+			"opal:interact.obsidian_furnace": {},
+			// 方块标签
+			"tag:tags:obsidian_smelting.furnace": {},
+			"tag:tags:obsidian_smelting.series": {},
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"tag:iron_pick_diggable": {}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('STATE:magma') != 0",
+				"components": {
+					"minecraft:light_emission": 15
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:magma') == 0",
+				"components": {
+					"minecraft:light_emission": 1
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:material') != 0 || q.block_state('STATE:magma') != 0",
+				"components": {
+					"opal:interact.obsidian_furnace":{},
+					"opal:tick.obsidian_furnace":{},
+					"minecraft:tick": {
+						"interval_range": [
+							40,
+							80
+						]
+					}
+				}
+			}
+		]
+	}
+}

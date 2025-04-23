@@ -1,0 +1,197 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "items"
+			},
+			"identifier": "starry_map:special_alloy_pot",
+			"traits": {
+				"minecraft:placement_direction": {
+					"enabled_states": [
+						"minecraft:cardinal_direction"
+					]
+				}
+			},
+			"states": {
+				"STATE:water": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9
+				],
+				"STATE:flame": [
+					0,
+					1
+				],
+				"STATE:count": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9
+				]
+			}
+		},
+		"components": {
+			// 方块含水
+			"minecraft:liquid_detection": {
+				"detection_rules": [
+					{
+						"on_liquid_touches": "no_reaction",
+						"can_contain_liquid": true,
+						"liquid_type": "water"
+					}
+				]
+			},
+			// 防爆与挖掘
+			"minecraft:destructible_by_explosion": false,
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			// 摩擦力
+			"minecraft:friction": 0.35,
+			// 方块光照
+			"minecraft:light_dampening": 0,
+			"minecraft:light_emission": 1,
+			// 模型与纹理
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "cauldron_side",
+					"render_method": "alpha_test"
+				},
+				"wood": {
+					"texture": "jungle_planks",
+					"render_method": "alpha_test"
+				},
+				"stone": {
+					"texture": "polished_basalt_side",
+					"render_method": "alpha_test"
+				},
+				"flame": {
+					"texture": "fire_0",
+					"render_method": "alpha_test"
+				},
+				"rope": {
+					"texture": "block_texture:rope_0",
+					"render_method": "alpha_test"
+				},
+				"water": {
+					"texture": "still_water",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:geometry": {
+				"identifier": "geometry.block.decorating.iron_pot",
+				"bone_visibility": {
+					"water": "q.block_state('STATE:water') != 0",
+					"flame": "q.block_state('STATE:flame') == 1"
+				}
+			},
+			// 碰撞盒与选择盒
+			"minecraft:collision_box": {
+				"origin": [
+					-8,
+					0,
+					-8
+				],
+				"size": [
+					16,
+					16,
+					16
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-8,
+					0,
+					-8
+				],
+				"size": [
+					16,
+					16,
+					16
+				]
+			},
+			// 自定义组件
+			"opal:interact.special_alloy_pot": {},
+			// 方块标签
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"tag:tags:home_decorating.series": {},
+			"tag:iron_pick_diggable": {}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('STATE:flame') == 1",
+				"components": {
+					"minecraft:light_emission": 15
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:flame') == 0",
+				"components": {
+					"minecraft:light_emission": 1
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							180,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							270,
+							0
+						]
+					}
+				}
+			}
+		]
+	}
+}

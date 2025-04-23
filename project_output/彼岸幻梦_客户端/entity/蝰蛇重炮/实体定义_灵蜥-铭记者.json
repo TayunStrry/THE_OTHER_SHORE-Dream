@@ -1,0 +1,37 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "starry_map:viper.spirit_lizard",
+			"materials": {
+				"default": "entity_alphatest",
+				"blend": "opal_blend_only",
+				"light": "opal_light_only"
+			},
+			"textures": {
+				"default": "textures/实体贴图/蝰蛇/灵蜥"
+			},
+			"geometry": {
+				"default": "geometry.entity.spirit_lizard"
+			},
+			"scripts": {
+				"animate": [
+					"control_travel",
+					"control_attack"
+				]
+			},
+			"animations": {
+				"control_travel": "controller.animation.spirit_lizard",
+				"control_attack": "controller.animation.attack.general_0",
+				"travel": "animation.entity.spirit_lizard.travel",
+				"attack": "animation.entity.spirit_lizard.attack"
+			},
+			"render_controllers": [
+				"controller.render.spirit_lizard"
+			],
+			"spawn_egg": {
+				"texture": "item_texture:machine_brain.灵蜥_铭记者"
+			}
+		}
+	}
+}

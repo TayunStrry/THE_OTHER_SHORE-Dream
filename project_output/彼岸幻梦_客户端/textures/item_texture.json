@@ -1,0 +1,601 @@
+{
+    "texture_data": {
+        /*
+         * 野蜂机群
+         */
+        "item_texture:machine_brain.野蜂_君临者": {
+            "textures": "textures/项目图标/智械革命/野蜂_君临者"
+        },
+        "item_texture:machine_brain.野蜂_领航者": {
+            "textures": "textures/项目图标/智械革命/野蜂_领航者"
+        },
+        "item_texture:machine_brain.野蜂_侦查者": {
+            "textures": "textures/项目图标/智械革命/野蜂_侦查者"
+        },
+        "item_texture:machine_brain.野蜂_维系者": {
+            "textures": "textures/项目图标/智械革命/野蜂_维系者"
+        },
+        "item_texture:machine_brain.渊鲸_君临者": {
+            "textures": "textures/项目图标/智械革命/渊鲸_君临者"
+        },
+        /*
+         * 渊鲸潜艇
+         */
+        "item_texture:machine_brain.渊鲸_执行者": {
+            "textures": "textures/项目图标/智械革命/渊鲸_执行者"
+        },
+        "item_texture:machine_brain.渊鲸_维系者": {
+            "textures": "textures/项目图标/智械革命/渊鲸_维系者"
+        },
+        "item_texture:machine_brain.渊鲸_侦查者": {
+            "textures": "textures/项目图标/智械革命/渊鲸_侦查者"
+        },
+        /*
+         * 森蚺重炮
+         */
+        "item_texture:machine_brain.蝰蛇_维系者": {
+            "textures": "textures/项目图标/智械革命/蝰蛇_维系者"
+        },
+        "item_texture:machine_brain.灵蜥_铭记者": {
+            "textures": "textures/项目图标/智械革命/灵蜥_铭记者"
+        },
+        /*
+         * 万法溯源
+         */
+        "item_texture:magic_spirit.珍珠游鱼": {
+            "textures": "textures/项目图标/万法溯源/珍珠游鱼"
+        },
+        "item_texture:magic_spirit.珍珠水母": {
+            "textures": "textures/项目图标/万法溯源/珍珠水母"
+        },
+        "item_texture:magic_spirit.幻戟": {
+            "textures": "textures/项目图标/万法溯源/幻戟"
+        },
+        "item_texture:magic_spirit.神恩": {
+            "textures": "textures/项目图标/万法溯源/神恩"
+        },
+        "item_texture:magic_spirit.碎星": {
+            "textures": "textures/项目图标/万法溯源/碎星"
+        },
+        "item_texture:magic_spirit.坠星": {
+            "textures": "textures/项目图标/万法溯源/坠星"
+        },
+        "item_texture:magic_spirit.逐渊": {
+            "textures": "textures/项目图标/万法溯源/逐渊"
+        },
+        /*
+         * 神恩使徒
+         */
+        "item_texture:神恩使徒.归忆": {
+            "textures": "textures/项目图标/神恩使徒/归忆"
+        },
+        "item_texture:神恩使徒.极雷": {
+            "textures": "textures/项目图标/神恩使徒/极雷"
+        },
+        "item_texture:神恩使徒.界木": {
+            "textures": "textures/项目图标/神恩使徒/界木"
+        },
+        "item_texture:神恩使徒.启程": {
+            "textures": "textures/项目图标/神恩使徒/启程"
+        },
+        "item_texture:神恩使徒.诸海": {
+            "textures": "textures/项目图标/神恩使徒/诸海"
+        },
+        "item_texture:神恩使徒.烛火": {
+            "textures": "textures/项目图标/神恩使徒/烛火"
+        },
+        "item_texture:神恩使徒.古龙": {
+            "textures": "textures/项目图标/神恩使徒/古龙"
+        },
+        "item_texture:神恩使徒.啸天": {
+            "textures": "textures/项目图标/神恩使徒/啸天"
+        },
+        /*
+         * 杂项实体
+         */
+        "item_texture:基础图标": {
+            "textures": "textures/项目图标/元素增益"
+        },
+        /*
+         * 矿物资源
+         */
+        "item_texture:钨铜合金": {
+            "textures": "textures/物品贴图/矿物资源/钨铜合金"
+        },
+        "item_texture:钨铜合金板": {
+            "textures": "textures/物品贴图/矿物资源/钨铜合金板"
+        },
+        "item_texture:钨铜合金合页": {
+            "textures": "textures/物品贴图/矿物资源/钨铜合金合页"
+        },
+        "item_texture:钢岩合金": {
+            "textures": "textures/物品贴图/矿物资源/钢岩合金"
+        },
+        "item_texture:钢岩合金线圈": {
+            "textures": "textures/物品贴图/矿物资源/钢岩合金线圈"
+        },
+        "item_texture:钢岩合金晶圆": {
+            "textures": "textures/物品贴图/矿物资源/钢岩合金晶圆"
+        },
+        "item_texture:富氧金": {
+            "textures": "textures/物品贴图/矿物资源/富氧金"
+        },
+        "item_texture:富氧金板": {
+            "textures": "textures/物品贴图/矿物资源/富氧金板"
+        },
+        "item_texture:富氧金合页": {
+            "textures": "textures/物品贴图/矿物资源/富氧金合页"
+        },
+        "item_texture:磷酸铁": {
+            "textures": "textures/物品贴图/矿物资源/磷酸铁"
+        },
+        "item_texture:磷酸铁齿轮": {
+            "textures": "textures/物品贴图/矿物资源/磷酸铁齿轮"
+        },
+        "item_texture:磷酸铁合页": {
+            "textures": "textures/物品贴图/矿物资源/磷酸铁合页"
+        },
+        "item_texture:铝镁金": {
+            "textures": "textures/物品贴图/矿物资源/铝镁金"
+        },
+        "item_texture:铝镁金板": {
+            "textures": "textures/物品贴图/矿物资源/铝镁金板"
+        },
+        "item_texture:铝镁金合页": {
+            "textures": "textures/物品贴图/矿物资源/铝镁金合页"
+        },
+        "item_texture:氯化铁": {
+            "textures": "textures/物品贴图/矿物资源/氯化铁"
+        },
+        "item_texture:氯化铁板": {
+            "textures": "textures/物品贴图/矿物资源/氯化铁板"
+        },
+        "item_texture:氯化铁合页": {
+            "textures": "textures/物品贴图/矿物资源/氯化铁合页"
+        },
+        "item_texture:碳化锆": {
+            "textures": "textures/物品贴图/矿物资源/碳化锆"
+        },
+        "item_texture:碳化锆齿轮": {
+            "textures": "textures/物品贴图/矿物资源/碳化锆齿轮"
+        },
+        "item_texture:碳化锆合页": {
+            "textures": "textures/物品贴图/矿物资源/碳化锆合页"
+        },
+        "item_texture:碳酸金": {
+            "textures": "textures/物品贴图/矿物资源/碳酸金"
+        },
+        "item_texture:碳酸金齿轮": {
+            "textures": "textures/物品贴图/矿物资源/碳酸金齿轮"
+        },
+        "item_texture:碳酸金合页": {
+            "textures": "textures/物品贴图/矿物资源/碳酸金合页"
+        },
+        "item_texture:碳酸锂": {
+            "textures": "textures/物品贴图/矿物资源/碳酸锂"
+        },
+        "item_texture:碳酸锂齿轮": {
+            "textures": "textures/物品贴图/矿物资源/碳酸锂齿轮"
+        },
+        "item_texture:碳酸锂合页": {
+            "textures": "textures/物品贴图/矿物资源/碳酸锂合页"
+        },
+        "item_texture:钨镍钛": {
+            "textures": "textures/物品贴图/矿物资源/钨镍钛"
+        },
+        "item_texture:钨镍钛板": {
+            "textures": "textures/物品贴图/矿物资源/钨镍钛板"
+        },
+        "item_texture:钨镍钛合页": {
+            "textures": "textures/物品贴图/矿物资源/钨镍钛合页"
+        },
+        "item_texture:锡钎铜": {
+            "textures": "textures/物品贴图/矿物资源/锡钎铜"
+        },
+        "item_texture:锡钎铜板": {
+            "textures": "textures/物品贴图/矿物资源/锡钎铜板"
+        },
+        "item_texture:锡钎铜合页": {
+            "textures": "textures/物品贴图/矿物资源/锡钎铜合页"
+        },
+        /*
+         * 模板单元
+         */
+        "item_texture:通用集成回路": {
+            "textures": "textures/物品贴图/模板单元/通用集成回路"
+        },
+        "item_texture:空灵单元": {
+            "textures": "textures/物品贴图/模板单元/空灵单元"
+        },
+        "item_texture:装备升级": {
+            "textures": "textures/物品贴图/模板单元/装备升级"
+        },
+        "item_texture:维度升级": {
+            "textures": "textures/物品贴图/模板单元/维度升级"
+        },
+        "item_texture:铜制升级": {
+            "textures": "textures/物品贴图/模板单元/铜制升级"
+        },
+        "item_texture:铁制升级": {
+            "textures": "textures/物品贴图/模板单元/铁制升级"
+        },
+        "item_texture:金制升级": {
+            "textures": "textures/物品贴图/模板单元/金制升级"
+        },
+        "item_texture:合金升级": {
+            "textures": "textures/物品贴图/模板单元/合金升级"
+        },
+        "item_texture:末影龙鳞": {
+            "textures": "textures/物品贴图/模板单元/末影龙鳞"
+        },
+        "item_texture:武装碎片": {
+            "textures": "textures/物品贴图/模板单元/武装碎片"
+        },
+        "item_texture:蝰蛇符文": {
+            "textures": "textures/物品贴图/模板单元/蝰蛇符文"
+        },
+        "item_texture:渊鲸符文": {
+            "textures": "textures/物品贴图/模板单元/渊鲸符文"
+        },
+        /*
+         * 幻彩棱镜
+         */
+        "item_texture:千幻凌云": {
+            "textures": "textures/物品贴图/幻彩棱镜/千幻凌云"
+        },
+        /*
+         * 魔法工具
+         */
+        "item_texture:魔晶扳手": {
+            "textures": "textures/物品贴图/魔法工具/魔晶扳手"
+        },
+        "item_texture:魔晶弹弓": {
+            "textures": "textures/物品贴图/魔法工具/魔晶弹弓"
+        },
+        "item_texture:魔晶弹珠": {
+            "textures": "textures/物品贴图/魔法工具/魔晶弹珠"
+        },
+        "item_texture:魔晶起子": {
+            "textures": "textures/物品贴图/魔法工具/魔晶起子"
+        },
+        "item_texture:魔晶钥匙": {
+            "textures": "textures/物品贴图/魔法工具/魔晶钥匙"
+        },
+        "item_texture:魔晶钩爪": {
+            "textures": "textures/物品贴图/魔法工具/魔晶钩爪"
+        },
+        "item_texture:魔晶盾牌": {
+            "textures": "textures/物品贴图/魔法工具/魔晶盾牌"
+        },
+        "item_texture:魔晶锤子": {
+            "textures": "textures/物品贴图/魔法工具/魔晶锤子"
+        },
+        "item_texture:魔晶镐子": {
+            "textures": "textures/物品贴图/魔法工具/魔晶镐子"
+        },
+        "item_texture:xenomagic_infusion.diamond_sword": {
+            "textures": [
+                {
+                    "path": "textures/items/xenomagic_infusion"
+                    //,"tint_color": "66ccff"
+                },
+                {
+                    "path": "textures/items/diamond_sword"
+                    //,"tint_color": "66ccff"
+                }
+            ],
+            "additive": true
+        },
+        "item_texture:xenomagic_infusion.gold_sword": {
+            "textures": [
+                {
+                    "path": "textures/items/xenomagic_infusion"
+                    //,"tint_color": "66ccff"
+                },
+                {
+                    "path": "textures/items/gold_sword"
+                    //,"tint_color": "66ccff"
+                }
+            ],
+            "additive": true
+        },
+        "item_texture:xenomagic_infusion.iron_sword": {
+            "textures": [
+                {
+                    "path": "textures/items/xenomagic_infusion"
+                    //,"tint_color": "66ccff"
+                },
+                {
+                    "path": "textures/items/iron_sword"
+                    //,"tint_color": "66ccff"
+                }
+            ],
+            "additive": true
+        },
+        "item_texture:xenomagic_infusion.stone_sword": {
+            "textures": [
+                {
+                    "path": "textures/items/xenomagic_infusion"
+                    //,"tint_color": "66ccff"
+                },
+                {
+                    "path": "textures/items/stone_sword"
+                    //,"tint_color": "66ccff"
+                }
+            ],
+            "additive": true
+        },
+        "item_texture:xenomagic_infusion.wood_sword": {
+            "textures": [
+                {
+                    "path": "textures/items/xenomagic_infusion"
+                    //,"tint_color": "66ccff"
+                },
+                {
+                    "path": "textures/items/wood_sword"
+                    //,"tint_color": "66ccff"
+                }
+            ],
+            "additive": true
+        },
+        "item_texture:xenomagic_infusion.netherite_sword": {
+            "textures": [
+                {
+                    "path": "textures/items/xenomagic_infusion"
+                    //,"tint_color": "66ccff"
+                },
+                {
+                    "path": "textures/items/netherite_sword"
+                    //,"tint_color": "66ccff"
+                }
+            ],
+            "additive": true
+        },
+        /*
+         * 魔法礼盒
+         */
+        "item_texture:浮光镜影": {
+            "textures": "textures/物品贴图/魔法礼盒/浮光镜影"
+        },
+        "item_texture:匣里乾坤": {
+            "textures": "textures/物品贴图/魔法礼盒/匣里乾坤"
+        },
+        "item_texture:换装礼盒": {
+            "textures": "textures/物品贴图/魔法礼盒/换装礼盒"
+        },
+        /*
+         * 魔法书籍
+         */
+        "item_texture:精灵结契": {
+            "textures": "textures/物品贴图/魔法书籍/精灵结契"
+        },
+        "item_texture:魔导手册": {
+            "textures": "textures/物品贴图/魔法书籍/魔导手册"
+        },
+        "item_texture:源能秘典": {
+            "textures": "textures/物品贴图/魔法书籍/源能秘典"
+        },
+        "item_texture:战术规划": {
+            "textures": "textures/物品贴图/魔法书籍/战术规划"
+        },
+        "item_texture:矿物辞典": {
+            "textures": "textures/物品贴图/魔法书籍/矿物辞典"
+        },
+        "item_texture:畜牧典范": {
+            "textures": "textures/物品贴图/魔法书籍/畜牧典范"
+        },
+        "item_texture:幻海集纳": {
+            "textures": "textures/物品贴图/魔法书籍/幻海集纳"
+        },
+        "item_texture:精灵治愈": {
+            "textures": "textures/物品贴图/魔法书籍/精灵治愈"
+        },
+        "item_texture:book.8": {
+            "textures": "textures/物品贴图/魔法书籍/book.8"
+        },
+        "item_texture:空间宝典": {
+            "textures": "textures/物品贴图/魔法书籍/空间宝典"
+        },
+        "item_texture:林业指南": {
+            "textures": "textures/物品贴图/魔法书籍/林业指南"
+        },
+        "item_texture:农业纲目": {
+            "textures": "textures/物品贴图/魔法书籍/农业纲目"
+        },
+        "item_texture:魔导绪论": {
+            "textures": "textures/物品贴图/魔法书籍/魔导绪论"
+        },
+        "item_texture:魔法卷轴": {
+            "textures": "textures/物品贴图/魔法书籍/魔法卷轴"
+        },
+        /*
+         * 能量水晶
+         */
+        "item_texture:极雷_魔晶石": {
+            "textures": "textures/物品贴图/能量水晶/极雷_魔晶石"
+        },
+        "item_texture:归忆_魔晶石": {
+            "textures": "textures/物品贴图/能量水晶/归忆_魔晶石"
+        },
+        "item_texture:烛火_魔晶石": {
+            "textures": "textures/物品贴图/能量水晶/烛火_魔晶石"
+        },
+        "item_texture:诸海_魔晶石": {
+            "textures": "textures/物品贴图/能量水晶/诸海_魔晶石"
+        },
+        "item_texture:界木_魔晶石": {
+            "textures": "textures/物品贴图/能量水晶/界木_魔晶石"
+        },
+        "item_texture:永恒_魔晶石": {
+            "textures": "textures/物品贴图/能量水晶/永恒_魔晶石"
+        },
+        /*
+         * 特殊道具
+         */
+        "item_texture:百灵绘卷": {
+            "textures": "textures/物品贴图/召唤凭证/百灵绘卷"
+        },
+        "item_texture:流光之星": {
+            "textures": "textures/物品贴图/召唤凭证/流光之星"
+        },
+        "item_texture:星月诗篇": {
+            "textures": "textures/物品贴图/召唤凭证/星月诗篇"
+        },
+        "item_texture:参悟之石": {
+            "textures": "textures/物品贴图/特殊道具/参悟之石"
+        },
+        "item_texture:创造工具": {
+            "textures": "textures/物品贴图/特殊道具/创造工具"
+        },
+        "item_texture:锚点虚印": {
+            "textures": "textures/物品贴图/特殊道具/锚点虚印"
+        },
+        "item_texture:涤尽铅华": {
+            "textures": "textures/物品贴图/特殊道具/涤尽铅华"
+        },
+        "item_texture:物资整理": {
+            "textures": "textures/物品贴图/特殊道具/物资整理"
+        },
+        "item_texture:虚空方块": {
+            "textures": "textures/物品贴图/特殊道具/虚空方块"
+        },
+        "item_texture:抑水之环": {
+            "textures": "textures/物品贴图/特殊道具/抑水之环"
+        },
+        "item_texture:状态侦测": {
+            "textures": "textures/物品贴图/特殊道具/状态侦测"
+        },
+        "item_texture:神机操持": {
+            "textures": "textures/物品贴图/特殊道具/神机操持"
+        },
+        "item_texture:渊鲸维系": {
+            "textures": "textures/物品贴图/特殊道具/渊鲸维系"
+        },
+        "item_texture:森蚺哨兵": {
+            "textures": "textures/物品贴图/特殊道具/森蚺哨兵"
+        },
+        "item_texture:森蚺先锋": {
+            "textures": "textures/物品贴图/特殊道具/森蚺先锋"
+        },
+        "item_texture:虚物靶标": {
+            "textures": "textures/物品贴图/特殊道具/虚物靶标"
+        },
+        "item_texture:隧龙列车": {
+            "textures": "textures/物品贴图/特殊道具/隧龙列车"
+        },
+        "item_texture:涵养灵露": {
+            "textures": "textures/物品贴图/特殊道具/涵养灵露"
+        },
+        "item_texture:幻影驱散": {
+            "textures": "textures/物品贴图/特殊道具/幻影驱散"
+        },
+        "item_texture:紫金葫芦": {
+            "textures": "textures/物品贴图/特殊道具/紫金葫芦"
+        },
+        "item_texture:契约重撰": {
+            "textures": "textures/物品贴图/特殊道具/契约重撰"
+        },
+        "item_texture:调试权杖": {
+            "textures": "textures/物品贴图/特殊道具/调试权杖"
+        },
+        "item_texture:方块获取": {
+            "textures": "textures/物品贴图/特殊道具/方块获取"
+        },
+        "item_texture:预设蓝图": {
+            "textures": "textures/物品贴图/工业蓝图/预设蓝图"
+        },
+        "item_texture:空白蓝图": {
+            "textures": "textures/物品贴图/工业蓝图/空白蓝图"
+        },
+        "item_texture:成品蓝图": {
+            "textures": "textures/物品贴图/工业蓝图/成品蓝图"
+        },
+        /*
+         * 魔晶铠甲
+         */
+        "item_texture:魔晶铠甲_枯竭": {
+            "textures": "textures/物品贴图/魔晶铠甲/枯竭"
+        },
+        "item_texture:魔晶铠甲_至纯": {
+            "textures": "textures/物品贴图/魔晶铠甲/至纯"
+        },
+        "item_texture:诸海之环": {
+            "textures": "textures/物品贴图/魔晶铠甲/诸海之环"
+        },
+        "item_texture:星夜凝华": {
+            "textures": "textures/物品贴图/魔法宝珠/星夜凝华"
+        },
+        "item_texture:寒冰灵韵": {
+            "textures": "textures/物品贴图/魔法宝珠/寒冰灵韵"
+        },
+        "item_texture:紫晶魂玉": {
+            "textures": "textures/物品贴图/魔法宝珠/紫晶魂玉"
+        },
+        "item_texture:赤焰灵心": {
+            "textures": "textures/物品贴图/魔法宝珠/赤焰灵心"
+        },
+        "item_texture:碧海潮生": {
+            "textures": "textures/物品贴图/魔法宝珠/碧海潮生"
+        },
+        "item_texture:元素守护_归忆": {
+            "textures": "textures/物品贴图/元素守护/归忆"
+        },
+        "item_texture:元素守护_极雷": {
+            "textures": "textures/物品贴图/元素守护/极雷"
+        },
+        "item_texture:元素守护_界木": {
+            "textures": "textures/物品贴图/元素守护/界木"
+        },
+        "item_texture:元素守护_诸海": {
+            "textures": "textures/物品贴图/元素守护/诸海"
+        },
+        "item_texture:元素守护_烛火": {
+            "textures": "textures/物品贴图/元素守护/烛火"
+        },
+        /*
+         * 琼肴雅馔
+         */
+        "item_texture:曦光绮梦": {
+            "textures": "textures/物品贴图/琼肴雅馔/曦光绮梦"
+        },
+        "item_texture:蜂火佳肴": {
+            "textures": "textures/物品贴图/琼肴雅馔/蜂火佳肴"
+        },
+        "item_texture:咖喱蝰蛇": {
+            "textures": "textures/物品贴图/琼肴雅馔/咖喱蝰蛇"
+        },
+        "item_texture:蝰蛇炮管": {
+            "textures": "textures/物品贴图/琼肴雅馔/蝰蛇炮管"
+        },
+        "item_texture:灵蜥佳肴": {
+            "textures": "textures/物品贴图/琼肴雅馔/灵蜥佳肴"
+        },
+        "item_texture:灵蜥苹果": {
+            "textures": "textures/物品贴图/琼肴雅馔/灵蜥苹果"
+        },
+        "item_texture:灵蜥碎片": {
+            "textures": "textures/物品贴图/琼肴雅馔/灵蜥碎片"
+        },
+        "item_texture:炭烤野蜂": {
+            "textures": "textures/物品贴图/琼肴雅馔/炭烤野蜂"
+        },
+        "item_texture:炭烤渊鲸": {
+            "textures": "textures/物品贴图/琼肴雅馔/炭烤渊鲸"
+        },
+        "item_texture:野蜂烧鸡": {
+            "textures": "textures/物品贴图/琼肴雅馔/野蜂烧鸡"
+        },
+        "item_texture:野蜂碎片": {
+            "textures": "textures/物品贴图/琼肴雅馔/野蜂碎片"
+        },
+        "item_texture:渊鲸残骸": {
+            "textures": "textures/物品贴图/琼肴雅馔/渊鲸残骸"
+        },
+        "item_texture:渊鲸浓汤": {
+            "textures": "textures/物品贴图/琼肴雅馔/渊鲸浓汤"
+        },
+        "item_texture:迷之蘸料": {
+            "textures": "textures/物品贴图/琼肴雅馔/迷之蘸料"
+        }
+    }
+}

@@ -1,0 +1,183 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "items"
+			},
+			"identifier": "starry_map:servo_susceptor",
+			"traits": {
+				"minecraft:placement_direction": {
+					"enabled_states": [
+						"minecraft:cardinal_direction"
+					]
+				}
+			},
+			"states": {
+				"STATE:rune_type": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7
+				],
+				"STATE:direction": [
+					0,
+					1,
+					2,
+					3,
+					4
+				],
+				"STATE:value": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5
+				]
+			}
+		},
+		"components": {
+			// 方块含水
+			"minecraft:liquid_detection": {
+				"detection_rules": [
+					{
+						"on_liquid_touches": "no_reaction",
+						"can_contain_liquid": true,
+						"liquid_type": "water"
+					}
+				]
+			},
+			// 防爆与挖掘
+			"minecraft:destructible_by_explosion": false,
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			// 摩擦力
+			"minecraft:friction": 0.35,
+			// 方块光照
+			"minecraft:light_dampening": 0,
+			"minecraft:light_emission": 1,
+			// 模型与纹理
+			"minecraft:geometry": {
+				"identifier": "geometry.block.drive.susceptor",
+				"bone_visibility": {
+					"value_0": "q.block_state('STATE:value') == 0",
+					"value_1": "q.block_state('STATE:value') == 1",
+					"value_2": "q.block_state('STATE:value') == 2",
+					"value_3": "q.block_state('STATE:value') == 3",
+					"value_4": "q.block_state('STATE:value') == 4",
+					"value_5": "q.block_state('STATE:value') == 5"
+				}
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "block_texture:plane_0",
+					"render_method": "alpha_test"
+				},
+				"crystal": {
+					"texture": "block_texture:crystal_0",
+					"render_method": "alpha_test"
+				},
+				"interface": {
+					"texture": "block_texture:interface_0",
+					"render_method": "alpha_test"
+				},
+				"stone_0": {
+					"texture": "deepslate",
+					"render_method": "alpha_test"
+				},
+				"stone_1": {
+					"texture": "polished_diorite_slab",
+					"render_method": "alpha_test"
+				}
+			},
+			// 自定义组件
+			"opal:interact.servo_susceptor": {},
+			// 方块标签
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"tag:tags:magic_cable.port_negative.Y": {},
+			"tag:tags:servo_drive.series": {},
+			"tag:tags:magic_cable.series": {},
+			"tag:iron_pick_diggable": {}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('STATE:rune_type') != 0",
+				"components": {
+					"opal:tick.servo_drive": {},
+					"minecraft:tick": {
+						"interval_range": [
+							1,
+							1
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:direction') != 0",
+				"components": {
+					"opal:tick.servo_drive": {},
+					"minecraft:tick": {
+						"interval_range": [
+							3,
+							3
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							180,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							270,
+							0
+						]
+					}
+				}
+			}
+		]
+	}
+}

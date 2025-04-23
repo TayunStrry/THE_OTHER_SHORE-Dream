@@ -1,0 +1,138 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.item.magic_crystal_wrench.base": {
+			"loop": true,
+			"animation_length": 5,
+			"bones": {
+				"item": {
+					"rotation": ["c.is_first_person ? 60 : 0", 0, "c.is_first_person ? -40 : 0"],
+					"position": ["c.is_first_person ? 0 : 0", "c.is_first_person ? 0 : 0", "c.is_first_person ? 0 : 0"]
+				},
+				"gear": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.0": [0, -180, 0],
+						"2.3": [0, 0, 0],
+						"4.0": [0, 180, 0],
+						"5.0": [0, 0, 0]
+					}
+				},
+				"screw": {
+					"position": {
+						"0.0": [0, 0, 0],
+						"1.0": [0, 1.5, 0],
+						"2.3": [0, 0, 0],
+						"4.0": [0, -1, 0],
+						"5.0": [0, 0, 0]
+					}
+				},
+				"blade0": {
+					"scale": "v.random_map == 1 ? 1 : 0"
+				},
+				"blade1": {
+					"scale": "v.random_map == 2 ? 1 : 0"
+				},
+				"blade2": {
+					"scale": "v.random_map == 3 ? 1 : 0"
+				},
+				"blade3": {
+					"scale": "v.random_map == 4 ? 1 : 0"
+				},
+				"blade4": {
+					"scale": "v.random_map == 5 ? 1 : 0"
+				}
+			}
+		},
+		"animation.item.magic_crystal_wrench.default_open": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"item": {
+					"rotation": {
+						"0.25": [0, 0, -180],
+						"0.5": [0, 0, 0]
+					}
+				},
+				"blade_group": {
+					"position": {
+						"0.0": [2, 0, 0],
+						"0.25": [0, 0, 0]
+					},
+					"scale": {
+						"0.0": [0, 0, 0],
+						"0.25": [1, 1, 1]
+					}
+				}
+			}
+		},
+		"animation.item.magic_crystal_wrench.default_close": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.3,
+			"override_previous_animation": true,
+			"bones": {
+				"item": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.3": [0, 0, -180]
+					}
+				},
+				"blade_group": {
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.3": [1, 0, 0]
+					},
+					"scale": {
+						"0.0": [1, 1, 1],
+						"0.3": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.item.magic_crystal_wrench.first_person_open": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.25,
+			"bones": {
+				"blade_group": {
+					"position": {
+						"0.0": [2, 0, 0],
+						"0.25": [0, 0, 0]
+					},
+					"scale": {
+						"0.0": [0, 0, 0],
+						"0.25": [1, 1, 1]
+					}
+				},
+				"magic_crystal_wrench": {
+					"rotation": {
+						"0.0": [0, -180, 0],
+						"0.25": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.item.magic_crystal_wrench.first_person_done": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.3,
+			"override_previous_animation": true,
+			"bones": {
+				"blade_group": {
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.3": [1, 0, 0]
+					},
+					"scale": {
+						"0.0": [1, 1, 1],
+						"0.3": [0, 0, 0]
+					}
+				},
+				"main": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.3": [0, 180, 0]
+					}
+				}
+			}
+		}
+	}
+}

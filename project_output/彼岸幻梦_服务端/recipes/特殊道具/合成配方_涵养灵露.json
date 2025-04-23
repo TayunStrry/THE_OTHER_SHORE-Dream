@@ -1,0 +1,32 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "starry:starry_map:moment_repair_dew"
+		},
+		"tags": [
+			"tags:desktop_make"
+		],
+		"pattern": [
+			"121",
+			"131",
+			"212"
+		],
+		"assume_symmetry": false,
+		"key": {
+			"1": {
+				"item": "minecraft:dragon_breath"
+			},
+			"2": {
+				"item": "minecraft:enchanted_book"
+			},
+			"3": {
+				"item": "starry_map:eternal_energy"
+			}
+		},
+		"result": {
+			"item": "starry_map:moment_repair_dew",
+			"count": 4
+		}
+	}
+}

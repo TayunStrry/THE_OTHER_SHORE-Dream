@@ -9,24 +9,12 @@
 			"path": "../JS_cache"
 		},
 		{
-			"name": "律令禁止_服务端",
-			"path": "../development_behavior_packs/律令禁止_服务端"
-		},
-		{
-			"name": "轻量连锁_服务端",
-			"path": "../development_behavior_packs/轻量连锁_服务端"
-		},
-		{
 			"name": "prompt",
 			"path": "D:/Chat_AI_Case/prompt"
 		},
 		{
 			"name": "behavior_pack_z6qLDV7H_f980b001",
 			"path": "D:/MCStudioDownload/work/1965304849@qq.com/Cpp/AddOn/3069703b6762488da21a018836a6a227/behavior_pack_z6qLDV7H_f980b001"
-		},
-		{
-			"name": "草神赐福_客户端",
-			"path": "../development_resource_packs/草神赐福_客户端"
 		},
 		{
 			"name": "更可爱的恶魂！！",
@@ -39,6 +27,15 @@
 		{
 			"name": "幻梦-Dream_RP",
 			"path": "../../../../../Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_resource_packs/幻梦-Dream_RP"
+		},
+		{
+			"path": "../../../../../Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/律令禁止_服务端"
+		},
+		{
+			"path": "../../../../../Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/轻量连锁_服务端"
+		},
+		{
+			"path": "../../../../../Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_resource_packs/草神赐福_客户端"
 		}
 	],
 	"settings": {}

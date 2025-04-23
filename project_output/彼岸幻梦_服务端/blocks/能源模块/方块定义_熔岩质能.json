@@ -1,0 +1,138 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "items"
+			},
+			"identifier": "starry_map:magma_power",
+			"states": {
+				"STATE:count": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9,
+					10,
+					11,
+					12,
+					13,
+					14,
+					15
+				],
+				"STATE:magma": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9,
+					10,
+					11,
+					12,
+					13,
+					14,
+					15
+				]
+			}
+		},
+		"components": {
+			// 方块含水
+			"minecraft:liquid_detection": {
+				"detection_rules": [
+					{
+						"on_liquid_touches": "no_reaction",
+						"can_contain_liquid": true,
+						"liquid_type": "water"
+					}
+				]
+			},
+			// 防爆与挖掘
+			"minecraft:destructible_by_explosion": false,
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			// 摩擦力
+			"minecraft:friction": 0.35,
+			// 方块光照
+			"minecraft:light_dampening": 0,
+			"minecraft:light_emission": 1,
+			// 模型与纹理
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "polished_diorite_slab",
+					"render_method": "alpha_test"
+				},
+				"stone_3": {
+					"texture": "cauldron_side",
+					"render_method": "alpha_test"
+				},
+				"flame": {
+					"texture": "fire_0",
+					"render_method": "alpha_test"
+				},
+				"magma": {
+					"texture": "flowing_lava",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:geometry": {
+				"identifier": "geometry.block.energy.magma_power",
+				"bone_visibility": {
+					"flame": "q.block_state('STATE:magma') != 0",
+					"cache1": "q.block_state('STATE:magma') == 1",
+					"cache2": "q.block_state('STATE:magma') == 2",
+					"cache3": "q.block_state('STATE:magma') == 3",
+					"cache4": "q.block_state('STATE:magma') == 4",
+					"cache5": "q.block_state('STATE:magma') == 5",
+					"cache6": "q.block_state('STATE:magma') == 6",
+					"cache7": "q.block_state('STATE:magma') == 7",
+					"cache8": "q.block_state('STATE:magma') == 8",
+					"cache9": "q.block_state('STATE:magma') == 9",
+					"cache10": "q.block_state('STATE:magma') == 10",
+					"cache11": "q.block_state('STATE:magma') == 11",
+					"cache12": "q.block_state('STATE:magma') >= 12"
+				}
+			},
+			// 事件触发器
+			"opal:interact.magma_power": {},
+			// 方块标签
+			"tag:tags:obsidian_smelting.storage_tank": {},
+			"tag:tags:energy_module.series": {},
+			"tag:tags:energy_module.power": {},
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"tag:iron_pick_diggable": {}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('STATE:count') == 0",
+				"components": {
+					"minecraft:light_emission": 1
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:magma') != 0",
+				"components": {
+					"minecraft:light_emission": 15,
+					"opal:interact.magma_power": {},
+					"opal:tick.magma_power": {},
+					"minecraft:tick": {
+						"interval_range": [
+							20,
+							40
+						]
+					}
+				}
+			}
+		]
+	}
+}

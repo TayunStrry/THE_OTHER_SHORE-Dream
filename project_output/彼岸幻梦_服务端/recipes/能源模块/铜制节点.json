@@ -1,0 +1,27 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "starry:starry_map:copper.intensify_node"
+		},
+		"tags": [
+			"tags:desktop_make"
+		],
+		"pattern": [
+			"ABA"
+		],
+		"assume_symmetry": false,
+		"key": {
+			"A": {
+				"item": "starry_map:initial_node"
+			},
+			"B": {
+				"item": "starry_map:copper_upgrade"
+			}
+		},
+		"result": {
+			"item": "starry_map:copper.intensify_node",
+			"count": 2
+		}
+	}
+}

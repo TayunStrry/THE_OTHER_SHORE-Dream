@@ -1,0 +1,587 @@
+{
+	"format_version": "1.21.10",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "starry_map:execute.roaring",
+			"is_experimental": false,
+			"is_summonable": true,
+			"is_spawnable": true
+		},
+		"component_groups": {
+			// 签订契约之前
+			"entity_module:contract_before": {
+				"minecraft:behavior.tempt": {
+					"speed_multiplier": 1,
+					"priority": 2,
+					"items": [
+						"starry_map:faerie_contract"
+					]
+				},
+				"minecraft:behavior.follow_mob": {
+					"priority": 0,
+					"filters": {
+						"test": "is_family",
+						"subject": "other",
+						"value": "divine_favor_guide.crystal"
+					},
+					"speed_multiplier": 1,
+					"stop_distance": 3,
+					"search_range": 32
+				},
+				"minecraft:tameable": {
+					"probability": 1,
+					"tame_items": [
+						"starry_map:eternal_energy",
+						"minecraft:cooked_porkchop",
+						"minecraft:cooked_chicken",
+						"minecraft:cooked_mutton",
+						"minecraft:cooked_salmon",
+						"minecraft:cooked_rabbit",
+						"minecraft:cooked_beef",
+						"minecraft:cooked_cod"
+					],
+					"tame_event": {
+						"event": "entity_event:create_contract_before",
+						"target": "self"
+					}
+				},
+				"minecraft:scale": {
+					"value": 0.5
+				},
+				"minecraft:is_baby": {}
+			},
+			// 签订契约之后
+			"entity_module:contract_after": {
+				"minecraft:behavior.owner_hurt_by_target": {
+					"priority": 7
+				},
+				"minecraft:behavior.owner_hurt_target": {
+					"priority": 8
+				},
+				"minecraft:behavior.follow_caravan": {
+					"speed_multiplier": 1.5,
+					"entity_count": 16,
+					"priority": 5,
+					"entity_types": {
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "starry"
+						},
+						"max_dist": 64
+					}
+				},
+				"minecraft:behavior.tempt": {
+					"priority": 3,
+					"speed_multiplier": 1,
+					"items": [
+						"starry_map:magic_crystal_screwdriver",
+						"starry_map:magic_crystal_marbles",
+						"starry_map:magic_crystal_shield",
+						"starry_map:magic_crystal_wrench",
+						"starry_map:magic_crystal_claw",
+						"starry_map:magic_crystal_bow",
+						"starry_map:magic_crystal_key"
+					]
+				},
+				"minecraft:leashable": {
+					"soft_distance": 5,
+					"max_distance": 15,
+					"hard_distance": 10,
+					"on_leash": {
+						"event": "minecraft:on_leash",
+						"target": "self"
+					},
+					"on_unleash": {
+						"event": "minecraft:on_unleash",
+						"target": "self"
+					}
+				},
+				"minecraft:equippable": {
+					"slots": [
+						{
+							"slot": 0,
+							"item": "saddle",
+							"accepted_items": [
+								"saddle"
+							],
+							// 装备安装事件
+							"on_equip": {
+								"event": "entity_event:control_rideable"
+							},
+							// 装备卸载事件
+							"on_unequip": {
+								"event": "entity_event:inhibit_rideable"
+							}
+						},
+						{
+							"slot": 1,
+							"item": "starry_map:ocean_blessed_scarf",
+							"accepted_items": [
+								"starry_map:ocean_blessed_scarf"
+							],
+							// 装备安装事件
+							"on_equip": {
+								"event": "entity_event:enter_lava"
+							},
+							// 装备卸载事件
+							"on_unequip": {
+								"event": "entity_event:leave_lava"
+							}
+						}
+					]
+				},
+				"minecraft:on_death": {
+					"event": "entity_event:death",
+					"target": "self"
+				},
+				"minecraft:is_tamed": {}
+			},
+			// 成长阶段
+			"entity_module:ageable": {
+				"minecraft:mark_variant": {
+					"value": 1
+				},
+				"minecraft:scale_by_age": {
+					"start_scale": 0.5,
+					"end_scale": 1.75
+				},
+				"minecraft:ageable": {
+					"duration": 15,
+					"grow_up": {
+						"event": "entity_event:entry_mature",
+						"target": "self"
+					}
+				}
+			},
+			// 成年阶段
+			"entity_module:mature": {
+				"minecraft:scale": {
+					"value": 1.75
+				}
+			},
+			// 驾驭哮天犬
+			"entity_module:controlled": {
+				"minecraft:behavior.controlled_by_player": {
+					"priority": 0
+				},
+				"minecraft:horse.jump_strength": {
+					"value": {
+						"range_min": 1.5,
+						"range_max": 4.5
+					}
+				},
+				"minecraft:rideable": {
+					"crouching_skip_interact": true, // 指定是否在潜行状态下跳过与马匹的互动
+					"seat_count": 2, // 指定马匹的座位数量
+					"family_types": [
+						"divine_favor_guide.crystal",
+						"player"
+					],
+					"pull_in_entities": true,
+					"seats": [
+						{
+							"position": [
+								0,
+								0.9,
+								0.1
+							],
+							"min_rider_count": 0,
+							"max_rider_count": 2,
+							"rotate_rider_by": 0
+						},
+						{
+							"position": [
+								0,
+								0.82,
+								-0.35
+							],
+							"min_rider_count": 2,
+							"max_rider_count": 2,
+							"rotate_rider_by": 0
+						}
+					]
+				},
+				"minecraft:scale": {
+					"value": 1.75
+				},
+				"minecraft:scheduler": {
+					"min_delay_secs": 4,
+					"max_delay_secs": 8,
+					"scheduled_events": [
+						{
+							"filters": {
+								"all_of": [
+									{
+										"test": "in_lava",
+										"value": true
+									},
+									{
+										"test": "has_component",
+										"operator": "!=",
+										"value": "minecraft:buoyant"
+									}
+								]
+							},
+							"event": "entity_event:enter_lava"
+						},
+						{
+							"filters": {
+								"all_of": [
+									{
+										"test": "in_lava",
+										"value": false
+									},
+									{
+										"test": "on_ground",
+										"value": true
+									},
+									{
+										"test": "has_tag",
+										"operator": "==",
+										"value": "in_lava"
+									}
+								]
+							},
+							"event": "entity_event:leave_lava"
+						}
+					]
+				},
+				"minecraft:behavior.player_ride_tamed": {},
+				"minecraft:input_ground_controlled": {},
+				"minecraft:can_power_jump": {},
+				"minecraft:is_saddled": {}
+			},
+			// 岩浆行走
+			"entity_module:lava_move": {
+				"minecraft:buoyant": {
+					"base_buoyancy": 0.75,
+					"apply_gravity": false,
+					"simulate_waves": false,
+					"liquid_blocks": [
+						"minecraft:flowing_lava",
+						"minecraft:lava"
+					]
+				},
+				"minecraft:movement": {
+					"value": 2
+				},
+				"minecraft:underwater_movement": {
+					"value": 2
+				}
+			},
+			// 地面行走
+			"entity_module:ground_move": {
+				"minecraft:underwater_movement": {
+					"value": 0.15
+				},
+				"minecraft:movement": {
+					"value": 0.45
+				},
+				"minecraft:variable_max_auto_step": {
+					"jump_prevented_value": 8.5,
+					"controlled_value": 16,
+					"base_value": 8
+				}
+			}
+		},
+		"components": {
+			// 基础属性
+			"minecraft:type_family": {
+				"family": [
+					"divine_creature",
+					"starry",
+					"mob"
+				]
+			},
+			"minecraft:collision_box": {
+				"width": 0.5,
+				"height": 1.0
+			},
+			"minecraft:health": {
+				"value": 50
+			},
+			"minecraft:inventory": {
+				"inventory_size": 2,
+				"container_type": "horse"
+			},
+			"minecraft:breathable": {
+				"generates_bubbles": true,
+				"breathes_solids": true,
+				"breathes_water": true,
+				"breathes_lava": true,
+				"breathes_air": true,
+				"suffocate_time": 10,
+				"total_supply": 15,
+				"inhale_time": 0
+			},
+			"minecraft:attack": {
+				"damage": {
+					"range_min": 15,
+					"range_max": 75
+				},
+				"effect_name": "fatal_poison",
+				"effect_duration": 64
+			},
+			"minecraft:knockback_resistance": {
+				"value": 1.0
+			},
+			"minecraft:nameable": {},
+			"minecraft:persistent": {},
+			"minecraft:fire_immune": true,
+			// 物理属性
+			"minecraft:pushable": {
+				"is_pushable_by_piston": true,
+				"is_pushable": true
+			},
+			"minecraft:physics": {
+				"push_towards_closest_space": true,
+				"has_collision": true,
+				"has_gravity": true
+			},
+			// 事件触发器
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "all",
+						"damage_multiplier": 0.0001
+					},
+					{
+						"cause": "fall",
+						"deals_damage": false
+					}
+				]
+			},
+			// 行为控制
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 10,
+				"entity_types": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "abyss"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "monster"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "warden"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "hoglin"
+								}
+							]
+						},
+						"within_default": 32
+					}
+				],
+				"must_reach": true,
+				"must_see": true
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 12
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 15,
+				"target_distance": 6,
+				"probability": 0.02
+			},
+			"minecraft:behavior.random_stroll": {
+				"speed_multiplier": 1,
+				"priority": 30
+			},
+			"minecraft:behavior.ocelotattack": {
+				"priority": 11,
+				"cooldown_time": 0.2,
+				"max_distance": 16,
+				"max_sprint_range": 8,
+				"max_sneak_range": 14,
+				"reach_multiplier": 2,
+				"sneak_speed_multiplier": 0.75,
+				"sprint_speed_multiplier": 1.35,
+				"walk_speed_multiplier": 1.0,
+				"y_max_head_rotation": 45,
+				"x_max_rotation": 45
+			},
+			"minecraft:navigation.generic": {
+				// 常规移动
+				"avoid_damage_blocks": true,
+				"can_walk": true,
+				// 开门
+				"can_open_iron_doors": true,
+				"can_pass_doors": true,
+				"can_open_doors": true,
+				// 在流体中行动
+				"can_path_over_water": true,
+				"can_path_over_lava": true,
+				"is_amphibious": true,
+				"can_sink": true,
+				"can_swim": true
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:can_climb": {},
+			// 条件带宽
+			"minecraft:conditional_bandwidth_optimization": {
+				"conditional_values": {
+					"max_dropped_ticks": 20,
+					"max_optimized_distance": 200,
+					"use_motion_prediction_hints": true
+				},
+				"default_values": {
+					"max_dropped_ticks": 10,
+					"max_optimized_distance": 100,
+					"use_motion_prediction_hints": true
+				}
+			}
+		},
+		"events": {
+			// 实体诞生事件
+			"minecraft:entity_spawned": {
+				"add": {
+					"component_groups": [
+						"entity_module:contract_before",
+						"entity_module:ground_move"
+					]
+				}
+			},
+			// 实体死亡事件
+			"entity_event:death": {
+				"queue_command": {
+					"command": [
+						"opal:entity_death_preservation @s"
+					]
+				}
+			},
+			// 实体契约事件
+			"entity_event:create_contract_before": {
+				"queue_command": {
+					"command": [
+						"opal:entity_contract_rite"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"entity_module:contract_before"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"entity_module:contract_after",
+						"entity_module:ageable"
+					]
+				}
+			},
+			// 进入熔岩事件
+			"entity_event:enter_lava": {
+				"sequence": [
+					{
+						"filters": {
+							"test": "has_equipment",
+							"value": "starry_map:ocean_blessed_scarf"
+						},
+						"queue_command": {
+							"command": [
+								"tag @s add in_lava",
+								"effect @a[r=8] fire_resistance 8 0 true"
+							]
+						},
+						"remove": {
+							"component_groups": [
+								"entity_module:ground_move"
+							]
+						},
+						"add": {
+							"component_groups": [
+								"entity_module:lava_move"
+							]
+						}
+					}
+				]
+			},
+			// 离开熔岩事件
+			"entity_event:leave_lava": {
+				"queue_command": {
+					"command": [
+						"tag @s remove in_lava",
+						"effect @a[r=8] fire_resistance 8 0 true"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"entity_module:lava_move"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"entity_module:ground_move"
+					]
+				}
+			},
+			// 驾驶控制事件
+			"entity_event:control_rideable": {
+				"queue_command": {
+					"command": [
+						"title @a[r=15] actionbar 【 @s 】: | 啸天 |: 可驾驶, 玩家主权控制"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"entity_module:mature"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"entity_module:controlled"
+					]
+				}
+			},
+			// 禁止骑乘事件
+			"entity_event:inhibit_rideable": {
+				"queue_command": {
+					"command": [
+						"title @a[r=15] actionbar 【 @s 】: | 啸天 |: 当前无法骑乘",
+						"playsound mob.horse.armor @a[r=8] ~~~"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"entity_module:controlled"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"entity_module:mature"
+					]
+				}
+			},
+			// 实体进入成年事件
+			"entity_event:entry_mature": {
+				"queue_command": {
+					"command": [
+						"particle constant:disperse_rune_orange ~ ~1 ~",
+						"playsound mob.horse.armor @a[r=8] ~~~"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"entity_module:ageable"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"entity_module:mature"
+					]
+				}
+			}
+		}
+	}
+}

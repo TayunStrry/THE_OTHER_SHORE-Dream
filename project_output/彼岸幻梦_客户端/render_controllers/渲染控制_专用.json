@@ -1,0 +1,419 @@
+{
+    "format_version": "1.8.0",
+    "render_controllers": {
+        "controller.render.magic_crystal_screwdriver": {
+            "geometry": "geometry.default",
+            "materials": [
+                {
+                    "*": "variable.is_enchanted ? material.enchanted : material.default"
+                },
+                {
+                    "light": "material.light"
+                },
+                {
+                    "sand_iron_0": "material.light"
+                },
+                {
+                    "sand_iron_1": "material.light"
+                },
+                {
+                    "sand_iron_2": "material.light"
+                }
+            ],
+            "textures": [
+                "texture.default",
+                "texture.enchanted"
+            ]
+        },
+        "controller.render.magic_crystal_marbles": {
+            "geometry": "geometry.default",
+            "materials": [
+                {
+                    "*": "variable.is_enchanted ? material.enchanted : material.default"
+                },
+                {
+                    "item": "material.light"
+                },
+                {
+                    "sight": "material.light"
+                },
+                {
+                    "sneaking": "material.light"
+                }
+            ],
+            "textures": [
+                "texture.default",
+                "texture.enchanted"
+            ]
+        },
+        "controller.render.magic_crystal_wrench": {
+            "geometry": "geometry.default",
+            "materials": [
+                {
+                    "*": "variable.is_enchanted ? material.enchanted : material.default"
+                },
+                {
+                    "blade0": "material.light"
+                },
+                {
+                    "blade1": "material.light"
+                },
+                {
+                    "blade2": "material.light"
+                },
+                {
+                    "blade3": "material.light"
+                },
+                {
+                    "blade4": "material.light"
+                }
+            ],
+            "textures": [
+                "texture.default",
+                "texture.enchanted"
+            ]
+        },
+        "controller.render.magic_crystal_hammer": {
+            "geometry": "geometry.default",
+            "materials": [
+                {
+                    "*": "variable.is_enchanted ? material.enchanted : material.default"
+                },
+                {
+                    "gold": "material.light"
+                },
+                {
+                    "magic": "material.light"
+                }
+            ],
+            "textures": [
+                "texture.default",
+                "texture.enchanted"
+            ]
+        },
+        "controller.render.call_python_pioneer": {
+            "geometry": "geometry.default",
+            "materials": [
+                {
+                    "*": "variable.is_enchanted ? material.enchanted : material.default"
+                },
+                {
+                    "sight": "material.light"
+                },
+                {
+                    "module_0": "material.light"
+                },
+                {
+                    "module_1": "material.light"
+                },
+                {
+                    "connect": "material.light"
+                }
+            ],
+            "textures": [
+                "texture.default",
+                "texture.enchanted"
+            ]
+        },
+        "controller.render.magic_crystal_bow": {
+            "geometry": "geometry.default",
+            "materials": [
+                {
+                    "*": "variable.is_enchanted ? material.enchanted : material.default"
+                },
+                {
+                    "sight": "material.light"
+                },
+                {
+                    "sneaking": "material.light"
+                },
+                {
+                    "amethyst": "material.light"
+                },
+                {
+                    "crystal_0": "material.light"
+                },
+                {
+                    "crystal_1": "material.light"
+                },
+                {
+                    "crystal_2": "material.light"
+                },
+                {
+                    "crystal_3": "material.light"
+                },
+                {
+                    "crystal_4": "material.light"
+                }
+            ],
+            "arrays": {
+                "textures": {
+                    "array.texture": [
+                        "texture.facade_0",
+                        "texture.facade_1",
+                        "texture.facade_2",
+                        "texture.facade_3",
+                        "texture.facade_4"
+                    ]
+                }
+            },
+            "textures": [
+                "array.texture[variable.random_map]",
+                "texture.enchanted"
+            ]
+        },
+        "controller.render.magic_armor": {
+            "geometry": "geometry.default",
+            "materials": [
+                {
+                    "*": "variable.is_enchanted ? material.enchanted : material.default"
+                },
+                {
+                    "crystal_0": "material.light"
+                },
+                {
+                    "crystal_1": "material.light"
+                }
+            ],
+            "textures": [
+                "texture.default",
+                "texture.enchanted"
+            ]
+        },
+        "controller.render.world_of_box": {
+            "geometry": "geometry.default",
+            "materials": [
+                {
+                    "*": "variable.is_enchanted ? material.enchanted : material.default"
+                },
+                {
+                    "box_top_inner": "material.light"
+                },
+                {
+                    "box_root_inner": "material.light"
+                }
+            ],
+            "textures": [
+                "texture.default",
+                "texture.enchanted"
+            ],
+            "light_color_multiplier": 1.5,
+            "ignore_lighting": true
+        },
+        "controller.render.roaring": {
+            "part_visibility": [
+                {
+                    "pedals_right": "query.is_saddled"
+                },
+                {
+                    "pedals_left": "query.is_saddled"
+                },
+                {
+                    "saddled": "query.is_saddled"
+                }
+            ],
+            "geometry": "geometry.default",
+            "materials": [
+                {
+                    "*": "material.default"
+                },
+                {
+                    "face": "material.light"
+                }
+            ],
+            "textures": [
+                "texture.facade"
+            ]
+        },
+        "controller.render.enable_shelter": {
+            "geometry": "geometry.default",
+            "materials": [
+                {
+                    "*": "material.default"
+                },
+                {
+                    "display_group": "material.opal_light_blend"
+                },
+                {
+                    "display_group_inside": "material.opal_light_blend"
+                }
+            ],
+            "textures": [
+                "texture.default"
+            ]
+        },
+        "controller.render.ocean_blessed_scarf.heart": {
+            "arrays": {
+                "textures": {
+                    "array.texture": [
+                        "texture.heart_0",
+                        "texture.heart_1",
+                        "texture.heart_2",
+                        "texture.heart_3",
+                        "texture.heart_4"
+                    ]
+                }
+            },
+            "materials": [
+                {
+                    "*": "material.light"
+                }
+            ],
+            "textures": [
+                "array.texture[math.trunc((query.health / query.max_health) * 4)]"
+            ],
+            "geometry": "geometry.heart"
+        },
+        "controller.render.ocean_blessed_scarf": {
+            "materials": [
+                {
+                    "*": "variable.is_enchanted ? material.enchanted : material.default"
+                },
+                {
+                    "rune_0": "material.blend"
+                },
+                {
+                    "rune_1": "material.blend"
+                },
+                {
+                    "rune_2": "material.blend"
+                },
+                {
+                    "fish": "material.blend"
+                },
+                {
+                    "caudal_fin": "material.blend"
+                },
+                {
+                    "caudal_fin2": "material.blend"
+                },
+                {
+                    "fish_fin_1": "material.blend"
+                },
+                {
+                    "fish_fin_0": "material.blend"
+                }
+            ],
+            "textures": [
+                "texture.default",
+                "texture.enchanted"
+            ],
+            "geometry": "geometry.default"
+        },
+        "controller.render.spirit_lizard": {
+            "materials": [
+                {
+                    "*": "material.default"
+                },
+                {
+                    "axis": "material.light"
+                },
+                {
+                    "wheel_0": "material.blend"
+                },
+                {
+                    "wheel_1": "material.blend"
+                },
+                {
+                    "binding_0": "material.blend"
+                },
+                {
+                    "binding_1": "material.blend"
+                }
+            ],
+            "textures": [
+                "texture.default"
+            ],
+            "geometry": "geometry.default"
+        },
+        "controller.render.free_pointer": {
+            "materials": [
+                {
+                    "*": "material.default"
+                }
+            ],
+            "textures": [
+                "texture.default"
+            ],
+            "uv_anim": {
+                "offset": [
+                    "math.cos(q.life_time * 64) * 0.2",
+                    "math.sin(q.life_time * 64) * 0.2"
+                ],
+                "scale": [
+                    1.0,
+                    1.0
+                ]
+            },
+            "overlay_color": {
+                "r": "q.property('property:color_r')",
+                "g": "q.property('property:color_g')",
+                "b": "q.property('property:color_b')",
+                "a": "q.property('property:color_a')"
+            },
+            "geometry": "geometry.default"
+        },
+        "controller.render.dawn_glow": {
+            "geometry": "geometry.default",
+            "materials": [
+                {
+                    "*": "material.default"
+                },
+                {
+                    "star0": "material.light"
+                },
+                {
+                    "star1": "material.light"
+                },
+                {
+                    "star2": "material.light"
+                },
+                {
+                    "power0": "material.light"
+                },
+                {
+                    "power1": "material.light"
+                }
+            ],
+            "textures": [
+                "texture.facade"
+            ]
+        },
+        "controller.render.golden_wing": {
+            "arrays": {
+                "textures": {
+                    "array.skins": [
+                        "texture.default",
+                        "texture.angry"
+                    ]
+                }
+            },
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "textures": [
+                "array.skins[query.property('minecraft:has_angry')]"
+            ]
+        },
+        "controller.render.golden_wing_elytrum": {
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "overlay_color": {
+                "r": 1,
+                "g": 0,
+                "b": 0,
+                "a": "math.lerp(1, 0, query.health / query.max_health)"
+            },
+            "textures": [
+                "texture.elytrum"
+            ]
+        }
+    }
+}

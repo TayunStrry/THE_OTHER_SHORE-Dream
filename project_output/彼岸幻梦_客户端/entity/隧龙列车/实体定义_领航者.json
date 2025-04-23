@@ -1,0 +1,35 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "starry_map:tunnel_dragon",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "facade": "textures/实体贴图/隧龙/领航者"
+            },
+            "geometry": {
+                "default": "geometry.entity.tunnel_dragon.guide"
+            },
+            "scripts": {
+                "animate": [
+                    "control_runs",
+                    "show"
+                ]
+            },
+            "animations": {
+                "control_runs": "controller.animation.tunnel_dragon",
+                "open": "animation.entity.core_rotate.train",
+                "show": "animation.entity.basic_action.train"
+            },
+            "render_controllers": [
+				"controller.render.facade:variant.01"
+            ],
+			"spawn_egg": {
+				"texture": "item_texture:基础图标"
+			},
+            "enable_attachables": true
+        }
+    }
+}

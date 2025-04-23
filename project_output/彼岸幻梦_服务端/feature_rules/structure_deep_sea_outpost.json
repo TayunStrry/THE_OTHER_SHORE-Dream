@@ -1,0 +1,38 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "feature_rules:structure_deep_sea_outpost",
+			"places_feature": "feature:structure_deep_sea_outpost"
+		},
+		"conditions": {
+			"placement_pass": "underground_pass",
+			"minecraft:biome_filter": [
+				{
+					"test": "has_biome_tag",
+					"operator": "==",
+					"value": "ocean"
+				}
+			]
+		},
+		"distribution": {
+			"iterations": 1,
+			"scatter_chance": 0.35,
+			"x": {
+				"distribution": "uniform",
+				"extent": [
+					0,
+					15
+				]
+			},
+			"y": "query.heightmap(variable.worldx, variable.worldz) - 16",
+			"z": {
+				"distribution": "uniform",
+				"extent": [
+					0,
+					15
+				]
+			}
+		}
+	}
+}

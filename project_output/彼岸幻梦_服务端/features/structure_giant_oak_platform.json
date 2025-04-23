@@ -1,0 +1,15 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:structure_template_feature": {
+		"description": {
+			"identifier": "feature:structure_giant_oak_platform"
+		},
+		"structure_name": "ecosystems:giant_oak_platform",
+		"facing_direction": "random",
+		"adjustment_radius": 8,
+		"constraints": {
+			"unburied": {},
+			"grounded": {}
+		}
+	}
+}

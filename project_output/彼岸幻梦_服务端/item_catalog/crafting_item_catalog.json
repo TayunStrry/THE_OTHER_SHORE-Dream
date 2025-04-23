@@ -1,0 +1,555 @@
+{
+    "format_version": "1.21.90",
+    "minecraft:crafting_items_catalog": {
+        "categories": [
+            {
+                // 有效值为 construction, equipment, nature 和 items
+                "category_name": "items",
+                "groups": [
+                    {
+                        "items": [
+                            "starry_map:colorful_lingyun"
+                        ]
+                    },
+                    // 魔法书籍
+                    {
+                        "group_identifier": {
+                            "icon": "starry_map:magic_handbook",
+                            "name": "THE_OTHER_SHORE:magic_literature"
+                        },
+                        "items": [
+                            "starry_map:magic_handbook",
+                            "starry_map:fantasy_sea_collection",
+                            "starry_map:forestry_guidelines",
+                            "starry_map:introduction_magic",
+                            "starry_map:mineral_dictionary",
+                            "starry_map:agriculture_handle",
+                            "starry_map:tactical_planning",
+                            "starry_map:space_transition",
+                            "starry_map:animal_husbandry",
+                            "starry_map:faerie_contract",
+                            "starry_map:faerie_healing",
+                            "starry_map:source_energy"
+                        ]
+                    },
+                    // 魔晶工具
+                    {
+                        "group_identifier": {
+                            "icon": "starry_map:magic_crystal_bow",
+                            "name": "THE_OTHER_SHORE:magic_crystal_tool"
+                        },
+                        "items": [
+                            "starry_map:magic_crystal_bow",
+                            "starry_map:magic_crystal_key",
+                            "starry_map:magic_crystal_claw",
+                            "starry_map:magic_crystal_shield",
+                            "starry_map:magic_crystal_wrench",
+                            "starry_map:magic_crystal_hammer",
+                            "starry_map:magic_crystal_marbles",
+                            "starry_map:magic_crystal_pickaxe",
+                            "starry_map:magic_crystal_screwdriver",
+                            "starry_map:netherite_sword",
+                            "starry_map:diamond_sword",
+                            "starry_map:stone_sword",
+                            "starry_map:wood_sword",
+                            "starry_map:iron_sword",
+                            "starry_map:gold_sword"
+                        ]
+                    },
+                    // 魔晶装备
+                    {
+                        "group_identifier": {
+                            "icon": "starry_map:complete_armor",
+                            "name": "THE_OTHER_SHORE:magic_crystal_equipment"
+                        },
+                        "items": [
+                            "starry_map:complete_armor",
+                            "starry_map:exhausted_armor",
+                            "starry_map:azure_sea_tide",
+                            "starry_map:ice_essence_gem",
+                            "starry_map:starry_night_bead",
+                            "starry_map:scarlet_flame_heart",
+                            "starry_map:purple_gold_soul_jade",
+                            "starry_map:enable_shelter.orange",
+                            "starry_map:enable_shelter.purple",
+                            "starry_map:enable_shelter.green",
+                            "starry_map:enable_shelter.blue",
+                            "starry_map:enable_shelter.red",
+                            "starry_map:ocean_blessed_scarf"
+                        ]
+                    },
+                    // 武装召集
+                    {
+                        "group_identifier": {
+                            "icon": "starry_map:call_python_sentinel",
+                            "name": "THE_OTHER_SHORE:armament_convenes"
+                        },
+                        "items": [
+                            "starry_map:call_python_sentinel",
+                            "starry_map:call_whale_support",
+                            "starry_map:call_python_pioneer",
+                            "starry_map:call_tunnel_dragon_guide",
+                            "starry_map:call_virtual_target"
+                        ]
+                    },
+                    // 金属材料
+                    {
+                        "group_identifier": {
+                            "icon": "starry_map:steel_rock_eutectic",
+                            "name": "THE_OTHER_SHORE:metal_material"
+                        },
+                        "items": [
+                            "starry_map:steel_rock_eutectic",
+                            "starry_map:coil.steel_rock_eutectic",
+                            "starry_map:wafer.steel_rock_eutectic",
+                            "starry_map:tungsten_copper_alloy",
+                            "starry_map:plate.tungsten_copper_alloy",
+                            "starry_map:hinge.tungsten_copper_alloy",
+                            "starry_map:oxygen_enriched_gold",
+                            "starry_map:plate.oxygen_enriched_gold",
+                            "starry_map:hinge.oxygen_enriched_gold",
+                            "starry_map:ferric_phosphate",
+                            "starry_map:gear.ferric_phosphate",
+                            "starry_map:hinge.ferric_phosphate",
+                            "starry_map:aluminum_magnesium",
+                            "starry_map:plate.aluminum_magnesium",
+                            "starry_map:hinge.aluminum_magnesium",
+                            "starry_map:ferric_chloride",
+                            "starry_map:plate.ferric_chloride",
+                            "starry_map:hinge.ferric_chloride",
+                            "starry_map:zirconium_carbide",
+                            "starry_map:gear.zirconium_carbide",
+                            "starry_map:hinge.zirconium_carbide",
+                            "starry_map:gold_carbonate",
+                            "starry_map:gear.gold_carbonate",
+                            "starry_map:hinge.gold_carbonate",
+                            "starry_map:lithium_carbonate",
+                            "starry_map:gear.lithium_carbonate",
+                            "starry_map:hinge.lithium_carbonate",
+                            "starry_map:tungsten_nickel_titanium",
+                            "starry_map:plate.tungsten_nickel_titanium",
+                            "starry_map:hinge.tungsten_nickel_titanium",
+                            "starry_map:copper_tin_brazing",
+                            "starry_map:plate.copper_tin_brazing",
+                            "starry_map:hinge.copper_tin_brazing",
+                            "starry_map:mine.oxygen_enriched_gold",
+                            "starry_map:mine.ferric_phosphate",
+                            "starry_map:mine.aluminum_magnesium",
+                            "starry_map:mine.ferric_chloride",
+                            "starry_map:mine.zirconium_carbide",
+                            "starry_map:mine.gold_carbonate",
+                            "starry_map:mine.lithium_carbonate",
+                            "starry_map:mine.tungsten_nickel_titanium",
+                            "starry_map:mine.copper_tin_brazing"
+                        ]
+                    },
+                    // 机械蓝图
+                    {
+                        "group_identifier": {
+                            "icon": "starry_map:blank_blueprint",
+                            "name": "THE_OTHER_SHORE:mechanical_blueprint"
+                        },
+                        "items": [
+                            "starry_map:blank_blueprint",
+                            "starry_map:complete_blueprint"
+                        ]
+                    },
+                    // 召唤凭证
+                    {
+                        "group_identifier": {
+                            "icon": "starry_map:flowing_star",
+                            "name": "THE_OTHER_SHORE:summoning_credentials"
+                        },
+                        "items": [
+                            "starry_map:flowing_star",
+                            "starry_map:chorus_picture",
+                            "starry_map:moon_and_stars"
+                        ]
+                    },
+                    // 特殊道具
+                    {
+                        "group_identifier": {
+                            "icon": "starry_map:enlightenment",
+                            "name": "THE_OTHER_SHORE:special_item"
+                        },
+                        "items": [
+                            "starry_map:enlightenment",
+                            "starry_map:moment_repair_dew",
+                            "starry_map:reduction_pureness",
+                            "starry_map:contract_rewriting",
+                            "starry_map:clothing_container",
+                            "starry_map:phantom_dispel_dust",
+                            "starry_map:mechanized_operation",
+                            "starry_map:dynamic_anchor_point"
+                        ]
+                    },
+                    // 模板材料
+                    {
+                        "group_identifier": {
+                            "icon": "starry_map:viper_rune",
+                            "name": "THE_OTHER_SHORE:template_material"
+                        },
+                        "items": [
+                            "starry_map:viper_rune",
+                            "starry_map:whale_rune",
+                            "starry_map:weapon_debris",
+                            "starry_map:blank_template",
+                            "starry_map:copper_upgrade",
+                            "starry_map:iron_upgrade",
+                            "starry_map:gold_upgrade",
+                            "starry_map:netherite_upgrade",
+                            "starry_map:dimension_upgrade",
+                            "starry_map:equipment_upgrade",
+                            "starry_map:ender_dragon_scales",
+                            "starry_map:universal_integrated_circuit"
+                        ]
+                    },
+                    // 神恩权柄
+                    {
+                        "group_identifier": {
+                            "icon": "starry_map:world_of_box",
+                            "name": "THE_OTHER_SHORE:divine_grace_authority"
+                        },
+                        "items": [
+                            "starry_map:world_of_box",
+                            "starry_map:obtain_block",
+                            "starry_map:inhibit_water",
+                            "starry_map:creative_tools",
+                            "starry_map:material_sorting",
+                            "starry_map:purple_gold_gourd",
+                            "starry_map:stateful_inspection",
+                            "starry_map:nihility_space_block",
+                            "starry_map:debugging_stick"
+                        ]
+                    },
+                    // 能量水晶
+                    {
+                        "group_identifier": {
+                            "icon": "starry_map:eternal_energy",
+                            "name": "THE_OTHER_SHORE:magic_crystal"
+                        },
+                        "items": [
+                            "starry_map:eternal_energy",
+                            "starry_map:orange_energy",
+                            "starry_map:purple_energy",
+                            "starry_map:green_energy",
+                            "starry_map:blue_energy",
+                            "starry_map:red_energy",
+                            "starry_map:block.red_energy",
+                            "starry_map:block.blue_energy",
+                            "starry_map:block.green_energy",
+                            "starry_map:block.orange_energy",
+                            "starry_map:block.purple_energy",
+                            "starry_map:block.eternal_energy"
+                        ]
+                    },
+                    // 琼肴雅馔
+                    {
+                        "group_identifier": {
+                            "icon": "starry_map:charcoal_roasted_abyssal_whale",
+                            "name": "THE_OTHER_SHORE:delicacy_cuisine"
+                        },
+                        "items": [
+                            "starry_map:charcoal_roasted_abyssal_whale",
+                            "starry_map:charcoal_roasted_wild_bee",
+                            "starry_map:wild_bee_roasted_chicken",
+                            "starry_map:spirit_lizard_delicacy",
+                            "starry_map:abyssal_whale_wreckage",
+                            "starry_map:unknown_dipping_sauce",
+                            "starry_map:spirit_lizard_apple",
+                            "starry_map:spirit_lizard_shard",
+                            "starry_map:morning_dream_cake",
+                            "starry_map:abyssal_whale_soup",
+                            "starry_map:bee_fire_cuisine",
+                            "starry_map:wild_bee_shard",
+                            "starry_map:viper_barrel",
+                            "starry_map:curry_viper"
+                        ]
+                    },
+                    // 魔导总线
+                    {
+                        "group_identifier": {
+                            "icon": "starry_map:interactive_terminal",
+                            "name": "THE_OTHER_SHORE:magic_cable"
+                        },
+                        "items": [
+                            "starry_map:interactive_terminal",
+                            "starry_map:basic_pipeline",
+                            "starry_map:pulse_latch",
+                            "starry_map:cable_port",
+                            "starry_map:correct_logic_not",
+                            "starry_map:correct_logic_nor",
+                            "starry_map:correct_logic_xor",
+                            "starry_map:correct_logic_and",
+                            "starry_map:correct_logic_nand",
+                            "starry_map:correct_spectral_prism",
+                            "starry_map:correct_deflection_prism",
+                            "starry_map:super_omphalos",
+                            "starry_map:super_pulse",
+                            "starry_map:logical_and",
+                            "starry_map:exclusive_or",
+                            "starry_map:logic_single",
+                            "starry_map:logic_inverter",
+                            "starry_map:signal_filtering",
+                            "starry_map:signal_conversion",
+                            "starry_map:enable_control",
+                            "starry_map:counting_module",
+                            "starry_map:redstone_detection",
+                            "starry_map:signal_compilation"
+                        ]
+                    },
+                    // 能源模块
+                    {
+                        "group_identifier": {
+                            "icon": "starry_map:initial_node",
+                            "name": "THE_OTHER_SHORE:energy_module"
+                        },
+                        "items": [
+                            "starry_map:initial_node",
+                            "starry_map:iron.intensify_node",
+                            "starry_map:gold.intensify_node",
+                            "starry_map:copper.intensify_node",
+                            "starry_map:netherite.intensify_node",
+                            "starry_map:empty_tank",
+                            "starry_map:release_tank",
+                            "starry_map:constant_tank",
+                            "starry_map:wind_power",
+                            "starry_map:water_power",
+                            "starry_map:magma_power",
+                            "starry_map:allocation_power",
+                            "starry_map:star_energy_infusion",
+                            "starry_map:super_star_energy_infusion",
+                            "starry_map:source_energy_hub"
+                        ]
+                    },
+                    // 机关之门
+                    {
+                        "group_identifier": {
+                            "icon": "starry_map:vertical_gate.spruce",
+                            "name": "THE_OTHER_SHORE:mechanical_door"
+                        },
+                        "items": [
+                            "starry_map:vertical_gate.spruce",
+                            "starry_map:vertical_gate.diorite",
+                            "starry_map:vertical_gate.deepslate",
+                            "starry_map:vertical_gate.light_gray_stained_glass",
+                            "starry_map:vertical_gate.light_blue_stained_glass",
+                            "starry_map:vertical_gate.chiseled_resin_bricks",
+                            "starry_map:vertical_gate.magenta_stained_glass",
+                            "starry_map:vertical_gate.orange_stained_glass",
+                            "starry_map:vertical_gate.yellow_stained_glass",
+                            "starry_map:vertical_gate.purple_stained_glass",
+                            "starry_map:vertical_gate.brown_stained_glass",
+                            "starry_map:vertical_gate.white_stained_glass",
+                            "starry_map:vertical_gate.black_stained_glass",
+                            "starry_map:vertical_gate.green_stained_glass",
+                            "starry_map:vertical_gate.cyan_stained_glass",
+                            "starry_map:vertical_gate.lime_stained_glass",
+                            "starry_map:vertical_gate.pink_stained_glass",
+                            "starry_map:vertical_gate.gray_stained_glass",
+                            "starry_map:vertical_gate.blue_stained_glass",
+                            "starry_map:vertical_gate.red_stained_glass",
+                            "starry_map:vertical_gate.crying_obsidian",
+                            "starry_map:vertical_gate.amethyst_block",
+                            "starry_map:vertical_gate.cherry_planks",
+                            "starry_map:vertical_gate.resin_bricks",
+                            "starry_map:vertical_gate.glass",
+                            "starry_map:vertical_gate.spruce_trapdoor",
+                            "starry_map:vertical_gate.cherry_trapdoor",
+                            "starry_map:horizontal_gate.oak",
+                            "starry_map:horizontal_gate.birch",
+                            "starry_map:horizontal_gate.basalt",
+                            "starry_map:horizontal_gate.andesite",
+                            "starry_map:horizontal_gate.light_blue_stained_glass",
+                            "starry_map:horizontal_gate.light_gray_stained_glass",
+                            "starry_map:horizontal_gate.chiseled_resin_bricks",
+                            "starry_map:horizontal_gate.magenta_stained_glass",
+                            "starry_map:horizontal_gate.orange_stained_glass",
+                            "starry_map:horizontal_gate.yellow_stained_glass",
+                            "starry_map:horizontal_gate.purple_stained_glass",
+                            "starry_map:horizontal_gate.brown_stained_glass",
+                            "starry_map:horizontal_gate.white_stained_glass",
+                            "starry_map:horizontal_gate.black_stained_glass",
+                            "starry_map:horizontal_gate.green_stained_glass",
+                            "starry_map:horizontal_gate.blue_stained_glass",
+                            "starry_map:horizontal_gate.gray_stained_glass",
+                            "starry_map:horizontal_gate.pink_stained_glass",
+                            "starry_map:horizontal_gate.lime_stained_glass",
+                            "starry_map:horizontal_gate.cyan_stained_glass",
+                            "starry_map:horizontal_gate.red_stained_glass",
+                            "starry_map:horizontal_gate.crying_obsidian",
+                            "starry_map:horizontal_gate.amethyst_block",
+                            "starry_map:horizontal_gate.cherry_planks",
+                            "starry_map:horizontal_gate.resin_bricks",
+                            "starry_map:horizontal_gate.glass",
+                            "starry_map:horizontal_gate.spruce_trapdoor",
+                            "starry_map:horizontal_gate.cherry_trapdoor",
+                            "starry_map:magic_portal_above",
+                            "starry_map:magic_portal_below"
+                        ]
+                    },
+                    // 效应机关
+                    {
+                        "group_identifier": {
+                            "icon": "starry_map:magic_crystal_lamp",
+                            "name": "THE_OTHER_SHORE:effect_mechanism"
+                        },
+                        "items": [
+                            "starry_map:magic_crystal_lamp",
+                            "starry_map:road_sign_presets",
+                            "starry_map:vector_ejection",
+                            "starry_map:region_display",
+                            "starry_map:wind_and_snow",
+                            "starry_map:wind_and_rain"
+                        ]
+                    },
+                    // 伺服驱动
+                    {
+                        "group_identifier": {
+                            "icon": "starry_map:servo_omphalos",
+                            "name": "THE_OTHER_SHORE:servo_drive"
+                        },
+                        "items": [
+                            "starry_map:servo_omphalos",
+                            "starry_map:servo_parameter",
+                            "starry_map:servo_traction",
+                            "starry_map:servo_susceptor"
+                        ]
+                    },
+                    // 仓储管理
+                    {
+                        "group_identifier": {
+                            "icon": "starry_map:container_arrange",
+                            "name": "THE_OTHER_SHORE:warehouse_management"
+                        },
+                        "items": [
+                            "starry_map:container_arrange",
+                            "starry_map:container_hub",
+                            "starry_map:package_delivery",
+                            "starry_map:block_placement",
+                            "starry_map:material_collection",
+                            "starry_map:residual_extraction",
+                            "starry_map:enchantment_dissociation",
+                            "starry_map:routine_logistics_sender",
+                            "starry_map:surpass_logistics_sender",
+                            "starry_map:routine_logistics_receiver",
+                            "starry_map:surpass_logistics_receiver"
+                        ]
+                    },
+                    // 矿产勘探
+                    {
+                        "group_identifier": {
+                            "icon": "starry_map:destroy_the_core",
+                            "name": "THE_OTHER_SHORE:mineral_exploration"
+                        },
+                        "items": [
+                            "starry_map:destroy_the_core",
+                            "starry_map:stone_machine",
+                            "starry_map:gold.stone_machine",
+                            "starry_map:iron.stone_machine",
+                            "starry_map:copper.stone_machine",
+                            "starry_map:netherite.stone_machine",
+                            "starry_map:mineral_machine",
+                            "starry_map:gold.mineral_machine",
+                            "starry_map:iron.mineral_machine",
+                            "starry_map:copper.mineral_machine",
+                            "starry_map:netherite.mineral_machine",
+                            "starry_map:metal_forming_press",
+                            "starry_map:gold.metal_forming_press",
+                            "starry_map:iron.metal_forming_press",
+                            "starry_map:copper.metal_forming_press",
+                            "starry_map:netherite.metal_forming_press"
+                        ]
+                    },
+                    // 农林工程
+                    {
+                        "group_identifier": {
+                            "icon": "starry_map:planting_and_logging",
+                            "name": "THE_OTHER_SHORE:agricultural_and_forestry_engineering"
+                        },
+                        "items": [
+                            "starry_map:planting_and_logging",
+                            "starry_map:crop_detection"
+                        ]
+                    },
+                    // 曜石熔炼
+                    {
+                        "group_identifier": {
+                            "icon": "starry_map:obsidian_furnace",
+                            "name": "THE_OTHER_SHORE:obsidian_smelting"
+                        },
+                        "items": [
+                            "starry_map:obsidian_furnace",
+                            "starry_map:obsidian_storage_tank"
+                        ]
+                    },
+                    // 家居装饰
+                    {
+                        "group_identifier": {
+                            "icon": "starry_map:diorite_table",
+                            "name": "THE_OTHER_SHORE:home_decoration"
+                        },
+                        "items": [
+                            "starry_map:diorite_table",
+                            "starry_map:jungle_wood_chair",
+                            "starry_map:special_alloy_pot",
+                            "starry_map:smooth_steps",
+                            "starry_map:smooth_brick",
+                            "starry_map:wood_camouflage",
+                            "starry_map:metal_camouflage",
+                            "starry_map:stone_camouflage",
+                            "starry_map:divine_favor_guide_image"
+                        ]
+                    },
+                    // 方块单元
+                    {
+                        "group_identifier": {
+                            "icon": "starry_map:unreal_space",
+                            "name": "THE_OTHER_SHORE:block_unit"
+                        },
+                        "items": [
+                            "starry_map:unreal_space",
+                            "starry_map:nihility_space",
+                            "starry_map:compressed_stone",
+                            "starry_map:resist_explosions",
+                            "starry_map:universal_mechanical_framework"
+                        ]
+                    },
+                    // 档案展示
+                    {
+                        "group_identifier": {
+                            "icon": "starry_map:document.amber_jasmine",
+                            "name": "THE_OTHER_SHORE:document_display"
+                        },
+                        "items": [
+                            "starry_map:document.amber_jasmine",
+                            "starry_map:document.wild_wasp_guide",
+                            "starry_map:document.wild_wasp_emperor",
+                            "starry_map:document.tyrannosaurus_rex",
+                            "starry_map:document.abyss_whale_emperor",
+                            "starry_map:document.not_yet_activated"
+                        ]
+                    },
+                    // 扩散填充
+                    {
+                        "group_identifier": {
+                            "icon": "starry_map:diffusion.air_to_dirt",
+                            "name": "THE_OTHER_SHORE:diffusion_filling"
+                        },
+                        "items": [
+                            "starry_map:diffusion.air_to_dirt",
+                            "starry_map:diffusion.air_to_stone",
+                            "starry_map:diffusion.replacement_glass",
+                            "starry_map:diffusion.replacement_stone",
+                            "starry_map:diffusion.air_to_grass_block",
+                            "starry_map:diffusion.universal_diffusion",
+                            "starry_map:diffusion.structure_void_to_water",
+                            "starry_map:diffusion.water_to_structure_void",
+                            "starry_map:diffusion.horizontal_universal"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

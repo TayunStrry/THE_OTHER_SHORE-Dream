@@ -1,0 +1,50 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "starry:starry_map:purple_gold_soul_jade"
+		},
+		"tags": [
+			"tags:desktop_make"
+		],
+		"pattern": [
+			"123",
+			"456",
+			"789"
+		],
+		"assume_symmetry": false,
+		"key": {
+			"1": {
+				"item": "starry_map:block.purple_energy"
+			},
+			"2": {
+				"item": "minecraft:amethyst_shard"
+			},
+			"3": {
+				"item": "starry_map:block.purple_energy"
+			},
+			"4": {
+				"item": "minecraft:amethyst_shard"
+			},
+			"5": {
+				"item": "starry_map:whale_rune"
+			},
+			"6": {
+				"item": "minecraft:amethyst_shard"
+			},
+			"7": {
+				"item": "starry_map:block.purple_energy"
+			},
+			"8": {
+				"item": "minecraft:amethyst_shard"
+			},
+			"9": {
+				"item": "starry_map:block.purple_energy"
+			}
+		},
+		"result": {
+			"item": "starry_map:purple_gold_soul_jade",
+			"count": 1
+		}
+	}
+}

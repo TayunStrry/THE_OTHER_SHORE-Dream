@@ -1,0 +1,41 @@
+{
+	// 格式版本
+	"format_version": "1.19.80",
+	// 有序合成配方
+	"minecraft:recipe_shaped": {
+		// 配方 唯一识别符
+		"description": {
+			"identifier": "starry:starry_map:gold_upgrade"
+		},
+		// 工作站标签
+		"tags": [
+			"tags:desktop_make"
+		],
+		// 配方造型
+		"pattern": [
+			"T0T",
+			"TXT",
+			"1T1"
+		],
+		"assume_symmetry": false,
+		// 配方材料
+		"key": {
+			"0": {
+				"item": "starry_map:wafer.steel_rock_eutectic"
+			},
+			"1": {
+				"item": "starry_map:coil.steel_rock_eutectic"
+			},
+			"T": {
+				"item": "minecraft:gold_ingot"
+			},
+			"X": {
+				"item": "starry_map:iron_upgrade"
+			}
+		},
+		// 配方输出
+		"result": {
+			"item": "starry_map:gold_upgrade"
+		}
+	}
+}

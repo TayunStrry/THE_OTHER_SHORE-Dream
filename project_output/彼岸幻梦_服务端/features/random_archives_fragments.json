@@ -1,0 +1,50 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:weighted_random_feature": {
+		"description": {
+			"identifier": "feature:random_archives_fragments"
+		},
+		"features": [
+			[
+				"feature:structure_wild_wasp_towers_plateau", // 高原地形中的黄蜂塔
+				5
+			],
+			[
+				"feature:structure_wild_wasp_towers_forest", // 森林地形中的黄蜂塔
+				5
+			],
+			[
+				"feature:structure_wild_wasp_towers_plain", // 平原地形中的黄蜂塔
+				5
+			],
+			[
+				"feature:structure_small_ammunition_depot", // 小型弹药库
+				10
+			],
+			[
+				"feature:structure_small_camping_site", // 玩家可以在这里扎营的小型露营地
+				10
+			],
+			[
+				"feature:structure_wanmin_restaurant", // wanmin餐馆
+				20
+			],
+			[
+				"feature:structure_abandoned_house", // 废弃的小屋
+				20
+			],
+			[
+				"feature:structure_snack_stalls", // 小吃摊
+				15
+			],
+			[
+				"feature:structure_torch", // 火把
+				10
+			],
+			[
+				"feature:structure_large_bonfire", // 大篝火
+				10
+			]
+		]
+	}
+}

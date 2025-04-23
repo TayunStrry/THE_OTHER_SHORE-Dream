@@ -1,0 +1,24 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "starry:starry_map:block.purple_energy"
+		},
+		"tags": [
+			"tags:desktop_make"
+		],
+		"pattern": [
+			"XXX",
+			"XXX",
+			"XXX"
+		],
+		"key": {
+			"X": {
+				"item": "starry_map:purple_energy"
+			}
+		},
+		"result": {
+			"item": "starry_map:block.purple_energy"
+		}
+	}
+}

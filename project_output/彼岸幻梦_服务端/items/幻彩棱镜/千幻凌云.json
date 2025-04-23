@@ -1,0 +1,43 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:item": {
+		"description": {
+			"identifier": "starry_map:colorful_lingyun"
+		},
+		"components": {
+			// 方块挖掘
+			"minecraft:can_destroy_in_creative": false,
+			// 手持物品
+			"minecraft:allow_off_hand": false,
+			"minecraft:hand_equipped": true,
+			// 基础属性
+			"minecraft:icon": {
+				"textures": {
+					"default": "item_texture:千幻凌云",
+					"dyed": "item_texture:千幻凌云"
+				}
+			},
+			"minecraft:durability": {
+				"max_durability": 1000
+			},
+			"minecraft:cooldown": {
+				"category": "千幻凌云",
+				"duration": 1
+			},
+			"minecraft:hover_text_color": "aqua",
+			"minecraft:max_stack_size": 1,
+			"minecraft:damage": 1,
+			// 染色
+			"minecraft:dyeable": {},
+			// 自定义组件
+			"opal:item.debugging_stick": {},
+			// 物品标签
+			"minecraft:tags": {
+				"tags": [
+					"tags:iridescent_prism.series",
+					"minecraft:is_sword"
+				]
+			}
+		}
+	}
+}

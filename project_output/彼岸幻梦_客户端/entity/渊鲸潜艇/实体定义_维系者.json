@@ -1,0 +1,38 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "starry_map:abyss_whale.support",
+			"materials": {
+				"default": "entity_alphatest",
+				"light": "opal_light_only"
+			},
+			"textures": {
+				"facade": "textures/实体贴图/渊鲸/维系者",
+				"heart": "textures/实体贴图/渊鲸/血量"
+			},
+			"geometry": {
+				"default": "geometry.entity.whale_support",
+				"heart": "geometry.entity.whale_support_heart"
+			},
+			"scripts": {
+				"animate": [
+					"basic",
+					"control_watch"
+				]
+			},
+			"animations": {
+				"control_watch": "controller.animation.attack.general_0",
+				"attack": "animation.entity.whale.battle",
+				"basic": "animation.entity.machine_move.whale"
+			},
+			"render_controllers": [
+				"controller.render.display_heart",
+				"controller.render.facade:variant.01"
+			],
+			"spawn_egg": {
+				"texture": "item_texture:machine_brain.渊鲸_维系者"
+			}
+		}
+	}
+}

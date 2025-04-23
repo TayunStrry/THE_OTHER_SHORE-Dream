@@ -1,0 +1,105 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.entity.basalt.move": {
+			"loop": true,
+			"anim_time_update": "query.modified_distance_moved",
+			"bones": {
+				"head": {
+					"rotation": ["query.target_x_rotation", "query.target_y_rotation", 0]
+				},
+				"leg0": {
+					"rotation": ["math.clamp(math.cos(query.anim_time * 22.92) * query.modified_move_speed * 28.65, -90.0, 90.0) - this", "-this", "-this"]
+				},
+				"leg1": {
+					"rotation": ["math.clamp(math.cos(query.anim_time * 22.92 + 180) * query.modified_move_speed * 28.65, -90.0, 90.0) - this", "-this", "-this"]
+				},
+				"leg2": {
+					"rotation": ["-this", "-this", "math.clamp(math.cos(query.anim_time * 22.92 + 180) * query.modified_move_speed * 28.65, -90.0, 90.0) - this"]
+				},
+				"leg3": {
+					"rotation": ["-this", "-this", "math.clamp(math.cos(query.anim_time * 22.92) * query.modified_move_speed * 28.65, -90.0, 90.0) - this"]
+				}
+			}
+		},
+		"animation.entity.basalt.flying": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1,
+			"bones": {
+				"head": {
+					"rotation": ["query.target_x_rotation - 2.865 + (2.865 * math.cos(query.life_time * 343.8))", "query.target_y_rotation", 0]
+				},
+				"body": {
+					"rotation": ["query.target_x_rotation - 2.865 + (-2.865 * math.cos(query.life_time * 343.8))", "query.target_y_rotation", 0]
+				},
+				"leg2": {
+					"rotation": {
+						"0.0": [0, 0, "17.19 * math.cos(query.life_time * 360) -30"],
+						"1.0": [0, 15, "45 * math.cos(query.life_time * 360) - 15"]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"1.0": [1, 0, 1]
+					},
+					"scale": {
+						"0.0": [1, 1, 1],
+						"1.0": [2, 1, 1.5]
+					}
+				},
+				"leg3": {
+					"rotation": {
+						"0.0": [0, 0, "-17.19 * math.cos(query.life_time * 360) + 30"],
+						"1.0": [0, -15, "-45 * math.cos(query.life_time * 360) + 15"]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"1.0": [-1, 0, 1]
+					},
+					"scale": {
+						"0.0": [1, 1, 1],
+						"1.0": [2, 1, 1.5]
+					}
+				},
+				"leg0": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.0": ["15 * math.cos(query.life_time * 300)", -45, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"1.0": [0, 0, -1]
+					}
+				},
+				"leg1": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.0": ["15 * math.cos(query.life_time * 300)", 45, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"1.0": [0, 0, -1]
+					}
+				},
+				"turtle_shell": {
+					"position": {
+						"0.0": [0, 0, 0],
+						"1.0": [0, -1, -1]
+					},
+					"scale": {
+						"0.0": [1, 1, 1],
+						"1.0": [0.6, 0.8, 1]
+					}
+				}
+			}
+		},
+		"animation.entity.basalt.flying_particle": {
+			"loop": true,
+			"animation_length": 0.03,
+			"particle_effects": {
+				"0.01": {
+					"effect": "flying_trajectory"
+				}
+			}
+		}
+	}
+}

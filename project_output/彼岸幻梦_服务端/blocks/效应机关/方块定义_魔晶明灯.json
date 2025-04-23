@@ -1,0 +1,175 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "items"
+			},
+			"identifier": "starry_map:magic_crystal_lamp",
+			"states": {
+				"STATE:light": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9,
+					10,
+					11,
+					12,
+					13,
+					14,
+					15
+				],
+				"STATE:rune_type": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7
+				]
+			}
+		},
+		"components": {
+			// 防爆与挖掘
+			"minecraft:destructible_by_explosion": false,
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			// 摩擦力
+			"minecraft:friction": 0.35,
+			// 方块光照
+			"minecraft:light_dampening": 0,
+			"minecraft:light_emission": 1,
+			// 模型与纹理
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "block_texture:lighting_0",
+					"render_method": "blend"
+				}
+			},
+			// 方块标签
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"tag:tags:magic_cable.port_positive.X": {},
+			"tag:tags:magic_cable.port_positive.Y": {},
+			"tag:tags:magic_cable.port_positive.Z": {},
+			"tag:tags:magic_cable.port_negative.X": {},
+			"tag:tags:magic_cable.port_negative.Y": {},
+			"tag:tags:magic_cable.port_negative.Z": {},
+			"tag:tags:magic_cable.series": {},
+			"tag:iron_pick_diggable": {}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('STATE:rune_type') != 0",
+				"components": {
+					"opal:tick.magic_crystal_lamp": {},
+					"minecraft:tick": {
+						"interval_range": [
+							10,
+							10
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:light') == 1",
+				"components": {
+					"minecraft:light_emission": 1
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:light') == 2",
+				"components": {
+					"minecraft:light_emission": 2
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:light') == 3",
+				"components": {
+					"minecraft:light_emission": 3
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:light') == 4",
+				"components": {
+					"minecraft:light_emission": 4
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:light') == 5",
+				"components": {
+					"minecraft:light_emission": 5
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:light') == 6",
+				"components": {
+					"minecraft:light_emission": 6
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:light') == 7",
+				"components": {
+					"minecraft:light_emission": 7
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:light') == 8",
+				"components": {
+					"minecraft:light_emission": 8
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:light') == 9",
+				"components": {
+					"minecraft:light_emission": 9
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:light') == 10",
+				"components": {
+					"minecraft:light_emission": 10
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:light') == 11",
+				"components": {
+					"minecraft:light_emission": 11
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:light') == 12",
+				"components": {
+					"minecraft:light_emission": 12
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:light') == 13",
+				"components": {
+					"minecraft:light_emission": 13
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:light') == 14",
+				"components": {
+					"minecraft:light_emission": 14
+				}
+			},
+			{
+				"condition": "q.block_state('STATE:light') == 15",
+				"components": {
+					"minecraft:light_emission": 15
+				}
+			}
+		]
+	}
+}

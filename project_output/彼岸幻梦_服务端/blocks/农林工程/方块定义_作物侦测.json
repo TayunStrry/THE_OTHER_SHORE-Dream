@@ -1,0 +1,82 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "items"
+			},
+			"identifier": "starry_map:crop_detection"
+		},
+		"components": {
+			// 方块含水
+			"minecraft:liquid_detection": {
+				"detection_rules": [
+					{
+						"on_liquid_touches": "no_reaction",
+						"can_contain_liquid": true,
+						"liquid_type": "water"
+					}
+				]
+			},
+			// 防爆与挖掘
+			"minecraft:destructible_by_explosion": false,
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			// 摩擦力
+			"minecraft:friction": 0.35,
+			// 方块光照
+			"minecraft:light_dampening": 0,
+			"minecraft:light_emission": 1,
+			// 模型与纹理
+			"minecraft:geometry": {
+				"identifier": "geometry.block.plant.crop_detection"
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "piston_bottom",
+					"render_method": "alpha_test"
+				},
+				"stone_1": {
+					"texture": "polished_diorite_slab",
+					"render_method": "alpha_test"
+				},
+				"stone_2": {
+					"texture": "polished_andesite_slab",
+					"render_method": "alpha_test"
+				},
+				"stone_3": {
+					"texture": "cauldron_side",
+					"render_method": "alpha_test"
+				},
+				"plane_0": {
+					"texture": "block_texture:plane_0",
+					"render_method": "alpha_test"
+				},
+				"leaf_0": {
+					"texture": "azalea_leaves_flowered",
+					"render_method": "alpha_test"
+				},
+				"interface": {
+					"texture": "block_texture:interface_0",
+					"render_method": "alpha_test"
+				}
+			},
+			// 事件触发器
+			"opal:tick.crop_detection": {},
+			"minecraft:tick": {
+				"interval_range": [
+					100,
+					100
+				]
+			},
+			// 方块标签
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"tag:tags:agricultural_engineering.series": {},
+			"tag:tags:magic_cable.logic_positive.Y": {},
+			"tag:tags:magic_cable.port_negative.Z": {},
+			"tag:tags:magic_cable.series": {},
+			"tag:iron_pick_diggable": {}
+		}
+	}
+}

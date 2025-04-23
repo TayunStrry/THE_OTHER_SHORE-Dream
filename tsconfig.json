@@ -49,7 +49,7 @@
 	// 指定需要包含在编译过程中的文件或目录
 	"include": [
 		"*"
-	],
+, "scripts/pre_release.js", "scripts/temporary.js", "scripts/archive_output.js", "scripts/template_output.js"	],
 	// 指定需要排除在编译过程之外的文件或目录
 	"exclude": [
 		"./node_modules"

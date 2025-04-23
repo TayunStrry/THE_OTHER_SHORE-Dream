@@ -1,0 +1,60 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "starry_map:dragon.tyrannosaurus_rex",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"facade": "textures/实体贴图/君王暴龙"
+			},
+			"geometry": {
+				"default": "geometry.entity.tyrannosaurus_rex"
+			},
+			"scripts": {
+				"animate": [
+					"controller_action"
+				]
+			},
+			"animations": {
+				// todo 静止
+				"idle": "animation.entity.tyrannosaurus_rex.idle",
+				// todo 奔跑
+				"sprint": "animation.entity.tyrannosaurus_rex.sprint",
+				// todo 行走
+				"walk": "animation.entity.tyrannosaurus_rex.walk",
+				// todo 登场
+				"appearing": "animation.entity.tyrannosaurus_rex.appearing",
+				// todo 死亡
+				"death_0": "animation.entity.tyrannosaurus_rex.death_0",
+				"death_1": "animation.entity.tyrannosaurus_rex.death_1",
+				// todo 待机
+				"leisure_0": "animation.entity.tyrannosaurus_rex.leisure_0",
+				"leisure_1": "animation.entity.tyrannosaurus_rex.leisure_1",
+				"leisure_2": "animation.entity.tyrannosaurus_rex.leisure_2",
+				"leisure_3": "animation.entity.tyrannosaurus_rex.leisure_3",
+				// todo 攻击
+				"attack": "animation.entity.tyrannosaurus_rex.attack",
+				// todo 动画控制器
+				"controller_action": "controller.animation.action.tyrannosaurus_rex"
+			},
+			"particle_effects": {
+				"breath": "constant:impact_rune_white",
+				"impact": "constant:smoke_rune_white"
+			},
+			"sound_effects": {
+				"bellow": "mob.enderdragon.growl",
+				"attack": "mob.polarbear.warning",
+				"snort": "mob.polarbear.idle",
+				"step": "mob.ravager.step"
+			},
+			"render_controllers": [
+				"controller.render.facade:variant.01"
+			],
+			"spawn_egg": {
+				"texture": "item_texture:神恩使徒.古龙"
+			}
+		}
+	}
+}

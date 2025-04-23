@@ -1,0 +1,36 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:item": {
+		"description": {
+			"identifier": "starry_map:introduction_magic"
+		},
+		"components": {
+			// 方块挖掘
+			"minecraft:can_destroy_in_creative": false,
+			// 手持物品
+			"minecraft:allow_off_hand": false,
+			"minecraft:hand_equipped": false,
+			//对象定义
+			"minecraft:icon": {
+				"textures": {
+					"default": "item_texture:魔导绪论"
+				}
+			},
+			"minecraft:cooldown": {
+				"category": "魔导绪论",
+				"duration": 1
+			},
+			"minecraft:hover_text_color": "light_purple",
+			"minecraft:max_stack_size": 16,
+			// 自定义组件
+			"opal:item.introduction_magic": {},
+			// 物品标签
+			"minecraft:tags": {
+				"tags": [
+					"tags:magic_literature:series",
+					"minecraft:bookshelf_books"
+				]
+			}
+		}
+	}
+}

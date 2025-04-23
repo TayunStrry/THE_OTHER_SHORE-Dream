@@ -1,0 +1,35 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "items"
+			},
+			"identifier": "starry_map:mine.aluminum_magnesium"
+		},
+		"components": {
+			// 防爆与挖掘
+			"minecraft:destructible_by_explosion": false,
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			// 摩擦力
+			"minecraft:friction": 0.35,
+			// 方块光照
+			"minecraft:light_dampening": 0,
+			"minecraft:light_emission": 1,
+			// 模型与纹理
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "block_texture:aluminum_magnesium",
+					"render_method": "opaque"
+				}
+			},
+			// 方块标签
+			"tag:tags:mineral_resources.series": {},
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"tag:iron_pick_diggable": {}
+		}
+	}
+}

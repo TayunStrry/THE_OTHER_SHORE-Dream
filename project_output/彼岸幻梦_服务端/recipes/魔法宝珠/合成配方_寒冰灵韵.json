@@ -1,0 +1,50 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "starry:starry_map:ice_essence_gem"
+		},
+		"tags": [
+			"tags:desktop_make"
+		],
+		"pattern": [
+			"123",
+			"456",
+			"789"
+		],
+		"assume_symmetry": false,
+		"key": {
+			"1": {
+				"item": "starry_map:block.green_energy"
+			},
+			"2": {
+				"item": "minecraft:blue_ice"
+			},
+			"3": {
+				"item": "starry_map:block.green_energy"
+			},
+			"4": {
+				"item": "minecraft:blue_ice"
+			},
+			"5": {
+				"item": "starry_map:whale_rune"
+			},
+			"6": {
+				"item": "minecraft:blue_ice"
+			},
+			"7": {
+				"item": "starry_map:block.green_energy"
+			},
+			"8": {
+				"item": "minecraft:blue_ice"
+			},
+			"9": {
+				"item": "starry_map:block.green_energy"
+			}
+		},
+		"result": {
+			"item": "starry_map:ice_essence_gem",
+			"count": 1
+		}
+	}
+}
