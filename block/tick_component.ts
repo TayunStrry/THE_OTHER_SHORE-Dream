@@ -2080,7 +2080,7 @@ interface BASE_MINERAL_MACHINE {
 	/**
 	 * 需要修改的方块状态
 	 */
-	revise?: number;
+	revise?: string;
 	/**
 	 * 每次执行时的能耗
 	 */
@@ -2129,7 +2129,23 @@ components.set(componentPrefix + 'mineral_machine',
 			if (proto == undefined) return;
 			// 使用解构赋值直接从Object.entries获取键值对
 			for (const [mineral, weight] of Object.entries(proto)) if (mineral !== undefined && weight !== undefined) weightTable.set(mineral, weight)
-
+			if (!revise || !consumption || !probability || !doubling || !limit || !chunkSize) return;
+			// 判断能量值 是否足够
+			if (!opal.ExpendEnergy(block, -consumption)) return;
+			// 判断方块自身是否因处于产出矿石的状态
+			if (state.getState(revise) as number != 8) {
+				// 播放音效
+				dimension?.playSound('block.stonecutter.use', block.location);
+				// 复位状态
+				opal.TrySetPermutation(block, revise, state.getState(revise) as number + 1);
+			}
+			else {
+				// 播放音效
+				dimension?.playSound('random.anvil_land', block.location);
+				// 复位状态
+				opal.TrySetPermutation(block, 'STATE:rune_type', 0);
+				opal.TrySetPermutation(block, revise, 0);
+			}
 		}
 	}
 );
