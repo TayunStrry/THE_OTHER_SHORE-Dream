@@ -1,8 +1,0 @@
-{
-	"format_version": "1.16.100",
-	"minecraft:texture_set": {
-		"metalness_emissive_roughness": "能量晶块_光亮度",
-		"heightmap": "能量晶块_粗糙度",
-		"color": "诸海"
-	}
-}
