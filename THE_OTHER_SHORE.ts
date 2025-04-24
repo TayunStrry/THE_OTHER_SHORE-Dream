@@ -135,19 +135,6 @@ server.world.afterEvents.worldLoad.subscribe(
  * < 世界 > 聊天发送后 事件
  */
 server.world.afterEvents.chatSend.subscribe(data => opal.manageChatResponses(data.sender, data.message));
-server.world.afterEvents.chatSend.subscribe(
-	data => {
-		if (data.message !== 'test') return;
-		let l1 = new opal.Vector(-60, 65, 340)
-		let text = new debug.DebugText(l1, '测试');
-		let arrow = new debug.DebugArrow(l1, l1.add(new opal.Vector(0, 5, 0)));
-		text.timeLeft = 10
-		//arrow.scale = 10
-		arrow.color = table.getRuneColor('rune_orange');
-		debug.debugDrawer.addShape(arrow);
-		debug.debugDrawer.addShape(text);
-	}
-)
 /*
  * < 实体 > 生成后 事件
  */
