@@ -7,7 +7,10 @@
 
 ## Dream介绍
 
-- 彼岸幻梦 是一款为 Minecraft 基岩版设计的模组，旨在提升游戏的可玩性和趣味性。它包括数据驱动模块和 JavaScript 模块，并开源了相关代码。
+- 项目中的 JavaScript 模块 中开源于 <THE_OTHER_SHORE:OPAl-Script>
+- 项目中的 数据驱动模块 中开源于 <THE_OTHER_SHORE:Dream>
+- 真诚期待基岩版的模组社区，可以逐步向 Java 版看齐
+- 特此展开基岩版< 基建 >研究项目
 
 ![Naxiatu Thinking](静态_纳西妲.jpg)
 
