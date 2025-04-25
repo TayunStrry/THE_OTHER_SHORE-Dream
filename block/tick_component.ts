@@ -2138,6 +2138,7 @@ components.set(componentPrefix + 'mineral_machine',
 				dimension?.playSound('block.stonecutter.use', block.location);
 				// 复位状态
 				opal.TrySetPermutation(block, revise, state.getState(revise) as number + 1);
+				
 			}
 			else {
 				// 播放音效
