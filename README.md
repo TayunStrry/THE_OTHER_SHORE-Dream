@@ -1,9 +1,9 @@
 # THE_OTHER_SHORE:Dream
 
-[< English >](./README.en.md)
-[< 编译时入口文件 >](./THE_OTHER_SHORE.ts)
-[< preRelease TS源码 >](./scripts/pre_release.js.ts)
-[< BridgeProtocol TS源码 >](./system/BridgeProtocol.ts)
+- [< 开源许可证 >](./LICENSE)
+- [< 编译时入口文件 >](./THE_OTHER_SHORE.ts)
+- [< preRelease TS源码 >](./scripts/pre_release.js)
+- [< BridgeProtocol TS源码 >](./system/BridgeProtocol.ts)
 
 ## Dream介绍
 
@@ -12,7 +12,7 @@
 - 真诚期待基岩版的模组社区，可以逐步向 Java 版看齐
 - 特此展开基岩版< 基建 >研究项目
 
-![Naxiatu Thinking](静态_纳西妲.jpg)
+![Naxiatu Thinking](纳西妲_思考.jpg)
 
 ## Dream安装教程
 
@@ -63,7 +63,7 @@ npm run compile_stability
 - **更多的地图与结构玩法**：提高可玩性, 增加更多的游戏趣味
 - **更多的优化与工业模块**：深化魔导工业的开发与优化, 加强主题玩法的游戏体验
 
-![蹦蹦跳跳的纳西妲](动态_纳西妲.gif)
+![蹦蹦跳跳的纳西妲](纳西妲_夜空.jpg)
 
 ## BridgeProtocol介绍
 
@@ -116,7 +116,7 @@ npm run compile_stability
 - **随机整数生成器（randomFloor）**：生成指定范围内的随机整数。
 - **简化序列号生成器（BriefID）**：基于时间戳和随机数生成序列号。
 
-![Naxiatu Thinking](静态_纳西妲.jpg)
+![Naxiatu Thinking](纳西妲_跳跃.gif)
 
 ## BridgeProtocol注意事项
 
@@ -243,4 +243,4 @@ client2();
 - **支持更加精准的双工通讯**：例如:定点呼叫某个模组包的函数
 - **支持跨模组调用加速推理**：例如为高频调用的函数提高优先级, 在调用层禁止无法响应的调用再次发送
 
-![蹦蹦跳跳的纳西妲](动态_纳西妲.gif)
+![妲妲分隔符](纳西妲_招手.jpg)
