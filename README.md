@@ -1,246 +1,197 @@
-# THE_OTHER_SHORE:Dream
 
-- [< 开源许可证 >](./LICENSE)
-- [< 编译时入口文件 >](./THE_OTHER_SHORE.ts)
-- [< preRelease TS源码 >](./scripts/pre_release.js)
-- [< BridgeProtocol TS源码 >](./system/BridgeProtocol.ts)
+# Dream & BridgeProtocol 项目说明文档
 
-## Dream介绍
+## 📌 文件索引
 
-- 项目中的 JavaScript 模块 中开源于 <THE_OTHER_SHORE:OPAl-Script>
-- 项目中的 数据驱动模块 中开源于 <THE_OTHER_SHORE:Dream>
+- [< 开源许可 >](./LICENSE)
+- [< 编译入口 >](./THE_OTHER_SHORE.ts)
+- [< 打包发布 >](./scripts/pre_release.js)
+- [< 协议源码 >](./system/BridgeProtocol.ts)
+
+---
+
+---
+
+## 🏆 核心研发团队
+
+- 技术主导：
+  - 钛宇·星光阁（架构开发）
+  - 游京秋惜༈༊（移植规划）
+  - 月白清风（百科编纂）
+  - aa剑侠（协议设计）
+
+- 艺术创作：
+  - 野生的麻薯、苏海伦等（模型纹理）
+
+- 测试优化：
+  - 四夕、月白清风等10+成员
+
+![蹦跳纳西妲](纳西妲_夜空.jpg)
+
+---
+
+## 🌟 Dream项目概览
+
+### 📄 项目信息
+
+| 项目要素       | 内容详情                  |
+|----------------|--------------------------|
+| **协议版本**   | v4.4.0-0.0.5            |
+| **发布日期**   | 2025年4月23日          |
+| **开发团队**   | [开发团队](开发团队)       |
+| **联系方式**   | QQ群：906314036 / 频道：pd14718782 |
+
+### 核心架构
+
+- JavaScript模块开源于[ THE_OTHER_SHORE:OPAl-Script ]
+- 数据驱动系统开源于当前项目[ THE_OTHER_SHORE:Dream ]
 - 真诚期待基岩版的模组社区，可以逐步向 Java 版看齐
 - 特此展开基岩版< 基建 >研究项目
 
-![Naxiatu Thinking](纳西妲_思考.jpg)
+![纳西妲思考](纳西妲_思考.jpg)
 
-## Dream安装教程
+---
 
-- **购买并安装 minecraft Bedrock 的最新< 正式版 >与< 测试版 >**
-- **下载并放置本git仓库的代码数据**
-- **在 Visual Studio Code 中下载并安装 npm | NodeJS | TSC**
-- **尝试进行 TS 脚本编译** : 在终端中输入：
+### 🛠️ 安装指南
+
+#### 准备工作
+
+1. **游戏版本**：安装最新正式/测试版Bedrock Edition
+2. **代码获取**：下载本Git仓库至本地
+3. **开发环境**：VS Code + NodeJS + NPM 环境配置
+
+#### 编译步骤
 
 ```bash
-## 使用预览版时, 使用以下命令进行编译：
+# 开发模式编译（预览版）
 npm run compile
 
-## 使用正式版时, 使用以下命令进行编译：
+# 生产模式编译（正式版本）
 npm run compile_stability
 ```
 
-## Dream基本信息
+### 🚀 Dream未来规划
 
-- **协议版本**：v4.4.0-0.0.5
-- **发布日期**：2025-04-23
-- **开发团队**：
-  - 钛宇·星光阁 <所有者, 开发, 优化>
-  - 月白清风 <运营, 测试, 优化>
-  - 游京秋惜༈༊ <开发, 移植, 优化>
-  - 野生的麻薯 <模型, 纹理, 建筑>
-  - 苏海伦 <模型, 纹理, 建筑>
-  - 夜莺 <模型, 纹理, 建筑>
-  - Ao <模型, 纹理, 建筑>
-  - 大尺寸欧芹 <测试, 改进>
-  - 隐墨·星尘 <测试, 改进>
-  - 万古长风 <测试, 改进>
-  - 心狐紫焰 <测试, 改进>
-  - 黔中极客 <测试, 改进>
-  - 昵称是蛤 <测试, 改进>
-  - Sakura <测试, 改进>
-  - 兵解掀 <测试, 改进>
-  - 但均享 <测试, 改进>
-  - 四夕 <测试, 创意设计>
-  - 稽 <测试, 改进>
-- **联系方式**：
-  - QQ: 1965304849
-  - QQ群: 906314036
-  - QQ频道: pd14718782
+1. **模块化扩展**
+   - 支持自定义参数配置的动态数据驱动系统
+2. **玩法深化**
+   - 新增可探索地图与结构化任务体系
+3. **工业增强**
+   - 魔导工业化流程优化与主题体验强化
 
-## Dream未来方向
+---
 
-- **更多数据驱动模块化设计**：便于玩家更方便自定义与修饰模组功能参数
-- **更多的地图与结构玩法**：提高可玩性, 增加更多的游戏趣味
-- **更多的优化与工业模块**：深化魔导工业的开发与优化, 加强主题玩法的游戏体验
+## 🌐 BridgeProtocol 通信协议
 
-![蹦蹦跳跳的纳西妲](纳西妲_夜空.jpg)
+### 🔍 协议概述
 
-## BridgeProtocol介绍
+- 基岩版标准数据交换协议，提供：
+  - 跨模组函数调用接口
+  - 游戏对象序列化规范
+  - 双工通讯拦截机制
 
-- 统一推送协议（以下简称“协议”）是一个为基岩版游戏设计的通信协议, 旨在标准化多个模组包之间的数据交换。
-- 该协议提供了一套灵活的接口, 允许开发者轻松集成和扩展功能, 实现模块化的数据推送。
+#### 版本信息
 
-## BridgeProtocol基本信息
+| 元素         | 内容          |
+|--------------|---------------|
+| **协议版本**   | v1.0.4.24.11.15 |
+| **发布日期**   | 2024年11月14日 |
+| **开发团队**   | [开发团队](开发团队) |
 
-- **协议版本**：v1.0.4.24.11.15
+![纳西妲挥手](纳西妲_招手.jpg)
 
-- **架构作者**：aa剑侠
+---
 
-- **协议作者**：钛宇-星光阁
+### 📚 核心组件说明
 
-- **发布日期**：2024-11-14
-
-- **联系方式**：
-  - QQ: 1965304849
-  - QQ群: 906314036
-  - QQ频道: pd14718782
-
-### 数据类型定义
-
-- **JSON值类型（JSONValue）**：支持字符串、布尔值、数字、JSON对象、JSON数组。
-- **JSON对象（JSONObject）**：键值对集合, 值可以是任何JSON值类型。
-- **JSON数组（JSONArray）**：JSON值类型的数组。
-- **游戏对象类型（GameObject）**：包括实体、方块、玩家、维度或物品堆。
-- **传输数据类型（TransmissionDataType）**：支持JSON值、游戏对象及其数组。
-
-### 函数定义
-
-- **导出函数类型（ExportFunctionType）**：接受TransmissionDataType参数, 返回TransmissionDataType值的函数。
-
-### 事件监听器
-
-- **事件监听器接口（EventListener）**：用于订阅和取消事件监听。
-
-### 脚本消息
-
-- **脚本消息接口（ScriptMessage）**：标准化脚本执行时的消息格式。
-
-### 功能实现
-
-- **协议拦截器类（ProtocolInterceptors）**：处理函数调用前后的自定义逻辑。
-- **统一推送协议（BridgeProtocol）**：核心类, 管理项目标识符、函数列表、拦截器和描述信息。
-
-### 辅助函数
-
-- **事件获取器（eventGetter）**：创建Promise, 等待指定事件发生。
-- **随机整数生成器（randomFloor）**：生成指定范围内的随机整数。
-- **简化序列号生成器（BriefID）**：基于时间戳和随机数生成序列号。
-
-![Naxiatu Thinking](纳西妲_跳跃.gif)
-
-## BridgeProtocol注意事项
-
-- 本系统仅为协议, 不涉及具体功能实现。
-- 各项功能应由各个模组独立实现。
-- 推送系统仅作为数据推送的载体, 不涉及数据处理和存储。
-
-## BridgeProtocol使用说明
-
-- **导出函数**: 添加/更新功能：通过`exportFunction`方法将函数添加或更新到功能列表。
-
-- **调用函数**: 异步调用：使用`call`方法异步调用函数, 并等待结果。
-
-- **数据转换**: 数据转换函数：包括`dataToArray`、`dataToTransmitString`、`typeConversion`等, 用于将服务器脚本事件命令消息转换为适合传输的数据类型。
-
-- **字符串表示**: 游戏对象字符串表示：包括`blockToString`、`entityToString`、`dimensionToString`等, 用于将游戏对象转换为字符串形式。
-
-## BridgeProtocol使用示例
-
-- **创建协议实例**:
+#### 数据类型定义
 
 ```typescript
-const bridge = new BridgeProtocol();
-```
-
-- **导出模块函数**:
-
-```typescript
-< 格式 >
-bridge.exportFunction(myFunction, "myFunctionName");
-bridge.exportFunction(myFunction);
-
-bridge.exportFunctions=[myFunction, "myFunctionName"];
-bridge.exportFunctions=[myFunction];
-
-bridge.exportFunctions=[
-    [myFunction, "myFunctionName"],
-    [myFunction, "myFunctionName"],
-];
-bridge.exportFunctions=[
-    [myFunction],
-    [myFunction],
-];
-
-< 案例 >
-bridge.exportFunction((player: server.Player)=>{ player.sendMessage("Hello, World!"); }, "sayHello");
-```
-
-- **调用模块函数**:
-
-```typescript
-< 格式 >
-bridge.call("myFunctionName", [arg1, arg2]);
-
-< 案例 >
-bridge.call("sayHello", [player]);
-```
-
-- **使用协议拦截器**:
-
-```typescript
-bridge.protocolInterceptors.onCalled(func, functionName, parameters);
-bridge.protocolInterceptors.onCalling(callback, functionName, parameters);
-```
-
-- **基于类dts方案的多端调用**:
-
-```typescript
-//端1
-function client1() {
-    class Vector2 extends RemoteCtrlObject {
-        x: number;
-        y: number;
-        constructor(x: number, y: number) {
-            super();
-            this.x = x;
-            this.y = y;
-        }
-        public add(a: number, b: number) {
-            return new Vector2(a + this.x, this.y + b);
-        }
-        pi = 3.14;
-    }
-    function newVector2(a: number, b: number) {
-        return new Vector2(a, b);
-    }
-    bridge.exportFunction(newVector2);
+// 支持的数据结构
+type JSONValue = string | boolean | number | JSONObject | JSONArray;
+interface GameObject {
+  entity: Entity,
+  block: Block,
+  player: Player,
+  dimension: Dimension,
+  itemStack: ItemStack
 }
 ```
 
-```typescript
-//端2
-async function client2() {
-    class Vector2 extends RemoteCtrlObject {
-        x!: number;
-        y!: number;
-        constructor(x: number, y: number) {
-            super();
-        }
-        public add(a: number, b: number) {
-            return new Vector2(0,0);
-        }
-        pi!: number;
-    }
-    let exportTest = {
-        exportId: "",
-        "newVector2": (a: number, b: number) => {
-            return new Vector2(a, b);
-        }
-    }
-    const vec = await bridge.solve(exportTest).newVector2(1, 2);
-    console.warn(await (await vec.add(999, 2)).x);
-    console.warn(await vec.pi);
+#### 关键函数接口
 
-    vec.dispose();
-}
-client1();
-client2();
+- `exportFunction(func, name?)`：导出可调用方法
+- `call(functionName, args)`：异步执行远程函数
+
+---
+
+### 🛠️ 使用示例
+
+#### 基础调用模式
+
+```typescript
+// 导出"打招呼"函数
+bridge.exportFunction(
+  (player) => player.sendMessage("你好，世界！"),
+  "sayHello"
+);
+
+// 调用端使用
+bridge.call("sayHello", [玩家对象]);
 ```
 
-## BridgeProtocol未来方向
+#### 高级对象操作示例
 
-- **支持更多游戏对象类型**：例如:支持容器数据、物品数据等。
-- **支持更加精准的双工通讯**：例如:定点呼叫某个模组包的函数
-- **支持跨模组调用加速推理**：例如为高频调用的函数提高优先级, 在调用层禁止无法响应的调用再次发送
+```typescript
+// 客户端1：定义向量类
+class Vector2 extends RemoteCtrlObject {
+  constructor(x: number, y: number) { super(); this.x = x; }
+  public add(deltaX: number) { return new Vector2(this.x + deltaX); }
+}
 
-![妲妲分隔符](纳西妲_招手.jpg)
+// 客户端2：远程调用与操作
+const vec = await bridge.solve().newVector(1);
+console.log(await vec.add(999).x); // 输出1000
+```
+
+---
+
+### 🛠️ 技术细节说明
+
+#### 数据转换工具
+
+| 方法名               | 功能描述                     |
+|----------------------|----------------------------|
+| `dataToArray`        | 转换数据为JSON数组         |
+| `blockToString`      | 方块对象转标准字符串表示   |
+
+#### 拦截器使用场景
+
+```typescript
+// 函数调用前后处理
+bridge.protocolInterceptors.onCalled = (func, params) => console.log("开始执行");
+bridge.protocolInterceptors.onCalling = (result) => console.log(`结果：${result}`);
+```
+
+---
+
+### 🌉 未来技术方向
+
+1. **数据类型扩展**
+   - 支持容器/物品堆等复杂对象传输
+2. **通信优化**
+   - 实现模组级调用优先级控制
+3. **调试增强**
+   - 添加调用链追踪与性能统计功能
+
+---
+
+### 💡 注意事项
+
+- 本协议仅定义通信规范，具体功能需模组实现
+- 推送系统负责数据传输，不处理存储逻辑
+- 跨端使用建议统一TypeScript版本
+
+![纳西妲跳跃](纳西妲_跳跃.gif)
+
+---

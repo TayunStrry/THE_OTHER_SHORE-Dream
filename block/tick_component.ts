@@ -2138,7 +2138,10 @@ components.set(componentPrefix + 'mineral_machine',
 				dimension?.playSound('block.stonecutter.use', block.location);
 				// 复位状态
 				opal.TrySetPermutation(block, revise, state.getState(revise) as number + 1);
-				
+				/**
+				 * 计算区块坐标
+				 */
+				const chunkLocation = opal.Vector.chunkLocation(block.location, true, chunkSize);
 			}
 			else {
 				// 播放音效
