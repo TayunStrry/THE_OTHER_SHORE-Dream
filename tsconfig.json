@@ -34,7 +34,7 @@
 		// 指定需要包含的类型声明文件的路径数组
 		"types": [],
 		// 指定输出目录
-		"outDir": "../JS_cache",
+		"outDir": "./DIR_OUTPUT/JavaScript",
 		// 生成声明文件, 开启后会自动生成声明文件
 		"declaration": false,
 		// 指定类型声明文件的根目录
@@ -48,8 +48,12 @@
 	},
 	// 指定需要包含在编译过程中的文件或目录
 	"include": [
-		"*"
-, "scripts/pre_release.js", "scripts/temporary.js", "scripts/archive_output.js", "scripts/template_output.js"	],
+		"*",
+		"scripts/package.js",
+		"scripts/temporary.js",
+		"scripts/archive.js",
+		"scripts/template.js"
+	],
 	// 指定需要排除在编译过程之外的文件或目录
 	"exclude": [
 		"./node_modules"

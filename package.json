@@ -20,12 +20,13 @@
 		"typescript": "^5.8.2"
 	},
 	"scripts": {
-		"compile_stability": "tsc && yarn rollup ../JS_cache/THE_OTHER_SHORE.js --file ../development_behavior_packs/幻梦-Dream_BP/scripts/THE_OTHER_SHORE.js",
-		"compile_stability_zip": "tsc && rollup --config rollup.config.js",
-		"compile": "tsc ./THE_OTHER_SHORE.ts --moduleResolution node --target es2022 --outDir ../JS_cache && yarn rollup ../JS_cache/THE_OTHER_SHORE.js --file C:/Users/196530/AppData/Local/Packages/Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/幻梦-Dream_BP/scripts/THE_OTHER_SHORE.js",
+		"tsc": "tsc ./THE_OTHER_SHORE.ts --moduleResolution node --target es2022 --outDir ./DIR_OUTPUT/JavaScript",
 		"upload": "git add . && git commit -m 'update' && git push && git push gitee master",
-		"pack": "node scripts/pre_release.js",
-		"open": "npm run compile && npm run pack && npm run upload",
-		"test": "npm run compile && npm run pack"
+		"package": "node scripts/package.js",
+		"tsc_pack": "tsc && yarn rollup ../JS_cache/THE_OTHER_SHORE.js --file ../development_behavior_packs/幻梦-Dream_BP/scripts/THE_OTHER_SHORE.js",
+		"tsc_pack_zip": "tsc && rollup --config rollup.config.js",
+		"tsc_beta": "npm run tsc && yarn rollup ./DIR_OUTPUT/JavaScript/THE_OTHER_SHORE.js --file C:/Users/196530/AppData/Local/Packages/Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/幻梦-Dream_BP/scripts/THE_OTHER_SHORE.js",
+		"open": "npm run tsc_beta && npm run package && npm run upload",
+		"test": "npm run tsc_beta && npm run package"
 	}
 }

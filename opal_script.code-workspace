@@ -5,10 +5,6 @@
 			"path": "."
 		},
 		{
-			"name": "JS_cache",
-			"path": "../JS_cache"
-		},
-		{
 			"name": "prompt",
 			"path": "D:/Chat_AI_Case/prompt"
 		},
