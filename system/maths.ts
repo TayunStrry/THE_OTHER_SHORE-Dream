@@ -194,8 +194,53 @@ class Vector extends VectorConstant {
 	 *
 	 * @returns {Vector} 当前 Vector 对象的副本
 	 */
-	get copy(): server.Vector3 {
+	get copy(): Vector {
 		return this.add(Vector.CONSTANT_ZERO);
+	};
+	/**
+	 * * 根据指定步数返回当前向量在y轴方向上的偏移结果
+	 *
+	 * @param {number} [steps = 1] - 垂直方向偏移量（可选，默认为1）
+	 *
+	 * @returns {Vector} - 偏移后的新的 Vector 对象
+	 */
+	above(steps?: number): Vector {
+		/**
+		 * 获取偏移量
+		 */
+		const offset = steps ?? 1;
+		// 返回当前 Vector3 对象与偏移量相加后的新 Vector3 对象
+		return this.add({ x: 0, y: offset, z: 0 });
+	};
+	/**
+	 * * 根据指定步数返回当前向量在x轴正方向的偏移结果
+	 *
+	 * @param {number} [steps=1] - 水平方向偏移量（可选，默认为1）
+	 *
+	 * @returns {Vector} - 偏移后的新的 Vector 对象
+	 */
+	east(steps?: number): Vector {
+		/**
+		 * 获取偏移量
+		 */
+		const offset = steps ?? 1;
+		// 返回当前 Vector3 对象与偏移量相加后的新 Vector3 对象
+		return this.add({ x: offset, y: 0, z: 0 });
+	};
+	/**
+	 * * 根据指定步数返回当前向量在z轴正方向的偏移结果
+	 *
+	 * @param {number} [steps=1] - 水平方向偏移量（可选，默认为1）
+	 *
+	 * @returns {Vector} - 偏移后的新的 Vector 对象
+	 */
+	north(steps?: number): Vector {
+		/**
+		 * 获取偏移量
+		 */
+		const offset = steps ?? 1;
+		// 返回当前 Vector3 对象与偏移量相加后的新 Vector3 对象
+		return this.add({ x: 0, y: 0, z: offset });
 	};
 	/**
 	 * * 将当前 Vector3 对象与另一个 Vector3 对象相加

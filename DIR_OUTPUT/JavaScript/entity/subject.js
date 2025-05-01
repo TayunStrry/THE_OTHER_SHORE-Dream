@@ -107,7 +107,7 @@ export function EnterVacantSpaceWaspTower(player) {
     /**
      * * 坐标映射值
      */
-    const mapping = new opal.Vector(500, 10, 500);
+    const mapping = new opal.Vector(500, 150, 500);
     /**
      * * 进行结构生成的维度
      */

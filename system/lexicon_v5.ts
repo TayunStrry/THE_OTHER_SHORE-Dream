@@ -15,7 +15,7 @@ import { RandomFloor, Vector } from './maths';
 /*
  * 元素攻击模块
  */
-import { MergeProperty, GetProperty, ElementalAttack, IsErupt } from './rune_attack';
+import { GetProperty } from './rune_attack';
 /*
  * 触发控制模块
  */
@@ -27,11 +27,7 @@ import { EntitysSort } from './parse_entity';
 /*
  * 信息处理模块
  */
-import { DistanceAndName, NumberParticleDisplay } from './intel';
-/*
- * 计划执行模块
- */
-import { MistySeaFissure } from './plan';
+import { DistanceAndName } from './intel';
 /*
  * 实例创建模块
  */

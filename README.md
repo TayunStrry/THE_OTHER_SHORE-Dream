@@ -189,6 +189,6 @@ bridge.protocolInterceptors.onCalling = (result) => console.log(`结果：${resu
 
 - 本协议仅定义通信规范, 具体功能需模组实现
 - 推送系统负责数据传输, 不处理存储逻辑
-- 跨端使用建议统一TypeScript版本
+- 跨端建议统一使用TypeScript版本
 
 ![纳西妲](image/纳西妲_跳跃.gif)

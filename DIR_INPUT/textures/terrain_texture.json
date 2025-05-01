@@ -1,0 +1,313 @@
+{
+    "texture_data": {
+        "block_texture:divine_favor_guide_image.0": {
+            "textures": "textures/实体贴图/神恩使徒/艾拉"
+        },
+        "block_texture:divine_favor_guide_image.1": {
+            "textures": "textures/实体贴图/神恩使徒/绯红"
+        },
+        "block_texture:divine_favor_guide_image.2": {
+            "textures": "textures/实体贴图/神恩使徒/风信"
+        },
+        "block_texture:divine_favor_guide_image.3": {
+            "textures": "textures/实体贴图/神恩使徒/海灵"
+        },
+        "block_texture:divine_favor_guide_image.4": {
+            "textures": "textures/实体贴图/神恩使徒/海娜"
+        },
+        "block_texture:divine_favor_guide_image.5": {
+            "textures": "textures/实体贴图/神恩使徒/九九/皮肤"
+        },
+        "block_texture:divine_favor_guide_image.6": {
+            "textures": "textures/实体贴图/神恩使徒/墨翎"
+        },
+        "block_texture:divine_favor_guide_image.7": {
+            "textures": "textures/实体贴图/神恩使徒/蔷薇/服饰_0"
+        },
+        "block_texture:divine_favor_guide_image.8": {
+            "textures": "textures/实体贴图/神恩使徒/森涅"
+        },
+        "block_texture:divine_favor_guide_image.9": {
+            "textures": "textures/实体贴图/神恩使徒/天宁"
+        },
+        "block_texture:divine_favor_guide_image.10": {
+            "textures": "textures/实体贴图/神恩使徒/星砂"
+        },
+        "block_texture:divine_favor_guide_image.11": {
+            "textures": "textures/实体贴图/神恩使徒/雪隐/服饰_0"
+        },
+        "block_texture:divine_favor_guide_image.12": {
+            "textures": "textures/实体贴图/神恩使徒/幽蓝"
+        },
+        /*
+         * 魔晶储罐
+         */
+        "block_texture:magic_crystal_tank.empty": {
+            "textures": "textures/方块贴图/魔晶储罐/虚无"
+        },
+        "block_texture:magic_crystal_tank.release": {
+            "textures": "textures/方块贴图/魔晶储罐/辉光"
+        },
+        "block_texture:magic_crystal_tank.constant": {
+            "textures": "textures/方块贴图/魔晶储罐/恒常"
+        },
+        /*
+         * 基础方块
+         */
+        "block_texture:unreal_space": {
+            "textures": "textures/方块贴图/虚无方块"
+        },
+        "block_texture:resist_explosions": {
+            "textures": "textures/方块贴图/抗爆基石"
+        },
+        "block_texture:nihility_space": {
+            "textures": "textures/方块贴图/虚空方块"
+        },
+        "block_texture:tungsten_copper_alloy": {
+            "textures": "textures/方块贴图/钨铜合金"
+        },
+        "block_texture:compressed_stone": {
+            "textures": "textures/方块贴图/压缩圆石"
+        },
+        "block_texture:oxygen_enriched_gold": {
+            "textures": "textures/方块贴图/富氧金矿"
+        },
+        "block_texture:ferric_phosphate": {
+            "textures": "textures/方块贴图/磷酸铁矿"
+        },
+        "block_texture:aluminum_magnesium": {
+            "textures": "textures/方块贴图/铝镁金矿"
+        },
+        "block_texture:ferric_chloride": {
+            "textures": "textures/方块贴图/氯化铁矿"
+        },
+        "block_texture:zirconium_carbide": {
+            "textures": "textures/方块贴图/碳化锆矿"
+        },
+        "block_texture:gold_carbonate": {
+            "textures": "textures/方块贴图/碳酸金矿"
+        },
+        "block_texture:lithium_carbonate": {
+            "textures": "textures/方块贴图/碳酸锂矿"
+        },
+        "block_texture:tungsten_nickel_titanium": {
+            "textures": "textures/方块贴图/钨镍钛矿"
+        },
+        "block_texture:copper_tin_brazing": {
+            "textures": "textures/方块贴图/锡钎铜矿"
+        },
+        "block_texture:omphalos": {
+            "textures": "textures/方块贴图/驱动核心/色彩"
+        },
+        /*
+         * 模块化 : 元素
+         */
+        "block_texture:rune_void": {
+            "textures": "textures/方块贴图/模块化/元素/虚无"
+        },
+        "block_texture:rune_white": {
+            "textures": "textures/方块贴图/模块化/元素/启程"
+        },
+        "block_texture:rune_black": {
+            "textures": "textures/方块贴图/模块化/元素/焚绝"
+        },
+        "block_texture:rune_orange": {
+            "textures": "textures/方块贴图/模块化/元素/归忆"
+        },
+        "block_texture:rune_red": {
+            "textures": "textures/方块贴图/模块化/元素/烛火"
+        },
+        "block_texture:rune_green": {
+            "textures": "textures/方块贴图/模块化/元素/界木"
+        },
+        "block_texture:rune_blue": {
+            "textures": "textures/方块贴图/模块化/元素/诸海"
+        },
+        "block_texture:rune_purple": {
+            "textures": "textures/方块贴图/模块化/元素/极雷"
+        },
+        /*
+         * 模块化 : 传送
+         */
+        "block_texture:transmit.red": {
+            "textures": "textures/方块贴图/模块化/传送/烛火"
+        },
+        "block_texture:transmit.yellow": {
+            "textures": "textures/方块贴图/模块化/传送/明黄"
+        },
+        "block_texture:transmit.blue": {
+            "textures": "textures/方块贴图/模块化/传送/诸海"
+        },
+        "block_texture:transmit.green": {
+            "textures": "textures/方块贴图/模块化/传送/界木"
+        },
+        "block_texture:transmit.purple": {
+            "textures": "textures/方块贴图/模块化/传送/极雷"
+        },
+        "block_texture:transmit.white": {
+            "textures": "textures/方块贴图/模块化/传送/启程"
+        },
+        "block_texture:transmit.colorful": {
+            "textures": "textures/方块贴图/模块化/传送/炫彩"
+        },
+        /*
+         * 模块化 : 组件
+         */
+        "block_texture:crystal_0": {
+            "textures": "textures/方块贴图/模块化/晶石/色彩"
+        },
+        "block_texture:rotate_0": {
+            "textures": "textures/方块贴图/模块化/旋转_0/色彩"
+        },
+        "block_texture:frame_0": {
+            "textures": "textures/方块贴图/模块化/边框_0/色彩"
+        },
+        "block_texture:frame_1": {
+            "textures": "textures/方块贴图/模块化/边框_1/色彩"
+        },
+        "block_texture:frame_2": {
+            "textures": "textures/方块贴图/模块化/边框_2/色彩"
+        },
+        "block_texture:duct_0": {
+            "textures": "textures/方块贴图/模块化/管道_0/色彩"
+        },
+        "block_texture:duct_1": {
+            "textures": "textures/方块贴图/模块化/管道_1/色彩"
+        },
+        "block_texture:interface_0": {
+            "textures": "textures/方块贴图/模块化/接口_0/色彩"
+        },
+        "block_texture:interface_1": {
+            "textures": "textures/方块贴图/模块化/接口_1/色彩"
+        },
+        "block_texture:rope_0": {
+            "textures": "textures/方块贴图/模块化/绳索_0/色彩"
+        },
+        "block_texture:felt_blue": {
+            "textures": "textures/方块贴图/模块化/毛毡_蓝/色彩"
+        },
+        "block_texture:felt_red": {
+            "textures": "textures/方块贴图/模块化/毛毡_红/色彩"
+        },
+        "block_texture:felt_green": {
+            "textures": "textures/方块贴图/模块化/毛毡_绿/色彩"
+        },
+        "block_texture:felt_purple": {
+            "textures": "textures/方块贴图/模块化/毛毡_紫/色彩"
+        },
+        "block_texture:plane_0": {
+            "textures": "textures/方块贴图/模块化/平面_0/色彩"
+        },
+        "block_texture:plane_1": {
+            "textures": "textures/方块贴图/模块化/平面_1/色彩"
+        },
+        "block_texture:plane_2": {
+            "textures": "textures/方块贴图/模块化/平面_2/色彩"
+        },
+        "block_texture:plane_3": {
+            "textures": "textures/方块贴图/模块化/平面_3/色彩"
+        },
+        "block_texture:plane_4": {
+            "textures": "textures/方块贴图/模块化/平面_4/色彩"
+        },
+        "block_texture:lighting_0": {
+            "textures": "textures/方块贴图/模块化/灯光_0/色彩"
+        },
+        "block_texture:book_0": {
+            "textures": "textures/方块贴图/模块化/书本_0/色彩"
+        },
+        /*
+         * 能量晶块
+         */
+        "block_texture:energy_crystal.purple": {
+            "textures": "textures/方块贴图/能量晶块/极雷"
+        },
+        "block_texture:energy_crystal.red": {
+            "textures": "textures/方块贴图/能量晶块/烛火"
+        },
+        "block_texture:energy_crystal.blue": {
+            "textures": "textures/方块贴图/能量晶块/诸海"
+        },
+        "block_texture:energy_crystal.green": {
+            "textures": "textures/方块贴图/能量晶块/界木"
+        },
+        "block_texture:energy_crystal.orange": {
+            "textures": "textures/方块贴图/能量晶块/归忆"
+        },
+        "block_texture:energy_crystal.constant": {
+            "textures": "textures/方块贴图/能量晶块/永恒"
+        },
+        /*
+         * 原版方块
+         */
+        "grass_side": {
+            "textures": [
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#79c05a"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#8ab689"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#bfb755"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#59c93c"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#55c93f"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#88bb66"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#86b87f"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#64c73f"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#86b783"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#83b593"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#80b497"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#91bd59"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#90814d"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#8eb971"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#6a7039"
+                },
+                {
+                    "path": "textures/blocks/grass_top",
+                    "overlay_color": "#507a32"
+                },
+                "textures/blocks/snow"
+            ]
+        }
+    }
+}
