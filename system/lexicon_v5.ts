@@ -7,7 +7,7 @@ import * as server from "@minecraft/server";
  * 系统数据
  */
 import * as type from "../data/type";
-import { Permit, biome_map, dimension_map, response_patterns } from "../data/table";
+import { can_display_logs, biome_map, dimension_map, response_patterns } from "../data/table";
 /*
  * 数学模块
  */
@@ -694,7 +694,7 @@ function generateResponse(userInput: string): server.RawMessage {
 			'霜月', '冬月', '寒月', '立春', '花月', '阳春',
 			'盛夏', '炎月', '金秋', '收获', '雪月', '岁末'
 		];
-		return `游戏时间：${formatTimeUnit(gameHours)}:${formatTimeUnit(gameMinutes)} 当前日期：${currentYear}年 ${monthNames[currentMonth - 1]}月${currentMonthDay}日（游戏纪元 ${totalDays}天）`;
+		return `游戏时间：${formatTimeUnit(gameHours)}:${formatTimeUnit(gameMinutes)} 当前日期：${currentYear}年 ${monthNames[currentMonth - 1]}${currentMonthDay}日（游戏纪元 ${totalDays}天）`;
 	};
 	/**
 	 * 检测连续重复输入
@@ -1023,7 +1023,7 @@ function selectResponseByWeightedProbability(responseConfig: Map<string, type.LE
 		 */
 		weightedEntries.push({ responses: config.responses, weight: dynamicWeight });
 		// 如果允许日志输出则输出日志
-		if (Permit.can_display_logs) console.log(`[lexicon] 匹配关键词: ${keyword} 匹配得分: ${matchScore} 动态权重: ${dynamicWeight}`);
+		if (can_display_logs) console.log(`[lexicon] 匹配关键词: ${keyword} 匹配得分: ${matchScore} 动态权重: ${dynamicWeight}`);
 	};
 	/**
 	 * 生成一个随机数, 范围在 0 到总权重之间, 用于随机选择权重配置项
@@ -1084,7 +1084,7 @@ function calculateKeywordRelevance(input: string, type: string, source: string[]
 	 */
 	const relevance = Number((score / sample.size).toFixed(3));
 	// 如果允许日志输出且匹配度不为 0, 则输出日志
-	if (Permit.can_display_logs && relevance !== 0) console.log(`§p${type}` + `§r | §5匹配度:§2 ${relevance}` + `§r | §5相同字:§2 ${score}` + `§r | §5总规模:§2 ${sample.size}`);
+	if (can_display_logs && relevance !== 0) console.log(`§p${type}` + `§r | §5匹配度:§2 ${relevance}` + `§r | §5相同字:§2 ${score}` + `§r | §5总规模:§2 ${sample.size}`);
 	// 返回匹配度
 	return relevance;
 };
@@ -1365,23 +1365,6 @@ scalability.set('请重置根证书',
 			)
 			// 返回操作结果
 			return ReplyMessages.get_root_certificate;
-		}
-	}
-);
-scalability.set('改变日志状态',
-	{
-		synopsis: { text: '§a◆§r 切换§m 功能调试日志 §r的显示状态' },
-		...ReplyMessages.craft_template,
-		/**
-		 * 切换日志显示状态, 便于调试时查看或隐藏日志信息
-		 *
-		 * @returns {server.RawMessage} - 包含操作确认消息的服务器原始消息对象
-		 */
-		code(): server.RawMessage {
-			// 切换日志显示标志位
-			Permit.can_display_logs = !Permit.can_display_logs;
-			// 返回操作确认消息
-			return ReplyMessages.log_toggle;
 		}
 	}
 );

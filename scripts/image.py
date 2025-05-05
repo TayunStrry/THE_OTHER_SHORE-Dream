@@ -9,10 +9,10 @@ from PIL import Image
 import os
 
 # 定义源目录路径, 存放需要处理的图片
-src_dir = './DIR_INPUT/textures'
+src_dir = './resources/textures'
 
 # 定义目标目录路径, 存放处理后的图片
-dst_dir = './DIR_OUTPUT/textures'
+dst_dir = './deliverable/textures'
 
 def process_image(img):
 	"""处理图像并根据尺寸生成不同版本"""

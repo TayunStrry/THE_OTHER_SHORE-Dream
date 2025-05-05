@@ -9,7 +9,7 @@ import * as type from "../data/type";
 /*
  * 导出模块
  */
-export { Vector, CalculateMedian, CalculateModes, AnalysisWeight, RandomFloor, RandomFloat, Random, Clamp, IsEnable, QueryFoothold, QueryEntityFoothold };
+export { Vector, MinecraftColor, CalculateMedian, CalculateModes, AnalysisWeight, RandomFloor, RandomFloat, Clamp, IsEnable, QueryFoothold, QueryEntityFoothold };
 /**
  * * 向量常量类
  */
@@ -200,7 +200,7 @@ class Vector extends VectorConstant {
 	/**
 	 * * 根据指定步数返回当前向量在y轴方向上的偏移结果
 	 *
-	 * @param {number} [steps = 1] - 垂直方向偏移量（可选，默认为1）
+	 * @param {number} [steps = 1] - 垂直方向偏移量（可选, 默认为1）
 	 *
 	 * @returns {Vector} - 偏移后的新的 Vector 对象
 	 */
@@ -215,7 +215,7 @@ class Vector extends VectorConstant {
 	/**
 	 * * 根据指定步数返回当前向量在x轴正方向的偏移结果
 	 *
-	 * @param {number} [steps=1] - 水平方向偏移量（可选，默认为1）
+	 * @param {number} [steps=1] - 水平方向偏移量（可选, 默认为1）
 	 *
 	 * @returns {Vector} - 偏移后的新的 Vector 对象
 	 */
@@ -230,7 +230,7 @@ class Vector extends VectorConstant {
 	/**
 	 * * 根据指定步数返回当前向量在z轴正方向的偏移结果
 	 *
-	 * @param {number} [steps=1] - 水平方向偏移量（可选，默认为1）
+	 * @param {number} [steps=1] - 水平方向偏移量（可选, 默认为1）
 	 *
 	 * @returns {Vector} - 偏移后的新的 Vector 对象
 	 */
@@ -950,35 +950,191 @@ class Vector extends VectorConstant {
 	};
 };
 /**
+ * * Minecraft 调色板基类 (RGB格式 0-255 取值区间 转 0-1 取值区间)
+ */
+class MinecraftColorBase {
+	/** Minecraft 颜色类 */
+	constructor(public red: number, public green: number, public blue: number) {
+		this.red = red / 255; this.green = green / 255; this.blue = blue / 255;
+	};
+	/** 获取十六进制表示 */
+	get hex(): string {
+		return `#${[Math.round(this.red * 255), Math.round(this.green * 255), Math.round(this.blue * 255)].map(value => value.toString(16).padStart(2, '0')).join('')}`;
+	};
+	/**
+	 * 计算两个 RGB 颜色之间的距离
+	 *
+	 * @param {server.RGB} color1 - 第一个颜色 (RGB格式, 0-1取值区间)
+	 *
+	 * @param {server.RGB} color2 - 第二个颜色 (RGB格式, 0-1取值区间)
+	 *
+	 * @returns {number} - 两个颜色之间的欧几里得距离
+	 */
+	static distance(color1: server.RGB, color2: server.RGB): number {
+		/**
+		 * rgb(255, 0, 0) - 计算红色通道差值
+		 */
+		const deltaR = Math.round(color1.red * 255) - Math.round(color2.red * 255);
+		/**
+		 * rgb(0, 255, 0) - 计算绿色通道差值
+		 */
+		const deltaG = Math.round(color1.green * 255) - Math.round(color2.green * 255);
+		/**
+		 * rgb(0, 0, 255) - 计算蓝色通道差值
+		 */
+		const deltaB = Math.round(color1.blue * 255) - Math.round(color2.blue * 255);
+		// 计算欧几里得距离
+		return Math.sqrt(deltaR * deltaR + deltaG * deltaG + deltaB * deltaB);
+	};
+	/**
+	 * 获取两个 RGB 颜色之间的距离
+	 *
+	 * @param {server.RGB} color - 需要计算的颜色 (RGB格式, 0-1取值区间)
+	 *
+	 * @returns {number} - 两个颜色之间的欧几里得距离
+	 */
+	distance(color: server.RGB): number {
+		/**
+		 * rgb(255, 0, 0) - 计算红色通道差值
+		 */
+		const deltaR = Math.round(this.red * 255) - Math.round(color.red * 255);
+		/**
+		 * rgb(0, 255, 0) - 计算绿色通道差值
+		 */
+		const deltaG = Math.round(this.green * 255) - Math.round(color.green * 255);
+		/**
+		 * rgb(0, 0, 255) - 计算蓝色通道差值
+		 */
+		const deltaB = Math.round(this.blue * 255) - Math.round(color.blue * 255);
+		// 计算欧几里得距离
+		return Math.sqrt(deltaR * deltaR + deltaG * deltaG + deltaB * deltaB);
+	};
+	/**
+	 * 判断两个 RGB 颜色是否相等
+	 *
+	 * @param {server.RGB} color1 - 第一个颜色 (RGB格式, 0-1取值区间)
+	 *
+	 * @param {server.RGB} color2 - 第二个颜色 (RGB格式, 0-1取值区间)
+	 *
+	 * @returns {boolean} - 两个颜色是否相等
+	 */
+	static equals(color1: server.RGB, color2: server.RGB): boolean {
+		return this.distance(color1, color2) < 1;
+	};
+	/**
+	 * 判断两个 RGB 颜色是否相等
+	 *
+	 * @param color - 需要判断的颜色 (RGB格式, 0-1取值区间)
+	 * 
+	 * @returns {boolean} - 两个颜色是否相等
+	 */
+	equals(color: server.RGB): boolean {
+		return this.distance(color) < 1;
+	};
+	/**
+	 * 获取实体的 RGB 颜色信息
+	 *
+	 * @param {server.Entity} target - 用于获取颜色信息的实体对象
+	 *
+	 * @returns {MinecraftColor} - 返回 经过数据转换后的 颜色对象
+	 */
+	static getEntityColor(target: server.Entity): MinecraftColor {
+		/**
+		 * rgb(255, 0, 0) - 获取 红色通道 参数
+		 */
+		const entityColorR = target.getProperty('property:color_r') as number | undefined;
+		/**
+		 * rgb(0, 255, 0) - 获取 绿色通道 参数
+		 */
+		const entityColorG = target.getProperty('property:color_g') as number | undefined;
+		/**
+		 * rgb(0, 0, 255) - 获取 蓝色通道 参数
+		 */
+		const entityColorB = target.getProperty('property:color_b') as number | undefined;
+		// 返回 经过数据转换后的 颜色对象
+		return new this((entityColorR ?? 0.5) * 255, (entityColorG ?? 0.5) * 255, (entityColorB ?? 0.5) * 255);
+	};
+};
+/**
+ * * Minecraft 调色板 (RGB格式 0-255 取值区间 转 0-1 取值区间)
+ */
+class MinecraftColor extends MinecraftColorBase {
+	/**
+	 * 白色 (White) #F0F0F0
+	 */
+	static readonly WHITE = new this(240, 240, 240);
+	/**
+	 * 浅灰色 (Light Gray) #9D9D97
+	 */
+	static readonly LIGHT_GRAY = new this(157, 157, 151);
+	/**
+	 * 灰色 (Gray) #474F52
+	 */
+	static readonly GRAY = new this(71, 79, 82);
+	/**
+	 * 黑色 (Black) #1D1D21
+	 */
+	static readonly BLACK = new this(29, 29, 33);
+	/**
+	 * 棕色 (Brown) #835432
+	 */
+	static readonly BROWN = new this(131, 84, 50);
+	/**
+	 * 红色 (Red) #B02E26
+	 */
+	static readonly RED = new this(176, 46, 38);
+	/**
+	 * 橙色 (Orange) #F9801D
+	 */
+	static readonly ORANGE = new this(249, 128, 29);
+	/**
+	 * 黄色 (Yellow) #FED83D
+	 */
+	static readonly YELLOW = new this(254, 216, 61);
+	/**
+	 * 黄绿色 (Lime) #80C71F
+	 */
+	static readonly LIME = new this(128, 199, 31);
+	/**
+	 * 绿色 (Green) #5E7C16
+	 */
+	static readonly GREEN = new this(94, 124, 22);
+	/**
+	 * 青色 (Cyan) #169C9C
+	 */
+	static readonly CYAN = new this(22, 156, 156);
+	/**
+	 * 淡蓝色 (Light Blue) #3AB3DA
+	 */
+	static readonly LIGHT_BLUE = new this(58, 179, 218);
+	/**
+	 * 蓝色 (Blue) #3C44AA
+	 */
+	static readonly BLUE = new this(60, 68, 170);
+	/**
+	 * 紫色 (Purple) #8932B8
+	 */
+	static readonly PURPLE = new this(137, 50, 184);
+	/**
+	 * 品红色 (Magenta) #C74EBD
+	 */
+	static readonly MAGENTA = new this(199, 78, 189);
+	/**
+	 * 粉红色 (Pink) #F38BAA
+	 */
+	static readonly PINK = new this(243, 139, 170);
+};
+/**
  * * 将数值限制在指定的最小值和最大值范围内
  *
  * @param {type.Vertex} input 包含数字范围的 Vertex 对象
  *
  * @param {number} value 用于测试的数值
  *
- * @returns {number} 限制后的数值，确保在 [range.min, range.max] 区间内
+ * @returns {number} 限制后的数值, 确保在 [range.min, range.max] 区间内
  */
 function Clamp({ min, max }: type.VERTEX, value: number): number {
 	return Math.max(min, Math.min(max, value));
-};
-/**
- * * 生成 指定范围 内 的 随机值
- *
- * @param {VERTEX} input 包含数字范围的 VERTEX 对象
- *
- * @param {boolean} integer 是否生成整数, true 为生成整数, false 为生成浮点数
- *
- * @returns {number} 输出 范围内 的 随机值
- */
-function Random({ min, max }: type.VERTEX, integer?: boolean): number {
-	if (integer == true) {
-		// 输出 指定范围内 的 随机整数
-		return Math.floor(Math.random() * (max - min + 1) + min);
-	}
-	else {
-		// 输出 指定范围内 的 随机浮点数
-		return Math.random() * (max - min) + min;
-	}
 };
 /**
  * * 生成指定范围内的随机整数
@@ -1255,6 +1411,8 @@ function QueryFoothold(source: type.LOCATION_AND_DIMENSION, range: number, heigh
  * * 在范围内寻找合适的实体落脚点
  *
  * @param {server.Entity} source 带有位置与维度信息的实例
+ *
+ * @param {string[]} exclude 排除的实体类型
  *
  * @param {number} scale 最大检测次数
  *

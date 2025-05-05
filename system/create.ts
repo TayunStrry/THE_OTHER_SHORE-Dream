@@ -15,25 +15,37 @@ import { Vector } from './maths';
  */
 export { TrySetPermutation, TrySpawnParticle, TrySpawnItem, TryFillBlocks, TrySpawnEntity, SetFreePointer, TryProcessBlocksInVolume };
 /**
- * * 尝试设置 方块状态
+ * * 尝试设置一个或多个方块的状态（方块属性）
  *
- * @param {server.Block} object - 执行 更新事件 的 方块对象
+ * @param {server.Block | server.Block[]} objects - 单个方块或方块数组
  *
- * @param {string} type - 进行 赋值 的 方块状态
+ * @param {string} type - 要设置的方块状态名称（如 "minecraft:direction"）
  *
- * @param {string | number | boolean} value - 方块状态值
+ * @param {string | number | boolean} value - 对应的状态值
  *
- * @returns {Error | void} - 赋值失败 返回 错误信息
+ * @returns {Error | void} 如果设置失败返回错误信息，成功则返回 undefined
  */
-function TrySetPermutation(object: server.Block, type: string, value: string | number | boolean): Error | void {
+function TrySetPermutation(objects: server.Block | server.Block[], type: string, value: string | number | boolean): Error | void {
 	try {
 		/**
-		 * * 赋值 方块状态
+		 * 强制转为数组进行处理
 		 */
-		const state = object.permutation.withState(type, value);
-		object.setPermutation(state);
+		const blocks = Array.isArray(objects) ? objects : [objects];
+		// 遍历数组
+		blocks.forEach(
+			block => {
+				/**
+				 * 合并方块状态
+				 */
+				const state = block.permutation.withState(type, value);
+				// 设置方块状态
+				block.setPermutation(state);
+			}
+		);
 	}
-	catch (error) { return error instanceof Error ? error : new Error(String(error)); };
+	catch (error) {
+		return error instanceof Error ? error : new Error(String(error));
+	}
 };
 /**
  * 批量处理指定范围内符合条件的方块

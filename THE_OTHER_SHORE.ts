@@ -2,7 +2,6 @@
  * 原版接口
  */
 import * as server from "@minecraft/server";
-import * as debug from "@minecraft/debug-utilities";
 /*
  * 系统数据
  */
@@ -15,67 +14,30 @@ import * as table from "./data/table";
 /*
  * 方块组件
  */
-import interact_component from "./block/interact_component";
-import destroy_component from "./block/destroy_component";
-import update_component from "./block/update_component";
-import place_component from "./block/place_component";
-import tick_component from "./block/tick_component";
-import step_component from "./block/step_component";
+import blockComponents from "./block/custom_component";
+import updateComponent from "./block/update_component";
 /*
  * 物品组件
  */
-import literature_component from "./item/literature_component";
-import delicacies_component from "./item/delicacies_component";
-import equipment_component from "./item/equipment_component";
-import authority_component from "./item/authority_component";
-import armament_component from "./item/armament_component";
-import voucher_component from "./item/voucher_component";
-import tool_component from "./item/tool_component";
-import prop_component from "./item/prop_component";
+import itemComponents from "./item/custom_component";
 /*
  * 物品特例组件
  */
-import { magicCrystalHammer, magicCrystalKey } from "./item/tool_component";
-import { containerSorting } from "./item/authority_component";
-import { magicHandbook } from "./item/literature_component";
-import { obtainBlock } from "./item/prop_component";
+import { containerSorting, magicHandbook, obtainBlock, magicCrystalHammer, magicCrystalKey, EquipmentEventTrigger } from "./item/custom_function";
 /*
  * 实体组件
  */
-import * as entity_subject from "./entity/subject";
-import custom_command from "./command/custom_command";
-import custom_enum from "./command/custom_enum";
+import * as entitySubject from "./entity/subject";
+/*
+ * 自定义命令组件
+ */
+import customCommands from "./command/custom_command";
+import customEnums from "./command/custom_enum";
 /*
  * < 世界 > 初始化前 事件
  */
 server.system.beforeEvents.startup.subscribe(
 	data => {
-		/**
-		 * 方块自定义组件的映射集合
-		 */
-		const blockComponents = new Map<string, server.BlockCustomComponent>(
-			[
-				...interact_component,
-				...destroy_component,
-				...place_component,
-				...step_component,
-				...tick_component,
-			]
-		);
-		/**
-		 * 物品自定义组件的映射集合
-		 */
-		const itemComponents = new Map<string, server.ItemCustomComponent>(
-			[
-				...delicacies_component,
-				...literature_component,
-				...authority_component,
-				...armament_component,
-				...voucher_component,
-				...tool_component,
-				...prop_component,
-			]
-		);
 		/**
 		 * 方块自定义组件实例数组
 		 */
@@ -95,19 +57,19 @@ server.system.beforeEvents.startup.subscribe(
 		/**
 		 * 自定义指令的映射集合
 		 */
-		const customCommands = [...custom_command.keys()];
+		const commandsInfos = [...customCommands.keys()];
 		/**
 		 * 自定义指令回调函数数组
 		 */
-		const commandCallbacks = [...custom_command.values()];
+		const commandCallbacks = [...customCommands.values()];
 		/**
 		 * 自定义指令的枚举映射集合
 		 */
-		const enumName = [...custom_enum.keys()];
+		const enumName = [...customEnums.keys()];
 		/**
 		 * 自定义指令枚举值数组
 		 */
-		const enumValues = [...custom_enum.values()];
+		const enumValues = [...customEnums.values()];
 		// === 方块自定义组件注册 ===
 		for (let blockIndex = 0; blockIndex < blockCustoms.length; blockIndex++)data.blockComponentRegistry.registerCustomComponent(blockNames[blockIndex], blockCustoms[blockIndex]);
 		// === 物品自定义组件注册 ===
@@ -115,7 +77,7 @@ server.system.beforeEvents.startup.subscribe(
 		// === 自定义指令枚举值注册 ===
 		for (let enumIndex = 0; enumIndex < enumName.length; enumIndex++) data.customCommandRegistry.registerEnum(enumName[enumIndex], enumValues[enumIndex]);
 		// === 自定义指令注册 ===
-		for (let cmdIndex = 0; cmdIndex < commandCallbacks.length; cmdIndex++) data.customCommandRegistry.registerCommand(customCommands[cmdIndex], commandCallbacks[cmdIndex]);
+		for (let cmdIndex = 0; cmdIndex < commandCallbacks.length; cmdIndex++) data.customCommandRegistry.registerCommand(commandsInfos[cmdIndex], commandCallbacks[cmdIndex]);
 	}
 );
 /*
@@ -126,7 +88,7 @@ server.world.afterEvents.worldLoad.subscribe(
 		/*
 		 * 注册 基础程序容器
 		 */
-		equipment_component.BriefCreate('世界初始化容器');
+		EquipmentEventTrigger.BriefCreate('世界初始化容器');
 		// 在月华百科中导入知识库
 		opal.material.push(...help);
 	}
@@ -192,15 +154,14 @@ server.world.afterEvents.playerSpawn.subscribe(
 		player.setDynamicProperty('road_sign:出生点', JSON.stringify(anchor));
 		opal.CreateProperty(player, { self_rune: 'rune_void' });
 		player.setDynamicProperty('entity:is_initial', true);
+		// 播放启动音效
+		server.system.runTimeout(() => player.playSound('ambient.weather.thunder'), 480);
 		// 尝试创建附加结构
-		server.system.runTimeout(() => player.addEffect('minecraft:darkness', 120, { amplifier: 0, showParticles: false }), 240);
-		server.system.runTimeout(() => player.onScreenDisplay.setTitle('§4警告! 空间乱流! 警惕<野蜂>!'), 320);
-		server.system.runTimeout(() => entity_subject.EnterVacantSpaceWaspTower(player), 360);
-		// 播放音效
-		server.system.runTimeout(() => player.playSound('ambient.weather.thunder'), 340);
-		server.system.runTimeout(() => player.playSound('ambient.weather.thunder'), 240);
+		server.system.runTimeout(() => entitySubject.EnterVacantSpaceWaspTower(player), 500);
+		// 播放终止音效
+		server.system.runTimeout(() => player.playSound('ambient.weather.thunder'), 560);
 		// 重新设置世界规则
-		entity_subject.ReviseWorldRules(overworldDimension);
+		entitySubject.ReviseWorldRules(overworldDimension);
 	}
 );
 /*
@@ -217,7 +178,7 @@ server.world.afterEvents.entityHealthChanged.subscribe(
 		 */
 		const value = data.oldValue - data.newValue;
 		// 显示生命值变化
-		entity_subject.HealthAlterDisplay(entity, Math.ceil(value));
+		entitySubject.HealthAlterDisplay(entity, Math.ceil(value));
 	}
 );
 /*
@@ -240,11 +201,11 @@ server.world.afterEvents.entityHurt.subscribe(
 		// 验证实体是否有效
 		if (!entity || !target || !entity.isValid || !target.isValid) return;
 		// 执行 玩家发动攻击后 事件
-		entity_subject.PlayersLaunchAttacks(target, source, entity);
+		entitySubject.PlayersLaunchAttacks(target, source, entity);
 		// 执行 实体遭受攻击后 事件
-		entity_subject.EntityUnderAttack(target, source, entity, data.damage);
+		entitySubject.EntityUnderAttack(target, source, entity, data.damage);
 		// 执行 玩家遭受攻击后 事件
-		entity_subject.PlayersUnderAttack(target, entity);
+		entitySubject.PlayersUnderAttack(target, entity);
 	}
 );
 /*
@@ -267,9 +228,9 @@ server.world.afterEvents.entityDie.subscribe(
 		// 验证实体是否有效
 		if (!target || !target.isValid || !self || !self.isValid || !self.hasComponent('minecraft:health')) return;
 		// 死亡后发放奖励
-		entity_subject.createRewardsAfterDeath(self, target);
+		entitySubject.createRewardsAfterDeath(self, target);
 		// 执行 死亡机制
-		entity_subject.FunctionsPerformedAfterDeath(self, target);
+		entitySubject.FunctionsPerformedAfterDeath(self, target);
 	}
 );
 /*
@@ -281,6 +242,7 @@ server.world.afterEvents.entityHitBlock.subscribe(
 		 * * 获取 玩家对象
 		 */
 		const player = data.damagingEntity;
+		// 验证实体是否有效
 		if (!(player instanceof server.Player)) return;
 		/**
 		 * * 获取 物品对象
@@ -325,31 +287,102 @@ server.world.afterEvents.entityHitBlock.subscribe(
  */
 server.world.afterEvents.weatherChange.subscribe(
 	() => {
-		// 尝试 按计划生成 实体
-		entity_subject.GenerateOnSchedule('starry_map:guide.jasmine', 23, { text: '§c§l< 警惕 琥珀与茉莉 靠近 > !!!§r' }, 'portal.trigger');
-		entity_subject.GenerateOnSchedule('starry_map:wild_bee.guide', 30, { text: '§c§l< 遭遇成建制的 野蜂机群 袭击 > !!!§r' }, 'portal.trigger');
-		entity_subject.GenerateOnSchedule('starry_map:guide.windnews', 40, { text: '矿石商人-风信 出现了' }, 'portal.trigger');
+		/**
+		 * 获取当前游戏日
+		 */
+		const currentDay: number = server.world.getDay();
+		// 敌袭间隔为30天, 如果当前游戏日小于等于20, 则不触发敌袭
+		if (currentDay <= 20) return;
+		/**
+		 * 上次触发敌袭的时间（游戏日）
+		 */
+		let lastRaidDay = server.world.getDynamicProperty('time_integration') as number | undefined;
+		/**
+		 * 敌袭间隔计数器
+		 */
+		let raidIntervalCount = server.world.getDynamicProperty('timekeeper') as number || 0;
+		// 如果上次敌袭时间为undefined, 则初始化
+		if (lastRaidDay === undefined) {
+			// 初始化上次敌袭时间为当前日
+			server.world.setDynamicProperty('time_integration', currentDay);
+			lastRaidDay = currentDay;
+		}
+		/**
+		 * 如果设置了“敌袭倒计时”功能, 则显示剩余天数
+		 */
+		if (opal.TriggerControl('敌袭倒计时', new opal.Vector(0, 0, 0), 100)) {
+			const daysUntilNextRaid = 30 - (currentDay - lastRaidDay) % 30;
+			if (daysUntilNextRaid > 0) {
+				server.world.sendMessage(`敌袭可能将在 ${daysUntilNextRaid} 天后到来`);
+			}
+		}
+		/**
+		 * 若未达到触发周期, 提前返回
+		 */
+		if ((currentDay - lastRaidDay) / 30 < raidIntervalCount) return;
+		/**
+		 * 定义敌袭实体及其出现权重
+		 */
+		const raidMobWeights = new Map<string, number>(
+			[
+				['starry_map:wild_bee.guide', 15],
+				['starry_map:guide.jasmine', 10],
+				['starry_map:guide.windnews', 5]
+			]
+		);
+		/**
+		 * 根据权重选择一个敌袭实体类型
+		 */
+		const selectedRaidMobId = opal.AnalysisWeight(raidMobWeights).output;
+		/**
+		 * 获取所有在线玩家
+		 */
+		const allPlayers = server.world.getPlayers();
+		/**
+		 * 若没有玩家在线, 提前返回
+		 */
+		if (allPlayers.length === 0) return;
+		/**
+		 * 随机选择一名玩家作为触发者
+		 */
+		const targetPlayer = allPlayers[opal.RandomFloor(0, allPlayers.length - 1)];
+		// 验证玩家对象是否有效
+		if (!targetPlayer) return;
+		/**
+		 * 随机偏移坐标
+		 */
+		const randomOffsetLocation = opal.Vector.copy(targetPlayer.location).random(32);
+		/**
+		 * 获取目标位置上方两格的有效坐标作为生成锚点
+		 */
+		const spawnAnchorLocation = targetPlayer.dimension.getTopmostBlock(randomOffsetLocation)?.above(2) ?? targetPlayer.location;
+		/**
+		 * 玩家头部坐标, 用于设置自由指针
+		 */
+		const playerHeadLocation = targetPlayer.getHeadLocation();
+		/**
+		 * 玩家所在维度
+		 */
+		const playerDimension = targetPlayer.dimension;
+		/**
+		 * 延迟播放音效和生成敌袭实体
+		 */
+		server.system.runTimeout(() => targetPlayer.playSound('portal.trigger'), 20);
+		server.system.runTimeout(() => targetPlayer.onScreenDisplay.setTitle([opal.translate(selectedRaidMobId, 'entity'), { text: '出现了' }]), 40);
+		server.system.runTimeout(() => opal.TrySpawnEntity(playerDimension, selectedRaidMobId, spawnAnchorLocation), 60);
+		/**
+		 * 设置自由指针（可能用于后续追踪或引导）
+		 */
+		opal.SetFreePointer({ location: playerHeadLocation, dimension: playerDimension }, spawnAnchorLocation, 10);
+		/**
+		 * 更新敌袭相关状态
+		 */
+		server.world.setDynamicProperty('time_integration', currentDay);
+		server.world.setDynamicProperty('timekeeper', raidIntervalCount + 1);
 	}
 );
 /*
  * < 方块 > 更新后 事件
  */
-server.world.afterEvents.playerBreakBlock.subscribe(data => update_component(data.block));
-server.world.afterEvents.playerPlaceBlock.subscribe(data => update_component(data.block));
-/*
- * < 玩家 > 破坏方块后 事件
- */
-server.world.afterEvents.playerBreakBlock.subscribe(
-	data => {
-		/**
-		 * * 挖掘方块 的 玩家
-		 */
-		const player = data.player;
-		/**
-		 * * 区块连锁 状态
-		 */
-		const type = player.getDynamicProperty('block_chain:type') as string | undefined;
-		// 当玩家破坏方块时 触发 区块连锁 事件
-		if (type && opal.TriggerControl('区块连锁', player, 20)) entity_subject.BlockChainEvent(data, type);
-	}
-);
+server.world.afterEvents.playerBreakBlock.subscribe(data => updateComponent(data.block));
+server.world.afterEvents.playerPlaceBlock.subscribe(data => updateComponent(data.block));

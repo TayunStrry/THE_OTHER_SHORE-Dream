@@ -5,7 +5,7 @@ import * as server from "@minecraft/server";
 /*
  * 系统数据
  */
-import * as table from "../data/table";
+import { can_display_logs } from "../data/table";
 import * as type from "../data/type";
 /*
  * 设置模块
@@ -97,7 +97,7 @@ class Control {
 					 */
 					const intel: string = 'THE_OTHER_SHORE:' + info.message + stack;
 					// 基于 条件参数 约束 控制台输出
-					if (table.Permit.can_display_logs) console.error(intel);
+					if (can_display_logs) console.error(intel);
 					// 将 计划表 标记为 等待移除
 					remove();
 				};
@@ -749,3 +749,11 @@ function UUID(): string {
 		}
 	);
 };
+/*
+type system_BEFORE_EVENT = (data: type.BEFORE_PLAN_DATA) => void;
+type system_AFTER_EVENT = (data: type.AFTER_PLAN_DATA) => void;
+type system_Function = (time: number, annex: type.ANNEX_ARGS) => any;
+const systemEvent: [string, system_BEFORE_EVENT, system_AFTER_EVENT][] = [];
+function systemSubscribe(eventType: string, beforeEvent: system_BEFORE_EVENT, afterEvent: system_AFTER_EVENT) { }
+function systemControl(eventType: string, code: system_Function, cooldown: number = 1, speed: number = 1) { }
+*/

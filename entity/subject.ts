@@ -16,7 +16,7 @@ import * as type from "../data/type";
 /*
  * 物品组件
  */
-import { magicCrystalShield, bowHitAfter } from "../item/tool_component";
+import { useMagicCrystalShield, bowHitAfter } from "../item/custom_function";
 /*
  * 实体组件
  */
@@ -107,7 +107,7 @@ export function HealthAlterDisplay(entity: server.Entity, variation: number) {
  *
  * @param {server.Player} player - 执行事件的玩家对象
  */
-export function EnterVacantSpaceWaspTower(player: server.Player) {
+export function oldEnterVacantSpaceWaspTower(player: server.Player) {
 	/**
 	 * * 获取 游戏规则
 	 */
@@ -115,7 +115,7 @@ export function EnterVacantSpaceWaspTower(player: server.Player) {
 	/**
 	 * * 坐标映射值
 	 */
-	const mapping = new opal.Vector(500, 150, 500);
+	const mapping = new opal.Vector(500, 155, 500);
 	/**
 	 * * 进行结构生成的维度
 	 */
@@ -201,6 +201,97 @@ export function EnterVacantSpaceWaspTower(player: server.Player) {
 	// 设置 游戏规则
 	if (rule == true) server.world.setDynamicProperty('game_rules:regenerate.vacant_space_wasp_tower', false);
 };
+export function EnterVacantSpaceWaspTower(player: server.Player) {
+	/**
+	 * * 获取 游戏规则
+	 */
+	const rule = server.world.getDynamicProperty('game_rules:regenerate.vacant_space_wasp_tower') ?? true;
+	/**
+	 * * 进行结构生成的维度
+	 */
+	const dimension = player.dimension;
+	/**
+	 * * 坐标映射值
+	 */
+	const mapping = new opal.Vector(player.location.x, 255, player.location.z);
+	/**
+	 * * 定义 坐标锚点
+	 */
+	const anchor = JSON.stringify({ location: mapping, dimension: dimension.id });
+	/**
+	 * * 定义 相机参数
+	 */
+	const camera = player.camera;
+	/**
+	 * * 定义 摄像机终点坐标
+	 */
+	const endPoint = mapping.add({ x: 48, y: 64, z: 48 });
+	/**
+	 * * 获取 玩家背包
+	 */
+	const container = player.getComponent('inventory')?.container;
+	/**
+	 * * 定义 粒子参数
+	 */
+	const molang = new server.MolangVariableMap();
+	// 触发新手礼包
+	if (container) DonationInitialGift(player, container);
+	// 设置 动态属性-野蜂塔坐标
+	server.system.runTimeout(() => player.setDynamicProperty('road_sign:虚空野蜂塔', anchor), 20);
+	// 播放引导文本
+	opal.PlayPrompt(player, "生成虚空野蜂塔");
+	// 传送玩家到野蜂塔
+	player.teleport(mapping, { dimension });
+	// 清除 摄像机动画
+	server.system.runTimeout(() => camera.clear(), 95);
+	// 设置 摄像机位移
+	server.system.runTimeout(() => camera.setCamera('minecraft:free', { location: endPoint, facingLocation: player.location, easeOptions: { easeTime: 3 } }), 20);
+	// 播放剧情文本
+	server.system.runTimeout(() => player.sendMessage({ translate: '音效.琉璃.蜂塔引导_0' }), 100);
+	server.system.runTimeout(() => player.sendMessage({ translate: '音效.琉璃.蜂塔引导_1' }), 200);
+	server.system.runTimeout(() => player.sendMessage({ translate: '音效.琉璃.蜂塔引导_2' }), 300);
+	server.system.runTimeout(() => player.sendMessage({ translate: '音效.琉璃.蜂塔引导_3' }), 400);
+	server.system.runTimeout(() => player.sendMessage({ translate: '音效.琉璃.蜂塔引导_4' }), 500);
+	server.system.runTimeout(() => player.sendMessage({ translate: '音效.琉璃.蜂塔引导_5' }), 600);
+	server.system.runTimeout(() => player.sendMessage({ translate: '音效.琉璃.蜂塔引导_6' }), 800);
+	server.system.runTimeout(() => player.sendMessage({ translate: '音效.琉璃.蜂塔引导_7' }), 1000);
+	server.system.runTimeout(() => player.sendMessage({ translate: '音效.琉璃.蜂塔引导_8' }), 1150);
+	// 播放音效
+	server.system.runTimeout(() => player.playSound('音效.琉璃.蜂塔引导_0'), 100);
+	server.system.runTimeout(() => player.playSound('音效.琉璃.蜂塔引导_1'), 200);
+	server.system.runTimeout(() => player.playSound('音效.琉璃.蜂塔引导_2'), 300);
+	server.system.runTimeout(() => player.playSound('音效.琉璃.蜂塔引导_3'), 400);
+	server.system.runTimeout(() => player.playSound('音效.琉璃.蜂塔引导_4'), 500);
+	server.system.runTimeout(() => player.playSound('音效.琉璃.蜂塔引导_5'), 600);
+	server.system.runTimeout(() => player.playSound('音效.琉璃.蜂塔引导_6'), 800);
+	server.system.runTimeout(() => player.playSound('音效.琉璃.蜂塔引导_7'), 1000);
+	server.system.runTimeout(() => player.playSound('音效.琉璃.蜂塔引导_8'), 1150);
+	// 设定射线类型
+	molang.setFloat('variable.type', 0);
+	// 设定射线方向
+	molang.setVector3('variable.direction', opal.Vector.CONSTANT_UP);
+	// 播放粒子特效
+	server.system.runTimeout(() => GuideLightBeam(player, molang), 200);
+	server.system.runTimeout(() => GuideLightBeam(player, molang), 400);
+	server.system.runTimeout(() => GuideLightBeam(player, molang), 600);
+	server.system.runTimeout(() => GuideLightBeam(player, molang), 800);
+	// 判断是否生成结构
+	if (rule === false) return;
+	/**
+	 * * 获取 建筑结构
+	 */
+	const template = server.world.structureManager.get('mystructure:vacant_space_wasp_tower');
+	/**
+	 * * 定义 坐标基准点
+	 */
+	const reference = mapping.add({ x: -40, y: -9, z: -25 });
+	// 检测 建筑结构
+	if (!template) return player.sendMessage([opal.translate(player), { text: '-> 未能获取到<§l§9 末地蜂塔 §r>的结构数据文件' }]);
+	// 放置 建筑结构
+	server.world.structureManager.place(template, dimension, reference);
+	// 设置 游戏规则
+	if (rule == true) server.world.setDynamicProperty('game_rules:regenerate.vacant_space_wasp_tower', false);
+};
 /**
  * * 诸界道标 指引光束 粒子特效
  */
@@ -239,10 +330,6 @@ function DonationInitialGift(player: server.Player, container: server.Container)
 	 * * 获取 空闲格子数量
 	 */
 	const emptySlots = container?.emptySlotsCount ?? 0;
-	/**
-	 * * 坐标映射值
-	 */
-	const mapping: server.Vector3 = { x: 500, y: 16, z: 500 };
 	// 设置 物品描述
 	pureness.setLore(
 		[
@@ -277,10 +364,10 @@ function DonationInitialGift(player: server.Player, container: server.Container)
 	);
 	// 判断玩家背包是否具有足够的空间
 	if (emptySlots < 3) {
-		server.system.runTimeout(() => opal.TrySpawnItem(player.dimension, paper, mapping), 50);
-		server.system.runTimeout(() => opal.TrySpawnItem(player.dimension, energy, mapping), 70);
-		server.system.runTimeout(() => opal.TrySpawnItem(player.dimension, contract, mapping), 90);
-		server.system.runTimeout(() => opal.TrySpawnItem(player.dimension, pureness, mapping), 110);
+		server.system.runTimeout(() => opal.TrySpawnItem(player.dimension, paper, player.location), 50);
+		server.system.runTimeout(() => opal.TrySpawnItem(player.dimension, energy, player.location), 70);
+		server.system.runTimeout(() => opal.TrySpawnItem(player.dimension, contract, player.location), 90);
+		server.system.runTimeout(() => opal.TrySpawnItem(player.dimension, pureness, player.location), 110);
 	}
 	else {
 		server.system.runTimeout(() => container?.addItem(paper), 50);
@@ -288,208 +375,9 @@ function DonationInitialGift(player: server.Player, container: server.Container)
 		server.system.runTimeout(() => container?.addItem(pureness), 90);
 		server.system.runTimeout(() => container?.addItem(contract), 110);
 	};
-};
-/**
- * * 实体生成日期表
- *
- * @param {string} type - 等待生成的实体类型
- *
- * @param {number} time - 生成间隔时间(游戏日)
- *
- * @param {server.RawMessage} title - 显示的标题
- *
- * @param {string} sound - 播放的音效
- */
-export function GenerateOnSchedule(type: string, time: number, title: server.RawMessage, sound: string) {
-	/**
-	 * * 日历计时值
-	 */
-	const calendar = server.world.getDynamicProperty('generate_on_schedule:' + type) as number ?? 1;
-	/**
-	 * * 获取 实体刷新日历
-	 */
-	const convert = Math.floor(server.world.getDay() / time);
-	// 检测是否满足刷新条件
-	if (convert <= calendar) return;
-	/**
-	 * * 获取 全部玩家
-	 */
-	const players = server.world.getPlayers();
-	/**
-	 * * 获取 随机玩家
-	 */
-	const player = players[opal.RandomFloor(0, players.length - 1)];
-	// 判断玩家是否存在
-	if (player === undefined) return;
-	/**
-	 * * +-32 随机值
-	 */
-	const random = () => opal.Random({ max: 32, min: -32 });
-	/**
-	 * * 随机偏移坐标
-	 */
-	const offset = new opal.Vector(random(), 0, random()).add(player.location);
-	/**
-	 * * 获取 随机有效坐标
-	 */
-	const anchor = player.dimension.getTopmostBlock(offset)?.above(2) ?? player.location;
-	/**
-	 * * 获取 玩家头部坐标
-	 */
-	const location = player.getHeadLocation();
-	/**
-	 * * 获取 玩家所在维度
-	 */
-	const dimension = player.dimension;
-	// 刷新实体生成日历
-	server.world.setDynamicProperty('generate_on_schedule:' + type, convert + 1);
-	// 播放音效
-	server.system.runTimeout(() => player.playSound(sound), 20);
-	// 显示标题
-	server.system.runTimeout(() => player.onScreenDisplay.setTitle(title), 40);
-	// 生成实体
-	server.system.runTimeout(() => opal.TrySpawnEntity(player.dimension, type, anchor), 60);
-	// 设置 自由指针
-	opal.SetFreePointer({ location, dimension }, anchor, 10);
-};
-/**
- * * 区块连锁
- *
- * @param {server.PlayerBreakBlockAfterEvent} eventData 区块连锁 所需的 事件参数
- *
- * @param {string} type 区块连锁 类型
- */
-export function BlockChainEvent(eventData: server.PlayerBreakBlockAfterEvent, type: string) {
-	/**
-	 * * 被挖掘的方块的标识符
-	 */
-	const blockID = eventData.brokenBlockPermutation.type.id;
-	/**
-	 * * 进行挖掘的位置
-	 */
-	const location = eventData.block.location;
-	/**
-	 * * 进行挖掘的维度
-	 */
-	const dimension = eventData.dimension;
-	/**
-	 * * 玩家对象
-	 */
-	const player = eventData.player;
-	/**
-	 * * 获取 玩家背包
-	 */
-	const container = player.getComponent('minecraft:inventory')?.container;
-	/**
-	 * * 进行挖掘的物品
-	 */
-	const item = eventData.itemStackAfterBreak;
-	/**
-	 * * 高度
-	 */
-	const height = player.getDynamicProperty('block_chain:height') as number;
-	/**
-	 * * 深度
-	 */
-	const depth = player.getDynamicProperty('block_chain:depth') as number;
-	/**
-	 * * 范围
-	 */
-	const range = player.getDynamicProperty('block_chain:range') as number;
-	/**
-	 ** 挖掘方块理应消耗的耐久度
-	 */
-	const waste = (Math.abs(depth) + height) * (range * 2);
-	/**
-	 * * 耐久度组件
-	 */
-	const durability = item?.getComponent('minecraft:durability'); if (!durability) return;
-	/**
-	 ** 耐久度剩余耐久度
-	 */
-	const surplus = durability.maxDurability - durability.damage;
-	// 判断 是否满足条件
-	if (!item || !item.hasTag('minecraft:digger')) return;
-	// 判断 连锁触发条件
-	switch (type) {
-		case '潜行': if (!player.isSneaking) return; break;
-
-		case '始终': break;
-
-		default: return;
-	};
-	// 判断 耐久度是否足够
-	if (waste >= surplus) return player.sendMessage([opal.translate(item), { text: ' -> 耐久度不足, 无法连锁' }]);
-	// 为 玩家 添加状态效果
-	player.addEffect('minecraft:mining_fatigue', 200, { amplifier: 29, showParticles: false });
-	player.addEffect('minecraft:hunger', 200, { amplifier: 29, showParticles: false });
-	/**
-	 * * 定义 路径事件
-	 */
-	const moveEvent = (args: type.ROUTE_ANNEX_ARGS) => {
-		/**
-		 * * 获取 方块
-		 */
-		const getBlock = args.dimension.getBlock(args.location);
-		//执行路径事件的功能
-		if (getBlock?.typeId === blockID) {
-			// 执行填充方块命令
-			args.dimension.runCommand(`fill ${args.location.x} ${args.location.y} ${args.location.z} ${args.location.x} ${args.location.y} ${args.location.z} air [] destroy`)
-			/**
-			 * * 定义 掉落物 的 参数
-			 */
-			const itemOptions: server.EntityQueryOptions = {
-				location: args.location,
-				type: "minecraft:item",
-				maxDistance: 4
-			};
-			/**
-			 * * 定义 经验球 的 参数
-			 */
-			const expOptions: server.EntityQueryOptions = {
-				location: args.location,
-				type: "minecraft:xp_orb",
-				maxDistance: 4
-			};
-			/**
-			 * * 获取 掉落物 与 经验球 的 实体
-			 */
-			const select = [
-				...args.dimension.getEntities(itemOptions),
-				...args.dimension.getEntities(expOptions)
-			];
-			// 获取附近的掉落物
-			select.forEach(entity => entity.teleport(player.getHeadLocation(), { dimension: player.dimension }));
-		}
-		// 继续循环
-		return true
-	};
-	/**
-	 * * 立方体绘制 的 起始顶点
-	 */
-	const start = opal.Vector.add(location, { x: range, y: depth, z: range });
-	/**
-	 * * 立方体绘制 的 结束顶点
-	 */
-	const done = opal.Vector.add(location, { x: -range, y: height, z: -range });
-	// 创建 路径执行计划
-	opal.PathExecute.CreateForCube(
-		'区块连锁-路径执行',
-		{
-			particles: ['constant:track_color_yellow'],
-			locations: [],
-			dimension,
-			cooldown: 1,
-			speed: 1,
-			offset: opal.Vector.CONSTANT_HALF,
-			on_move: moveEvent,
-		},
-		start, done, 0.25
-	);
-	// 消耗耐久值
-	durability.damage += waste;
-	// 置换物品
-	if (container) container.setItem(player.selectedSlotIndex, item);
+	// 给与 玩家 新手保护
+	player.addEffect("minecraft:invisibility", 1800, { amplifier: 1, showParticles: false });
+	player.addEffect("minecraft:resistance", 1800, { amplifier: 4, showParticles: false });
 };
 /**
  * * 重新设置世界规则
@@ -581,7 +469,7 @@ export function PlayersUnderAttack(target: server.Entity, entity: server.Entity)
 			// 检测 物品类型
 			switch (item.typeId) {
 				case 'starry_map:magic_crystal_shield':
-					magicCrystalShield(target, item);
+					useMagicCrystalShield(target, item);
 					equippable?.setEquipment(equippableSlot[index], opal.AlterDurability(item, 1));
 					break;
 

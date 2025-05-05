@@ -7,7 +7,7 @@ export default [
 		// 定义外部依赖, 这些不会被rollup打包到最终的bundle中
 		external: ['@minecraft/server', '@minecraft/server-ui'],
 		// 指定输入文件路径
-		input: './DIR_OUTPUT/JavaScript/THE_OTHER_SHORE.js',
+		input: './deliverable/JavaScript/THE_OTHER_SHORE.js',
 		// 配置输出选项
 		output: [
 			{

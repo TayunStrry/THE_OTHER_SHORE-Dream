@@ -74,7 +74,7 @@ export function Support(self: server.Entity) {
 			 * * 当前生命值
 			 */
 			const health = entity.getComponent('health');
-			health?.setCurrentValue(health.currentValue + opal.Random({ min: 4, max: 40 }, true));
+			health?.setCurrentValue(health.currentValue + opal.RandomFloor(10, 50));
 		}
 	)
 };

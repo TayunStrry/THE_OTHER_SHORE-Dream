@@ -5,16 +5,11 @@ import * as server from "@minecraft/server";
 /*
  * 系统数据
  */
-import * as table from "../data/table";
 import * as type from "../data/type";
 /*
  * 数学模块
  */
-import { RandomFloor, Random, Vector } from './maths';
-/*
- * 翻译模块
- */
-import { translate } from './translate';
+import { Vector } from './maths';
 /*
  * 计划模块
  */
@@ -22,7 +17,7 @@ import { PathExecute } from './plan';
 /*
  * 导出模块
  */
-export { DisplayChunkBoundary, RealmPropertyName, AlterEnergy, QueryEnergy, CreateMineralVein, QueryMineralVein, ExpendMineralVein };
+export { DisplayChunkBoundary, RealmPropertyName, AlterEnergy, QueryEnergy};
 /**
  * * 显示 区块边界
  *
@@ -162,80 +157,4 @@ function QueryEnergy(object: server.Entity | server.Player | server.Block): numb
 	if (!realmName) return 0;
 	// 返回 区域属性-能量值
 	return server.world.getDynamicProperty(realmName) as number;
-};
-/**
- * * 创建 区块属性 - 矿脉
- *
- * @param {string} realmName - 区域属性名称
- */
-function CreateMineralVein(realmName: string) {
-	/**
-	 * * 输出信息
-	 */
-	const output: { type: string[], amount: number[] } = { type: [], amount: [] };
-	/**
-	 * * 矿物数量
-	 */
-	const value = Array.from(table.mineral_state.values()).map(value => Random(value, true));
-	/**
-	 * * 矿物列表
-	 */
-	const entry = Array.from(table.mineral_state.keys());
-	// 写入矿脉信息
-	for (let index = 0; index < RandomFloor(3, 9); index++) {
-		/**
-		 * * 随机索引
-		 */
-		const randomIndex = RandomFloor(0, entry.length - 1);
-		// 写入 矿脉信息
-		output.amount.push(value[randomIndex]);
-		output.type.push(entry[randomIndex]);
-	};
-	// 写入 区域属性值
-	server.world.setDynamicProperty(realmName, JSON.stringify(output));
-};
-/**
- * * 获取 区块属性 - 矿脉 的信息
- *
- * @param {string} realmName - 区域属性名称
- *
- * @returns {server.RawMessage} - 查询到的矿脉信息
- */
-function QueryMineralVein(realmName: string): server.RawMessage {
-	/**
-	 * * 区域属性值
-	 */
-	const info = JSON.parse(server.world.getDynamicProperty(realmName) as string) as { type: string[], amount: number[] };
-	/**
-	 * * 输出信息
-	 */
-	const output: server.RawMessage[] = [];
-	// 转录 矿脉信息
-	for (let index = 0; index < info.type.length; index++) {
-		output.push({ text: '§5§l' }, translate(info.type[index], 'block'), { text: `§r: §2${info.amount[index]}§r\n` });
-	};
-	return { rawtext: output }
-};
-/**
- * * 消耗 区块属性 - 矿脉
- *
- * @param {string} realmName - 区域属性名称
- *
- * @returns {string} - 消耗的矿脉类型
- */
-function ExpendMineralVein(realmName: string): string {
-	/**
-	 * * 区域属性值
-	 */
-	const info = JSON.parse(server.world.getDynamicProperty(realmName) as string) as { type: string[], amount: number[] };
-	/**
-	 * * 随机索引
-	 */
-	const randomIndex = RandomFloor(0, info.type.length - 1);
-	// 如果 矿脉数量 低于 1
-	if (info.amount[randomIndex] <= 0) return 'minecraft:stone';
-	// 减少 矿脉数量
-	info.amount[randomIndex] -= 1;
-	server.world.setDynamicProperty(realmName, JSON.stringify(info));
-	return info.type[randomIndex];
 };

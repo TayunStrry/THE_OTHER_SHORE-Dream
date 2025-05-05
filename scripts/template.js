@@ -98,5 +98,5 @@ function generateItemJson(name, targetDirectory) {
     '野蜂碎片',
     '渊鲸残骸',
     '渊鲸浓汤',
-].forEach(name => generateItemJson(name, '../DIR_OUTPUT/'))
+].forEach(name => generateItemJson(name, '../deliverable/'))
 

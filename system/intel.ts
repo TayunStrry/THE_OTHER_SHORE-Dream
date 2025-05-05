@@ -2,10 +2,11 @@
  * 原版接口
  */
 import * as server from "@minecraft/server";
+import * as debug from "@minecraft/debug-utilities";
 /*
  * 系统数据
  */
-import * as table from "../data/table";
+import { can_display_logs, message_notify, rune_color } from "../data/table";
 import * as type from "../data/type";
 /*
  * 常用翻译模块
@@ -14,7 +15,7 @@ import { translate } from './translate';
 /*
  * 实例创建模块
  */
-import { TrySpawnParticle, TrySpawnEntity } from './create';
+import { TrySpawnParticle } from './create';
 /*
  * 触发控制模块
  */
@@ -22,7 +23,7 @@ import { TriggerControl } from './control';
 /*
  * 数学拓展模块
  */
-import { Vector, RandomFloor } from './maths';
+import { Vector, RandomFloor, Clamp } from './maths';
 /*
  * 导出模块
  */
@@ -56,7 +57,7 @@ function DistanceAndName(entity: server.Entity, distance: number): server.RawMes
  */
 function ThrowErrorIfPermitted(message: string, cause?: string) {
 	// 检查是否有权限显示日志, 如果没有则直接返回, 不执行后续操作
-	if (!table.Permit.can_display_logs) return;
+	if (!can_display_logs) return;
 	// 抛出一个带有原因的错误
 	throw new Error(message, { cause: cause });
 };
@@ -85,6 +86,10 @@ function IntelMessage(object: server.Block | server.Entity | server.Player, rang
 	getPlayers.forEach(info => info.onScreenDisplay.setActionBar(text));
 };
 /**
+ * * 悬浮字信息集合
+ */
+const textCaseMap = new Map<string, debug.DebugText>();
+/**
  * * 显示悬浮字信息
  *
  * @param {server.Block} block - 显示悬浮字信息的方块
@@ -92,20 +97,32 @@ function IntelMessage(object: server.Block | server.Entity | server.Player, rang
  * @param {string} text - 悬浮字信息的文本
  */
 function DisplayFloatingText(block: server.Block, text: string) {
-	/**
-	 * * 信息显示实体类型
-	 */
+	/*
 	const typeId = 'starry_map:execute.name_display';
-	// 清除当前方块位置的所有悬浮字信息实体
-	block.dimension.getEntitiesAtBlockLocation(block.center())
-		.filter(entity => entity.typeId === typeId)
-		.forEach(entity => entity.remove());
-	/**
-	 * * 创建 信息显示实体
-	 */
+	block.dimension.getEntitiesAtBlockLocation(block.center()).filter(entity => entity.typeId === typeId).forEach(entity => entity.remove());
 	const entity = TrySpawnEntity(block.dimension, typeId, block.bottomCenter());
-	// 将信息内容编写为实体名称
 	if (entity instanceof server.Entity) entity.nameTag = text || '未知';
+	*/
+	/**
+	 * 悬浮字标识符
+	 */
+	const identifier = block.dimension.id + Vector.copy(block).toString();
+	/**
+	 * 获取 旧的悬浮字信息
+	 */
+	const oldTextCase = textCaseMap.get(identifier);
+	// 移除 旧的悬浮字信息
+	if (oldTextCase) debug.debugDrawer.removeShape(oldTextCase);
+	/**
+	 * * 创建 DebugText 实例
+	 */
+	const textCase = new debug.DebugText(block.above(2)?.bottomCenter() || block.center(), text || '未知');
+	// 设置 显示时间
+	textCase.timeLeft = Clamp({ min: 100, max: 2000 }, text.length * 20);
+	// 生成悬浮字信息
+	debug.debugDrawer.addShape(textCase);
+	// 添加 悬浮字信息 到 集合中
+	textCaseMap.set(identifier, textCase);
 };
 /**
  * * 修改通知消息
@@ -127,7 +144,7 @@ function AlterMessageNotify(title: string, block: server.Block, message: server.
 		]
 	};
 	// 将当前区块的 消息通知 写入 数据库
-	table.message_notify.set(title, rawMessage);
+	message_notify.set(title, rawMessage);
 	// 如果是简单的信息 则 显示悬浮字信息
 	if (!message.rawtext) DisplayFloatingText(block, message.text ?? '未知');
 };
@@ -181,7 +198,7 @@ function NumberParticleDisplay(anchor: type.LOCATION_AND_DIMENSION, numberToDisp
 	/**
 	 * * 粒子颜色
 	 */
-	const particleColors: server.RGB[] = [...table.rune_color.values()];
+	const particleColors: server.RGB[] = [...rune_color.values()];
 	/**
 	 * * 粒子数值
 	 */

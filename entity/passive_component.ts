@@ -105,7 +105,7 @@ function EliminateEnderDragonScales(dragon: server.Entity, scalelike: number) {
 	// 遍历 玩家队列
 	players.forEach(
 		player => {
-			switch (opal.Random({ min: 0, max: 2 }, true)) {
+			switch (opal.RandomFloor(0, 2)) {
 				case 0: player.addEffect('minecraft:absorption', duration, effectOptions); break;
 
 				case 1: player.addEffect('minecraft:resistance', duration, effectOptions); break;
@@ -167,10 +167,10 @@ function EnderDragonRetaliate(dragon: server.Entity, player: server.Entity, dama
 	 */
 	const vertex1 = opal.Vector.add(dragon.location, { x: -32, y: 32, z: -32 });
 	// 触发随机效果
-	switch (opal.Random({ min: 0, max: 23 }, true)) {
+	switch (opal.RandomFloor(0, 23)) {
 		case 1:
 			// 向量弹射
-			player.applyKnockback({ x: opal.Random({ min: -16, max: 16 }), z: opal.Random({ min: -16, max: 16 }) }, opal.Random({ min: 4, max: 16 }));
+			player.applyKnockback(new opal.Vector(0, 0, 0).random(16), opal.RandomFloat(4, 16));
 			opal.IntelMessage(dragon, 128, '< 龙鳞加护 : 龙之弹射 >');
 			player?.addEffect('minecraft:blindness', 40, effectOptions_0);
 			break;
@@ -234,7 +234,7 @@ export function EntityHurtPlayerAfterOddsTrigger(player: server.Player, entity: 
 	/**
 	 * * 背包随机索引
 	 */
-	const containerRandom = opal.Random({ min: 0, max: container?.size ?? 27 }, true);
+	const containerRandom = opal.RandomFloor(0, container?.size ?? 27);
 	/**
 	 * * 玩家主手选中的装备
 	 */
@@ -242,7 +242,7 @@ export function EntityHurtPlayerAfterOddsTrigger(player: server.Player, entity: 
 	/**
 	 * * 装备随机索引
 	 */
-	const equipmentRandom = opal.Random({ min: 0, max: items.length - 1 }, true);
+	const equipmentRandom = opal.RandomFloor(0, items.length - 1);
 	/**
 	 * * 随机装备
 	 */

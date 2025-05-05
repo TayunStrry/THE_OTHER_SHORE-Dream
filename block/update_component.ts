@@ -15,13 +15,21 @@ export default function BlockUpdateAfterEvent(block: server.Block) {
 	 */
 	const blocks: server.Block[] = [];
 	// 获取 进行更新的方块
-	for (let axleX = -1; axleX <= 1; axleX++) for (let axleY = -1; axleY <= 1; axleY++) for (let axleZ = -1; axleZ <= 1; axleZ++) {
-		/**
-		 * * 目标方块
-		 */
-		const target = block.offset({ x: axleX, y: axleY, z: axleZ });
-		if (target) blocks.push(target);
-	};
+	opal.Vector.createCubeLattice(1).forEach(
+		vector => {
+			try {
+				/**
+				 * * 目标方块
+				 */
+				const target = block.offset(vector);
+				// 获取进行更新的方块
+				if (target) blocks.push(target);
+			}
+			catch (error) {
+				if (opal.TriggerControl('超出世界边界', block, 80)) server.world.sendMessage({ text: "您即将超出世界加载范围, 无法更新方块！" });
+			}
+		}
+	);
 	// 遍历 方块列表
 	blocks.forEach(
 		block => {

@@ -34,7 +34,7 @@
 		// 指定需要包含的类型声明文件的路径数组
 		"types": [],
 		// 指定输出目录
-		"outDir": "./DIR_OUTPUT/JavaScript",
+		"outDir": "./deliverable/JavaScript",
 		// 生成声明文件, 开启后会自动生成声明文件
 		"declaration": false,
 		// 指定类型声明文件的根目录

@@ -25,22 +25,24 @@
 			"path": "../../../../../Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_resource_packs/幻梦-Dream_RP"
 		},
 		{
+			"name": "律令禁止_服务端",
 			"path": "../../../../../Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/律令禁止_服务端"
 		},
 		{
+			"name": "轻量连锁_服务端",
 			"path": "../../../../../Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/轻量连锁_服务端"
 		},
 		{
+			"name": "草神赐福_客户端",
 			"path": "../../../../../Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_resource_packs/草神赐福_客户端"
 		},
 		{
-			"path": "../development_behavior_packs/生物对战_行为包"
-		},
-		{
+			"name": "生物对战_资源包",
 			"path": "../development_resource_packs/生物对战_资源包"
 		},
 		{
-			"path": "../../../../../../../../Downloads/assets/resource_packs"
+			"name": "生物对战_行为包",
+			"path": "../development_behavior_packs/生物对战_行为包"
 		}
 	],
 	"settings": {}

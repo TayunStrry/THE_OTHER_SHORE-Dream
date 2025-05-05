@@ -6,6 +6,7 @@ import * as server from "@minecraft/server";
  * 类型信息
  */
 import * as type from "./type";
+import { MinecraftColor } from "../system/maths";
 /**
  * * 类型检测 - 矿石
  *
@@ -91,50 +92,6 @@ export const is_trees: Set<string> = new Set<string>(
 	]
 );
 /**
- * * 类型检测 - 不是地面的方块
- *
- * @type {Set<string>}
- */
-const no_ground: Set<string> = new Set<string>(
-	[
-		"minecraft:air",
-		"minecraft:lava",
-		"minecraft:vine",
-		"minecraft:water",
-		"minecraft:oak_log",
-		"minecraft:bee_nest",
-		"minecraft:birch_log",
-		"minecraft:spruce_log",
-		"minecraft:jungle_log",
-		"minecraft:acacia_log",
-		"minecraft:cherry_log",
-		"minecraft:oak_leaves",
-		"minecraft:warped_stem",
-		"minecraft:shroomlight",
-		"minecraft:flowing_lava",
-		"minecraft:dark_oak_log",
-		"minecraft:mangrove_log",
-		"minecraft:crimson_stem",
-		"minecraft:birch_leaves",
-		"minecraft:chorus_plant",
-		"minecraft:flowing_water",
-		"minecraft:spruce_leaves",
-		"minecraft:jungle_leaves",
-		"minecraft:acacia_leaves",
-		"minecraft:cherry_leaves",
-		"minecraft:azalea_leaves",
-		"minecraft:chorus_flower",
-		"minecraft:mangrove_roots",
-		"minecraft:dark_oak_leaves",
-		"minecraft:mangrove_leaves",
-		"minecraft:nether_wart_block",
-		"minecraft:warped_wart_block",
-		"minecraft:red_mushroom_block",
-		"minecraft:brown_mushroom_block",
-		"minecraft:azalea_leaves_flowered"
-	]
-);
-/**
  * * 类型检测 - 原木
  *
  * @type {Set<string>}
@@ -151,54 +108,6 @@ export const is_wood: Set<string> = new Set<string>(
 		"minecraft:cherry_log",        // 樱花原木
 		"minecraft:crimson_stem",      // 绯红菌柄
 		"minecraft:warped_stem"        // 扭曲菌柄
-	]
-);
-/**
- * * 类型检测 - 可通行的空间
- *
- * @type {Set<string>}
- */
-const is_space: Set<string> = new Set<string>(
-	[
-		"minecraft:air",
-		"minecraft:lava",
-		"minecraft:water",
-		"minecraft:wheat",
-		"minecraft:reeds",
-		"minecraft:poppy",
-		"minecraft:allium",
-		"minecraft:carrots",
-		"minecraft:beetroot",
-		"minecraft:potatoes",
-		"minecraft:tallgrass",
-		"minecraft:red_tulip",
-		"minecraft:pink_tulip",
-		"minecraft:cornflower",
-		"minecraft:melon_stem",
-		"minecraft:snow_layer",
-		"minecraft:blue_orchid",
-		"minecraft:azure_bluet",
-		"minecraft:white_tulip",
-		"minecraft:oxeye_daisy",
-		"minecraft:oak_sapling",
-		"minecraft:powder_snow",
-		"minecraft:orange_tulip",
-		"minecraft:flowing_lava",
-		"minecraft:double_plant",
-		"minecraft:pumpkin_stem",
-		"minecraft:flowing_water",
-		"minecraft:yellow_flower",
-		"minecraft:birch_sapling",
-		"minecraft:structure_void",
-		"minecraft:cherry_sapling",
-		"minecraft:spruce_sapling",
-		"minecraft:jungle_sapling",
-		"minecraft:acacia_sapling",
-		"minecraft:torchflower_crop",
-		"minecraft:sweet_berry_bush",
-		"minecraft:dark_oak_sapling",
-		"minecraft:lily_of_the_valley",
-		"minecraft:mangrove_propagule"
 	]
 );
 /**
@@ -535,67 +444,6 @@ export const role_armor_legs = new Map<string, number>(
 		['starry_map:complete_armor', 10],
 		['starry_map:exhausted_armor', 10],
 		['starry_map:ocean_blessed_scarf', 5],
-	]
-);
-/**
- * * 类型检测 - 农作物
- */
-const is_crops_item = new Set<string>(
-	[
-		"minecraft:potato",
-		"minecraft:carrot",
-		"minecraft:sugar_cane",
-		"minecraft:melon_seeds",
-		"minecraft:wheat_seeds",
-		"minecraft:melon_seeds",
-		"minecraft:oak_sapling",
-		"minecraft:pumpkin_seeds",
-		"minecraft:sweet_berries",
-		"minecraft:birch_sapling",
-		"minecraft:beetroot_seeds",
-		"minecraft:bamboo_sapling",
-		"minecraft:cherry_sapling",
-		"minecraft:spruce_sapling",
-		"minecraft:jungle_sapling",
-		"minecraft:acacia_sapling",
-		"minecraft:dark_oak_sapling",
-		"minecraft:torchflower_seeds",
-		"minecraft:mangrove_propagule"
-	]
-);
-/**
- * * 矿脉参数
- *
- * @property (typeid, scale)
- *
- * @param {string} typeid - 矿物 的 typeid
- *
- * @param {{ max: number, min: number }} scale - 矿物 的 产出规模
- */
-export const mineral_state = new Map<string, { max: number; min: number }>(
-	[
-		//* 原版矿物
-		["minecraft:coal_ore", { max: 20480, min: 16 }],
-		["minecraft:lapis_ore", { max: 20480, min: 16 }],
-		["minecraft:quartz_ore", { max: 20480, min: 16 }],
-		["minecraft:copper_ore", { max: 20480, min: 16 }],
-		["minecraft:redstone_ore", { max: 20480, min: 16 }],
-		["minecraft:gold_ore", { max: 5120, min: 16 }],
-		["minecraft:iron_ore", { max: 5120, min: 16 }],
-		["minecraft:diamond_ore", { max: 1280, min: 16 }],
-		["minecraft:emerald_ore", { max: 1280, min: 16 }],
-		["minecraft:ancient_debris", { max: 32, min: 1 }],
-		["minecraft:amethyst_cluster", { max: 1280, min: 16 }],
-		//* 模组矿物
-		["starry_map:mine.gold_carbonate", { max: 40960, min: 8 }],
-		["starry_map:mine.ferric_chloride", { max: 40960, min: 8 }],
-		["starry_map:mine.ferric_phosphate", { max: 40960, min: 8 }],
-		["starry_map:mine.zirconium_carbide", { max: 40960, min: 8 }],
-		["starry_map:mine.lithium_carbonate", { max: 40960, min: 8 }],
-		["starry_map:mine.aluminum_magnesium", { max: 40960, min: 8 }],
-		["starry_map:mine.copper_tin_brazing", { max: 40960, min: 8 }],
-		["starry_map:mine.oxygen_enriched_gold", { max: 40960, min: 8 }],
-		["starry_map:mine.tungsten_nickel_titanium", { max: 40960, min: 8 }]
 	]
 );
 /**
@@ -1429,24 +1277,22 @@ const effect_map = new Map<string, string>(
 		["凋零", "minecraft:wither"]
 	]
 );
-
 /**
  * * 虚无符文颜色
  */
-const rune_color_void: server.RGB = { red: 0.675, green: 0.675, blue: 0.675 };
-
+const rune_color_void: MinecraftColor = new MinecraftColor(175, 175, 175);
 /**
  * * 元素符文颜色
  */
-export const rune_color = new Map<type.RUNE_TYPE, server.RGB>(
+export const rune_color = new Map<type.RUNE_TYPE, MinecraftColor>(
 	[
-		["rune_blue", { red: 0, green: 1, blue: 1 }],
-		["rune_red", { red: 1, green: 0, blue: 0 }],
-		["rune_green", { red: 0, green: 1, blue: 0.3 }],
-		["rune_orange", { red: 1, green: 0.5, blue: 0 }],
-		["rune_purple", { red: 1, green: 0, blue: 1 }],
-		["rune_white", { red: 1, green: 1, blue: 1 }],
-		["rune_black", { red: 0, green: 0, blue: 0 }],
+		["rune_blue", new MinecraftColor(0, 255, 255)],
+		["rune_red", new MinecraftColor(255, 0, 0)],
+		["rune_green", new MinecraftColor(0, 255, 75)],
+		["rune_orange", new MinecraftColor(255, 128, 0)],
+		["rune_purple", new MinecraftColor(255, 0, 255)],
+		["rune_white", new MinecraftColor(255, 255, 255)],
+		["rune_black", new MinecraftColor(0, 0, 0)],
 	]
 );
 /**
@@ -1454,9 +1300,9 @@ export const rune_color = new Map<type.RUNE_TYPE, server.RGB>(
  *
  * @param {type.RUNE_TYPE} type - 符文类型
  *
- * @returns {server.RGB} - 符文颜色
+ * @returns {MinecraftColor} - 符文颜色
  */
-export function getRuneColor(type: type.RUNE_TYPE): server.RGB {
+export function getRuneColor(type: type.RUNE_TYPE): MinecraftColor {
 	return rune_color.get(type) ?? rune_color_void
 };
 /**
@@ -1470,11 +1316,6 @@ export function getRuneColor(type: type.RUNE_TYPE): server.RGB {
  */
 export const message_notify = new Map<string, server.RawMessage>();
 /**
- * * 是否允许执行部分操作
+ * 是否允许显示错误与日志
  */
-export class Permit {
-	/**
-	 * * 是否允许显示错误与日志
-	 */
-	public static can_display_logs: boolean = false;
-};
+export let can_display_logs: boolean = false;

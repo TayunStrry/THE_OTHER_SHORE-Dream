@@ -2,8 +2,7 @@
 /*
  * 系统数据
  */
-import * as type from "../data/type";
-import { Permit, biome_map, dimension_map, response_patterns } from "../data/table";
+import { biome_map, dimension_map } from "../data/table";
 /**
  * * 自定义指令枚举列表
  */

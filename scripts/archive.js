@@ -5,7 +5,7 @@ import { existsSync, mkdirSync, writeFileSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 // 导入要处理的 Map<any, any>() 数据
-import help from '../DIR_OUTPUT/JavaScript/data/help.js';
+import help from '../deliverable/JavaScript/data/help.js';
 /**
  * 清理文本内容（优化版）
  * 合并正则表达式提升效率
@@ -57,7 +57,7 @@ try {
     // 获取当前文件路径
     const currentDir = dirname(fileURLToPath(import.meta.url));
     // 构建输出路径
-    const outputPath = join(currentDir, '../DIR_OUTPUT/月华百科.json');
+    const outputPath = join(currentDir, '../deliverable/月华百科.json');
     // 安全转换数据
     const convertedData = safeConvert(help);
     // 序列化后清理内容并美化输出

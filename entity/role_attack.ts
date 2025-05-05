@@ -255,7 +255,7 @@ export function Crystal(self: server.Entity, target: server.Entity, erupt: boole
 			/**
 			 * * 充能值
 			 */
-			const charge = energy + opal.Random({ min: 1, max: 8 }, true);
+			const charge = energy + opal.RandomFloor(1, 8);
 			self.setDynamicProperty('power_energy:Crystal', charge);
 			// 显示充能等级
 			opal.NumberParticleDisplay(self, charge, opal.Vector.CONSTANT_UP);
@@ -477,7 +477,7 @@ export function Dullblue(self: server.Entity, target: server.Entity, erupt: bool
 	/**
 	 * * -1 ~ 1的随机数
 	 */
-	const random = () => opal.Random({ min: -1, max: 1 }, true);
+	const random = () => opal.RandomFloat(-1, 1);
 	// 造成的伤害 降低 50%
 	property.double_damage *= 0.5;
 	// 为队友提供暴击增益
@@ -522,7 +522,7 @@ export function NineNine(self: server.Entity, target: server.Entity, erupt: bool
 	/**
 	 * * 计算随机值
 	 */
-	const random = opal.Random({ max: 2, min: 0 }, true);
+	const random = opal.RandomFloor(0, 2);
 	/**
 	 * * 获取实体头部位置
 	 */
