@@ -17,7 +17,7 @@ import { PathExecute } from './plan';
 /*
  * 导出模块
  */
-export { DisplayChunkBoundary, RealmPropertyName, AlterEnergy, QueryEnergy};
+export { DisplayChunkBoundary, RealmPropertyName, AlterEnergy, QueryEnergy };
 /**
  * * 显示 区块边界
  *
@@ -108,35 +108,64 @@ function RealmPropertyName(object: server.Entity | server.Player | server.Block,
  */
 function AlterEnergy(object: server.Entity | server.Player | server.Block, offset: number, create: boolean): [boolean, number] {
 	/**
+	 * * 单一逻辑区块的最大星尘能
+	 */
+	const MAX_ENERGY = 10_000_000;
+	/**
 	 * * 当前节点名称
 	 */
-	const current = `stardust_energy•${object.dimension.id}•${Math.floor(object.location.x / 16)}•0•${Math.floor(object.location.z / 16)}`
+	const current = `stardust_energy•${object.dimension.id}•${Math.floor(object.location.x / 16)}•0•${Math.floor(object.location.z / 16)}`;
+	/**
+	 * * 类型前缀
+	 */
+	const typePrefix = current.split(/•/)[0];
 	/**
 	 * * 区域属性名称
 	 */
-	const realmName = RealmPropertyName(object, current.split(/•/)[0], 16);
-	// 如果 区域属性名称 为空
-	if (!realmName && create) server.world.setDynamicProperty(current, offset);
-	if (!realmName) return [false, offset];
+	const realmName = RealmPropertyName(object, typePrefix, 16);
+	/**
+	 * 如果区域属性名称为空
+	 */
+	if (!realmName) {
+		// 如果可以创建新的星尘能节点
+		if (create) {
+			server.world.setDynamicProperty(current, offset);
+			// 返回能量修改成功
+			return [true, offset];
+		}
+		// 返回能量修改失败
+		return [false, offset];
+	}
 	/**
 	 * * 区域属性-能量值
 	 */
-	const price = server.world.getDynamicProperty(realmName) as number;
-	// 如果 能量值 过低
-	if (price + offset <= 0) {
-		server.world.setDynamicProperty(realmName, undefined);
+	const rawPrice = server.world.getDynamicProperty(realmName);
+	// 如果区域属性-能量值的类型不是数字
+	if (typeof rawPrice !== 'number') return [false, 0];
+	/**
+	 * 拷贝 区域属性-能量值
+	 */
+	const price = rawPrice;
+	/**
+	 * 计算后的 区域属性-能量值
+	 */
+	const newAmount = price + offset;
+	// 如果新的能量值小于等于0
+	if (newAmount <= 0) {
+		// 如果新的能量值为0, 则删除区域属性
+		if (newAmount === 0) {
+			server.world.setDynamicProperty(realmName, undefined);
+		}
+		// 返回能量修改失败
 		return [false, 0];
 	}
-	// 如果 能量值 超出范围
-	else if (price + offset >= 10000000) {
-		return [true, price]
-	}
-	// 如果 能量值 在范围内
-	else {
-		server.world.setDynamicProperty(realmName, price + offset);
-		return [true, price + offset]
-	}
-};
+	// 如果新的能量值超出最大容量限制
+	if (newAmount >= MAX_ENERGY) return [true, price];
+	// 在数值正确的前提下设置 区域属性-能量值
+	server.world.setDynamicProperty(realmName, newAmount);
+	// 返回能量修改成功
+	return [true, newAmount];
+}
 /**
  * * 查询 区域属性 - 能量值
  *

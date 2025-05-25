@@ -1068,156 +1068,96 @@ components.set(prefix[1] + 'enchantment_dissociation',
  */
 components.set(prefix[1] + 'star_energy_infusion',
     {
-        onPlayerInteract(source: server.BlockComponentPlayerInteractEvent) {
+        onPlayerInteract(source: server.BlockComponentPlayerInteractEvent, data: server.CustomComponentParameters) {
             /**
-             * * 方块组件参数 的 解构
+             * 解构组件参数
              */
-            const analysis = customFunction.InteractComponentTrigger(source);
+            const { chargeable_item_tags: chargeableItemTags, repairable_item_tags: repairableItemTags, energy_consumption_rate: energyConsumptionRate, on_charge_effects: chargeEffects } = data.params as customType.STAR_ENERGY_INFUSION;
+            /**
+             * 解构组件参数
+             */
+            const { block, item, container, player } = customFunction.InteractComponentTrigger(source);
             // 检测是否使用了正确道具
-            if (analysis.item?.typeId == analysis.block.typeId) return;
-            // 设定使用间隔
-            if (!opal.TriggerControl('消耗星尘力补充物品数值', analysis.block, 20)) return;
+            if (item?.typeId == block.typeId) return;
+            // 使用触发控制器约束使用频率
+            if (!opal.TriggerControl('消耗星尘力补充物品数值', block)) return;
+            /**
+             * * 显示 特效
+             */
+            function playChargeEffects() {
+                /**
+                 * * 定义 粒子参数
+                 */
+                const effectParams = new server.MolangVariableMap();
+                /**
+                 ** 粒子射流方向
+                 */
+                const directionVector = opal.Vector.difference(block.center(), player?.location ?? { x: 0, y: 0, z: 0 });
+                // 设置 粒子参数
+                effectParams.setFloat('variable.type', 0);
+                effectParams.setVector3('variable.direction', directionVector);
+                // 显示 粒子效果
+                opal.TrySpawnParticle(block.dimension, 'scripts:path_ray', block.center(), effectParams);
+                opal.TrySpawnParticle(block.dimension, 'constant:erupt_rune_purple', block.center());
+                opal.TrySpawnParticle(block.dimension, 'constant:excite_rune_purple', block.center());
+                // 播放音效
+                player?.playSound('block.enchanting_table.use');
+                // 如果设定了附加额外的状态效果
+                if (!chargeEffects) return;
+                // 为玩家添加 状态效果
+                for (const [effect, duration] of Object.entries(chargeEffects)) {
+                    player?.addEffect(effect, Math.floor(duration * 20), { amplifier: 1, showParticles: false });
+                }
+            };
             /**
              * * 恢复物品耐久
              */
-            function RestoreDurabilit() {
+            function restoreItemDurability() {
                 /**
                  * * 获取物品耐久组件
                  */
-                const durability = analysis.item?.getComponent('minecraft:durability');
+                const durabilityComponent = item?.getComponent('minecraft:durability');
                 // 检测能量是否足够
-                if (!durability || durability.damage == 0 || !opal.ExpendEnergy(analysis.block, -durability.damage * 5)) return;
+                if (!durabilityComponent || durabilityComponent.damage == 0 || !energyConsumptionRate || !opal.ExpendEnergy(block, -durabilityComponent.damage * energyConsumptionRate)) return;
                 // 恢复耐久
-                durability.damage = 0;
+                durabilityComponent.damage = 0;
                 // 置换 玩家 手持的物品
-                analysis.container?.setItem(analysis.player?.selectedSlotIndex ?? 0, analysis.item);
+                container?.setItem(player?.selectedSlotIndex ?? 0, item);
                 // 显示 特效
-                ChargingSpecialEffects();
+                playChargeEffects();
             };
             /**
              * * 恢复列车能量
              */
-            function RestoreVehiclePower() {
+            function restoreVehicleEnergy() {
+                /**
+                 * 充能的基准值
+                 */
+                const baseChargeValue = 10000;
                 /**
                  ** 获取物品的能量属性
                  */
-                const power = analysis.item?.getDynamicProperty('energy:offline_vehicle_power') as number ?? 3500;
+                const currentPower = item?.getDynamicProperty('energy:offline_vehicle_power') as number ?? 3500;
                 // 检测能量是否足够
-                if (!opal.ExpendEnergy(analysis.block, -10000) || power >= 1000000) return;
+                if (!energyConsumptionRate || !opal.ExpendEnergy(block, -baseChargeValue * energyConsumptionRate) || currentPower >= 1000000) return;
+                /**
+                 * 实际的充能值
+                 */
+                const actualChargeAmount = baseChargeValue * energyConsumptionRate * 0.5;
                 // 恢复列车能量
-                analysis.item?.setDynamicProperty('energy:offline_vehicle_power', power + 10000);
-                analysis.item?.setLore([`<§9§o§l 剩余能量 §r>: ${power + 10000}`]);
+                item?.setDynamicProperty('energy:offline_vehicle_power', currentPower + actualChargeAmount);
+                item?.setLore([`<§9§o§l 剩余能量 §r>: ${currentPower + actualChargeAmount}`]);
                 // 置换 玩家 手持的物品
-                analysis.container?.setItem(analysis.player?.selectedSlotIndex ?? 0, analysis.item);
+                container?.setItem(player?.selectedSlotIndex ?? 0, item);
                 // 显示 特效
-                ChargingSpecialEffects();
+                playChargeEffects();
             };
-            /**
-             * * 显示 特效
-             */
-            function ChargingSpecialEffects() {
-                /**
-                 * * 定义 粒子参数
-                 */
-                const molang = new server.MolangVariableMap();
-                /**
-                 ** 粒子射流方向
-                 */
-                const direction = opal.Vector.difference(analysis.block.center(), analysis.player?.location ?? { x: 0, y: 0, z: 0 });
-                // 设置 粒子参数
-                molang.setFloat('variable.type', 0);
-                molang.setVector3('variable.direction', direction);
-                // 显示 粒子效果
-                opal.TrySpawnParticle(analysis.block.dimension, 'scripts:path_ray', analysis.block.center(), molang);
-                opal.TrySpawnParticle(analysis.block.dimension, 'constant:erupt_rune_purple', analysis.block.center());
-                opal.TrySpawnParticle(analysis.block.dimension, 'constant:excite_rune_purple', analysis.block.center());
-                // 播放音效
-                analysis.player?.playSound('block.enchanting_table.use');
-            };
-            // 检测物品是否包含对应标签
-            if (analysis.item?.hasTag('tags:use_energy_to_restore_vehicle_power')) return RestoreVehiclePower();
-            if (analysis.item?.hasTag('tags:use_energy_to_restore_durability')) return RestoreDurabilit();
-        }
-    }
-);
-/*
- * 强化魔晶充能
- */
-components.set(prefix[1] + 'super_star_energy_infusion',
-    {
-        onPlayerInteract(source: server.BlockComponentPlayerInteractEvent) {
-            /**
-             * * 方块组件参数 的 解构
-             */
-            const analysis = customFunction.InteractComponentTrigger(source);
-            // 检测是否使用了正确道具
-            if (analysis.item?.typeId == analysis.block.typeId) return;
-            // 设定使用间隔
-            if (!opal.TriggerControl('消耗星尘力补充物品数值', analysis.block, 20)) return;
-            /**
-             * * 恢复物品耐久
-             */
-            function RestoreDurabilit() {
-                /**
-                 * * 获取物品耐久组件
-                 */
-                const durability = analysis.item?.getComponent('minecraft:durability');
-                // 检测能量是否足够
-                if (!durability || durability.damage == 0 || !opal.ExpendEnergy(analysis.block, -durability.damage * 5)) return;
-                // 恢复耐久
-                durability.damage = 0;
-                // 置换 玩家 手持的物品
-                analysis.container?.setItem(analysis.player?.selectedSlotIndex ?? 0, analysis.item);
-                // 为玩家附加状态效果增益
-                analysis.player?.addEffect('minecraft:saturation', 100, { amplifier: 1, showParticles: false });
-                analysis.player?.addEffect('minecraft:speed', 100, { amplifier: 1, showParticles: false });
-                analysis.player?.addEffect('minecraft:haste', 100, { amplifier: 1, showParticles: false });
-                // 显示 特效
-                ChargingSpecialEffects();
-            };
-            /**
-             * * 恢复列车能量
-             */
-            function RestoreVehiclePower() {
-                /**
-                 ** 获取物品的能量属性
-                 */
-                const power = analysis.item?.getDynamicProperty('energy:offline_vehicle_power') as number ?? 3500;
-                // 检测能量是否足够
-                if (!opal.ExpendEnergy(analysis.block, -10000) || power >= 1000000) return;
-                // 恢复列车能量
-                analysis.item?.setDynamicProperty('energy:offline_vehicle_power', power + 30000);
-                analysis.item?.setLore([`<§9§o§l 剩余能量 §r>: ${power + 30000}`]);
-                // 置换 玩家 手持的物品
-                analysis.container?.setItem(analysis.player?.selectedSlotIndex ?? 0, analysis.item);
-                // 显示 特效
-                ChargingSpecialEffects();
-            };
-            /**
-             * * 显示 特效
-             */
-            function ChargingSpecialEffects() {
-                /**
-                 * * 定义 粒子参数
-                 */
-                const molang = new server.MolangVariableMap();
-                /**
-                 ** 粒子射流方向
-                 */
-                const direction = opal.Vector.difference(analysis.block.center(), analysis.player?.location ?? { x: 0, y: 0, z: 0 });
-                // 设置 粒子参数
-                molang.setFloat('variable.type', 0);
-                molang.setVector3('variable.direction', direction);
-                // 显示 粒子效果
-                opal.TrySpawnParticle(analysis.block.dimension, 'scripts:path_ray', analysis.block.center(), molang);
-                opal.TrySpawnParticle(analysis.block.dimension, 'constant:erupt_rune_purple', analysis.block.center());
-                opal.TrySpawnParticle(analysis.block.dimension, 'constant:excite_rune_purple', analysis.block.center());
-                // 播放音效
-                analysis.player?.playSound('block.enchanting_table.use');
-            };
-            // 检测物品是否包含对应标签
-            if (analysis.item?.hasTag('tags:use_energy_to_restore_vehicle_power')) return RestoreVehiclePower();
-            else return RestoreDurabilit();
+            // 判断物品是否应该充能
+            if (chargeableItemTags && item?.getTags().some(element => chargeableItemTags.includes(element))) restoreVehicleEnergy();
+            // 检测物品是否应该恢复耐久
+            else if (repairableItemTags && item?.getTags().some(element => repairableItemTags.includes(element))) restoreItemDurability();
+            // 否则对任意物品尝试恢复其耐久
+            else if (repairableItemTags && repairableItemTags.length == 0) restoreItemDurability();
         }
     }
 );
@@ -4790,673 +4730,673 @@ components.set(prefix[4] + 'magic_crystal_lamp',
  * 水域天降
  */
 components.set(prefix[4] + 'virtual_weather',
-	{
-		onTick(source: server.BlockComponentTickEvent, data: server.CustomComponentParameters) {
-			/**
-			 * * 方块组件参数 的 解构
-			 */
-			const analysis = customFunction.TickComponentTrigger(source);
-			/**
-			 * * 获取计数值
-			 */
-			const stage = analysis.state.getState('STATE:stage') as number;
-			/**
-			 * * 检测方块是否处于开启状态
-			 */
-			const onTag = analysis.block.below()?.getTags()?.includes('tags:magic_cable.open') as boolean;
-			/**
-			 * * 获取粒子效果类型
-			 */
-			const { particle } = data.params as customType.VIRTUAL_WEATHER;
-			// 检测是否处于开启状态
-			if (!onTag) return;
-			// 播放基础粒子效果
-			if (stage == 0) opal.TrySpawnParticle(analysis.dimension, 'constant:impact_rune_white', analysis.block.location);
-			// 播放自定义粒子效果
-			if (stage == 0 && particle) opal.TrySpawnParticle(analysis.dimension, particle, analysis.block.location);
-			// 设置方块状态值
-			opal.TrySetPermutation(analysis.block, 'STATE:stage', stage != 3 ? stage + 1 : 0);
-		}
-	}
+    {
+        onTick(source: server.BlockComponentTickEvent, data: server.CustomComponentParameters) {
+            /**
+             * * 方块组件参数 的 解构
+             */
+            const analysis = customFunction.TickComponentTrigger(source);
+            /**
+             * * 获取计数值
+             */
+            const stage = analysis.state.getState('STATE:stage') as number;
+            /**
+             * * 检测方块是否处于开启状态
+             */
+            const onTag = analysis.block.below()?.getTags()?.includes('tags:magic_cable.open') as boolean;
+            /**
+             * * 获取粒子效果类型
+             */
+            const { particle } = data.params as customType.VIRTUAL_WEATHER;
+            // 检测是否处于开启状态
+            if (!onTag) return;
+            // 播放基础粒子效果
+            if (stage == 0) opal.TrySpawnParticle(analysis.dimension, 'constant:impact_rune_white', analysis.block.location);
+            // 播放自定义粒子效果
+            if (stage == 0 && particle) opal.TrySpawnParticle(analysis.dimension, particle, analysis.block.location);
+            // 设置方块状态值
+            opal.TrySetPermutation(analysis.block, 'STATE:stage', stage != 3 ? stage + 1 : 0);
+        }
+    }
 );
 /*
  * 脉冲尖峰
  */
 components.set(prefix[4] + 'PulsePeakCannon',
-	{
-		onTick(source: server.BlockComponentTickEvent) {
-			/**
-			 * * 方块组件参数 的 解构
-			 */
-			const { block } = customFunction.TickComponentTrigger(source);
-			/**
-			 ** 检测方块是否处于开启状态
-			 */
-			const onTag = block.below()?.getTags()?.includes('tags:magic_cable.open') as boolean;
-			// 如果开启状态 或 能量值 是否足够
-			if (!onTag || !opal.ExpendEnergy(block, -1)) return;
-			/**
-			 * * 设置 范围查询 的 过滤条条件
-			 */
-			const options: server.EntityQueryOptions = {
-				excludeTypes: ["minecraft:item", "minecraft:xp_orb"],
-				excludeFamilies: ['player', 'starry'],
-				location: block.location,
-				maxDistance: 32,
-				closest: 8
-			};
-			/**
-			 * * 获取 目标列表
-			 */
-			const targets = block.dimension.getEntities(options).filter(
-				entity => {
-					const family = entity.getComponent('type_family');
-					if (entity.target?.typeId === "minecraft:player") return true;
-					if (entity.target?.hasTag('is_Contract')) return true;
-					if (family?.hasTypeFamily('monster')) return true;
-				}
-			)
-			if (targets.length === 0 || !opal.ExpendEnergy(block, -150)) return;
-			/**
-			 * * 暴击概率
-			 */
-			const erupt = opal.IsEnable(15);
-			/**
-			 * * 获取 炮击范围顶点
-			 */
-			const anchor_0 = block.offset({ x: opal.RandomFloat(-2, 2), y: 8, z: opal.RandomFloat(-2, 2) }) ?? block.center();
-			/**
-			 * * 获取 炮击范围顶点
-			 */
-			const anchor_1 = block.offset({ x: opal.RandomFloat(-4, 4), y: 4, z: opal.RandomFloat(-4, 4) }) ?? block.center();
-			/**
-			 * * 获取 随机炮击顶点
-			 */
-			const focus = opal.Vector.rangeRandom(anchor_0, anchor_1);
-			/**
-			 * * 炮弹爆炸事件
-			 *
-			 * @param args - 附加参数
-			 */
-			const powerExplode = (args: type.ROUTE_ANNEX_ARGS) => {
-				// 验证 实体状态 是否正确
-				if (!block || !block.isValid) return;
-				/**
-				 * * 过滤器参数
-				 */
-				const options: server.EntityQueryOptions = {
-					excludeTypes: ["minecraft:item", "minecraft:xp_orb"],
-					excludeFamilies: ['player', 'starry'],
-					location: args.location,
-					maxDistance: 4,
-					closest: 4
-				};
-				/**
-				 * * 获取实体列表
-				 */
-				const entitys = args.dimension.getEntities(options).filter(
-					entity => {
-						const family = entity.getComponent('type_family');
-						if (entity.target?.typeId === "minecraft:player") return true;
-						if (entity.target?.hasTag('is_Contract')) return true;
-						if (family?.hasTypeFamily('monster')) return true;
-					}
-				);
-				/**
-				 * * 创建 炮弹面板
-				 */
-				const bombData = opal.CreateEmptyProperty(
-					{
-						basic_attack: 15,
-						erupt_odds: 45,
-						erupt_hurt: 480,
-						self_rune: 'rune_purple'
-					}
-				);
-				/**
-				 * * 获取 玩家
-				 */
-				const player = server.world.getPlayers()[0];
-				// 创建 元素伤害
-				entitys.forEach(entity => opal.ElementalAttack(player, entity, erupt, bombData));
-				opal.TrySpawnParticle(args.dimension, 'constant:fireworks_fireball_rune_purple', args.location);
-			};
-			// 创建 路径包
-			opal.PathExecute.Create('脉冲尖峰炮-炮击轨迹', 1,
-				{
-					locations: [block.center(), focus, targets[0].getHeadLocation()],
-					particles: ['constant:track_rune_purple'],
-					dimension: block.dimension,
-					on_done: powerExplode,
-					cooldown: 1,
-					speed: 1
-				}
-			)
-		}
-	}
+    {
+        onTick(source: server.BlockComponentTickEvent) {
+            /**
+             * * 方块组件参数 的 解构
+             */
+            const { block } = customFunction.TickComponentTrigger(source);
+            /**
+             ** 检测方块是否处于开启状态
+             */
+            const onTag = block.below()?.getTags()?.includes('tags:magic_cable.open') as boolean;
+            // 如果开启状态 或 能量值 是否足够
+            if (!onTag || !opal.ExpendEnergy(block, -1)) return;
+            /**
+             * * 设置 范围查询 的 过滤条条件
+             */
+            const options: server.EntityQueryOptions = {
+                excludeTypes: ["minecraft:item", "minecraft:xp_orb"],
+                excludeFamilies: ['player', 'starry'],
+                location: block.location,
+                maxDistance: 32,
+                closest: 8
+            };
+            /**
+             * * 获取 目标列表
+             */
+            const targets = block.dimension.getEntities(options).filter(
+                entity => {
+                    const family = entity.getComponent('type_family');
+                    if (entity.target?.typeId === "minecraft:player") return true;
+                    if (entity.target?.hasTag('is_Contract')) return true;
+                    if (family?.hasTypeFamily('monster')) return true;
+                }
+            )
+            if (targets.length === 0 || !opal.ExpendEnergy(block, -150)) return;
+            /**
+             * * 暴击概率
+             */
+            const erupt = opal.IsEnable(15);
+            /**
+             * * 获取 炮击范围顶点
+             */
+            const anchor_0 = block.offset({ x: opal.RandomFloat(-2, 2), y: 8, z: opal.RandomFloat(-2, 2) }) ?? block.center();
+            /**
+             * * 获取 炮击范围顶点
+             */
+            const anchor_1 = block.offset({ x: opal.RandomFloat(-4, 4), y: 4, z: opal.RandomFloat(-4, 4) }) ?? block.center();
+            /**
+             * * 获取 随机炮击顶点
+             */
+            const focus = opal.Vector.rangeRandom(anchor_0, anchor_1);
+            /**
+             * * 炮弹爆炸事件
+             *
+             * @param args - 附加参数
+             */
+            const powerExplode = (args: type.ROUTE_ANNEX_ARGS) => {
+                // 验证 实体状态 是否正确
+                if (!block || !block.isValid) return;
+                /**
+                 * * 过滤器参数
+                 */
+                const options: server.EntityQueryOptions = {
+                    excludeTypes: ["minecraft:item", "minecraft:xp_orb"],
+                    excludeFamilies: ['player', 'starry'],
+                    location: args.location,
+                    maxDistance: 4,
+                    closest: 4
+                };
+                /**
+                 * * 获取实体列表
+                 */
+                const entitys = args.dimension.getEntities(options).filter(
+                    entity => {
+                        const family = entity.getComponent('type_family');
+                        if (entity.target?.typeId === "minecraft:player") return true;
+                        if (entity.target?.hasTag('is_Contract')) return true;
+                        if (family?.hasTypeFamily('monster')) return true;
+                    }
+                );
+                /**
+                 * * 创建 炮弹面板
+                 */
+                const bombData = opal.CreateEmptyProperty(
+                    {
+                        basic_attack: 15,
+                        erupt_odds: 45,
+                        erupt_hurt: 480,
+                        self_rune: 'rune_purple'
+                    }
+                );
+                /**
+                 * * 获取 玩家
+                 */
+                const player = server.world.getPlayers()[0];
+                // 创建 元素伤害
+                entitys.forEach(entity => opal.ElementalAttack(player, entity, erupt, bombData));
+                opal.TrySpawnParticle(args.dimension, 'constant:fireworks_fireball_rune_purple', args.location);
+            };
+            // 创建 路径包
+            opal.PathExecute.Create('脉冲尖峰炮-炮击轨迹', 1,
+                {
+                    locations: [block.center(), focus, targets[0].getHeadLocation()],
+                    particles: ['constant:track_rune_purple'],
+                    dimension: block.dimension,
+                    on_done: powerExplode,
+                    cooldown: 1,
+                    speed: 1
+                }
+            )
+        }
+    }
 );
 /*
  * 曜石熔炉
  */
 components.set(prefix[4] + 'obsidian_furnace',
-	{
-		onTick(source: server.BlockComponentTickEvent) {
-			/**
-			 * * 方块组件参数 的 解构
-			 */
-			const analysis = customFunction.TickComponentTrigger(source);
-			/**
-			 * * 前处理事件
-			 */
-			function beforeEvent() {
-				/**
-				 * * 获取剩余石材数量
-				 */
-				const material = analysis.state.getState('STATE:material') as number;
-				/**
-				 * * 获取方块运行阶段
-				 */
-				const stage = analysis.state.getState('STATE:stage') as number;
-				/**
-				 * * 获取熔岩库存量
-				 */
-				const magma = analysis.state.getState('STATE:magma') as number;
-				// 检测是否为 熔岩生成 阶段
-				if (stage == 1 && material != 0) {
-					opal.TrySetPermutation(analysis.block, 'STATE:material', material - 1);
-					opal.TrySetPermutation(analysis.block, 'STATE:magma', magma + 1);
-					opal.TrySetPermutation(analysis.block, 'STATE:direction_0', 0);
-					opal.TrySetPermutation(analysis.block, 'STATE:direction_1', 0);
-					opal.TrySetPermutation(analysis.block, 'STATE:direction_2', 0);
-					opal.TrySetPermutation(analysis.block, 'STATE:direction_3', 0);
-					opal.TrySetPermutation(analysis.block, 'STATE:stage', 0);
-				}
-				else if (stage == 0) customFunction.consumeEnergyAndAdvanceStage(analysis.block);
-			};
-			/**
-			 * * 后处理事件
-			 */
-			function afterEvent() {
-				const direction_0 = analysis.block.offset({ x: 0, y: -1, z: -1 })?.getTags()?.includes('tags:obsidian_smelting.storage_tank')
-				const direction_1 = analysis.block.offset({ x: -1, y: -1, z: 0 })?.getTags()?.includes('tags:obsidian_smelting.storage_tank')
-				const direction_2 = analysis.block.offset({ x: 0, y: -1, z: 1 })?.getTags()?.includes('tags:obsidian_smelting.storage_tank')
-				const direction_3 = analysis.block.offset({ x: 1, y: -1, z: 0 })?.getTags()?.includes('tags:obsidian_smelting.storage_tank')
-				opal.TrySetPermutation(analysis.block, 'STATE:direction_0', direction_0 ? 1 : 0);
-				opal.TrySetPermutation(analysis.block, 'STATE:direction_1', direction_1 ? 1 : 0);
-				opal.TrySetPermutation(analysis.block, 'STATE:direction_2', direction_2 ? 1 : 0);
-				opal.TrySetPermutation(analysis.block, 'STATE:direction_3', direction_3 ? 1 : 0);
-				customFunction.distributeLavaToStorageTanks(analysis.block);
-			}
-			const magma = analysis.state.getState('STATE:magma') as number;
-			if (magma != 8) beforeEvent();
-			if (magma == 8) afterEvent();
-		}
-	}
+    {
+        onTick(source: server.BlockComponentTickEvent) {
+            /**
+             * * 方块组件参数 的 解构
+             */
+            const analysis = customFunction.TickComponentTrigger(source);
+            /**
+             * * 前处理事件
+             */
+            function beforeEvent() {
+                /**
+                 * * 获取剩余石材数量
+                 */
+                const material = analysis.state.getState('STATE:material') as number;
+                /**
+                 * * 获取方块运行阶段
+                 */
+                const stage = analysis.state.getState('STATE:stage') as number;
+                /**
+                 * * 获取熔岩库存量
+                 */
+                const magma = analysis.state.getState('STATE:magma') as number;
+                // 检测是否为 熔岩生成 阶段
+                if (stage == 1 && material != 0) {
+                    opal.TrySetPermutation(analysis.block, 'STATE:material', material - 1);
+                    opal.TrySetPermutation(analysis.block, 'STATE:magma', magma + 1);
+                    opal.TrySetPermutation(analysis.block, 'STATE:direction_0', 0);
+                    opal.TrySetPermutation(analysis.block, 'STATE:direction_1', 0);
+                    opal.TrySetPermutation(analysis.block, 'STATE:direction_2', 0);
+                    opal.TrySetPermutation(analysis.block, 'STATE:direction_3', 0);
+                    opal.TrySetPermutation(analysis.block, 'STATE:stage', 0);
+                }
+                else if (stage == 0) customFunction.consumeEnergyAndAdvanceStage(analysis.block);
+            };
+            /**
+             * * 后处理事件
+             */
+            function afterEvent() {
+                const direction_0 = analysis.block.offset({ x: 0, y: -1, z: -1 })?.getTags()?.includes('tags:obsidian_smelting.storage_tank')
+                const direction_1 = analysis.block.offset({ x: -1, y: -1, z: 0 })?.getTags()?.includes('tags:obsidian_smelting.storage_tank')
+                const direction_2 = analysis.block.offset({ x: 0, y: -1, z: 1 })?.getTags()?.includes('tags:obsidian_smelting.storage_tank')
+                const direction_3 = analysis.block.offset({ x: 1, y: -1, z: 0 })?.getTags()?.includes('tags:obsidian_smelting.storage_tank')
+                opal.TrySetPermutation(analysis.block, 'STATE:direction_0', direction_0 ? 1 : 0);
+                opal.TrySetPermutation(analysis.block, 'STATE:direction_1', direction_1 ? 1 : 0);
+                opal.TrySetPermutation(analysis.block, 'STATE:direction_2', direction_2 ? 1 : 0);
+                opal.TrySetPermutation(analysis.block, 'STATE:direction_3', direction_3 ? 1 : 0);
+                customFunction.distributeLavaToStorageTanks(analysis.block);
+            }
+            const magma = analysis.state.getState('STATE:magma') as number;
+            if (magma != 8) beforeEvent();
+            if (magma == 8) afterEvent();
+        }
+    }
 );
 /*
  * 消耗星尘力
  */
 components.set(prefix[4] + 'energy_expend',
-	{
-		onTick(source: server.BlockComponentTickEvent, data: server.CustomComponentParameters) {
-			/**
-			 * * 方块组件参数 的 解构
-			 */
-			const { block } = customFunction.TickComponentTrigger(source);
-			/**
-			 * * 方块组件参数 的 解构
-			 */
-			const { modify, revise } = data.params as customType.ENERGY_EXPEND;
-			/**
-			 ** 查询剩余能量
-			 */
-			const energy = opal.ExpendEnergy(block, modify || -1);
-			// 检测能量是否变动成功
-			if (energy) opal.TrySetPermutation(block, revise || 'default', 2);
-			else opal.TrySetPermutation(block, revise || 'default', 0);
-		}
-	}
+    {
+        onTick(source: server.BlockComponentTickEvent, data: server.CustomComponentParameters) {
+            /**
+             * * 方块组件参数 的 解构
+             */
+            const { block } = customFunction.TickComponentTrigger(source);
+            /**
+             * * 方块组件参数 的 解构
+             */
+            const { modify, revise } = data.params as customType.ENERGY_EXPEND;
+            /**
+             ** 查询剩余能量
+             */
+            const energy = opal.ExpendEnergy(block, modify || -1);
+            // 检测能量是否变动成功
+            if (energy) opal.TrySetPermutation(block, revise || 'default', 2);
+            else opal.TrySetPermutation(block, revise || 'default', 0);
+        }
+    }
 );
 /*
  * 常规 物流网络 接收端
  */
 components.set(prefix[4] + 'routine_logistics_receiver',
-	{
-		onTick(source: server.BlockComponentTickEvent) {
-			/**
-			 * * 方块组件参数 的 解构
-			 */
-			const analysis = customFunction.TickComponentTrigger(source);
-			/**
-			 ** 获取 关于方块旋转 的 方块状态
-			 */
-			const direction = analysis.state.getState('minecraft:cardinal_direction');
-			/**
-			 ** 侦测 方块容器 并 提交 物品网络申请
-			 *
-			 * @param {server.Block | undefined} target - 目标容器方块
-			 */
-			function Detecting(target?: server.Block) {
-				/**
-				 ** 上方 的 物品展示框 的 物品信息
-				 */
-				const frame = analysis.block.above()?.getItemStack(1);
-				/**
-				 ** 指定的 方块 的 物品容器
-				 */
-				const container = target?.getComponent('inventory')?.container;
-				// 检测 容器 展示框 剩余空间 是否满足要求
-				if (!target || !frame || !container || container.emptySlotsCount == 0) return;
-				/**
-				 ** 物品网络频道
-				 */
-				const channel = frame.typeId;
-				/**
-				 ** 网络筛选类型
-				 */
-				const filter = container.getItem(0)?.typeId ?? frame.typeId;
-				// 提交 物品网络申请
-				routineLogisticsRequest.set(analysis.dimension.id + '•' + channel + '•' + filter, target.location);
-			};
-			// 基于 方块状态 旋转 容器读取方向
-			switch (direction) {
-				case 'south': Detecting(analysis.block.south()); break;
+    {
+        onTick(source: server.BlockComponentTickEvent) {
+            /**
+             * * 方块组件参数 的 解构
+             */
+            const analysis = customFunction.TickComponentTrigger(source);
+            /**
+             ** 获取 关于方块旋转 的 方块状态
+             */
+            const direction = analysis.state.getState('minecraft:cardinal_direction');
+            /**
+             ** 侦测 方块容器 并 提交 物品网络申请
+             *
+             * @param {server.Block | undefined} target - 目标容器方块
+             */
+            function Detecting(target?: server.Block) {
+                /**
+                 ** 上方 的 物品展示框 的 物品信息
+                 */
+                const frame = analysis.block.above()?.getItemStack(1);
+                /**
+                 ** 指定的 方块 的 物品容器
+                 */
+                const container = target?.getComponent('inventory')?.container;
+                // 检测 容器 展示框 剩余空间 是否满足要求
+                if (!target || !frame || !container || container.emptySlotsCount == 0) return;
+                /**
+                 ** 物品网络频道
+                 */
+                const channel = frame.typeId;
+                /**
+                 ** 网络筛选类型
+                 */
+                const filter = container.getItem(0)?.typeId ?? frame.typeId;
+                // 提交 物品网络申请
+                routineLogisticsRequest.set(analysis.dimension.id + '•' + channel + '•' + filter, target.location);
+            };
+            // 基于 方块状态 旋转 容器读取方向
+            switch (direction) {
+                case 'south': Detecting(analysis.block.south()); break;
 
-				case 'north': Detecting(analysis.block.north()); break;
+                case 'north': Detecting(analysis.block.north()); break;
 
-				case 'east': Detecting(analysis.block.east()); break;
+                case 'east': Detecting(analysis.block.east()); break;
 
-				case 'west': Detecting(analysis.block.west()); break;
+                case 'west': Detecting(analysis.block.west()); break;
 
-				default: break;
-			}
-		}
-	}
+                default: break;
+            }
+        }
+    }
 );
 /*
  * 跨界 物流网络 接收端
  */
 components.set(prefix[4] + 'surpass_logistics_receiver',
-	{
-		onTick(source: server.BlockComponentTickEvent) {
-			/**
-			 * * 方块组件参数 的 解构
-			 */
-			const analysis = customFunction.TickComponentTrigger(source);
-			/**
-			 ** 获取 关于方块旋转 的 方块状态
-			 */
-			const direction = analysis.state.getState('minecraft:cardinal_direction');
-			/**
-			 ** 侦测 方块容器 并 提交 物品网络申请
-			 *
-			 * @param {server.Block | undefined} target - 目标容器方块
-			 */
-			function Detecting(target?: server.Block) {
-				/**
-				 ** 上方 的 物品展示框 的 物品信息
-				 */
-				const frame = analysis.block.above()?.getItemStack(1);
-				/**
-				 ** 指定的 方块 的 物品容器
-				 */
-				const container = target?.getComponent('inventory')?.container;
-				// 检测 容器 展示框 剩余空间 是否满足要求
-				if (!target || !frame || !container || container.emptySlotsCount == 0) return;
-				/**
-				 ** 物品网络频道
-				 */
-				const channel = frame.typeId;
-				/**
-				 ** 网络筛选类型
-				 */
-				const filter = container.getItem(0)?.typeId ?? frame.typeId;
-				// 提交 物品网络申请
-				surpassDimensionRequest.set(channel + '•' + filter, [target.dimension, target.location]);
-			};
-			// 基于 方块状态 旋转 容器读取方向
-			switch (direction) {
-				case 'south': Detecting(analysis.block.south()); break;
+    {
+        onTick(source: server.BlockComponentTickEvent) {
+            /**
+             * * 方块组件参数 的 解构
+             */
+            const analysis = customFunction.TickComponentTrigger(source);
+            /**
+             ** 获取 关于方块旋转 的 方块状态
+             */
+            const direction = analysis.state.getState('minecraft:cardinal_direction');
+            /**
+             ** 侦测 方块容器 并 提交 物品网络申请
+             *
+             * @param {server.Block | undefined} target - 目标容器方块
+             */
+            function Detecting(target?: server.Block) {
+                /**
+                 ** 上方 的 物品展示框 的 物品信息
+                 */
+                const frame = analysis.block.above()?.getItemStack(1);
+                /**
+                 ** 指定的 方块 的 物品容器
+                 */
+                const container = target?.getComponent('inventory')?.container;
+                // 检测 容器 展示框 剩余空间 是否满足要求
+                if (!target || !frame || !container || container.emptySlotsCount == 0) return;
+                /**
+                 ** 物品网络频道
+                 */
+                const channel = frame.typeId;
+                /**
+                 ** 网络筛选类型
+                 */
+                const filter = container.getItem(0)?.typeId ?? frame.typeId;
+                // 提交 物品网络申请
+                surpassDimensionRequest.set(channel + '•' + filter, [target.dimension, target.location]);
+            };
+            // 基于 方块状态 旋转 容器读取方向
+            switch (direction) {
+                case 'south': Detecting(analysis.block.south()); break;
 
-				case 'north': Detecting(analysis.block.north()); break;
+                case 'north': Detecting(analysis.block.north()); break;
 
-				case 'east': Detecting(analysis.block.east()); break;
+                case 'east': Detecting(analysis.block.east()); break;
 
-				case 'west': Detecting(analysis.block.west()); break;
+                case 'west': Detecting(analysis.block.west()); break;
 
-				default: break;
-			}
-		}
-	}
+                default: break;
+            }
+        }
+    }
 );
 /*
  * 常规 物流网络 发送端
  */
 components.set(prefix[4] + 'routine_logistics_sender',
-	{
-		onTick(source: server.BlockComponentTickEvent) {
-			/**
-			 * * 方块组件参数 的 解构
-			 */
-			const analysis = customFunction.TickComponentTrigger(source);
-			/**
-			 ** 上方 的 物品展示框 的 物品信息
-			 */
-			const frame = analysis.block.above()?.getItemStack(1);
-			// 检测 展示框 能量 请求数量 是否满足要求
-			if (!frame || !opal.ExpendEnergy(analysis.block, -20) || routineLogisticsRequest.size < 1) return;
-			/**
-			 ** 物品网络频道
-			 */
-			const channel = [...routineLogisticsRequest].filter(
-				info => {
-					const split = info[0].split('•');
-					return split[0] == analysis.dimension.id && split[1] == frame.typeId
-				}
-			);
-			/**
-			 ** 附近的方块容器
-			 */
-			const containers = [
-				analysis.block.west()?.getComponent('inventory')?.container,
-				analysis.block.east()?.getComponent('inventory')?.container,
-				analysis.block.north()?.getComponent('inventory')?.container,
-				analysis.block.south()?.getComponent('inventory')?.container,
-			];
-			/**
-			 ** 重构 物品请求信息
-			 */
-			const judge = new Map<string, server.Vector3>(channel.map(info => [info[0].split('•')[2], info[1]]));
-			// 遍历容器
-			containers.forEach(
-				container => {
-					// 检测容器是否存在
-					if (!container) return;
-					// 遍历容器中的物品
-					for (let index = 0; index < container.size; index++) {
-						/**
-						 ** 获取容器中的物品
-						 */
-						const item = container.getItem(index); if (!item) continue;
-						/**
-						 ** 检测物品是否在请求列表上
-						 */
-						const result = judge.get(item.typeId); if (!result) continue;
-						/**
-						 ** 获取发出请求的方块
-						 */
-						const block = analysis.dimension.getBlock(result); if (!block) continue;
-						/**
-						 ** 获取接收物品的方块容器
-						 */
-						const inventory = block.getComponent('inventory')?.container; if (!inventory) continue;
-						// 迁移物品
-						inventory.addItem(item);
-						container.setItem(index);
-						return;
-					}
-				}
-			);
-			// 清除 物品网络申请
-			routineLogisticsRequest = new Map<string, server.Vector3>(
-				[...routineLogisticsRequest].filter(
-					info => {
-						/**
-						 ** 拆分 维度 频道 类型
-						 */
-						const split = info[0].split('•');
-						// 检测 维度 频道 类型 是否符合
-						return split[0] != analysis.dimension.id || split[1] != frame.typeId
-					}
-				)
-			);
-		}
-	}
+    {
+        onTick(source: server.BlockComponentTickEvent) {
+            /**
+             * * 方块组件参数 的 解构
+             */
+            const analysis = customFunction.TickComponentTrigger(source);
+            /**
+             ** 上方 的 物品展示框 的 物品信息
+             */
+            const frame = analysis.block.above()?.getItemStack(1);
+            // 检测 展示框 能量 请求数量 是否满足要求
+            if (!frame || !opal.ExpendEnergy(analysis.block, -20) || routineLogisticsRequest.size < 1) return;
+            /**
+             ** 物品网络频道
+             */
+            const channel = [...routineLogisticsRequest].filter(
+                info => {
+                    const split = info[0].split('•');
+                    return split[0] == analysis.dimension.id && split[1] == frame.typeId
+                }
+            );
+            /**
+             ** 附近的方块容器
+             */
+            const containers = [
+                analysis.block.west()?.getComponent('inventory')?.container,
+                analysis.block.east()?.getComponent('inventory')?.container,
+                analysis.block.north()?.getComponent('inventory')?.container,
+                analysis.block.south()?.getComponent('inventory')?.container,
+            ];
+            /**
+             ** 重构 物品请求信息
+             */
+            const judge = new Map<string, server.Vector3>(channel.map(info => [info[0].split('•')[2], info[1]]));
+            // 遍历容器
+            containers.forEach(
+                container => {
+                    // 检测容器是否存在
+                    if (!container) return;
+                    // 遍历容器中的物品
+                    for (let index = 0; index < container.size; index++) {
+                        /**
+                         ** 获取容器中的物品
+                         */
+                        const item = container.getItem(index); if (!item) continue;
+                        /**
+                         ** 检测物品是否在请求列表上
+                         */
+                        const result = judge.get(item.typeId); if (!result) continue;
+                        /**
+                         ** 获取发出请求的方块
+                         */
+                        const block = analysis.dimension.getBlock(result); if (!block) continue;
+                        /**
+                         ** 获取接收物品的方块容器
+                         */
+                        const inventory = block.getComponent('inventory')?.container; if (!inventory) continue;
+                        // 迁移物品
+                        inventory.addItem(item);
+                        container.setItem(index);
+                        return;
+                    }
+                }
+            );
+            // 清除 物品网络申请
+            routineLogisticsRequest = new Map<string, server.Vector3>(
+                [...routineLogisticsRequest].filter(
+                    info => {
+                        /**
+                         ** 拆分 维度 频道 类型
+                         */
+                        const split = info[0].split('•');
+                        // 检测 维度 频道 类型 是否符合
+                        return split[0] != analysis.dimension.id || split[1] != frame.typeId
+                    }
+                )
+            );
+        }
+    }
 );
 /*
  * 跨界 物流网络 发送端
  */
 components.set(prefix[4] + 'surpass_logistics_sender',
-	{
-		onTick(source: server.BlockComponentTickEvent) {
-			/**
-			 * * 方块组件参数 的 解构
-			 */
-			const analysis = customFunction.TickComponentTrigger(source);
-			/**
-			 ** 上方 的 物品展示框 的 物品信息
-			 */
-			const frame = analysis.block.above()?.getItemStack(1);
-			// 检测 展示框 能量 请求数量 是否满足要求
-			if (!frame || !opal.ExpendEnergy(analysis.block, -30) || surpassDimensionRequest.size < 1) return;
-			/**
-			 ** 物品网络频道
-			 */
-			const channel = [...surpassDimensionRequest].filter(info => info[0].split('•')[0] == frame.typeId);
-			/**
-			 ** 附近的方块容器
-			 */
-			const containers = [
-				analysis.block.west()?.getComponent('inventory')?.container,
-				analysis.block.east()?.getComponent('inventory')?.container,
-				analysis.block.north()?.getComponent('inventory')?.container,
-				analysis.block.south()?.getComponent('inventory')?.container,
-			];
-			/**
-			 ** 重构 物品请求信息
-			 */
-			const judge = new Map<string, [server.Dimension, server.Vector3]>(channel.map(info => [info[0].split('•')[1], info[1]]));
-			// 遍历容器
-			containers.forEach(
-				container => {
-					// 检测容器是否存在
-					if (!container) return;
-					// 遍历容器中的物品
-					for (let index = 0; index < container.size; index++) {
-						/**
-						 ** 获取容器中的物品
-						 */
-						const item = container.getItem(index); if (!item) continue;
-						/**
-						 ** 检测物品是否在请求列表上
-						 */
-						const result = judge.get(item.typeId); if (!result) continue;
-						/**
-						 ** 获取发出请求的方块
-						 */
-						const block = result[0].getBlock(result[1]); if (!block) continue;
-						/**
-						 ** 获取接收物品的方块容器
-						 */
-						const inventory = block.getComponent('inventory')?.container; if (!inventory) continue;
-						// 迁移物品
-						inventory.addItem(item);
-						container.setItem(index);
-						return;
-					}
-				}
-			);
-			// 清除请求信息
-			surpassDimensionRequest = new Map<string, [server.Dimension, server.Vector3]>(
-				[...surpassDimensionRequest].filter(info => info[0].split('•')[0] != frame.typeId)
-			);
-		}
-	}
+    {
+        onTick(source: server.BlockComponentTickEvent) {
+            /**
+             * * 方块组件参数 的 解构
+             */
+            const analysis = customFunction.TickComponentTrigger(source);
+            /**
+             ** 上方 的 物品展示框 的 物品信息
+             */
+            const frame = analysis.block.above()?.getItemStack(1);
+            // 检测 展示框 能量 请求数量 是否满足要求
+            if (!frame || !opal.ExpendEnergy(analysis.block, -30) || surpassDimensionRequest.size < 1) return;
+            /**
+             ** 物品网络频道
+             */
+            const channel = [...surpassDimensionRequest].filter(info => info[0].split('•')[0] == frame.typeId);
+            /**
+             ** 附近的方块容器
+             */
+            const containers = [
+                analysis.block.west()?.getComponent('inventory')?.container,
+                analysis.block.east()?.getComponent('inventory')?.container,
+                analysis.block.north()?.getComponent('inventory')?.container,
+                analysis.block.south()?.getComponent('inventory')?.container,
+            ];
+            /**
+             ** 重构 物品请求信息
+             */
+            const judge = new Map<string, [server.Dimension, server.Vector3]>(channel.map(info => [info[0].split('•')[1], info[1]]));
+            // 遍历容器
+            containers.forEach(
+                container => {
+                    // 检测容器是否存在
+                    if (!container) return;
+                    // 遍历容器中的物品
+                    for (let index = 0; index < container.size; index++) {
+                        /**
+                         ** 获取容器中的物品
+                         */
+                        const item = container.getItem(index); if (!item) continue;
+                        /**
+                         ** 检测物品是否在请求列表上
+                         */
+                        const result = judge.get(item.typeId); if (!result) continue;
+                        /**
+                         ** 获取发出请求的方块
+                         */
+                        const block = result[0].getBlock(result[1]); if (!block) continue;
+                        /**
+                         ** 获取接收物品的方块容器
+                         */
+                        const inventory = block.getComponent('inventory')?.container; if (!inventory) continue;
+                        // 迁移物品
+                        inventory.addItem(item);
+                        container.setItem(index);
+                        return;
+                    }
+                }
+            );
+            // 清除请求信息
+            surpassDimensionRequest = new Map<string, [server.Dimension, server.Vector3]>(
+                [...surpassDimensionRequest].filter(info => info[0].split('•')[0] != frame.typeId)
+            );
+        }
+    }
 );
 /*
  * 容器整理
  */
 components.set(prefix[4] + 'container_arrange',
-	{
-		onTick(source: server.BlockComponentTickEvent) {
-			/**
-			 * * 方块组件参数 的 解构
-			 */
-			const analysis = customFunction.TickComponentTrigger(source);
-			/**
-			 * 获取方块上下位置的容器组件
-			 */
-			const containers = [
-				analysis.block.above()?.getComponent('inventory')?.container,
-				analysis.block.below()?.getComponent('inventory')?.container,
-			];
-			// 判断是否成功获取到能量
-			if (!opal.ExpendEnergy(analysis.block, -20)) return;
-			// 遍历容器列表, 对每个容器执行操作
-			containers.forEach(
-				container => {
-					// 如果容器不存在, 或者方块无法消耗能量, 则跳过当前循环
-					if (!container || !opal.ExpendEnergy(analysis.block, -5)) return;
-					/**
-					 * 获取容器中的所有物品
-					 */
-					const items: server.ItemStack[] = [];
-					// 遍历容器中的所有物品槽位
-					for (let index = 0; index < container.size; index++) {
-						/**
-						 * 获取当前槽位的物品
-						 */
-						const item = container.getItem(index);
-						// 如果当前槽位为空, 则跳过当前循环
-						if (!item) continue;
-						// 将物品从容器中移除
-						container.setItem(index);
-						// 将物品添加到物品列表中
-						items.push(item);
-					};
-					// 将物品列表中的物品添加到容器中
-					opal.OrganizeItemStacks(items).forEach(item => container.addItem(item));
-				}
-			)
-		}
-	}
+    {
+        onTick(source: server.BlockComponentTickEvent) {
+            /**
+             * * 方块组件参数 的 解构
+             */
+            const analysis = customFunction.TickComponentTrigger(source);
+            /**
+             * 获取方块上下位置的容器组件
+             */
+            const containers = [
+                analysis.block.above()?.getComponent('inventory')?.container,
+                analysis.block.below()?.getComponent('inventory')?.container,
+            ];
+            // 判断是否成功获取到能量
+            if (!opal.ExpendEnergy(analysis.block, -20)) return;
+            // 遍历容器列表, 对每个容器执行操作
+            containers.forEach(
+                container => {
+                    // 如果容器不存在, 或者方块无法消耗能量, 则跳过当前循环
+                    if (!container || !opal.ExpendEnergy(analysis.block, -5)) return;
+                    /**
+                     * 获取容器中的所有物品
+                     */
+                    const items: server.ItemStack[] = [];
+                    // 遍历容器中的所有物品槽位
+                    for (let index = 0; index < container.size; index++) {
+                        /**
+                         * 获取当前槽位的物品
+                         */
+                        const item = container.getItem(index);
+                        // 如果当前槽位为空, 则跳过当前循环
+                        if (!item) continue;
+                        // 将物品从容器中移除
+                        container.setItem(index);
+                        // 将物品添加到物品列表中
+                        items.push(item);
+                    };
+                    // 将物品列表中的物品添加到容器中
+                    opal.OrganizeItemStacks(items).forEach(item => container.addItem(item));
+                }
+            )
+        }
+    }
 );
 /*
  * 遗物萃取
  */
 components.set(prefix[4] + 'residual_extraction',
-	{
-		/**
-		 * 方块组件 tick 事件处理器, 用于处理怪物掉落物提取逻辑
-		 *
-		 * @param {server.BlockComponentTickEvent} source - 方块组件tick事件对象
-		 */
-		onTick(source: server.BlockComponentTickEvent, data: server.CustomComponentParameters) {
-			/**
-			 * 解析方块组件触发事件
-			 */
-			const { block, dimension } = customFunction.TickComponentTrigger(source);
-			/**
-			 * 解析方块组件参数
-			 */
-			const { expense, container, consumption, revise } = data.params as customType.RESIDUAL_EXTRACTION;
-			// 检测参数是否存在
-			if (!expense || !container || !consumption || !revise) return;
-			/**
-			 * 获取偏移位置的容器组件
-			 */
-			const targetContainer = block.offset(container)?.getComponent('inventory')?.container;
-			// 检测容器是否存在, 是否有空位, 是否消耗能量
-			if (!targetContainer || targetContainer.emptySlotsCount == 0 || !opal.ExpendEnergy(block, -consumption)) return;
-			/**
-			 * 当前方块的状态值
-			 */
-			const state = block.permutation.getState(revise) as number;
-			/**
-			 * 是否成功提取怪物掉落物
-			 */
-			const conclusion = customFunction.extractResidues(targetContainer, expense);
-			// 能量管理逻辑
-			if (conclusion && state < 12) {
-				// 增加能量值
-				opal.TrySetPermutation(block, revise, state + 1);
-				// 播放运行音效
-				dimension.playSound('step.amethyst_cluster', block);
-			}
-			else if (conclusion) {
-				// 重置能量值
-				opal.TrySetPermutation(block, revise, 0);
-				// 生成经验瓶
-				targetContainer.addItem(new server.ItemStack('experience_bottle', 1));
-				// 播放运行音效
-				dimension.playSound('step.amethyst_cluster', block);
-			};
-		}
-	}
+    {
+        /**
+         * 方块组件 tick 事件处理器, 用于处理怪物掉落物提取逻辑
+         *
+         * @param {server.BlockComponentTickEvent} source - 方块组件tick事件对象
+         */
+        onTick(source: server.BlockComponentTickEvent, data: server.CustomComponentParameters) {
+            /**
+             * 解析方块组件触发事件
+             */
+            const { block, dimension } = customFunction.TickComponentTrigger(source);
+            /**
+             * 解析方块组件参数
+             */
+            const { expense, container, consumption, revise } = data.params as customType.RESIDUAL_EXTRACTION;
+            // 检测参数是否存在
+            if (!expense || !container || !consumption || !revise) return;
+            /**
+             * 获取偏移位置的容器组件
+             */
+            const targetContainer = block.offset(container)?.getComponent('inventory')?.container;
+            // 检测容器是否存在, 是否有空位, 是否消耗能量
+            if (!targetContainer || targetContainer.emptySlotsCount == 0 || !opal.ExpendEnergy(block, -consumption)) return;
+            /**
+             * 当前方块的状态值
+             */
+            const state = block.permutation.getState(revise) as number;
+            /**
+             * 是否成功提取怪物掉落物
+             */
+            const conclusion = customFunction.extractResidues(targetContainer, expense);
+            // 能量管理逻辑
+            if (conclusion && state < 12) {
+                // 增加能量值
+                opal.TrySetPermutation(block, revise, state + 1);
+                // 播放运行音效
+                dimension.playSound('step.amethyst_cluster', block);
+            }
+            else if (conclusion) {
+                // 重置能量值
+                opal.TrySetPermutation(block, revise, 0);
+                // 生成经验瓶
+                targetContainer.addItem(new server.ItemStack('experience_bottle', 1));
+                // 播放运行音效
+                dimension.playSound('step.amethyst_cluster', block);
+            };
+        }
+    }
 );
 /*
  * 容器枢纽
  */
 components.set(prefix[4] + 'container_hub',
-	{
-		async onTick(source: server.BlockComponentTickEvent) {
-			/**
-			 * 解析方块组件触发事件
-			 */
-			const { block, dimension } = customFunction.TickComponentTrigger(source);
-			/**
-			 * 获取上方方块对象
-			 */
-			const above = block.above();
-			/**
-			 * 获取上方容器组件
-			 */
-			const container = above?.getComponent('inventory')?.container;
-			/**
-			 * 创建用于设置粒子效果参数的 Molang 变量映射
-			 *
-			 * @param {server.MolangVariableMap} molang - Molang变量映射对象
-			 */
-			const molang = new server.MolangVariableMap();
-			/**
-			 * 判断是否执行成功
-			 */
-			let success = false;
-			// 判断是否成功获取到能量
-			if (!opal.ExpendEnergy(block, -50)) return;
-			// 判断事件返回的对象是否完整可用
-			if (!above || !container) return;
-			// 遍历上方容器中的物品槽位
-			for (let index = 0; index < container.size; index++) {
-				/**
-				 * 获取当前槽位的物品
-				 */
-				const item = container.getItem(index);
-				// 如果当前槽位为空, 则跳过当前循环
-				if (!item) continue;
-				/**
-				 * 获取容器查询结果
-				 */
-				let searchResults = opal.SearchContainers(block, item, 8);
-				// 移除重复的容器对象
-				searchResults = searchResults.filter(value => !opal.Vector.equals(value[1].location, above.location));
-				// 如果没有找到容器, 放宽条件重新搜索
-				if (searchResults.length === 0) searchResults = opal.SearchContainers(block);
-				// 如果没有找到容器, 则终止本次事件的继续执行
-				if (searchResults.length === 0) return dimension.playSound('respawn_anchor.deplete', block);
-				/**
-				 * * 获取目标容器和目标方块
-				 */
-				const [targetContainer] = searchResults[0];
-				// 将物品添加到目标方块容器中
-				targetContainer.addItem(item);
-				// 从上方容器中移除物品
-				container?.setItem(index);
-				// 标记物品已经成功转移
-				success = true;
-				// 中断循环执行
-				await server.system.waitTicks(1);
-			};
-			// 设置粒子效果参数
-			molang.setFloat('variable.size', 18);
-			// 播放音效 表示运行结束
-			if (success) dimension.playSound('respawn_anchor.charge', block);
-			// 生成表示运行结束的粒子效果
-			for (let index = 0; index < 3; index++) {
-				molang.setFloat('variable.direction', index);
-				opal.TrySpawnParticle(dimension, 'scripts:path_round', block.center(), molang);
-			}
-		}
-	}
+    {
+        async onTick(source: server.BlockComponentTickEvent) {
+            /**
+             * 解析方块组件触发事件
+             */
+            const { block, dimension } = customFunction.TickComponentTrigger(source);
+            /**
+             * 获取上方方块对象
+             */
+            const above = block.above();
+            /**
+             * 获取上方容器组件
+             */
+            const container = above?.getComponent('inventory')?.container;
+            /**
+             * 创建用于设置粒子效果参数的 Molang 变量映射
+             *
+             * @param {server.MolangVariableMap} molang - Molang变量映射对象
+             */
+            const molang = new server.MolangVariableMap();
+            /**
+             * 判断是否执行成功
+             */
+            let success = false;
+            // 判断是否成功获取到能量
+            if (!opal.ExpendEnergy(block, -50)) return;
+            // 判断事件返回的对象是否完整可用
+            if (!above || !container) return;
+            // 遍历上方容器中的物品槽位
+            for (let index = 0; index < container.size; index++) {
+                /**
+                 * 获取当前槽位的物品
+                 */
+                const item = container.getItem(index);
+                // 如果当前槽位为空, 则跳过当前循环
+                if (!item) continue;
+                /**
+                 * 获取容器查询结果
+                 */
+                let searchResults = opal.SearchContainers(block, item, 8);
+                // 移除重复的容器对象
+                searchResults = searchResults.filter(value => !opal.Vector.equals(value[1].location, above.location));
+                // 如果没有找到容器, 放宽条件重新搜索
+                if (searchResults.length === 0) searchResults = opal.SearchContainers(block);
+                // 如果没有找到容器, 则终止本次事件的继续执行
+                if (searchResults.length === 0) return dimension.playSound('respawn_anchor.deplete', block);
+                /**
+                 * * 获取目标容器和目标方块
+                 */
+                const [targetContainer] = searchResults[0];
+                // 将物品添加到目标方块容器中
+                targetContainer.addItem(item);
+                // 从上方容器中移除物品
+                container?.setItem(index);
+                // 标记物品已经成功转移
+                success = true;
+                // 中断循环执行
+                await server.system.waitTicks(1);
+            };
+            // 设置粒子效果参数
+            molang.setFloat('variable.size', 18);
+            // 播放音效 表示运行结束
+            if (success) dimension.playSound('respawn_anchor.charge', block);
+            // 生成表示运行结束的粒子效果
+            for (let index = 0; index < 3; index++) {
+                molang.setFloat('variable.direction', index);
+                opal.TrySpawnParticle(dimension, 'scripts:path_round', block.center(), molang);
+            }
+        }
+    }
 );
 export default components;

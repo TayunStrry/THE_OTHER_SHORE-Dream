@@ -70,10 +70,10 @@
   dependencies:
     "@minecraft/common" "^1.1.0"
 
-"@minecraft/server@^2.1.0-beta.1.21.90-preview.20":
-  "integrity" "sha512-gNrHMnDr2ARHXI9UGe/zqNorJhJpU3Ca8rL7jAsDXfx9JtoIVCIVFCs/KSpL5DIk3gF1dbvhzqOrUTvtKvwLGQ=="
-  "resolved" "https://registry.npmjs.org/@minecraft/server/-/server-2.1.0-beta.1.21.90-preview.20.tgz"
-  "version" "2.1.0-beta.1.21.90-preview.20"
+"@minecraft/server@^2.1.0-beta.1.21.90-preview.23":
+  "integrity" "sha512-mlXjbUUIcahQctpioyblR6l/tbLLOXT03OUwMYPhKxuZW9nRPIgkf/Un/AiUWx3sJZhhLs2v+A8mO9vtPeLelw=="
+  "resolved" "https://registry.npmjs.org/@minecraft/server/-/server-2.1.0-beta.1.21.90-preview.23.tgz"
+  "version" "2.1.0-beta.1.21.90-preview.23"
   dependencies:
     "@minecraft/common" "^1.1.0"
 

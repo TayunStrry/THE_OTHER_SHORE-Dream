@@ -1,3 +1,6 @@
+/*
+ * 原版接口
+ */
 import * as server from "@minecraft/server";
 /*
  * 系统组件
@@ -660,109 +663,5 @@ export async function FunctionsPerformedAfterDeath(entity, source) {
         opal.TrySpawnEntity(copyDimension, 'starry_map:dragon.tyrannosaurus_rex', copyLocation);
     }
     ;
-}
-;
-/**
- * * 控制实体进行动力飞行
- *
- * * 此函数通过计算实体的视角方向和速度, 来模拟动力飞行的效果它首先尝试找到实体附近是否有玩家,
- *
- * * 如果有, 则根据实体的视角方向计算新的速度向量, 并根据玩家的俯仰角度决定是否向上飞行
- *
- * @param {server.Entity} [entity] 需要进行动力飞行的实体对象
- *
- * @param {number} [speed] 飞行的速度, 决定了实体飞行的快慢
- */
-export function applyDynamicFlightToEntity(entity, speed) {
-    /**
-     * 获取绑定的玩家 ID
-     *
-     * @type {boolean | number | string | server.Vector3 | undefined}
-     */
-    const playerID = entity.getDynamicProperty('dynamic_flight_in_player');
-    // 验证绑定的玩家 ID 是否为字符串类型
-    if (typeof playerID !== 'string')
-        return opal.ThrowErrorIfPermitted('动力飞行失败, 玩家不存在');
-    /**
-     * 获取绑定的玩家对象
-     *
-     * @type {server.Player}
-     */
-    const player = server.world.getEntity(playerID);
-    // 验证绑定的玩家对象是否存在
-    if (!player)
-        return opal.ThrowErrorIfPermitted('动力飞行失败, 玩家不存在');
-    // 验证玩家是否正在跳跃, 如果是, 则清除实体的当前速度并返回
-    if (player.isJumping)
-        return entity.clearVelocity();
-    /**
-     * 获取实体视角方向
-     *
-     * @type {server.Vector3}
-     */
-    const direction = entity.getViewDirection();
-    /**
-     * 根据实体视角方向和速度参数计算新的速度向量
-     *
-     * @type {server.Vector3}
-     */
-    const newVelocity = opal.Vector.multiply(direction, speed);
-    /**
-     * 在新的速度向量基础上增加一个向上的分量, 用于模拟实体在飞行时的爬升效果
-     *
-     * @type {server.Vector3}
-     */
-    const climbVelocity = opal.Vector.add(newVelocity, opal.Vector.CONSTANT_UP);
-    // 清除实体当前速度, 准备应用新速度
-    entity.clearVelocity();
-    // 根据玩家俯仰角度决定应用的速度向量
-    entity.applyImpulse(player.getRotation().x >= -5 ? (player.getRotation().x > 55 ? direction : newVelocity) : climbVelocity);
-}
-;
-/**
- * * 将实体与玩家绑定, 以便控制实体的动力飞行
- *
- * @param {server.Entity} [entity] 需要进行动力飞行的实体对象
- */
-export function dynamicFlightToBinding(entity) {
-    /**
-     * 获取玩家对象
-     */
-    const player = entity.dimension.getPlayers({ location: entity.location, maxDistance: 8, closest: 1 })[0];
-    // 验证玩家对象是否存在
-    if (!player)
-        return opal.ThrowErrorIfPermitted(`绑定失败: 在实体周围 8 米范围内未找到任何玩家`);
-    // 绑定玩家 ID
-    entity.setDynamicProperty('dynamic_flight_in_player', player.id);
-}
-;
-/**
- * * 解除实体与玩家的绑定, 停止控制实体的动力飞行
- *
- * @param {server.Entity} [entity] 需要停止动力飞行的实体对象
- */
-export function dynamicFlightToSeparate(entity) {
-    /**
-     * 获取绑定的玩家ID
-     *
-     * @type {boolean | number | string | server.Vector3 | undefined}
-     */
-    const playerID = entity.getDynamicProperty('dynamic_flight_in_player');
-    // 验证绑定的玩家ID是否为字符串类型
-    if (typeof playerID !== 'string')
-        return opal.ThrowErrorIfPermitted('解除动力飞行绑定失败: 实体未绑定到玩家');
-    /**
-     * 获取绑定的玩家对象
-     *
-     * @type {server.Player}
-     */
-    const player = server.world.getEntity(playerID);
-    // 验证绑定的玩家对象是否存在
-    if (!player)
-        return opal.ThrowErrorIfPermitted('解除动力飞行绑定失败: 绑定的玩家不存在');
-    // 清除玩家的摄像机动画
-    player.camera.clear();
-    // 解除绑定
-    entity.setDynamicProperty('dynamic_flight_in_player');
 }
 ;

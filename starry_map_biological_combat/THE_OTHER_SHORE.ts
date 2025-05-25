@@ -1,12 +1,6 @@
-/*
- * 原版接口
- */
 import * as server from "@minecraft/server";
-/*
- * 工具
- */
 import { Vector, TriggerControl } from './tool';
-
+import { setRuntimeState } from './data';
 import * as redLegion from './red_legion';
 import * as blueLegion from './blue_legion';
 /**
@@ -21,10 +15,6 @@ const blockComponents = new Map<string, server.BlockCustomComponent>();
  * 物品自定义组件列表
  */
 const itemComponents = new Map<string, server.ItemCustomComponent>();
-/**
- * 运行状态标识符
- */
-export let runtimeState = 1;
 // 红色军团修改器
 itemComponents.set(componentPrefix + 'red_legion_base_config',
 	{
@@ -35,6 +25,14 @@ itemComponents.set(componentPrefix + 'red_legion_base_config',
 itemComponents.set(componentPrefix + 'blue_legion_base_config',
 	{
 		'onUse'(arg0) { blueLegion.revise(arg0) }
+	}
+);
+itemComponents.set(componentPrefix + 'force_start_next_game',
+	{
+		'onUse'(arg0) {
+			legionBaseUnderAttack(arg0.source)
+			server.system.runTimeout(() => setRuntimeState(1), 60)
+		}
 	}
 );
 /*
@@ -102,6 +100,10 @@ server.world.afterEvents.dataDrivenEntityTrigger.subscribe(
 		}
 	}
 );
+/**
+ * 当军团基地被攻击时触发的处理函数
+ * @param entity - 被攻击的实体对象
+ */
 function legionBaseUnderAttack(entity: server.Entity) {
 	// 触发器控制
 	if (!TriggerControl('军团基地被攻击', entity, 40)) return;
@@ -145,8 +147,5 @@ function legionBaseUnderAttack(entity: server.Entity) {
 	redLegion.clearTheRemainingQuantity();
 	blueLegion.clearTheRemainingQuantity();
 	// 设置标识符为战斗终结
-	runtimeState = 0;
-};
-export function forcefullyCuttingOffWar(value: number) {
-	runtimeState = value;
+	setRuntimeState(0);
 };

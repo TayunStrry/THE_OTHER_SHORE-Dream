@@ -191,3 +191,28 @@ export type RESIDUAL_EXTRACTION = {
      */
     revise?: string;
 };
+/**
+ * TODO: 方块交互组件:参数 => 魔晶充能
+ */
+export type STAR_ENERGY_INFUSION = {
+    /**
+     * 可进行充能的物品标签
+     */
+    chargeable_item_tags?: string[];
+    /**
+     * 可进行修复的物品标签
+     */
+    repairable_item_tags?: string[];
+    /**
+     * 充能时的能量消耗倍率（值越高，越费能量）
+     */
+    energy_consumption_rate?: number;
+    /**
+     * 充能完成后给予玩家的状态效果
+     *
+     * [{effect: string, amplifier: number}]
+     */
+    on_charge_effects?: {
+        [effect: string]: number;
+    };
+};

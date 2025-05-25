@@ -48,9 +48,9 @@ export function Detection(self: server.Entity, target: server.Entity) {
 };
 
 /**
- * * 野蜂 - 维系者
+ * 为范围内所有“野蜂”实体提供生命值恢复效果
  *
- * @param {server.Entity} self - 自身
+ * @param {server.Entity} self - 当前执行的实体（维系者野蜂）
  */
 export function Support(self: server.Entity) {
 	/**
@@ -65,16 +65,27 @@ export function Support(self: server.Entity) {
 	 * * 获取实体列表
 	 */
 	const entitys = self.dimension.getEntities(options);
-	// 判断实体是否存在
+	// 如果没有找到任何实体，直接返回
 	if (entitys.length == 0) return;
 	// 野蜂机群恢复生命值
 	entitys.forEach(
 		entity => {
 			/**
-			 * * 当前生命值
+			 * * 获取该实体的生命组件
 			 */
-			const health = entity.getComponent('health');
-			health?.setCurrentValue(health.currentValue + opal.RandomFloor(10, 50));
+			const healthComponent = entity.getComponent('health');
+			// 如果当前生命值等于0, 则不进行治疗
+			if (!healthComponent || healthComponent.currentValue == 0) return;
+			/**
+			 * 获得随机治疗效果后的生命值
+			 */
+			const healedHealth = healthComponent.currentValue + opal.RandomFloor(10, 50);
+			/**
+			 * 获得有效的生命值
+			 */
+			const effectiveHealth = Math.min(healedHealth, healthComponent.defaultValue);
+			// 设置当前生命值
+			healthComponent?.setCurrentValue(effectiveHealth);
 		}
 	)
 };

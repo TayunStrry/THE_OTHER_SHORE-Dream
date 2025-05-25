@@ -2,7 +2,7 @@
 	"type": "module",
 	"dependencies": {
 		"@minecraft/debug-utilities": "^1.0.0-beta.1.21.90-preview.20",
-		"@minecraft/server": "^2.1.0-beta.1.21.90-preview.20",
+		"@minecraft/server": "^2.1.0-beta.1.21.90-preview.23",
 		"@minecraft/server-ui": "^2.1.0-beta.1.21.90-preview.20",
 		"adm-zip": "^0.5.16",
 		"fs-extra": "^11.3.0"
@@ -28,8 +28,7 @@
 		"tsc_beta": "npm run tsc && yarn rollup ./deliverable/JavaScript/THE_OTHER_SHORE.js --file C:/Users/196530/AppData/Local/Packages/Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/幻梦-Dream_BP/scripts/THE_OTHER_SHORE.js",
 		"open": "npm run tsc_beta && npm run package && npm run upload",
 		"test": "npm run tsc_beta && npm run package",
-
-		"tsc1":"tsc ./starry_map_biological_combat/THE_OTHER_SHORE.ts --moduleResolution node --target es2022 --outDir ./deliverable/JavaScript",
-		"warrior":"npm run tsc1 && yarn rollup ./deliverable/JavaScript/starry_map_biological_combat/THE_OTHER_SHORE.js --file ../development_behavior_packs/生物对战_行为包/scripts/THE_OTHER_SHORE.js"
+		"tsc1": "tsc ./starry_map_biological_combat/THE_OTHER_SHORE.ts --moduleResolution node --target es2022 --outDir ./deliverable/JavaScript",
+		"warrior": "npm run tsc1 && yarn rollup ./deliverable/JavaScript/starry_map_biological_combat/THE_OTHER_SHORE.js --file ../development_behavior_packs/生物对战_行为包/scripts/THE_OTHER_SHORE.js"
 	}
 }

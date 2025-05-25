@@ -1,13 +1,7 @@
-/*
- * 原版接口
- */
 import * as server from "@minecraft/server";
 import * as serverUI from "@minecraft/server-ui";
-/*
- * 工具
- */
+import { setRuntimeState, getRuntimeState } from './data';
 import { Vector, TrySpawnEntity } from './tool';
-import { runtimeState, forcefullyCuttingOffWar } from './THE_OTHER_SHORE';
 /**
  * 蓝色军团名称
  */
@@ -290,7 +284,7 @@ function reviseHealth(player: server.Player) {
     if (!healthComponent) return;
     // 添加滑动条
     form.slider(`<§1§o§l 蓝方军团基地 §r>剩余生命值`, 0, healthComponent.defaultValue, 1, healthComponent.currentValue);
-    form.slider('强行终止对战', 0, 100, 1, runtimeState);
+    form.slider('强行终止对战', 0, 100, 1, getRuntimeState());
     // 显示窗体
     form.show(player).then(
         async option => {
@@ -315,7 +309,7 @@ function reviseHealth(player: server.Player) {
                 legionBase.applyDamage(1, { 'damagingEntity': player, 'cause': server.EntityDamageCause.entityAttack });
             };
             // 强制关闭对战
-            forcefullyCuttingOffWar(option.formValues[1] as number);
+            setRuntimeState(option.formValues[1] as number);
         }
     );
 };

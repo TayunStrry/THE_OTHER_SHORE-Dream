@@ -1036,172 +1036,107 @@ components.set(prefix[1] + 'enchantment_dissociation', {
  * 魔晶充能
  */
 components.set(prefix[1] + 'star_energy_infusion', {
-    onPlayerInteract(source) {
+    onPlayerInteract(source, data) {
         /**
-         * * 方块组件参数 的 解构
+         * 解构组件参数
          */
-        const analysis = customFunction.InteractComponentTrigger(source);
+        const { chargeable_item_tags: chargeableItemTags, repairable_item_tags: repairableItemTags, energy_consumption_rate: energyConsumptionRate, on_charge_effects: chargeEffects } = data.params;
+        /**
+         * 解构组件参数
+         */
+        const { block, item, container, player } = customFunction.InteractComponentTrigger(source);
         // 检测是否使用了正确道具
-        if (analysis.item?.typeId == analysis.block.typeId)
+        if (item?.typeId == block.typeId)
             return;
-        // 设定使用间隔
-        if (!opal.TriggerControl('消耗星尘力补充物品数值', analysis.block, 20))
+        // 使用触发控制器约束使用频率
+        if (!opal.TriggerControl('消耗星尘力补充物品数值', block))
             return;
+        /**
+         * * 显示 特效
+         */
+        function playChargeEffects() {
+            /**
+             * * 定义 粒子参数
+             */
+            const effectParams = new server.MolangVariableMap();
+            /**
+             ** 粒子射流方向
+             */
+            const directionVector = opal.Vector.difference(block.center(), player?.location ?? { x: 0, y: 0, z: 0 });
+            // 设置 粒子参数
+            effectParams.setFloat('variable.type', 0);
+            effectParams.setVector3('variable.direction', directionVector);
+            // 显示 粒子效果
+            opal.TrySpawnParticle(block.dimension, 'scripts:path_ray', block.center(), effectParams);
+            opal.TrySpawnParticle(block.dimension, 'constant:erupt_rune_purple', block.center());
+            opal.TrySpawnParticle(block.dimension, 'constant:excite_rune_purple', block.center());
+            // 播放音效
+            player?.playSound('block.enchanting_table.use');
+            // 如果设定了附加额外的状态效果
+            if (!chargeEffects)
+                return;
+            // 为玩家添加 状态效果
+            for (const [effect, duration] of Object.entries(chargeEffects)) {
+                player?.addEffect(effect, Math.floor(duration * 20), { amplifier: 1, showParticles: false });
+            }
+        }
+        ;
         /**
          * * 恢复物品耐久
          */
-        function RestoreDurabilit() {
+        function restoreItemDurability() {
             /**
              * * 获取物品耐久组件
              */
-            const durability = analysis.item?.getComponent('minecraft:durability');
+            const durabilityComponent = item?.getComponent('minecraft:durability');
             // 检测能量是否足够
-            if (!durability || durability.damage == 0 || !opal.ExpendEnergy(analysis.block, -durability.damage * 5))
+            if (!durabilityComponent || durabilityComponent.damage == 0 || !energyConsumptionRate || !opal.ExpendEnergy(block, -durabilityComponent.damage * energyConsumptionRate))
                 return;
             // 恢复耐久
-            durability.damage = 0;
+            durabilityComponent.damage = 0;
             // 置换 玩家 手持的物品
-            analysis.container?.setItem(analysis.player?.selectedSlotIndex ?? 0, analysis.item);
+            container?.setItem(player?.selectedSlotIndex ?? 0, item);
             // 显示 特效
-            ChargingSpecialEffects();
+            playChargeEffects();
         }
         ;
         /**
          * * 恢复列车能量
          */
-        function RestoreVehiclePower() {
+        function restoreVehicleEnergy() {
+            /**
+             * 充能的基准值
+             */
+            const baseChargeValue = 10000;
             /**
              ** 获取物品的能量属性
              */
-            const power = analysis.item?.getDynamicProperty('energy:offline_vehicle_power') ?? 3500;
+            const currentPower = item?.getDynamicProperty('energy:offline_vehicle_power') ?? 3500;
             // 检测能量是否足够
-            if (!opal.ExpendEnergy(analysis.block, -10000) || power >= 1000000)
+            if (!energyConsumptionRate || !opal.ExpendEnergy(block, -baseChargeValue * energyConsumptionRate) || currentPower >= 1000000)
                 return;
+            /**
+             * 实际的充能值
+             */
+            const actualChargeAmount = baseChargeValue * energyConsumptionRate * 0.5;
             // 恢复列车能量
-            analysis.item?.setDynamicProperty('energy:offline_vehicle_power', power + 10000);
-            analysis.item?.setLore([`<§9§o§l 剩余能量 §r>: ${power + 10000}`]);
+            item?.setDynamicProperty('energy:offline_vehicle_power', currentPower + actualChargeAmount);
+            item?.setLore([`<§9§o§l 剩余能量 §r>: ${currentPower + actualChargeAmount}`]);
             // 置换 玩家 手持的物品
-            analysis.container?.setItem(analysis.player?.selectedSlotIndex ?? 0, analysis.item);
+            container?.setItem(player?.selectedSlotIndex ?? 0, item);
             // 显示 特效
-            ChargingSpecialEffects();
+            playChargeEffects();
         }
         ;
-        /**
-         * * 显示 特效
-         */
-        function ChargingSpecialEffects() {
-            /**
-             * * 定义 粒子参数
-             */
-            const molang = new server.MolangVariableMap();
-            /**
-             ** 粒子射流方向
-             */
-            const direction = opal.Vector.difference(analysis.block.center(), analysis.player?.location ?? { x: 0, y: 0, z: 0 });
-            // 设置 粒子参数
-            molang.setFloat('variable.type', 0);
-            molang.setVector3('variable.direction', direction);
-            // 显示 粒子效果
-            opal.TrySpawnParticle(analysis.block.dimension, 'scripts:path_ray', analysis.block.center(), molang);
-            opal.TrySpawnParticle(analysis.block.dimension, 'constant:erupt_rune_purple', analysis.block.center());
-            opal.TrySpawnParticle(analysis.block.dimension, 'constant:excite_rune_purple', analysis.block.center());
-            // 播放音效
-            analysis.player?.playSound('block.enchanting_table.use');
-        }
-        ;
-        // 检测物品是否包含对应标签
-        if (analysis.item?.hasTag('tags:use_energy_to_restore_vehicle_power'))
-            return RestoreVehiclePower();
-        if (analysis.item?.hasTag('tags:use_energy_to_restore_durability'))
-            return RestoreDurabilit();
-    }
-});
-/*
- * 强化魔晶充能
- */
-components.set(prefix[1] + 'super_star_energy_infusion', {
-    onPlayerInteract(source) {
-        /**
-         * * 方块组件参数 的 解构
-         */
-        const analysis = customFunction.InteractComponentTrigger(source);
-        // 检测是否使用了正确道具
-        if (analysis.item?.typeId == analysis.block.typeId)
-            return;
-        // 设定使用间隔
-        if (!opal.TriggerControl('消耗星尘力补充物品数值', analysis.block, 20))
-            return;
-        /**
-         * * 恢复物品耐久
-         */
-        function RestoreDurabilit() {
-            /**
-             * * 获取物品耐久组件
-             */
-            const durability = analysis.item?.getComponent('minecraft:durability');
-            // 检测能量是否足够
-            if (!durability || durability.damage == 0 || !opal.ExpendEnergy(analysis.block, -durability.damage * 5))
-                return;
-            // 恢复耐久
-            durability.damage = 0;
-            // 置换 玩家 手持的物品
-            analysis.container?.setItem(analysis.player?.selectedSlotIndex ?? 0, analysis.item);
-            // 为玩家附加状态效果增益
-            analysis.player?.addEffect('minecraft:saturation', 100, { amplifier: 1, showParticles: false });
-            analysis.player?.addEffect('minecraft:speed', 100, { amplifier: 1, showParticles: false });
-            analysis.player?.addEffect('minecraft:haste', 100, { amplifier: 1, showParticles: false });
-            // 显示 特效
-            ChargingSpecialEffects();
-        }
-        ;
-        /**
-         * * 恢复列车能量
-         */
-        function RestoreVehiclePower() {
-            /**
-             ** 获取物品的能量属性
-             */
-            const power = analysis.item?.getDynamicProperty('energy:offline_vehicle_power') ?? 3500;
-            // 检测能量是否足够
-            if (!opal.ExpendEnergy(analysis.block, -10000) || power >= 1000000)
-                return;
-            // 恢复列车能量
-            analysis.item?.setDynamicProperty('energy:offline_vehicle_power', power + 30000);
-            analysis.item?.setLore([`<§9§o§l 剩余能量 §r>: ${power + 30000}`]);
-            // 置换 玩家 手持的物品
-            analysis.container?.setItem(analysis.player?.selectedSlotIndex ?? 0, analysis.item);
-            // 显示 特效
-            ChargingSpecialEffects();
-        }
-        ;
-        /**
-         * * 显示 特效
-         */
-        function ChargingSpecialEffects() {
-            /**
-             * * 定义 粒子参数
-             */
-            const molang = new server.MolangVariableMap();
-            /**
-             ** 粒子射流方向
-             */
-            const direction = opal.Vector.difference(analysis.block.center(), analysis.player?.location ?? { x: 0, y: 0, z: 0 });
-            // 设置 粒子参数
-            molang.setFloat('variable.type', 0);
-            molang.setVector3('variable.direction', direction);
-            // 显示 粒子效果
-            opal.TrySpawnParticle(analysis.block.dimension, 'scripts:path_ray', analysis.block.center(), molang);
-            opal.TrySpawnParticle(analysis.block.dimension, 'constant:erupt_rune_purple', analysis.block.center());
-            opal.TrySpawnParticle(analysis.block.dimension, 'constant:excite_rune_purple', analysis.block.center());
-            // 播放音效
-            analysis.player?.playSound('block.enchanting_table.use');
-        }
-        ;
-        // 检测物品是否包含对应标签
-        if (analysis.item?.hasTag('tags:use_energy_to_restore_vehicle_power'))
-            return RestoreVehiclePower();
-        else
-            return RestoreDurabilit();
+        // 判断物品是否应该充能
+        if (chargeableItemTags && item?.getTags().some(element => chargeableItemTags.includes(element)))
+            restoreVehicleEnergy();
+        // 检测物品是否应该恢复耐久
+        else if (repairableItemTags && item?.getTags().some(element => repairableItemTags.includes(element)))
+            restoreItemDurability();
+        // 否则对任意物品尝试恢复其耐久
+        else if (repairableItemTags && repairableItemTags.length == 0)
+            restoreItemDurability();
     }
 });
 /*
