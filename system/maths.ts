@@ -1019,13 +1019,13 @@ class MinecraftColorBase {
 	 * @returns {boolean} - 两个颜色是否相等
 	 */
 	static equals(color1: server.RGB, color2: server.RGB): boolean {
-		return this.distance(color1, color2) < 1;
+		return MinecraftColorBase.distance(color1, color2) < 1;
 	};
 	/**
 	 * 判断两个 RGB 颜色是否相等
 	 *
 	 * @param color - 需要判断的颜色 (RGB格式, 0-1取值区间)
-	 * 
+	 *
 	 * @returns {boolean} - 两个颜色是否相等
 	 */
 	equals(color: server.RGB): boolean {
@@ -1052,7 +1052,7 @@ class MinecraftColorBase {
 		 */
 		const entityColorB = target.getProperty('property:color_b') as number | undefined;
 		// 返回 经过数据转换后的 颜色对象
-		return new this((entityColorR ?? 0.5) * 255, (entityColorG ?? 0.5) * 255, (entityColorB ?? 0.5) * 255);
+		return new MinecraftColorBase((entityColorR ?? 0.5) * 255, (entityColorG ?? 0.5) * 255, (entityColorB ?? 0.5) * 255);
 	};
 };
 /**

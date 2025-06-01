@@ -53,7 +53,7 @@
 		"scripts/temporary.js",
 		"scripts/archive.js",
 		"scripts/template.js"
-	],
+, "starry_map_sword/starry_map_chain"	],
 	// 指定需要排除在编译过程之外的文件或目录
 	"exclude": [
 		"./node_modules"

@@ -1,50 +1,87 @@
 {
-	"code_standardization_information": {
-		"TypeScript": {
-			"execution_version": "OPAl-Script_2024-09-06",
+	/* TypeScript代码规范化配置信息 */
+	"TypeScriptCodeStandardization": {
+		// 指定执行标准版本及变更记录
+		"version_control": {
+			"execution_version": "OPAl-Script_2024-09-06", // 当前执行的标准版本号
 			"version_change_log": [
-				"2024-09-06: 初始版本发布",
-				"2024-10-01: 增加了新的接口命名示例"
+				{
+					"date": "2024-09-06",
+					"description": "初始版本发布"
+				},
+				{
+					"date": "2024-10-01",
+					"description": "增加了新的接口命名示例"
+				}
+			]
+		},
+		// 示例代码规范案例库
+		"example_library": {
+			"variable_or_object_property": [
+				"errorInfo", // 错误信息变量
+				"getBlock" // 块级作用域函数
 			],
-			"demo_case": {
-				"variable_or_object_property": [
-					"errorInfo",
-					"getBlock"
-				],
-				"class_or_function": [
-					"CodePack",
-					"DetectStack"
-				],
-				"import_statement": [
-					"code_id",
-					"source"
-				],
-				"interface": [
-					"SAVE_RUNE_HURT",
-					"LOCATION_RANGE_SIZE"
-				]
-			},
-			"compiler_directives": "tsc",
-			"packager_instruction": [
-				// 仅需使用 rollup 打包
-				"yarn rollup ../JS_cache/THE_OTHER_SHORE.js --file ../development_behavior_packs/幻梦-Dream_BP/scripts/THE_OTHER_SHORE.js",
-				// 使用 rollup 打包,并压缩 JS 代码
-				"yarn run rollup --config rollup.config.js",
-				"yarn rollup ../JS_cache/THE_OTHER_SHORE.js --file ../development_behavior_packs/幻梦-Dream_BP/scripts/THE_OTHER_SHORE.js --plugin rollup-plugin-terser"
+			"class_or_function": [
+				"CodePack", // 代码打包类
+				"DetectStack" // 栈检测类
 			],
-			"lock": "npm.packageManager"
+			"import_statement": [
+				"code_id", // 代码标识符导入
+				"source" // 源文件导入
+			],
+			"interface": [
+				"SAVE_RUNE_HURT", // 神器伤害保存接口
+				"LOCATION_RANGE_SIZE" // 位置范围尺寸接口
+			]
+		},
+		// 编译相关配置
+		"compiler_settings": {
+			"directive": "tsc", // 使用TypeScript编译器指令
+			"global_cache_paths": [
+				"C:/Users/196530/AppData/Local/Yarn/Cache", // Yarn全局缓存路径
+				"C:/Users/196530/AppData/Local/Microsoft/TypeScript" // Microsoft TypeScript缓存路径
+			],
+			"package_lock": "npm.packageManager" // 使用npm作为包管理器
 		}
 	},
-	"text_optimization_standards": [
-		"优化要求: 提高文本内容的可读性和语法的通顺性",
-		"行数调整: 在必要时可增加行数, 以提高可读性",
-		"行宽限制: 尽量避免每行超过36个字符, 以保持文本的整洁",
-		"内容平衡: 保持文本的专业性和指导性之间的平衡",
-		"视角选择: 使用第三人称视角编写文本, 保持客观性",
-		"特殊符号: 不允许删除文本中的特殊符号, 保持原意",
-		"待优化的具体文本内容: ()"
+	/* 文本优化规范标准 */
+	"TextOptimizationStandards": [
+		{
+			"requirement": "提高文本可读性",
+			"description": "通过语法调整和结构优化提升理解效率",
+			"rule": "允许增加行数以改善阅读体验"
+		},
+		{
+			"requirement": "行宽控制",
+			"description": "保持代码整洁的视觉效果",
+			"rule": "每行字符数建议不超过36个"
+		},
+		{
+			"requirement": "内容平衡",
+			"description": "技术文档的专业性与可读性平衡",
+			"rule": "保持客观的技术描述同时兼顾易理解性"
+		},
+		{
+			"requirement": "视角规范",
+			"description": "维持第三方视角的客观性",
+			"rule": "禁止使用第一/二人称表述"
+		},
+		{
+			"requirement": "符号保留",
+			"description": "确保技术细节的完整性",
+			"rule": "不得删除任何特殊符号或格式"
+		},
+		{
+			"requirement": "待优化文本",
+			"description": "需要处理的具体内容",
+			"content": "()"
+		}
 	],
-	"git": [
-		"https://github.com/TayunStrry/THE_OTHER_SHORE-Dream"
+	/* Git仓库信息 */
+	"GitRepositories": [
+		{
+			"url": "https://github.com/TayunStrry/THE_OTHER_SHORE-Dream",
+			"description": "Dream项目代码库 - 长期维护的开发仓库"
+		}
 	]
 }

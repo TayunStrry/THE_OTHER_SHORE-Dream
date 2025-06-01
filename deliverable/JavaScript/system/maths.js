@@ -1068,7 +1068,7 @@ class MinecraftColorBase {
      * @returns {boolean} - 两个颜色是否相等
      */
     static equals(color1, color2) {
-        return this.distance(color1, color2) < 1;
+        return MinecraftColorBase.distance(color1, color2) < 1;
     }
     ;
     /**
@@ -1103,7 +1103,7 @@ class MinecraftColorBase {
          */
         const entityColorB = target.getProperty('property:color_b');
         // 返回 经过数据转换后的 颜色对象
-        return new this((entityColorR ?? 0.5) * 255, (entityColorG ?? 0.5) * 255, (entityColorB ?? 0.5) * 255);
+        return new MinecraftColorBase((entityColorR ?? 0.5) * 255, (entityColorG ?? 0.5) * 255, (entityColorB ?? 0.5) * 255);
     }
     ;
 }
