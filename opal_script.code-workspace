@@ -43,6 +43,9 @@
 		{
 			"name": "生物对战_行为包",
 			"path": "../development_behavior_packs/生物对战_行为包"
+		},
+		{
+			"path": "../development_behavior_packs/律令纷争_服务端"
 		}
 	],
 	"settings": {}

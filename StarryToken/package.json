@@ -1,0 +1,18 @@
+{
+	"name": "starrytoken",
+	"version": "1.0.0",
+	"description": "< starrytoken > 星之词元-中文分词器",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [
+		"中文",
+		"简体",
+		"分词",
+		"ES2023",
+		"无依赖"
+	],
+	"author": "",
+	"license": "ISC"
+}

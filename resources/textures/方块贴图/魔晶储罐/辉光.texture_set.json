@@ -1,8 +1,0 @@
-{
-	"format_version": "1.16.100",
-	"minecraft:texture_set": {
-		"metalness_emissive_roughness": "魔晶储罐_光亮度",
-		"heightmap": "魔晶储罐_粗糙度",
-		"color": "辉光"
-	}
-}

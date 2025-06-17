@@ -2,10 +2,12 @@
 	"type": "module",
 	"dependencies": {
 		"@minecraft/debug-utilities": "^1.0.0-beta.1.21.90-preview.20",
-		"@minecraft/server": "^2.1.0-beta.1.21.90-preview.23",
+		"@minecraft/server": "^2.1.0-beta.1.21.90-preview.27",
 		"@minecraft/server-ui": "^2.1.0-beta.1.21.90-preview.20",
 		"adm-zip": "^0.5.16",
-		"fs-extra": "^11.3.0"
+		"fs-extra": "^11.3.0",
+		"segmentit": "^2.0.3",
+		"strip-json-comments": "^5.0.2"
 	},
 	"overrides": {
 		"@minecraft/server-ui": {
@@ -20,18 +22,17 @@
 		"typescript": "^5.8.2"
 	},
 	"scripts": {
-		"tsc": "tsc ./THE_OTHER_SHORE.ts --moduleResolution node --target es2022 --outDir ./deliverable/JavaScript",
-		"upload": "git add . && git commit -m 'update' && git push && git push gitee master",
+		"666": "yarn rollup C:/Users/196530/AppData/Local/Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang/Source/moonlight/segment/lib/Segment.js --file ./deliverable/JavaScript/segment.js",
+		"dream_beta": "tsc ./THE_OTHER_SHORE.ts --moduleResolution node --target es2022 --outDir ./deliverable/JavaScript",
+		"tsc_beta": "npm run dream_beta && yarn rollup ./deliverable/JavaScript/THE_OTHER_SHORE.js --file C:/Users/196530/AppData/Local/Packages/Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/幻梦-Dream_BP/scripts/THE_OTHER_SHORE.js",
 		"package": "node scripts/package.js",
+		"test": "npm run tsc_beta && npm run package",
+		"upload": "git add . && git commit -m 'update' && git push && git push gitee master",
+		"open": "npm run tsc_beta && npm run package && npm run upload",
 		"tsc_pack": "tsc && yarn rollup ./deliverable/JavaScript/THE_OTHER_SHORE.js --file ../development_behavior_packs/幻梦-Dream_BP/scripts/THE_OTHER_SHORE.js",
 		"tsc_pack_zip": "tsc && rollup --config rollup.config.js",
-		"tsc_beta": "npm run tsc && yarn rollup ./deliverable/JavaScript/THE_OTHER_SHORE.js --file C:/Users/196530/AppData/Local/Packages/Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/幻梦-Dream_BP/scripts/THE_OTHER_SHORE.js",
-		"open": "npm run tsc_beta && npm run package && npm run upload",
-		"test": "npm run tsc_beta && npm run package",
-
-		"tsc_project_main": "tsc ./faction_conflict/main.ts --moduleResolution node --target es2022 --outDir ./deliverable/JavaScript",
-		"tsc_project_revise": "tsc ./faction_conflict/revise.ts --moduleResolution node --target es2022 --outDir ../development_behavior_packs/生物对战_行为包/scripts/",
-		"yarn_project_main":"npm run tsc_project_main && yarn rollup ./deliverable/JavaScript/faction_conflict/main.js --file ../development_behavior_packs/生物对战_行为包/scripts/THE_OTHER_SHORE.js",
-		"warrior":"npm run yarn_project_main && npm run  tsc_project_revise"
+		"injectTarget": "tsc ./faction_conflict/revise.ts --moduleResolution node --target es2022 --outDir ./deliverable/JavaScript && yarn rollup ./deliverable/JavaScript/faction_conflict/revise.js --file ../development_behavior_packs/律令纷争_服务端/scripts/THE_OTHER_SHORE.js",
+		"battleBetweenFactions": "tsc ./faction_conflict/main.ts --moduleResolution node --target es2022 --outDir ./deliverable/JavaScript && yarn rollup ./deliverable/JavaScript/faction_conflict/main.js --file ../development_behavior_packs/生物对战_行为包/scripts/THE_OTHER_SHORE.js",
+		"warrior": "npm run battleBetweenFactions && npm run injectTarget"
 	}
 }
