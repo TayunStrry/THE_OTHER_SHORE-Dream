@@ -27,6 +27,7 @@ const projectConfig = [
         name: '草神赐福-客户端',
         source: 'C:/Users/196530/AppData/Local/Packages/Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_resource_packs/草神赐福_客户端'
     },
+/*
     {
         name: '生物对战_行为包',
         source: 'C:/Users/196530/AppData/Local/Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/生物对战_行为包'
@@ -35,6 +36,7 @@ const projectConfig = [
         name: '生物对战_资源包',
         source: 'C:/Users/196530/AppData/Local/Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang/development_resource_packs/生物对战_资源包'
     }
+        */
 ];
 /**
  * 压缩包配置选项
