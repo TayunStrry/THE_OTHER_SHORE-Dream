@@ -1,0 +1,50 @@
+@media (max-width: 1400px) {
+  .config-panel {
+    width: 280px;
+  }
+
+  .right-panel {
+    width: 300px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .config-panel,
+  .right-panel {
+    width: 100%;
+    max-height: 300px;
+  }
+
+  .message {
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .main-content {
+    gap: 15px;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .controls {
+    justify-content: center;
+  }
+
+  .markdown-table {
+    display: block;
+    overflow-x: auto;
+  }
+}

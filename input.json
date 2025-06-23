@@ -1,5 +1,5 @@
 {
-    "model": "deepseek/deepseek-r1-0528-qwen3-8b",
+    "model": "qwen/qwen3-30b-a3b",
     "messages": [
         {
             "role": "user",

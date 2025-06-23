@@ -101,14 +101,15 @@ export default class Tokenizer implements TOKENIZER_MODEL {
          * 链接起始索引
          */
         let urlStartIndex = 0;
-        while (startIndex < text.length) {
+        // 遍历文本
+        while (startIndex < lowertext.length) {
             // 判断是否为 http:// 之类的协议开头
-            if (urlStartIndex === 0 && startIndex < text.length - minHeaderLength) {
+            if (urlStartIndex === 0 && startIndex < lowertext.length - minHeaderLength) {
                 // 遍历协议头信息
                 [...protocolHeaders].some(
                     protocol => {
                         // 判断是否包含协议头
-                        if (text.substring(startIndex, startIndex + protocol.length) === protocol) {
+                        if (lowertext.substring(startIndex, startIndex + protocol.length) === protocol) {
                             // 设定协议头起始索引位置
                             urlStartIndex = startIndex;
                             // 跳过协议头
@@ -120,15 +121,18 @@ export default class Tokenizer implements TOKENIZER_MODEL {
                     }
                 );
             }
-            else if (urlStartIndex !== 0 && !(text.charAt(startIndex) in ALLOWED_URL_CHARS)) {
+            else if (urlStartIndex !== 0 && !(allowedUrlChars.has(lowertext.charAt(startIndex)))) {
                 // 如果以协议头开始，遇到非 URL 字符，则结束当前 URL 匹配
-                results.push({
-                    url: text.substr(urlStartIndex, startIndex - urlStartIndex),
-                    startPos: urlStartIndex
-                });
-                urlStartIndex = false;
+                output.push(
+                    {
+                        word: lowertext.substring(urlStartIndex, startIndex - urlStartIndex),
+                        location: urlStartIndex
+                    }
+                );
+                urlStartIndex = 0;
             }
             startIndex++;
         }
+        return output;
     }
 }

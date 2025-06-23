@@ -1,0 +1,127 @@
+.message {
+  max-width: 85%;
+  padding: 15px;
+  border-radius: 12px;
+  line-height: 1.5;
+  position: relative;
+  animation: fadeIn 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.user-message {
+  background: var(--primary-color);
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.assistant-message {
+  background: var(--reasoning-bg);
+  color: var(--text-color);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+.system-message {
+  background: rgba(255, 193, 7, 0.2);
+  align-self: center;
+  max-width: 90%;
+  font-size: 0.9rem;
+  border: 1px dashed var(--warning-color);
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+  opacity: 0.8;
+}
+
+.input-area textarea {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--bg-color);
+  color: var(--text-color);
+  resize: none;
+  min-height: 72px;
+  max-height: 180px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.close-modal {
+  background: linear-gradient(135deg, #c05a8d, #c70909) !important;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+  font-size: 2rem;
+  transition: var(--transition);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.close-modal:hover {
+  font-size: 3rem;
+  background: linear-gradient(135deg, #c70909, #c05a8d) !important;
+  width: 55px;
+  height: 55px;
+  transform: translateY(-2px);
+}
+
+.send-btn {
+  background: linear-gradient(135deg,
+      var(--primary-color),
+      var(--secondary-color)) !important;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  width: 66px;
+  height: 90px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+  transition: var(--transition);
+  font-size: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.send-btn:hover {
+  background: linear-gradient(135deg, var(--primary-dark), #5a8ac0) !important;
+  transform: translateY(-4px);
+}
+
+.send-btn:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+}
+
+.message-actions {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.dark-mode .message-actions {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.message:hover .message-actions {
+  opacity: 1;
+}

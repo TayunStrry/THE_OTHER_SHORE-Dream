@@ -1,0 +1,45 @@
+:root {
+  --primary-color: #4a6fa5;
+  --primary-dark: #3a5a8a;
+  --secondary-color: #6c9bcf;
+  --success-color: #28a745;
+  --success-dark: #218838;
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --panel-bg: #f5f7fa;
+  --border-color: #e1e4e8;
+  --warning-color: #ffc107;
+  --error-color: #dc3545;
+  --reasoning-bg: #f8f9fa;
+  --think-bg: #f0f4f8;
+  --think-border: #d1e0f0;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s ease;
+  --think-color: #1e90ff;
+  --tts-color: #8a2be2;
+  --config-color: #20c997;
+  --vtuber-pink: #ff6b9c;
+  --vtuber-purple: #9d6bff;
+}
+
+.dark-mode {
+  --primary-color: #6c9bcf;
+  --primary-dark: #5a8ac0;
+  --secondary-color: #8ab6d6;
+  --success-color: #4ade80;
+  --success-dark: #3ecf70;
+  --bg-color: #1e1f26;
+  --text-color: #e6e6e6;
+  --panel-bg: #2a2b33;
+  --border-color: #3a3b45;
+  --warning-color: #facc15;
+  --error-color: #f87171;
+  --reasoning-bg: #2d2e38;
+  --think-bg: #2a3240;
+  --think-border: #3a4a60;
+  --think-color: #6495ed;
+  --tts-color: #9a6ee8;
+  --config-color: #20c997;
+  --vtuber-pink: #ff8bb5;
+  --vtuber-purple: #b28cff;
+}

@@ -136,7 +136,7 @@ components.set(
 						 */
 						const topmost = self.dimension.getTopmostBlock(vector.add(createPlace))?.above()?.location;
 						// 判断当前实体的出生点上方是否存在方块
-						if (topmost && entity && entity.isValid) entity.teleport(topmost);
+						if (topmost && entity && entity.isValid) entity.teleport(topmost, { dimension: self.dimension });
 						// 播放音效
 						entity.dimension.playSound('portal.trigger', entity.location);
 					}
