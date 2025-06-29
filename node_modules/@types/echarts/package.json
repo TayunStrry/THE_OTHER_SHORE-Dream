@@ -1,0 +1,12 @@
+{
+    "name": "@types/echarts",
+    "version": "5.0.0",
+    "description": "Stub TypeScript definitions entry for echarts, which provides its own types definitions",
+    "main": "",
+    "scripts": {},
+    "license": "MIT",
+    "dependencies": {
+        "echarts": "*"
+    },
+    "deprecated": "This is a stub types definition. echarts provides its own type definitions, so you do not need this installed."
+}

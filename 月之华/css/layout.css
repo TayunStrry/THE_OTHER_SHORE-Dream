@@ -1,5 +1,5 @@
 .container {
-	max-width: 1800px;
+	max-width: 97%;
 	margin: 0 auto;
 	padding: 20px;
 	display: flex;
@@ -45,42 +45,7 @@ header {
 	flex: 1;
 	gap: 20px;
 	height: calc(100% - 80px);
-	overflow: hidden;
-}
-
-.config-panel {
-	width: 300px;
-	background: var(--panel-bg);
-	border-radius: 12px;
-	padding: 20px;
-	box-shadow: var(--shadow);
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-	overflow-y: auto;
-}
-
-.right-panel {
-	width: 350px;
-	background: var(--panel-bg);
-	border-radius: 12px;
-	padding: 20px;
-	box-shadow: var(--shadow);
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-	overflow-y: auto;
-}
-
-.chat-container {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	background: var(--panel-bg);
-	border-radius: 12px;
-	box-shadow: var(--shadow);
-	overflow: hidden;
-	min-width: 0;
+	overflow: auto;
 }
 
 .panel-title {
@@ -174,52 +139,6 @@ header {
 
 .dark-mode .input-area {
 	background: rgba(255, 255, 255, 0.05);
-}
-
-
-.chat-history-panel {
-	width: 350px;
-	background: rgba(255, 255, 255, 0.9);
-	border-radius: 20px;
-	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
-	transition: all 0.4s ease;
-}
-
-.dark-mode .chat-history-panel {
-	background: rgba(30, 30, 40, 0.9);
-}
-
-.chat-history-panel.collapsed {
-	width: 56px;
-	min-width: 56px;
-}
-
-.panel-header {
-	padding: 15px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	transition: all 0.3s ease;
-}
-
-.chat-history-panel.collapsed .panel-header {
-	padding: 10px;
-	justify-content: center;
-}
-
-.chat-history-panel.collapsed .panel-header h3 {
-	display: none;
-}
-
-.chat-history-panel.collapsed .vtuber-chat-bubble {
-	display: none;
-}
-
-.chat-history-panel.collapsed .toggle-history-btn i {
-	transform: rotate(180deg);
 }
 
 .vtuber-chat-bubble {

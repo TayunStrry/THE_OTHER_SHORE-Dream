@@ -26,80 +26,27 @@ const STATUS_TEXTS = {
 
 // GIF资源路径配置
 const GIFS = {
-	idle: ["./图片/待机-0.gif", "./图片/待机-1.gif"],
-	thinking: ["./图片/思考-0.jpg"],
-	speaking: ["./图片/请求-0.gif", "./图片/请求-1.gif", "./图片/请求-2.gif"],
+	idle: ["./GIF/待机-0.gif", "./GIF/待机-1.gif"],
+	thinking: ["./GIF/思考-0.jpg"],
+	speaking: ["./GIF/请求-0.gif", "./GIF/请求-1.gif", "./GIF/请求-2.gif"],
 	error: [
-		"./图片/故障-0.gif",
-		"./图片/故障-1.gif",
-		"./图片/故障-2.gif",
-		"./图片/故障-3.gif",
-		"./图片/故障-4.gif",
+		"./GIF/故障-0.gif",
+		"./GIF/故障-1.gif",
+		"./GIF/故障-2.gif",
+		"./GIF/故障-3.gif",
+		"./GIF/故障-4.gif",
 	],
-	user_input: ["./图片/夜空.jpg", "./图片/等待.gif"],
+	user_input: ["./GIF/夜空.jpg", "./GIF/等待.gif"],
 	happy: [
-		"./图片/高兴-0.gif",
-		"./图片/高兴-1.gif",
-		"./图片/高兴-2.gif",
-		"./图片/高兴-3.gif",
+		"./GIF/高兴-0.gif",
+		"./GIF/高兴-1.gif",
+		"./GIF/高兴-2.gif",
+		"./GIF/高兴-3.gif",
 	],
-	angry: ["./图片/愤怒-0.gif", "./图片/愤怒-1.gif"],
-	shy: ["./图片/害羞-0.gif"],
-	request: ["./图片/请求-0.gif", "./图片/请求-1.gif", "./图片/请求-2.gif"],
+	angry: ["./GIF/愤怒-0.gif", "./GIF/愤怒-1.gif"],
+	shy: ["./GIF/害羞-0.gif"],
+	request: ["./GIF/请求-0.gif", "./GIF/请求-1.gif", "./GIF/请求-2.gif"],
 };
-
-// 切换角色模式
-async function toggleVtuberMode() {
-	// 如果是切换到角色模式，则自动测试连接
-	if (!isVtuberMode) {
-		vtuberToggle.disabled = true;
-		vtuberToggle.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 连接中...';
-
-		try {
-			// 执行测试连接
-			const isConnected = await testConnection();
-
-			if (!isConnected) {
-				showApiStatus("无法连接到API，请检查配置！", "error");
-				vtuberToggle.disabled = false;
-				vtuberToggle.innerHTML =
-					'<i class="fas fa-user-astronaut"></i><span>角色模式</span>';
-				return;
-			}
-		}
-		catch (error) {
-			console.error("连接测试失败:", error);
-			vtuberToggle.disabled = false;
-			vtuberToggle.innerHTML =
-				'<i class="fas fa-user-astronaut"></i><span>角色模式</span>';
-			return;
-		}
-		// 显示初始内容
-		//vtuberChatBubble.innerHTML = "你好，我是月华！今天有什么可以帮你的吗？";
-	}
-
-	isVtuberMode = !isVtuberMode;
-
-	if (isVtuberMode) {
-		configPanel.style.display = "none";
-		rightPanel.style.display = "none";
-		vtuberLayout.style.display = "flex";
-
-		vtuberToggle.classList.add("active");
-		vtuberToggle.innerHTML = '<i class="fas fa-cog"></i><span>配置模式</span>';
-		setVtuberState(VTUBER_STATES.IDLE);
-	}
-	else {
-		configPanel.style.display = "flex";
-		rightPanel.style.display = "flex";
-		vtuberLayout.style.display = "none";
-
-		vtuberToggle.classList.remove("active");
-		vtuberToggle.innerHTML = '<i class="fas fa-user-astronaut"></i><span>角色模式</span>';
-	}
-
-	vtuberToggle.disabled = false;
-}
 
 // 设置皮套状态
 function setVtuberState(state) {
@@ -150,14 +97,21 @@ function handleEmotionTags(content) {
 	return detectedEmotion;
 }
 
+// 带超时的状态设置函数
+function setStateWithTimeout(state, duration = 9000) {
+	setVtuberState(state);
+	if (state !== VTUBER_STATES.IDLE && state !== VTUBER_STATES.THINKING) {
+		setTimeout(() => {
+			// 仅在仍是当前状态时切换回待机
+			if (currentVtuberState === state) {
+				setVtuberState(VTUBER_STATES.IDLE);
+			}
+		}, duration);
+	}
+}
+
 // 添加消息到聊天气泡
 function addVtuberMessage(message, isUser = false) {
-	// 如果有新消息，自动展开历史记录
-	if (isHistoryCollapsed) {
-		isHistoryCollapsed = false;
-		document.querySelector(".chat-history-panel").classList.remove("collapsed");
-	}
-
 	const messageClass = isUser ? "vtuber-user-message" : "vtuber-ai-message";
 	const messageElement = document.createElement("div");
 	messageElement.className = `vtuber-message ${messageClass}`;
@@ -177,7 +131,6 @@ function addVtuberMessage(message, isUser = false) {
 	const chatBubble = document.getElementById("vtuberChatBubble");
 	chatBubble.scrollTop = chatBubble.scrollHeight;
 }
-
 // 角色模式发送消息
 async function sendVtuberMessage() {
 	const message = vtuberInput.value.trim();
@@ -254,8 +207,8 @@ async function sendVtuberMessage() {
 		// 设置说话状态
 		setVtuberState(VTUBER_STATES.SPEAKING);
 
-		if (autoPlayTTS.checked && cleanTtsContent) {
-			await playTTS(cleanTtsContent);
+		if (autoplaySpeechModel.checked && cleanTtsContent) {
+			await playSpeechModel(cleanTtsContent);
 		}
 
 		// 处理情绪标签
@@ -277,11 +230,10 @@ async function sendVtuberMessage() {
 		vtuberSendBtn.disabled = false;
 	}
 }
-
 // 流式获取AI响应
 async function fetchAIStreamResponse(messages, onChunkReceived) {
-	const endpoint = apiEndpoint.value + "/v1/chat/completions";
-	const model = aiModel.value;
+	const endpoint = apiEndpointReasoningModel.value + "/chat/completions";
+	const model = reasoningModelDropdown.value;
 	const temp = parseFloat(temperature.value);
 	const maxToks = parseInt(maxTokens.value);
 
@@ -344,18 +296,5 @@ async function fetchAIStreamResponse(messages, onChunkReceived) {
 		}
 	} catch (error) {
 		throw error;
-	}
-}
-
-// 带超时的状态设置函数
-function setStateWithTimeout(state, duration = 9000) {
-	setVtuberState(state);
-	if (state !== VTUBER_STATES.IDLE && state !== VTUBER_STATES.THINKING) {
-		setTimeout(() => {
-			// 仅在仍是当前状态时切换回待机
-			if (currentVtuberState === state) {
-				setVtuberState(VTUBER_STATES.IDLE);
-			}
-		}, duration);
 	}
 }

@@ -1,0 +1,254 @@
+/* TODO : 圆形旋转按钮 */
+.rotary_toggle {
+	color: white;
+	border: none;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	flex-shrink: 0;
+	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+	background: linear-gradient(135deg, var(--vtuber-purple), var(--vtuber-pink)) !important;
+	will-change: transform;
+}
+
+.rotary_toggle.clicking {
+	border-radius: 20%;
+	transform: rotate(180deg);
+}
+
+.rotary_toggle:hover {
+	background: #8a4dff;
+	transform: scale(1.35) rotate(180deg);
+}
+
+/* TODO : 交互模式切换按钮 */
+.interactive_mode_switching_button {
+	padding: 15px 30px !important;
+	font-size: 1.4rem !important;
+	border-radius: 50px !important;
+	background: linear-gradient(135deg, var(--vtuber-pink), var(--vtuber-purple)) !important;
+	color: white !important;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
+	border: none !important;
+	display: flex !important;
+	align-items: center !important;
+	gap: 12px !important;
+	transition: all 0.3s ease !important;
+	will-change: transform;
+}
+
+.interactive_mode_switching_button:hover {
+	transform: translateY(-3px) !important;
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4) !important;
+	background: linear-gradient(135deg, #ff4d8a, #8a4dff) !important;
+}
+
+.interactive_mode_switching_button.active {
+	background: linear-gradient(135deg, var(--vtuber-purple), var(--vtuber-pink)) !important;
+}
+
+.interactive_mode_switching_button i {
+	font-size: 1.6rem !important;
+}
+
+/* TODO : 角色交互模式聊天发送按钮 */
+.character_interaction_chat_input_button {
+	/* 使用主题变量色 */
+	background: var(--vtuber-pink);
+	color: white;
+	border: none;
+	border-radius: 15px;
+	width: 60px;
+	height: 100%;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.5rem;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	transition: all 0.3s ease;
+	will-change: transform;
+}
+
+.character_interaction_chat_input_button:hover {
+	/* 鼠标悬停时的粉色 */
+	background: #ff4d8a;
+	/* 悬停时轻微上移 */
+	transform: translateY(-3px);
+	/* 增强阴影效果 */
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* TODO : 常规聊天模式聊天发送按钮 */
+.general_status_chat_input_button {
+	background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+	color: white;
+	border: none;
+	border-radius: 10px;
+	width: 60px;
+	height: 100%;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-self: flex-end;
+	transition: var(--transition);
+	font-size: 1.5rem;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+	will-change: transform;
+}
+
+.general_status_chat_input_button:hover {
+	background: linear-gradient(135deg, var(--primary-dark), #5a8ac0) !important;
+	transform: translateY(-4px);
+}
+
+.general_status_chat_input_button:disabled {
+	background: #cccccc;
+	cursor: not-allowed;
+}
+
+/* TODO : 切换深色模式与浅色模式按钮 */
+.dark_light_switch_button {
+	background: linear-gradient(135deg, #4a6fa5, #6c9bcf) !important;
+	color: white !important;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+	width: 46px !important;
+	height: 46px !important;
+	font-size: 1.4rem !important;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	will-change: transform;
+}
+
+.dark_light_switch_button:hover {
+	font-size: 2.2rem !important;
+	width: 60px !important;
+	height: 60px !important;
+	transform: rotate(15deg) translateY(-3px) !important;
+	background: linear-gradient(135deg, #3a5a8a, #5a8ac0) !important;
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark-mode .dark_light_switch_button {
+	background: linear-gradient(135deg, #6c9bcf, #8ab6d6) !important;
+}
+
+.dark-mode .dark_light_switch_button:hover {
+	background: linear-gradient(135deg, #5a8ac0, #6a9bc0) !important;
+}
+
+/* TODO : 清除系统提示词按钮 */
+.system_prompt_button {
+	background: linear-gradient(135deg, var(--primary-dark), #07b699) !important;
+	color: rgb(255, 255, 255);
+	border-radius: 8px;
+	width: 100%;
+	height: 35px;
+	position: relative;
+	top: 0;
+	right: 0;
+	background: none;
+	border: none;
+	cursor: pointer;
+	font-size: 0.9rem;
+	transition: var(--transition);
+	will-change: transform;
+}
+
+.system_prompt_button:hover {
+	background: linear-gradient(135deg, #a53c72, #da1818) !important;
+	transform: translateY(-2px);
+	font-size: 1rem;
+	height: 45px;
+}
+
+.system_prompt_button:disabled {
+	background: #cccccc;
+	cursor: not-allowed;
+}
+
+/* TODO : 单选按钮 */
+.load_selected_option_button {
+	background: linear-gradient(135deg, #37a7db, #67e73f) !important;
+	color: rgb(255, 255, 255);
+	border-radius: 8px;
+	width: 100%;
+	height: 35px;
+	position: relative;
+	top: 0;
+	right: 0;
+	background: none;
+	border: none;
+	cursor: pointer;
+	font-size: 0.9rem;
+	transition: var(--transition);
+	will-change: transform;
+}
+
+.load_selected_option_button:hover {
+	transform: translateY(-2px);
+	font-size: 1rem;
+	height: 45px;
+}
+
+.load_selected_option_button.disable {
+	background: linear-gradient(135deg, #910279, #da1c03) !important;
+}
+
+.load_selected_option_button.interface {
+	background: linear-gradient(135deg, #10b359, #0ec57f) !important;
+}
+
+.load_selected_option_button.red {
+	background: #d81b1b !important;
+}
+
+.load_selected_option_button.green {
+	background: #0fb839 !important;
+}
+
+.load_selected_option_button.blue {
+	background: #166cce !important;
+}
+
+.load_selected_option_button.orange {
+	background: #eeb909 !important;
+}
+
+.load_selected_option_button.cyan {
+	background: #09d4b9 !important;
+}
+
+/* TODO : 关闭按钮 */
+.close-modal {
+	background: linear-gradient(135deg, #c05a8d, #c70909) !important;
+	color: white;
+	border: none;
+	border-radius: 8px;
+	width: 45px;
+	height: 45px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-self: flex-end;
+	font-size: 2rem;
+	transition: var(--transition);
+	box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2) !important;
+	will-change: transform;
+}
+
+.close-modal:hover {
+	font-size: 3rem;
+	transform: scale(1.2) rotate(180deg) translateZ(0);
+}

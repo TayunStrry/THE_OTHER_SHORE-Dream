@@ -1,0 +1,206 @@
+/* ===================== */
+/* Mermaid图表容器样式 */
+/* ===================== */
+.mermaid-container {
+	/* 尺寸与布局 */
+	min-width: 100%;
+	/* 确保最小宽度填满容器 */
+	min-height: 100px;
+	/* 设置合理的最小高度 */
+	margin: 15px 0;
+	/* 垂直外边距 */
+	padding: 15px;
+	/* 内边距 */
+
+	/* 视觉样式 */
+	background: var(--panel-bg, #f8f9fa);
+	/* 默认背景色 */
+	border: 1px solid var(--border-color, #dee2e6);
+	border-radius: 8px;
+	/* 圆角 */
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+	/* 微妙阴影 */
+
+	/* 交互特性 */
+	overflow: auto;
+	/* 支持内容滚动 */
+	cursor: grab;
+	/* 抓取手势 */
+	user-select: none;
+	/* 防止文本选中干扰拖动 */
+
+	/* 过渡效果 */
+	transition: all 0.3s ease;
+}
+
+/* 容器激活状态 */
+.mermaid-container:active {
+	cursor: grabbing;
+	/* 抓取中状态 */
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	/* 加深阴影 */
+}
+
+/* 暗色模式适配 */
+.dark-mode .mermaid-container {
+	background: var(--reasoning-bg, #2d3748);
+	border-color: var(--dark-border, #4a5568);
+}
+
+/* 图表错误提示 */
+.mermaid-error {
+	color: var(--error-color, #e53e3e);
+	padding: 15px;
+	font-size: 0.95rem;
+	background: rgba(229, 62, 62, 0.1);
+	border-radius: 6px;
+}
+
+/* ===================== */
+/* 图表SVG通用样式 */
+/* ===================== */
+.mermaid-container svg {
+	display: block;
+	margin: 0 auto;
+	/* 水平居中 */
+	overflow: visible !important;
+	/* 确保内容完全显示 */
+
+	/* 交互优化 */
+	touch-action: none;
+	/* 禁用触摸默认行为 */
+	user-select: none;
+	/* 防止文本选中 */
+
+	/* 平滑缩放 */
+	transform-origin: 0 0;
+	transition: transform 0.2s ease-out;
+}
+
+/* ===================== */
+/* 甘特图专用样式 */
+/* ===================== */
+svg[aria-roledescription="gantt"] {
+	font-family: 'Arial', sans-serif;
+
+	/* 颜色变量 */
+	--gantt-bar: #4e79a7;
+	--gantt-milestone: #e15759;
+	--gantt-text: #333;
+
+	/* 任务条样式 */
+	.bar {
+		fill: var(--gantt-bar);
+		stroke-width: 0;
+		rx: 3px;
+		/* 圆角 */
+		transition: fill 0.3s;
+	}
+
+	/* 里程碑样式 */
+	.milestone {
+		fill: var(--gantt-milestone);
+	}
+
+	/* 文本样式 */
+	text {
+		fill: var(--gantt-text);
+		font-size: 12px;
+	}
+}
+
+/* ===================== */
+/* 流程图专用样式 */
+/* ===================== */
+svg[aria-roledescription="flowchart"] {
+
+	/* 节点矩形 */
+	.node rect {
+		fill: #f28e2c;
+		/* 主色 */
+		stroke: #d87d28;
+		/* 边框色 */
+		stroke-width: 1.5px;
+		rx: 6px;
+		/* 圆角 */
+		filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.1));
+	}
+
+	/* 连接线 */
+	.edgePath path {
+		stroke: #666;
+		stroke-width: 2px;
+	}
+
+	/* 文本样式 */
+	text {
+		font-family: 'Arial', sans-serif;
+		font-size: 14px;
+		fill: #333;
+		font-weight: 500;
+	}
+
+	/* 特殊节点类型 */
+	.node.database rect {
+		fill: #59a14f;
+		/* 数据库节点颜色 */
+	}
+
+	.node.decision rect {
+		fill: #edc949;
+		/* 决策节点颜色 */
+	}
+}
+
+/* ===================== */
+/* 序列图专用样式 */
+/* ===================== */
+svg[aria-roledescription="sequence"] {
+
+	/* 参与者样式 */
+	.actor {
+		stroke: #8cd7f8;
+		fill: #e6f7ff;
+	}
+
+	/* 消息线样式 */
+	.messageLine0,
+	.messageLine1 {
+		stroke: #4e79a7;
+		stroke-width: 1.5px;
+	}
+
+	/* 激活框样式 */
+	.activation0,
+	.activation1 {
+		fill: rgba(78, 121, 167, 0.1);
+	}
+}
+
+/* ===================== */
+/* 状态图专用样式 */
+/* ===================== */
+svg[aria-roledescription="stateDiagram"] {
+
+	/* 状态节点 */
+	.state {
+		rect {
+			fill: #86bcb6;
+			rx: 8px;
+		}
+
+		/* 开始/结束节点 */
+		&.start,
+		&.end {
+			rect {
+				fill: #ff9da7;
+			}
+		}
+	}
+
+	/* 状态转换线 */
+	.transition {
+		stroke: #666;
+		marker-end: url(#arrowhead);
+	}
+}
