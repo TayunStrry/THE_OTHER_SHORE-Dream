@@ -46,6 +46,12 @@
 		},
 		{
 			"path": "../development_behavior_packs/律令纷争_服务端"
+		},
+		{
+			"path": "../development_resource_packs/客户端"
+		},
+		{
+			"path": "../development_behavior_packs/服务端"
 		}
 	],
 	"settings": {}
