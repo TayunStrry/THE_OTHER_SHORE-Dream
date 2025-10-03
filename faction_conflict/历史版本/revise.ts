@@ -1,6 +1,6 @@
 // Import required modules
 import * as mojang from "mojang-minecraft";
-import { Vector, RandomFloor } from "../system/maths";
+import { Vector, RandomFloor } from "../../system/maths";
 // 监听世界初始化事件，绑定aggro目标刷新函数
 mojang.world.events.worldInitialize.subscribe(() => rebindAggroTarget());
 /**

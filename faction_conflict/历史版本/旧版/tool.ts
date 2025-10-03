@@ -5,7 +5,7 @@ import * as server from "@minecraft/server";
 /*
  * 系统数据
  */
-import * as type from "../../data/type";
+import * as type from "../../../data/type";
 /**
  * * 尝试生成 实体
  *

@@ -720,6 +720,8 @@ class Vector extends VectorConstant {
 	 * @returns {Vector} - 归一化后的差向量
 	 */
 	static difference(start: server.Vector3, done: server.Vector3): Vector {
+		// 处理 向量 相等 的情况
+		if (Vector.equals(start, done)) return Vector.CONSTANT_ZERO;
 		/**
 		 * * 计算 两个向量 的 基本向量
 		 */

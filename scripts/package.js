@@ -61,11 +61,11 @@ const zipConfig = {
     /**
      * 模组版本号
      */
-    addonVersion: '4.4.0',
+    addonVersion: '4.4.1',
     /**
      * 游戏版本号
      */
-    gameVersion: '1.21.90',
+    gameVersion: '1.21.100',
     /**
      * 压缩后是否删除源文件
      */
