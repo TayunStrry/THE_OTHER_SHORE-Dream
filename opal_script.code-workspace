@@ -13,45 +13,28 @@
 			"path": "D:/MCStudioDownload/work/1965304849@qq.com/Cpp/AddOn/3069703b6762488da21a018836a6a227/behavior_pack_z6qLDV7H_f980b001"
 		},
 		{
-			"name": "更可爱的恶魂！！",
-			"path": "../development_resource_packs/更可爱的恶魂！！"
+			"path": "D:/下载/assets"
 		},
 		{
-			"name": "幻梦-Dream_BP",
-			"path": "../../../../../Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/幻梦-Dream_BP"
+			"path": "../../../../../../../Roaming/Minecraft Bedrock Preview/Users/Shared/games/com.mojang/development_behavior_packs/彼岸幻梦-服务端"
 		},
 		{
-			"name": "幻梦-Dream_RP",
-			"path": "../../../../../Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_resource_packs/幻梦-Dream_RP"
+			"path": "../../../../../../../Roaming/Minecraft Bedrock Preview/Users/Shared/games/com.mojang/development_behavior_packs/律令禁止-服务端"
 		},
 		{
-			"name": "律令禁止_服务端",
-			"path": "../../../../../Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/律令禁止_服务端"
+			"path": "../../../../../../../Roaming/Minecraft Bedrock Preview/Users/Shared/games/com.mojang/development_behavior_packs/轻量连锁-服务端"
 		},
 		{
-			"name": "轻量连锁_服务端",
-			"path": "../../../../../Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/轻量连锁_服务端"
+			"path": "../../../../../../../Roaming/Minecraft Bedrock Preview/Users/Shared/games/com.mojang/development_resource_packs/彼岸幻梦-客户端"
 		},
 		{
-			"name": "草神赐福_客户端",
-			"path": "../../../../../Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_resource_packs/草神赐福_客户端"
+			"path": "../../../../../../../Roaming/Minecraft Bedrock Preview/Users/Shared/games/com.mojang/development_resource_packs/草神赐福-客户端"
 		},
 		{
-			"name": "生物对战_资源包",
-			"path": "../development_resource_packs/生物对战_资源包"
+			"path": "../../../../../../../Roaming/Minecraft Bedrock Preview/Users/Shared/games/com.mojang/development_resource_packs/更好的纸娃娃显示"
 		},
 		{
-			"name": "生物对战_行为包",
-			"path": "../development_behavior_packs/生物对战_行为包"
-		},
-		{
-			"path": "../development_behavior_packs/律令纷争_服务端"
-		},
-		{
-			"path": "../development_resource_packs/客户端"
-		},
-		{
-			"path": "../development_behavior_packs/服务端"
+			"path": "../../../../../../../Roaming/Minecraft Bedrock Preview/Users/Shared/games/com.mojang/development_resource_packs/区块地图"
 		}
 	],
 	"settings": {}
