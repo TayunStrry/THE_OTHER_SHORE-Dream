@@ -25,7 +25,6 @@
 		"typescript": "^5.8.2"
 	},
 	"scripts": {
-		"666": "yarn rollup C:/Users/196530/AppData/Local/Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang/Source/moonlight/segment/lib/Segment.js --file ./deliverable/JavaScript/segment.js",
 		"dream_beta": "tsc ./THE_OTHER_SHORE.ts --moduleResolution node --target es2022 --outDir ./deliverable/JavaScript",
 		"tsc_beta": "npm run dream_beta && yarn rollup ./deliverable/JavaScript/THE_OTHER_SHORE.js --file C:/Users/196530/AppData/Local/Packages/Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/幻梦-Dream_BP/scripts/THE_OTHER_SHORE.js",
 		"package": "node scripts/package.js",
@@ -34,9 +33,6 @@
 		"open": "npm run tsc_beta && npm run package && npm run upload",
 		"tsc_pack": "tsc && yarn rollup ./deliverable/JavaScript/THE_OTHER_SHORE.js --file ../development_behavior_packs/幻梦-Dream_BP/scripts/THE_OTHER_SHORE.js",
 		"tsc_pack_zip": "tsc && rollup --config rollup.config.js",
-		"injectTarget": "tsc ./faction_conflict/revise.ts --moduleResolution node --target es2022 --outDir ./deliverable/JavaScript && yarn rollup ./deliverable/JavaScript/faction_conflict/revise.js --file ../development_behavior_packs/律令纷争_服务端/scripts/THE_OTHER_SHORE.js",
-		"battleBetweenFactions": "tsc ./faction_conflict/main.ts --moduleResolution node --target es2022 --outDir ./deliverable/JavaScript && yarn rollup ./deliverable/JavaScript/faction_conflict/main.js --file ../development_behavior_packs/生物对战_行为包/scripts/THE_OTHER_SHORE.js",
-		"warrior": "npm run battleBetweenFactions && npm run injectTarget",
-		"injectTarget2": "tsc ./cit/THE_OTHER_SHORE.ts --moduleResolution node --target es2022 --outDir ./deliverable/JavaScript && yarn rollup ./deliverable/JavaScript/cit/THE_OTHER_SHORE.js --file ../development_behavior_packs/服务端/scripts/THE_OTHER_SHORE.js"
+		"block": "tsc && yarn rollup ./deliverable/JavaScript/theme_block.js --file \"C:/Users/196530/AppData/Roaming/Minecraft Bedrock Preview/Users/Shared/games/com.mojang/development_behavior_packs/魔晶工程-服务端/scripts/THE_OTHER_SHORE.js\""
 	}
 }

@@ -35,6 +35,9 @@
 		},
 		{
 			"path": "../../../../../../../Roaming/Minecraft Bedrock Preview/Users/Shared/games/com.mojang/development_resource_packs/区块地图"
+		},
+		{
+			"path": "../../../../../../../Roaming/Minecraft Bedrock Preview/Users/Shared/games/com.mojang/development_behavior_packs/魔晶工程-服务端"
 		}
 	],
 	"settings": {}

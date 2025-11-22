@@ -76,6 +76,7 @@ export var RUNE_COUNT;
     RUNE_COUNT[RUNE_COUNT["rune_black"] = 10000000] = "rune_black";
 })(RUNE_COUNT || (RUNE_COUNT = {}));
 ;
+const x = RUNE_COUNT['rune_white'];
 /**
  * TODO: 定义战斗属性面板的默认值
  */

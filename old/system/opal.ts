@@ -9,11 +9,15 @@ export * from './plan';
 /*
  * 实例创建模块
  */
-export * from './create';
+export * from './create'
 /*
  * 月华百科模块
  */
 export * from './lexicon_v5';
+/*
+ * 元素攻击模块
+ */
+export * from './rune_attack';
 /*
  * 实体重载模块
  */
