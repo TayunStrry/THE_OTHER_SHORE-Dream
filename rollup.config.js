@@ -12,7 +12,7 @@ export default [
 		output: [
 			{
 				// 指定输出文件路径
-				file: '../development_behavior_packs/幻梦-Dream_BP/scripts/THE_OTHER_SHORE.js',
+				file: 'C:/Users/196530/AppData/Roaming/Minecraft Bedrock Preview/Users/Shared/games/com.mojang/development_behavior_packs/彼岸幻梦-服务端/scripts/THE_OTHER_SHORE.js',
 				/*
 				 * 指定输出文件类型
 				 * rollup支持的格式有:

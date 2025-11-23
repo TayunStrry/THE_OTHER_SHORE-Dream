@@ -12,6 +12,7 @@ import * as opal from "../system/opal";
  * 自定义组件
  */
 import * as customFunction from "./custom_function";
+import updateComponent from "./update_component";
 /**
  * * 进行检测的默认物品标签
  */
@@ -141,34 +142,6 @@ components.set(prefix[1] + 'control_panel', {
             opal.TrySetPermutation(analysis.block, 'STATE:rune_note', note != 7 ? note + 1 : 0);
             // 播放音效 与 粒子效果
             analysis.player?.playSound('tile.piston.out');
-            // 显示悬浮文本
-            switch (note) {
-                case 0:
-                    analysis.player?.sendMessage('| 参数设置 | : §l§e交互终端§r[§9 诸海元素 §r]');
-                    break;
-                case 1:
-                    analysis.player?.sendMessage('| 参数设置 | : §l§e交互终端§r[§4 烛火元素 §r]');
-                    break;
-                case 2:
-                    analysis.player?.sendMessage('| 参数设置 | : §l§e交互终端§r[§2 界木元素 §r]');
-                    break;
-                case 3:
-                    analysis.player?.sendMessage('| 参数设置 | : §l§e交互终端§r[§6 归忆元素 §r]');
-                    break;
-                case 4:
-                    analysis.player?.sendMessage('| 参数设置 | : §l§e交互终端§r[§5 极雷元素 §r]');
-                    break;
-                case 5:
-                    analysis.player?.sendMessage('| 参数设置 | : §l§e交互终端§r[§l 启程元素 §r]');
-                    break;
-                case 6:
-                    analysis.player?.sendMessage('| 参数设置 | : §l§e交互终端§r[§0 焚绝元素 §r]');
-                    break;
-                case 7:
-                    analysis.player?.sendMessage('| 参数设置 | : §l§e交互终端§r[§l 虚无模式 §r]');
-                    break;
-                default: break;
-            }
         }
         else {
             /**
@@ -180,11 +153,11 @@ components.set(prefix[1] + 'control_panel', {
             if (note != 0) {
                 opal.TrySetPermutation(analysis.block, 'STATE:stage', 1);
                 analysis.player?.playSound('conduit.activate');
-                analysis.player?.sendMessage('| §l交互终端§r | : §6信号已发送');
             }
             else {
                 analysis.player?.playSound('random.click');
-                analysis.player?.sendMessage('| §l交互终端§r | : §4当前操作无法执行!§r\n| §l交互终端§r | : 使用§l§6 魔晶工具 §r调整| 信号类型 |');
+                // 赋值 方块状态
+                opal.TrySetPermutation(analysis.block, 'STATE:rune_note', 1);
             }
         }
     }
@@ -209,7 +182,6 @@ components.set(prefix[1] + 'logic_inverter', {
         opal.TrySetPermutation(analysis.block, 'STATE:price', price != 9 ? price + 1 : 1);
         // 播放音效 与 粒子效果
         analysis.player?.playSound('tile.piston.out');
-        analysis.player?.sendMessage('| 参数设置 | : §l§e逻辑元件§r[§6 运行周期§r] -> §u' + (price != 9 ? price + 1 : 1));
     }
 });
 /*
@@ -232,34 +204,6 @@ components.set(prefix[1] + 'signal_filtering', {
         opal.TrySetPermutation(analysis.block, 'STATE:rune_note', note != 7 ? note + 1 : 0);
         // 播放音效 与 粒子效果
         analysis.player?.playSound('tile.piston.out');
-        // 显示设置文本
-        switch (note) {
-            case 0:
-                analysis.player?.sendMessage('| 参数设置 | : §l§e交互终端§r[§9 诸海元素 §r]');
-                break;
-            case 1:
-                analysis.player?.sendMessage('| 参数设置 | : §l§e交互终端§r[§4 烛火元素 §r]');
-                break;
-            case 2:
-                analysis.player?.sendMessage('| 参数设置 | : §l§e交互终端§r[§2 界木元素 §r]');
-                break;
-            case 3:
-                analysis.player?.sendMessage('| 参数设置 | : §l§e交互终端§r[§6 归忆元素 §r]');
-                break;
-            case 4:
-                analysis.player?.sendMessage('| 参数设置 | : §l§e交互终端§r[§5 极雷元素 §r]');
-                break;
-            case 5:
-                analysis.player?.sendMessage('| 参数设置 | : §l§e交互终端§r[§l 启程元素 §r]');
-                break;
-            case 6:
-                analysis.player?.sendMessage('| 参数设置 | : §l§e交互终端§r[§l§0 焚绝模式 §r]');
-                break;
-            case 7:
-                analysis.player?.sendMessage('| 参数设置 | : §l§e交互终端§r[§l 虚无模式 §r]');
-                break;
-            default: break;
-        }
     }
 });
 /*
@@ -338,72 +282,241 @@ components.set(prefix[1] + 'servo_susceptor', {
         opal.TrySetPermutation(block, 'STATE:value', value != 5 ? value + 1 : 0);
         // 播放音效 与 粒子效果
         player?.playSound('tile.piston.out');
-        // 显示 提示文本
-        player?.sendMessage({
-            rawtext: [
-                opal.translate(block),
-                { text: `: 已修改至[§6 最大负载 §r]参数 -> ${value != 5 ? value + 1 : 0}` }
-            ]
-        });
     }
 });
-/*
- * 水平机关门
+// 工具函数：方块状态传播系统
+/**
+ * 方块状态传播系统
+ * 用于处理方块状态的连锁传播效果
  */
-components.set(prefix[1] + 'horizontal_gate', {
-    onPlayerInteract(source) {
-        /**
-         * * 方块组件参数 的 解构
-         */
-        const analysis = customFunction.InteractComponentTrigger(source);
-        // 检测是否使用了正确道具
-        if (analysis.item?.typeId == analysis.block.typeId)
-            return;
-        // 根据符文类型决定是 开启 或 强制关闭
-        if (analysis.state.getState('STATE:rune_type') == 0) {
-            opal.TrySetPermutation(analysis.block, 'STATE:rune_type', 7);
-            analysis.player?.playSound('open.bamboo_wood_door');
-        }
-        else if (analysis.state.getState('STATE:rune_type') != 0) {
-            opal.TrySetPermutation(analysis.block, 'STATE:rune_type', 0);
-            analysis.player?.playSound('open.bamboo_wood_door');
-            customFunction.emergencyCloseMechanismDoor(analysis.block);
-        }
+class BlockSpreadSystem {
+    /**
+     * 创建方块状态传播处理器
+     * @param block - 起始传播的方块
+     * @param state - 方块的当前状态
+     * @param directions - 传播方向数组
+     * @param player - 触发传播的玩家（可选）
+     * @param callback - 自定义状态处理回调函数（可选）
+     * @returns 包含停止函数和计时器ID的对象
+     */
+    static createSpreadProcessor(block, state, directions, player, callback) {
+        // 初始化待处理方块队列，从起始方块开始
+        const blocksToMine = [block];
+        /** 记录已处理的方块数量 */
+        let minedCount = 0;
+        /** 控制循环执行的标志位 */
+        let keepRun = true;
+        /** 存储定时器ID的数组，用于后续清理 */
+        const tickIds = [];
+        /** 停止传播处理 清理定时器并播放完成音效 */
+        const stopEvent = () => {
+            keepRun = false;
+            // 清理所有定时器
+            tickIds.forEach(id => server.system.clearRun(id));
+            // 播放门打开音效
+            player?.playSound('open.bamboo_wood_door');
+        };
+        /** 执行传播查询的主函数 使用分块处理避免单次执行时间过长 */
+        const executeSpreadQuery = () => {
+            // 每次循环最多处理1024个方块，避免卡顿
+            for (let index = 0; index < 1024 && keepRun; index++) {
+                // 检查停止条件：队列为空、达到最大数量或手动停止
+                if (blocksToMine.length === 0 || minedCount >= 10240 || !keepRun)
+                    return stopEvent();
+                /** 从队列中取出当前处理的方块 */
+                const currentBlock = blocksToMine.shift();
+                // 如果当前方块不存在，停止执行
+                if (!currentBlock)
+                    return stopEvent();
+                // 执行单个方块的处理
+                executeBlockUpdate(currentBlock);
+            }
+            /**
+             * 处理单个方块的相邻方块
+             * @param currentBlock - 当前正在处理的方块
+             */
+            function executeBlockUpdate(currentBlock) {
+                try {
+                    // 遍历所有指定的方向
+                    for (const direction of directions) {
+                        /** 获取相邻方块 */
+                        const adjacentBlock = currentBlock.offset(direction);
+                        /** 获取相邻方块的符文类型状态 */
+                        const adjacentRuneState = adjacentBlock?.permutation.getState('STATE:rune_type');
+                        // 验证相邻方块是否有效：存在、类型相同、状态匹配
+                        if (!adjacentBlock || adjacentBlock.typeId !== block.typeId || adjacentRuneState !== state.getState('STATE:rune_type'))
+                            continue;
+                        // 如果有自定义回调则使用回调，否则使用默认状态切换逻辑
+                        if (callback)
+                            callback(currentBlock, adjacentBlock);
+                        else {
+                            /** 获取相邻方块的当前符文类型状态 */
+                            const currentState = adjacentBlock.permutation.getState('STATE:rune_type');
+                            // 切换相邻方块的符文类型状态：0切换为7，7切换为0
+                            opal.TrySetPermutation(adjacentBlock, 'STATE:rune_type', currentState == 0 ? 7 : 0);
+                        }
+                        // 将相邻方块加入待处理队列
+                        blocksToMine.push(adjacentBlock);
+                        // 增加已处理计数
+                        minedCount++;
+                    }
+                }
+                catch (error) {
+                    // 捕获执行过程中的错误，显示错误信息并停止执行
+                    const info = error instanceof Error ? error : new Error(String(error));
+                    opal.ErrorMessage('< 机关之门 >在执行时发生错误', block, { text: info.message });
+                    // 终止执行
+                    stopEvent();
+                }
+            }
+        };
+        // 启动定时器，定期执行处理函数
+        tickIds.push(server.system.runInterval(executeSpreadQuery));
+        // 返回控制对象，允许外部停止传播
+        return { stopEvent, tickIds };
     }
-});
+    ;
+    /**
+     * 切换方块符文状态
+     * 在0和目标状态之间切换
+     * @param block - 目标方块
+     * @param currentState - 当前状态值
+     * @param targetState - 目标状态值（可选，默认为7）
+     */
+    static toggleRuneState(block, currentState, targetState = 7) {
+        opal.TrySetPermutation(block, 'STATE:rune_type', currentState == 0 ? targetState : 0);
+    }
+    ;
+}
+;
 /*
- * 垂直机关门
+ * 立式机关门
  */
 components.set(prefix[1] + 'vertical_gate', {
     onPlayerInteract(source) {
-        /**
-         * * 方块组件参数 的 解构
-         */
-        const { item, player, block, state } = customFunction.InteractComponentTrigger(source);
-        // 检测是否使用了正确道具
+        // 从交互事件中提取玩家、物品、方块和状态信息
+        const { player, item, block, state } = customFunction.InteractComponentTrigger(source);
+        /** 方块符文类型状态 */
+        const blockRuneState = state.getState('STATE:rune_type');
+        // 放置功能：如果手持相同方块，尝试在上方放置
         if (item?.typeId == block.typeId) {
-            player?.playSound('place.amethyst_block');
-            /**
-             * * 获取方块对象
-             */
+            /** 获取上方方块对象 */
             const target = block.above();
-            // 检测上方方块是否为空
-            if (target?.isAir)
-                target.setPermutation(block.permutation);
+            // 如果上方方块为空或为液体方块
+            if (target?.isAir || target?.isLiquid) {
+                /** 获取玩家物品栏组件*/
+                const container = player?.getComponent('inventory')?.container;
+                // 检查玩家物品栏组件是否存在
+                if (!container)
+                    return;
+                // 设置目标方块的排列为点击方块的排列
+                target.setPermutation(state);
+                // 触发方块更新组件
+                updateComponent(block);
+                // 消耗玩家手持物品
+                opal.ConsumeItemStack(container, player.selectedSlotIndex, item, 1);
+                // 播放放置音效
+                player?.playSound('place.amethyst_block');
+            }
+            // 如果无法在上方放置机关门方块则播放放置失败的音效
+            else
+                player?.playSound('block.stonecutter.use');
             // 终止函数的后续运行
             return;
         }
-        ;
-        // 根据符文类型决定是 开启 或 强制关闭
-        if (state.getState('STATE:rune_type') == 0 && state.getState('STATE:about') != 0) {
-            opal.TrySetPermutation(block, 'STATE:rune_type', 7);
-            player?.playSound('open.bamboo_wood_door');
+        // 阻断玩家过于频繁的交互
+        if (!player || !opal.TriggerControl('玩家与机关门进行交互', player, 10))
+            return;
+        // 启动方块状态传播（全方向）
+        BlockSpreadSystem.createSpreadProcessor(block, state, opal.Vector.CONSTANT_ALL, player);
+        // 立即切换当前方块状态
+        BlockSpreadSystem.toggleRuneState(block, blockRuneState);
+        // 播放关闭音效
+        player?.playSound('close.iron_door');
+    }
+});
+/*
+ * 卧式机关门
+ */
+components.set(prefix[1] + 'horizontal_gate', {
+    /**
+     * 玩家交互事件处理
+     * @param source - 方块组件玩家交互事件
+     */
+    onPlayerInteract(source) {
+        // 从交互事件中提取玩家、物品、方块和状态信息
+        const { player, item, block, state } = customFunction.InteractComponentTrigger(source);
+        /** 方块符文类型状态 */
+        const blockRuneState = state.getState('STATE:rune_type');
+        // 放置功能：如果手持相同方块，直接返回不执行传播
+        if (item?.typeId === block.typeId)
+            return;
+        // 阻断玩家过于频繁的交互
+        if (!player || !opal.TriggerControl('玩家与机关门进行交互', player, 10))
+            return;
+        // 启动方块状态传播（仅水平方向）
+        BlockSpreadSystem.createSpreadProcessor(block, state, opal.Vector.CONSTANT_HORIZONTAL, player);
+        // 立即切换当前方块状态
+        BlockSpreadSystem.toggleRuneState(block, blockRuneState);
+        // 播放关闭音效
+        player?.playSound('close.iron_door');
+    }
+});
+/*
+ * 总线端口
+ */
+components.set(prefix[4] + 'bus_port', {
+    onTick(source) {
+        // 从定时器事件中提取条件、方块和状态信息
+        const { condition, block, state } = customFunction.TickComponentTrigger(source);
+        // 如果方块状态为0或9，则跳过激活逻辑
+        if (condition === 0 || condition === 9) {
+            // 如果状态为9，重置为0
+            if (condition === 9)
+                opal.TrySetPermutation(block, 'STATE:rune_type', 0);
+            // 终止后续逻辑执行
+            return;
         }
-        else if (state.getState('STATE:rune_type') != 0 && state.getState('STATE:about') != 0) {
-            opal.TrySetPermutation(block, 'STATE:rune_type', 0);
-            player?.playSound('open.bamboo_wood_door');
-            customFunction.emergencyCloseMechanismDoor(block);
-        }
+        /** 定义朝向与坐标轴的映射关系 */
+        const faceToAxisMap = {
+            'up': [opal.Vector.CONSTANT_UP, opal.Vector.CONSTANT_DOWN],
+            'down': [opal.Vector.CONSTANT_DOWN, opal.Vector.CONSTANT_UP],
+            'north': [opal.Vector.CONSTANT_NORTH, opal.Vector.CONSTANT_SOUTH],
+            'south': [opal.Vector.CONSTANT_SOUTH, opal.Vector.CONSTANT_NORTH],
+            'east': [opal.Vector.CONSTANT_EAST, opal.Vector.CONSTANT_WEST],
+            'west': [opal.Vector.CONSTANT_WEST, opal.Vector.CONSTANT_EAST]
+        };
+        /** 根据朝向获取对应的坐标轴方向 */
+        const axis = faceToAxisMap[state.getState('minecraft:block_face')];
+        // 检查是否存在有效朝向
+        if (!axis)
+            return;
+        // 遍历两端相邻方块
+        axis.map(axis => block.offset(axis)).forEach(contactBlocks => {
+            // 跳过无效方块或状态为9的方块
+            if (!contactBlocks || contactBlocks.permutation.getState('STATE:rune_type') == 9)
+                return;
+            // 如果是另一个总线端口，则直接设置状态
+            if (contactBlocks.typeId == block.typeId)
+                return opal.TrySetPermutation(contactBlocks, 'STATE:rune_type', condition);
+            // 如果是机关门方块或者其他魔导总线方块，则启动状态传播
+            if (contactBlocks.hasTag('tags:machine_gate.series') || contactBlocks.hasTag('tags:magic_cable.series')) {
+                // 使用自定义回调处理状态切换
+                BlockSpreadSystem.createSpreadProcessor(contactBlocks, contactBlocks.permutation, opal.Vector.CONSTANT_ALL, undefined, (_, adjacentBlock) => {
+                    /** 相邻方块的符文类型状态 */
+                    const adjacentState = adjacentBlock.permutation.getState('STATE:rune_type');
+                    // 根据条件切换状态：0变为条件值，非0变为0
+                    BlockSpreadSystem.toggleRuneState(adjacentBlock, adjacentState, condition);
+                });
+                // 切换当前接触方块的状态
+                BlockSpreadSystem.toggleRuneState(block, state.getState('STATE:rune_type'), condition);
+                // 如果是机关门则播放关闭音效
+                if (contactBlocks.hasTag('tags:machine_gate.series'))
+                    block.dimension.playSound('close.iron_door', block.bottomCenter());
+            }
+        });
+        // 设置总线端口自身状态为9（激活状态）
+        opal.TrySetPermutation(block, 'STATE:rune_type', 9);
     }
 });
 /*
@@ -1403,7 +1516,7 @@ components.set(prefix[1] + 'diffusion_filling', {
              *
              * @type {number}
              */
-            const magnification = 100;
+            const magnification = 1024;
             /**
              * 存储每 tick 的 ID
              */
@@ -2426,48 +2539,6 @@ components.set(prefix[4] + 'signal_conversion', {
     }
 });
 /*
- * 总线端口
- */
-components.set(prefix[4] + 'bus_port', {
-    onTick(source) {
-        /**
-         * * 方块组件参数 的 解构
-         */
-        const analysis = customFunction.TickComponentTrigger(source);
-        // 判断方块的元素类型状态
-        if (analysis.condition != 0 && analysis.condition != 9) {
-            /**
-             ** 方块状态值
-             */
-            const face = analysis.state.getState('minecraft:block_face');
-            switch (face) {
-                case 'up':
-                    customFunction.activateConnectedMagicCables(analysis.block, '0-Yy-0', analysis.state);
-                    break;
-                case 'down':
-                    customFunction.activateConnectedMagicCables(analysis.block, '0-Yy-0', analysis.state);
-                    break;
-                case 'north':
-                    customFunction.activateConnectedMagicCables(analysis.block, '0-0-Zz', analysis.state);
-                    break;
-                case 'south':
-                    customFunction.activateConnectedMagicCables(analysis.block, '0-0-Zz', analysis.state);
-                    break;
-                case 'east':
-                    customFunction.activateConnectedMagicCables(analysis.block, 'Xx-0-0', analysis.state);
-                    break;
-                case 'west':
-                    customFunction.activateConnectedMagicCables(analysis.block, 'Xx-0-0', analysis.state);
-                    break;
-                default: break;
-            }
-        }
-        // 重置方块元素类型
-        else if (analysis.condition == 9)
-            opal.TrySetPermutation(analysis.block, 'STATE:rune_type', 0);
-    }
-});
-/*
  * 校准型-逻辑非门
  */
 components.set(prefix[4] + 'correct_logic_not', function () {
@@ -3251,153 +3322,18 @@ components.set(prefix[4] + 'material_collection', {
  */
 components.set(prefix[4] + 'servo_drive', {
     onTick(source) {
-        /**
-         * * 方块组件参数 的 解构
-         */
+        /** 解析带有该组件的方块信息 */
         const analysis = customFunction.TickComponentTrigger(source);
-        /**
-         * * 方块前处理事件
-         */
-        function beforeEvent() {
-            /**
-             ** 查询方块标签
-             */
-            const hasTag = (offset, tag) => analysis.block.offset(offset)?.getTags().includes(tag) ?? false;
-            // 使能 模块运行
-            switch (analysis.condition) {
-                case 1:
-                    if (hasTag({ x: 1, y: -1, z: 0 }, 'tags:magic_cable.series'))
-                        if (!hasTag(opal.Vector.CONSTANT_EAST, 'tags:magic_cable.series'))
-                            customFunction.Susceptor(analysis.block, 'X+');
-                    break;
-                case 2:
-                    if (hasTag({ x: -1, y: -1, z: 0 }, 'tags:magic_cable.series'))
-                        if (!hasTag(opal.Vector.CONSTANT_WEST, 'tags:magic_cable.series'))
-                            customFunction.Susceptor(analysis.block, 'X-');
-                    break;
-                case 3:
-                    if (hasTag({ x: 0, y: -1, z: 1 }, 'tags:magic_cable.series'))
-                        if (!hasTag(opal.Vector.CONSTANT_SOUTH, 'tags:magic_cable.series'))
-                            customFunction.Susceptor(analysis.block, 'Z+');
-                    break;
-                case 4:
-                    if (hasTag({ x: -0, y: -1, z: -1 }, 'tags:magic_cable.series'))
-                        if (!hasTag(opal.Vector.CONSTANT_NORTH, 'tags:magic_cable.series'))
-                            customFunction.Susceptor(analysis.block, 'Z-');
-                    break;
-                default: break;
-            }
-            ;
-            // 同步状态
-            for (let index = 0; index <= 5; index++) {
-                /**
-                 ** 方块标签
-                 */
-                const tag = 'tags:servo_machine.value.' + index;
-                // 赋值 方块状态
-                if (hasTag(opal.Vector.CONSTANT_EAST, tag))
-                    opal.TrySetPermutation(analysis.block, 'STATE:value', index);
-                if (hasTag(opal.Vector.CONSTANT_WEST, tag))
-                    opal.TrySetPermutation(analysis.block, 'STATE:value', index);
-                if (hasTag(opal.Vector.CONSTANT_SOUTH, tag))
-                    opal.TrySetPermutation(analysis.block, 'STATE:value', index);
-                if (hasTag(opal.Vector.CONSTANT_NORTH, tag))
-                    opal.TrySetPermutation(analysis.block, 'STATE:value', index);
-            }
-            ;
-            // 复位状态
-            opal.TrySetPermutation(analysis.block, 'STATE:rune_type', 0);
-        }
-        ;
-        /**
-         * * 方块后处理事件
-         */
-        function afterEvent() {
-            /**
-             ** 方块状态值
-             */
-            const direction = analysis.state.getState('STATE:direction');
-            // 复位状态
-            opal.TrySetPermutation(analysis.block, 'STATE:direction', 0);
-            // 执行 功能
-            switch (direction) {
-                case 1:
-                    for (let index = 0; index <= 5; index++) {
-                        // 校验 状态
-                        if (index != analysis.state.getState('STATE:value'))
-                            continue;
-                        // 获取 锚点坐标
-                        const anchor_0 = opal.Vector.toString(analysis.block, { delimiter: ' ' });
-                        const anchor_1 = opal.Vector.toString(analysis.block.offset(opal.Vector.CONSTANT_EAST), { delimiter: ' ' });
-                        const anchor_2 = opal.Vector.toString(analysis.block.offset({ x: 1, y: index, z: 0 }), { delimiter: ' ' });
-                        const anchor_3 = opal.Vector.toString(analysis.block.offset({ x: 0, y: index, z: 0 }), { delimiter: ' ' });
-                        // 执行 方块命令
-                        analysis.dimension.runCommand(`fill ${anchor_1} ${anchor_2} air [] destroy`);
-                        analysis.dimension.runCommand(`clone ${anchor_0} ${anchor_3} ${anchor_1} replace move`);
-                        analysis.dimension.runCommand(`fill ${anchor_0} ${anchor_0} air`);
-                    }
-                    ;
-                    break;
-                case 2:
-                    for (let index = 0; index <= 5; index++) {
-                        // 校验 状态
-                        if (index != analysis.state.getState('STATE:value'))
-                            continue;
-                        // 获取 锚点坐标
-                        const anchor_0 = opal.Vector.toString(analysis.block, { delimiter: ' ' });
-                        const anchor_1 = opal.Vector.toString(analysis.block.offset(opal.Vector.CONSTANT_WEST), { delimiter: ' ' });
-                        const anchor_2 = opal.Vector.toString(analysis.block.offset({ x: -1, y: index, z: 0 }), { delimiter: ' ' });
-                        const anchor_3 = opal.Vector.toString(analysis.block.offset({ x: 0, y: index, z: 0 }), { delimiter: ' ' });
-                        // 执行 方块命令
-                        analysis.dimension.runCommand(`fill ${anchor_1} ${anchor_2} air [] destroy`);
-                        analysis.dimension.runCommand(`clone ${anchor_0} ${anchor_3} ${anchor_1} replace move`);
-                        analysis.dimension.runCommand(`fill ${anchor_0} ${anchor_0} air`);
-                    }
-                    ;
-                    break;
-                case 3:
-                    for (let index = 0; index <= 5; index++) {
-                        // 校验 状态
-                        if (index != analysis.state.getState('STATE:value'))
-                            continue;
-                        // 获取 锚点坐标
-                        const anchor_0 = opal.Vector.toString(analysis.block, { delimiter: ' ' });
-                        const anchor_1 = opal.Vector.toString(analysis.block.offset(opal.Vector.CONSTANT_SOUTH), { delimiter: ' ' });
-                        const anchor_2 = opal.Vector.toString(analysis.block.offset({ x: 0, y: index, z: 1 }), { delimiter: ' ' });
-                        const anchor_3 = opal.Vector.toString(analysis.block.offset({ x: 0, y: index, z: 0 }), { delimiter: ' ' });
-                        // 执行 方块命令
-                        analysis.dimension.runCommand(`fill ${anchor_1} ${anchor_2} air [] destroy`);
-                        analysis.dimension.runCommand(`clone ${anchor_0} ${anchor_3} ${anchor_1} replace move`);
-                        analysis.dimension.runCommand(`fill ${anchor_0} ${anchor_0} air`);
-                    }
-                    ;
-                    break;
-                case 4:
-                    for (let index = 0; index <= 5; index++) {
-                        // 校验 状态
-                        if (index != analysis.state.getState('STATE:value'))
-                            continue;
-                        // 获取 锚点坐标
-                        const anchor_0 = opal.Vector.toString(analysis.block, { delimiter: ' ' });
-                        const anchor_1 = opal.Vector.toString(analysis.block.offset(opal.Vector.CONSTANT_NORTH), { delimiter: ' ' });
-                        const anchor_2 = opal.Vector.toString(analysis.block.offset({ x: 0, y: index, z: -1 }), { delimiter: ' ' });
-                        const anchor_3 = opal.Vector.toString(analysis.block.offset({ x: 0, y: index, z: 0 }), { delimiter: ' ' });
-                        // 执行 方块命令
-                        analysis.dimension.runCommand(`fill ${anchor_1} ${anchor_2} air [] destroy`);
-                        analysis.dimension.runCommand(`clone ${anchor_0} ${anchor_3} ${anchor_1} replace move`);
-                        analysis.dimension.runCommand(`fill ${anchor_0} ${anchor_0} air`);
-                    }
-                    ;
-                    break;
-                default: break;
-            }
-            ;
-        }
-        ;
-        if (analysis.condition != 0)
-            beforeEvent();
-        else if (analysis.state.getState('STATE:direction') != 0)
-            afterEvent();
+        // 如果未完成前处理则执行前处理事件
+        if (analysis.condition !== 0)
+            customFunction.servoDriveBeforeEvent(analysis, -1);
+        // 否则执行后处理事件
+        else if (analysis.state.getState('STATE:direction') !== 0)
+            customFunction.servoDriveAfterEvent(analysis, 1, (dimension, anchor_0, anchor_1, anchor_2, anchor_3) => {
+                dimension.runCommand(`fill ${anchor_1} ${anchor_2} air [] destroy`);
+                dimension.runCommand(`clone ${anchor_0} ${anchor_3} ${anchor_1} replace move`);
+                dimension.runCommand(`fill ${anchor_0} ${anchor_0} air`);
+            });
     }
 });
 /*
@@ -3405,153 +3341,18 @@ components.set(prefix[4] + 'servo_drive', {
  */
 components.set(prefix[4] + 'servo_traction', {
     onTick(source) {
-        /**
-         * * 方块组件参数 的 解构
-         */
+        /** 解析带有该组件的方块信息 */
         const analysis = customFunction.TickComponentTrigger(source);
-        /**
-         * * 方块前处理事件
-         */
-        function beforeEvent() {
-            /**
-             ** 查询方块标签
-             */
-            const hasTag = (offset, tag) => analysis.block.offset(offset)?.getTags().includes(tag) ?? false;
-            // 使能 模块运行
-            switch (analysis.condition) {
-                case 1:
-                    if (hasTag({ x: 1, y: 1, z: 0 }, 'tags:magic_cable.series'))
-                        if (!hasTag(opal.Vector.CONSTANT_EAST, 'tags:magic_cable.series'))
-                            customFunction.Susceptor(analysis.block, 'X+');
-                    break;
-                case 2:
-                    if (hasTag({ x: -1, y: 1, z: 0 }, 'tags:magic_cable.series'))
-                        if (!hasTag(opal.Vector.CONSTANT_WEST, 'tags:magic_cable.series'))
-                            customFunction.Susceptor(analysis.block, 'X-');
-                    break;
-                case 3:
-                    if (hasTag({ x: 0, y: 1, z: 1 }, 'tags:magic_cable.series'))
-                        if (!hasTag(opal.Vector.CONSTANT_SOUTH, 'tags:magic_cable.series'))
-                            customFunction.Susceptor(analysis.block, 'Z+');
-                    break;
-                case 4:
-                    if (hasTag({ x: -0, y: 1, z: -1 }, 'tags:magic_cable.series'))
-                        if (!hasTag(opal.Vector.CONSTANT_NORTH, 'tags:magic_cable.series'))
-                            customFunction.Susceptor(analysis.block, 'Z-');
-                    break;
-                default: break;
-            }
-            ;
-            // 同步状态
-            for (let index = 0; index <= 5; index++) {
-                /**
-                 ** 方块标签
-                 */
-                const tag = 'tags:servo_machine.value.' + index;
-                // 赋值 方块状态
-                if (hasTag(opal.Vector.CONSTANT_EAST, tag))
-                    opal.TrySetPermutation(analysis.block, 'STATE:value', index);
-                if (hasTag(opal.Vector.CONSTANT_WEST, tag))
-                    opal.TrySetPermutation(analysis.block, 'STATE:value', index);
-                if (hasTag(opal.Vector.CONSTANT_SOUTH, tag))
-                    opal.TrySetPermutation(analysis.block, 'STATE:value', index);
-                if (hasTag(opal.Vector.CONSTANT_NORTH, tag))
-                    opal.TrySetPermutation(analysis.block, 'STATE:value', index);
-            }
-            ;
-            // 复位状态
-            opal.TrySetPermutation(analysis.block, 'STATE:rune_type', 0);
-        }
-        ;
-        /**
-         * * 方块后处理事件
-         */
-        function afterEvent() {
-            /**
-             ** 方块状态值
-             */
-            const direction = analysis.state.getState('STATE:direction');
-            // 复位状态
-            opal.TrySetPermutation(analysis.block, 'STATE:direction', 0);
-            // 执行 功能
-            switch (direction) {
-                case 1:
-                    for (let index = 0; index <= 5; index++) {
-                        // 校验 状态
-                        if (index != analysis.state.getState('STATE:value'))
-                            continue;
-                        // 获取 锚点坐标
-                        const anchor_0 = opal.Vector.toString(analysis.block, { delimiter: ' ' });
-                        const anchor_1 = opal.Vector.toString(analysis.block.offset(opal.Vector.CONSTANT_EAST), { delimiter: ' ' });
-                        const anchor_2 = opal.Vector.toString(analysis.block.offset({ x: 1, y: -index, z: 0 }), { delimiter: ' ' });
-                        const anchor_3 = opal.Vector.toString(analysis.block.offset({ x: 0, y: -index, z: 0 }), { delimiter: ' ' });
-                        // 执行 方块命令
-                        analysis.dimension.runCommand(`fill ${anchor_1} ${anchor_2} air [] destroy`);
-                        analysis.dimension.runCommand(`clone ${anchor_0} ${anchor_3} ${anchor_2} replace move`);
-                        analysis.dimension.runCommand(`fill ${anchor_0} ${anchor_0} air`);
-                    }
-                    ;
-                    break;
-                case 2:
-                    for (let index = 0; index <= 5; index++) {
-                        // 校验 状态
-                        if (index != analysis.state.getState('STATE:value'))
-                            continue;
-                        // 获取 锚点坐标
-                        const anchor_0 = opal.Vector.toString(analysis.block, { delimiter: ' ' });
-                        const anchor_1 = opal.Vector.toString(analysis.block.offset(opal.Vector.CONSTANT_WEST), { delimiter: ' ' });
-                        const anchor_2 = opal.Vector.toString(analysis.block.offset({ x: -1, y: -index, z: 0 }), { delimiter: ' ' });
-                        const anchor_3 = opal.Vector.toString(analysis.block.offset({ x: 0, y: -index, z: 0 }), { delimiter: ' ' });
-                        // 执行 方块命令
-                        analysis.dimension.runCommand(`fill ${anchor_1} ${anchor_2} air [] destroy`);
-                        analysis.dimension.runCommand(`clone ${anchor_0} ${anchor_3} ${anchor_2} replace move`);
-                        analysis.dimension.runCommand(`fill ${anchor_0} ${anchor_0} air`);
-                    }
-                    ;
-                    break;
-                case 3:
-                    for (let index = 0; index <= 5; index++) {
-                        // 校验 状态
-                        if (index != analysis.state.getState('STATE:value'))
-                            continue;
-                        // 获取 锚点坐标
-                        const anchor_0 = opal.Vector.toString(analysis.block, { delimiter: ' ' });
-                        const anchor_1 = opal.Vector.toString(analysis.block.offset(opal.Vector.CONSTANT_SOUTH), { delimiter: ' ' });
-                        const anchor_2 = opal.Vector.toString(analysis.block.offset({ x: 0, y: -index, z: 1 }), { delimiter: ' ' });
-                        const anchor_3 = opal.Vector.toString(analysis.block.offset({ x: 0, y: -index, z: 0 }), { delimiter: ' ' });
-                        // 执行 方块命令
-                        analysis.dimension.runCommand(`fill ${anchor_1} ${anchor_2} air [] destroy`);
-                        analysis.dimension.runCommand(`clone ${anchor_0} ${anchor_3} ${anchor_2} replace move`);
-                        analysis.dimension.runCommand(`fill ${anchor_0} ${anchor_0} air`);
-                    }
-                    ;
-                    break;
-                case 4:
-                    for (let index = 0; index <= 5; index++) {
-                        // 校验 状态
-                        if (index != analysis.state.getState('STATE:value'))
-                            continue;
-                        // 获取 锚点坐标
-                        const anchor_0 = opal.Vector.toString(analysis.block, { delimiter: ' ' });
-                        const anchor_1 = opal.Vector.toString(analysis.block.offset(opal.Vector.CONSTANT_NORTH), { delimiter: ' ' });
-                        const anchor_2 = opal.Vector.toString(analysis.block.offset({ x: 0, y: -index, z: -1 }), { delimiter: ' ' });
-                        const anchor_3 = opal.Vector.toString(analysis.block.offset({ x: 0, y: -index, z: 0 }), { delimiter: ' ' });
-                        // 执行 方块命令
-                        analysis.dimension.runCommand(`fill ${anchor_1} ${anchor_2} air [] destroy`);
-                        analysis.dimension.runCommand(`clone ${anchor_0} ${anchor_3} ${anchor_2} replace move`);
-                        analysis.dimension.runCommand(`fill ${anchor_0} ${anchor_0} air`);
-                    }
-                    ;
-                    break;
-                default: break;
-            }
-            ;
-        }
-        ;
-        if (analysis.condition != 0)
-            beforeEvent();
-        else if (analysis.state.getState('STATE:direction') != 0)
-            afterEvent();
+        // 如果未完成前处理则执行前处理事件
+        if (analysis.condition !== 0)
+            customFunction.servoDriveBeforeEvent(analysis, 1);
+        // 否则执行后处理事件
+        else if (analysis.state.getState('STATE:direction') !== 0)
+            customFunction.servoDriveAfterEvent(analysis, -1, (dimension, anchor_0, anchor_1, anchor_2, anchor_3) => {
+                dimension.runCommand(`fill ${anchor_1} ${anchor_2} air [] destroy`);
+                dimension.runCommand(`clone ${anchor_0} ${anchor_3} ${anchor_2} replace move`);
+                dimension.runCommand(`fill ${anchor_0} ${anchor_0} air`);
+            });
     }
 });
 /*
@@ -3589,40 +3390,6 @@ components.set(prefix[4] + 'servo_omphalos', {
                 break;
             default: break;
         }
-    }
-});
-/*
- * 水平机关门
- */
-components.set(prefix[4] + 'horizontal_gate', {
-    onTick(source) {
-        /**
-         * * 方块组件参数 的 解构
-         */
-        const analysis = customFunction.TickComponentTrigger(source);
-        // 播放音效 与 粒子效果
-        analysis.dimension?.playSound('close.iron_door', analysis.block.location);
-        // 状态更改
-        opal.TrySetPermutation(analysis.block, 'STATE:rune_type', 9);
-        // 执行功能
-        customFunction.horizontalGate(analysis.block);
-    }
-});
-/*
- * 垂直机关门
- */
-components.set(prefix[4] + 'vertical_gate', {
-    onTick(source) {
-        /**
-         * * 方块组件参数 的 解构
-         */
-        const analysis = customFunction.TickComponentTrigger(source);
-        // 播放音效 与 粒子效果
-        analysis.dimension?.playSound('close.iron_door', analysis.block.location);
-        // 状态更改
-        opal.TrySetPermutation(analysis.block, 'STATE:rune_type', 9);
-        // 执行功能
-        customFunction.verticalGate(analysis.block);
     }
 });
 /*

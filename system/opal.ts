@@ -15,6 +15,10 @@ export * from './create'
  */
 export * from './lexicon_v5';
 /*
+ * 元素攻击模块
+ */
+export * from './rune_attack';
+/*
  * 实体重载模块
  */
 export * from './reload';

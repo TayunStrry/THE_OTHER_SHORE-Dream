@@ -25,14 +25,11 @@
 		"typescript": "^5.8.2"
 	},
 	"scripts": {
-		"dream_beta": "tsc ./THE_OTHER_SHORE.ts --moduleResolution node --target es2022 --outDir ./deliverable/JavaScript",
-		"tsc_beta": "npm run dream_beta && yarn rollup ./deliverable/JavaScript/THE_OTHER_SHORE.js --file C:/Users/196530/AppData/Local/Packages/Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/幻梦-Dream_BP/scripts/THE_OTHER_SHORE.js",
+		"zip": "tsc && rollup --config rollup.config.js",
+		"tsc": "tsc && yarn rollup ./deliverable/JavaScript/THE_OTHER_SHORE.js --file \"C:/Users/196530/AppData/Roaming/Minecraft Bedrock Preview/Users/Shared/games/com.mojang/development_behavior_packs/彼岸幻梦-服务端/scripts/THE_OTHER_SHORE.js\"",
 		"package": "node scripts/package.js",
 		"test": "npm run tsc_beta && npm run package",
 		"upload": "git add . && git commit -m 'update' && git push && git push gitee master",
-		"open": "npm run tsc_beta && npm run package && npm run upload",
-		"tsc_pack": "tsc && yarn rollup ./deliverable/JavaScript/THE_OTHER_SHORE.js --file ../development_behavior_packs/幻梦-Dream_BP/scripts/THE_OTHER_SHORE.js",
-		"tsc_pack_zip": "tsc && rollup --config rollup.config.js",
-		"block": "tsc && yarn rollup ./deliverable/JavaScript/theme_block.js --file \"C:/Users/196530/AppData/Roaming/Minecraft Bedrock Preview/Users/Shared/games/com.mojang/development_behavior_packs/魔晶工程-服务端/scripts/THE_OTHER_SHORE.js\""
+		"open": "npm run tsc && npm run package && npm run upload"
 	}
 }

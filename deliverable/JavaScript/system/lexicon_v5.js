@@ -9,6 +9,10 @@ import { can_display_logs, biome_map, dimension_map, response_patterns } from ".
  */
 import { RandomFloor, Vector } from './maths';
 /*
+ * 元素攻击模块
+ */
+import { GetProperty } from './rune_attack';
+/*
  * 触发控制模块
  */
 import { TriggerControl } from './control';
@@ -1622,6 +1626,37 @@ scalability.set('清除结构缓存', {
         structureNames.forEach(neme => StructureErase(player, neme, count));
         // 返回操作结果
         return { text: `好的, <§9 结构缓存 §r>已经被#$^$#清除了, 共删除§2 ${count} §r项\n` };
+    }
+});
+scalability.set('发动元素攻击', {
+    synopsis: { text: '§c◆§r 对§9目标实体§r应用§5元素伤害§r, 允许设定§4伤害值§r' },
+    ...ReplyMessages.craft_template,
+    /**
+     * 解析并应用元素攻击
+     *
+     * 根据玩家输入的伤害值, 对选定的目标实体应用伤害, 包括暴击判定
+     *
+     * @param {server.Player} player - 执行操作的玩家
+     * @param {string[]} texts - 玩家输入的参数数组
+     *
+     * @returns {server.RawMessage} - 操作成功的提示信息
+     */
+    code(player, texts) {
+        // 权限验证
+        if (!isPlayerAuthorized(player))
+            return ReplyMessages.power_lack;
+        /**
+         * 获取伤害值
+         */
+        const damage = (texts[0].match(/\b\d+(\.\d+)?\b/g)?.map(Number) ?? [1])[0];
+        /**
+         * 获取玩家当前元素属性
+         */
+        const selfRune = GetProperty(player).self_rune;
+        // 运行命令
+        player.runCommand('opal:apply_elemental_damage @s ' + selfRune + ' ' + damage);
+        // 提示功能执行成功
+        return ReplyMessages.pursue_rune_hurt;
     }
 });
 scalability.set('设置雾海裂隙', {

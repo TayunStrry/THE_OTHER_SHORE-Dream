@@ -36,7 +36,7 @@ export type INTERACT_COMPONENT = {
  */
 export type TICK_COMPONENT = {
     /**
-     ** 默认的方块状态的值
+     ** 方块状态(符文类型)的值
      */
     condition: string | number | boolean;
     /**

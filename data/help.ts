@@ -46,30 +46,22 @@ help.set('开发者名单',
 		]
 	}
 );
-const crystal = [
-	{ text: "当< 机械生命体 >损毁或< 持有元素力 >的生命击杀目标时, 有概率掉落\n\n" },
-	{ text: "<§l§u 魔晶石 §r>是一种暂稳态的<§l§d 能量形式 §r>\n\n" },
-	{ text: "<§l§9 魔导机械 §r>能够将<§l§u 魔晶石 §r>转化为<§l§5 魔晶星尘 §r>\n\n" },
-	{ text: "产生的<§l§5 魔晶星尘 §r>可用作<§l§9 魔导机械 §r>的能源\n\n" },
-	{ text: "但转化过程是单向且不可逆的\n\n" },
-	{ text: "<§l§5 魔晶星尘 §r>无法再变回<§l§u 魔晶石 §r>\n\n" },
-	{ text: "其中<§l§6 永恒魔晶石 §r>为战胜< 君临者 >的战利品\n\n" },
-	{ text: "带有神明的恩惠, 可以从周围环境中远远不断的汲取元素力\n\n" },
-];
-[
-	"starry_map:orange_energy",
-	"starry_map:purple_energy",
-	"starry_map:green_energy",
-	"starry_map:eternal_energy",
-	"starry_map:blue_energy",
-	"starry_map:red_energy",
-	"starry_map:block.orange_energy",
-	"starry_map:block.purple_energy",
-	"starry_map:block.green_energy",
-	"starry_map:block.eternal_energy",
-	"starry_map:block.blue_energy",
-	"starry_map:block.red_energy"
-].forEach(item => help.set(item, { root: ['魔晶石', '能量水晶', '魔晶星尘'], intel: [...crystal], only: true }));
+help.set("starry_map:energy_crystal",
+	{
+		root: ['魔晶石', '能量水晶', '魔晶星尘'],
+		intel: [
+			{ text: "当< 机械生命体 >损毁或< 持有元素力 >的生命击杀目标时, 有概率掉落\n\n" },
+			{ text: "<§l§u 魔晶石 §r>是一种暂稳态的<§l§d 能量形式 §r>\n\n" },
+			{ text: "<§l§9 魔导机械 §r>能够将<§l§u 魔晶石 §r>转化为<§l§5 魔晶星尘 §r>\n\n" },
+			{ text: "产生的<§l§5 魔晶星尘 §r>可用作<§l§9 魔导机械 §r>的能源\n\n" },
+			{ text: "但转化过程是单向且不可逆的\n\n" },
+			{ text: "<§l§5 魔晶星尘 §r>无法再变回<§l§u 魔晶石 §r>\n\n" },
+			{ text: "其中<§l§6 永恒魔晶石 §r>为战胜< 君临者 >的战利品\n\n" },
+			{ text: "带有神明的恩惠, 可以从周围环境中远远不断的汲取元素力\n\n" },
+		],
+		only: true
+	}
+);
 help.set('星尘力概述',
 	{
 		root: ['星尘力', '产出', '传输'],
@@ -2060,21 +2052,6 @@ help.set('starry_map:magic_crystal_wrench',
 		]
 	}
 );
-const sword = [
-	{ text: '在近战攻击时, 可对目标造成范围<§l§5 追击伤害 §r>\n\n' },
-	{ text: '这种攻击能同时影响最多§2 5 §r个目标\n\n' },
-	{ text: '--------------------------------\n\n' },
-	{ text: '长按道具可以为玩家施加<§l§5 元素附魔 §r>\n\n' },
-	{ text: '选择适合的附魔以适应不同的战斗场景, 提升战斗效率\n\n' },
-];
-[
-	"starry_map:wood_sword",
-	"starry_map:stone_sword",
-	"starry_map:iron_sword",
-	"starry_map:diamond_sword",
-	"starry_map:netherite_sword",
-	"starry_map:gold_sword"
-].forEach(item => help.set(item, { root: ['魔晶工具', '魔晶剑', '近战武器'], intel: [...sword], only: true }));
 help.set('starry_map:magic_crystal_claw',
 	{
 		root: ['魔晶工具', '魔晶钩爪', '快速位移'],

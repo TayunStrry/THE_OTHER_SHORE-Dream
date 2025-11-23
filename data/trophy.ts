@@ -92,7 +92,7 @@ entry.set('斩获 末影龙鳞',
 			{ text: "<§l§u 永恒魔晶石 §r§l><§l§u 百灵绘卷 §r§l>§r" }
 		],
 		reward: [
-			{ type: "starry_map:eternal_energy", amount: 1 },
+			{ type: "starry_map:energy_crystal.eternal", amount: 1 },
 			{ type: "starry_map:chorus_picture", amount: 1 },
 		],
 		attrition: [
@@ -546,12 +546,12 @@ entry.set('契约 幽蓝',
 /*
  * 魔晶石系列
  */
-entry.set('收集 归忆_魔晶石',
+entry.set('收集 1 枚魔晶石',
 	{
-		texture: 'textures/物品贴图/能量水晶/归忆_魔晶石',
+		texture: 'textures/物品贴图/能量水晶/魔晶石',
 		refer: [
 			{ text: "『§l§m 任务 §r』§l:\n" },
-			{ text: "制作或获得<§l§u 归忆_魔晶石 §r§l>§r\n\n" },
+			{ text: "获得 1 枚<§l§u 魔晶石 §r§l>§r\n\n" },
 			{ text: "『§l§s 奖励 §r』§l:\n" },
 			{ text: "<§l§u 幻影驱散 §r§l><§l§2 2 §9x§u 涵养灵露 §r§l>§r" }
 		],
@@ -560,128 +560,28 @@ entry.set('收集 归忆_魔晶石',
 			{ type: "starry_map:moment_repair_dew", amount: 2 }
 		],
 		attrition: [
-			{ type: "starry_map:orange_energy", amount: 1 },
+			{ type: "starry_map:energy_crystal", amount: 1 },
 		],
 		rely: [
 			'trophy:stage_2'
 		],
 		onDone: [
 			'trophy:stage_3',
-			'trophy:stage_3.item.energy_crystal.orange_energy'
+			'trophy:stage_3.item.energy_crystal'
 		]
 	}
 );
-entry.set('收集 极雷_魔晶石',
+entry.set('收集 64 枚魔晶石',
 	{
-		texture: 'textures/物品贴图/能量水晶/极雷_魔晶石',
+		texture: 'textures/物品贴图/能量水晶/魔晶石',
 		refer: [
 			{ text: "『§l§m 任务 §r』§l:\n" },
-			{ text: "制作或获得<§l§u 极雷_魔晶石 §r§l>§r\n\n" },
-			{ text: "『§l§s 奖励 §r』§l:\n" },
-			{ text: "<§l§u 幻影驱散 §r§l><§l§2 2 §9x§u 涵养灵露 §r§l>§r" }
-		],
-		reward: [
-			{ type: "starry_map:phantom_dispel_dust", amount: 1 },
-			{ type: "starry_map:moment_repair_dew", amount: 2 }
-		],
-		attrition: [
-			{ type: "starry_map:purple_energy", amount: 1 },
-		],
-		rely: [
-			'trophy:stage_2'
-		],
-		onDone: [
-			'trophy:stage_3',
-			'trophy:stage_3.item.energy_crystal.purple_energy'
-		]
-	}
-);
-entry.set('收集 界木_魔晶石',
-	{
-		texture: 'textures/物品贴图/能量水晶/界木_魔晶石',
-		refer: [
-			{ text: "『§l§m 任务 §r』§l:\n" },
-			{ text: "制作或获得<§l§u 界木_魔晶石 §r§l>§r\n\n" },
-			{ text: "『§l§s 奖励 §r』§l:\n" },
-			{ text: "<§l§u 幻影驱散 §r§l><§l§2 2 §9x§u 涵养灵露 §r§l>§r" }
-		],
-		reward: [
-			{ type: "starry_map:phantom_dispel_dust", amount: 1 },
-			{ type: "starry_map:moment_repair_dew", amount: 2 }
-		],
-		attrition: [
-			{ type: "starry_map:green_energy", amount: 1 },
-		],
-		rely: [
-			'trophy:stage_2'
-		],
-		onDone: [
-			'trophy:stage_3',
-			'trophy:stage_3.item.energy_crystal.green_energy'
-		]
-	}
-);
-entry.set('收集 诸海_魔晶石',
-	{
-		texture: 'textures/物品贴图/能量水晶/诸海_魔晶石',
-		refer: [
-			{ text: "『§l§m 任务 §r』§l:\n" },
-			{ text: "制作或获得<§l§u 诸海_魔晶石 §r§l>§r\n\n" },
-			{ text: "『§l§s 奖励 §r』§l:\n" },
-			{ text: "<§l§u 幻影驱散 §r§l><§l§2 2 §9x§u 涵养灵露 §r§l>§r" }
-		],
-		reward: [
-			{ type: "starry_map:phantom_dispel_dust", amount: 1 },
-			{ type: "starry_map:moment_repair_dew", amount: 2 }
-		],
-		attrition: [
-			{ type: "starry_map:blue_energy", amount: 1 },
-		],
-		rely: [
-			'trophy:stage_2'
-		],
-		onDone: [
-			'trophy:stage_3',
-			'trophy:stage_3.item.energy_crystal.blue_energy'
-		]
-	}
-);
-entry.set('收集 烛火_魔晶石',
-	{
-		texture: 'textures/物品贴图/能量水晶/烛火_魔晶石',
-		refer: [
-			{ text: "『§l§m 任务 §r』§l:\n" },
-			{ text: "制作或获得<§l§u 烛火_魔晶石 §r§l>§r\n\n" },
-			{ text: "『§l§s 奖励 §r』§l:\n" },
-			{ text: "<§l§u 幻影驱散 §r§l><§l§2 2 §9x§u 涵养灵露 §r§l>§r" }
-		],
-		reward: [
-			{ type: "starry_map:phantom_dispel_dust", amount: 1 },
-			{ type: "starry_map:moment_repair_dew", amount: 2 }
-		],
-		attrition: [
-			{ type: "starry_map:red_energy", amount: 1 },
-		],
-		rely: [
-			'trophy:stage_2'
-		],
-		onDone: [
-			'trophy:stage_3',
-			'trophy:stage_3.item.energy_crystal.red_energy'
-		]
-	}
-);
-entry.set('收集 永恒_魔晶石',
-	{
-		texture: 'textures/物品贴图/能量水晶/永恒_魔晶石',
-		refer: [
-			{ text: "『§l§m 任务 §r』§l:\n" },
-			{ text: "获得 1 枚<§l§u 永恒_魔晶石 §r§l>§r\n\n" },
+			{ text: "获得 64 枚<§l§u 魔晶石 §r§l>§r\n\n" },
 			{ text: "『§l§s 奖励 §r』§l:\n" },
 			{ text: "<§l§c 魔法工业展馆 §r§l>§r" }
 		],
 		attrition: [
-			{ type: "starry_map:eternal_energy", amount: 1 },
+			{ type: "starry_map:energy_crystal", amount: 64 },
 		],
 		after(player) {
 			/**
@@ -744,156 +644,6 @@ entry.set('收集 永恒_魔晶石',
 		onDone: [
 			'trophy:stage_3',
 			'trophy:stage_3.item.energy_crystal.eternal_energy'
-		]
-	}
-);
-entry.set('收集 归忆_魔晶块',
-	{
-		texture: 'textures/方块贴图/能量晶块/归忆',
-		refer: [
-			{ text: "『§l§m 任务 §r』§l:\n" },
-			{ text: "制作或获得<§l§u 归忆_魔晶块 §r§l>§r\n\n" },
-			{ text: "『§l§s 奖励 §r』§l:\n" },
-			{ text: "<§l§u 参悟之石 §r§l><§l§u 百灵绘卷 §r§l>§r" }
-		],
-		reward: [
-			{ type: "starry_map:enlightenment", amount: 1 },
-			{ type: "starry_map:chorus_picture", amount: 1 },
-		],
-		attrition: [
-			{ type: "starry_map:block.orange_energy", amount: 1 },
-		],
-		rely: [
-			'trophy:stage_2'
-		],
-		onDone: [
-			'trophy:stage_3',
-			'trophy:stage_3.block.energy_crystal.orange_energy'
-		]
-	}
-);
-entry.set('收集 烛火_魔晶块',
-	{
-		texture: 'textures/方块贴图/能量晶块/烛火',
-		refer: [
-			{ text: "『§l§m 任务 §r』§l:\n" },
-			{ text: "制作或获得<§l§u 烛火_魔晶块 §r§l>§r\n\n" },
-			{ text: "『§l§s 奖励 §r』§l:\n" },
-			{ text: "<§l§u 参悟之石 §r§l><§l§u 百灵绘卷 §r§l>§r" }
-		],
-		reward: [
-			{ type: "starry_map:enlightenment", amount: 1 },
-			{ type: "starry_map:chorus_picture", amount: 1 },
-		],
-		attrition: [
-			{ type: "starry_map:block.red_energy", amount: 1 },
-		],
-		rely: [
-			'trophy:stage_2'
-		],
-		onDone: [
-			'trophy:stage_3',
-			'trophy:stage_3.block.energy_crystal.red_energy'
-		]
-	}
-);
-entry.set('收集 诸海_魔晶块',
-	{
-		texture: 'textures/方块贴图/能量晶块/诸海',
-		refer: [
-			{ text: "『§l§m 任务 §r』§l:\n" },
-			{ text: "制作或获得<§l§u 诸海_魔晶块 §r§l>§r\n\n" },
-			{ text: "『§l§s 奖励 §r』§l:\n" },
-			{ text: "<§l§u 参悟之石 §r§l><§l§u 百灵绘卷 §r§l>§r" }
-		],
-		reward: [
-			{ type: "starry_map:enlightenment", amount: 1 },
-			{ type: "starry_map:chorus_picture", amount: 1 },
-		],
-		attrition: [
-			{ type: "starry_map:block.blue_energy", amount: 1 },
-		],
-		rely: [
-			'trophy:stage_2'
-		],
-		onDone: [
-			'trophy:stage_3',
-			'trophy:stage_3.block.energy_crystal.blue_energy'
-		]
-	}
-);
-entry.set('收集 界木_魔晶块',
-	{
-		texture: 'textures/方块贴图/能量晶块/界木',
-		refer: [
-			{ text: "『§l§m 任务 §r』§l:\n" },
-			{ text: "制作或获得<§l§u 界木_魔晶块 §r§l>§r\n\n" },
-			{ text: "『§l§s 奖励 §r』§l:\n" },
-			{ text: "<§l§u 参悟之石 §r§l><§l§u 百灵绘卷 §r§l>§r" }
-		],
-		reward: [
-			{ type: "starry_map:enlightenment", amount: 1 },
-			{ type: "starry_map:chorus_picture", amount: 1 },
-		],
-		attrition: [
-			{ type: "starry_map:block.green_energy", amount: 1 },
-		],
-		rely: [
-			'trophy:stage_2'
-		],
-		onDone: [
-			'trophy:stage_3',
-			'trophy:stage_3.block.energy_crystal.green_energy'
-		]
-	}
-);
-entry.set('收集 极雷_魔晶块',
-	{
-		texture: 'textures/方块贴图/能量晶块/极雷',
-		refer: [
-			{ text: "『§l§m 任务 §r』§l:\n" },
-			{ text: "制作或获得<§l§u 极雷_魔晶块 §r§l>§r\n\n" },
-			{ text: "『§l§s 奖励 §r』§l:\n" },
-			{ text: "<§l§u 参悟之石 §r§l><§l§u 百灵绘卷 §r§l>§r" }
-		],
-		reward: [
-			{ type: "starry_map:enlightenment", amount: 1 },
-			{ type: "starry_map:chorus_picture", amount: 1 },
-		],
-		attrition: [
-			{ type: "starry_map:block.purple_energy", amount: 1 },
-		],
-		rely: [
-			'trophy:stage_2'
-		],
-		onDone: [
-			'trophy:stage_3',
-			'trophy:stage_3.block.energy_crystal.purple_energy'
-		]
-	}
-);
-entry.set('收集 永恒_魔晶块',
-	{
-		texture: 'textures/方块贴图/能量晶块/永恒',
-		refer: [
-			{ text: "『§l§m 任务 §r』§l:\n" },
-			{ text: '制作或获得<§l§u 永恒_魔晶块 §r§l>§r\n\n' },
-			{ text: "『§l§s 奖励 §r』§l:\n" },
-			{ text: "<§l§u 永恒魔晶块 §r§l><§l§u 恒常储罐 §r§l>§r" }
-		],
-		reward: [
-			{ type: "starry_map:constant_tank", amount: 1 },
-			{ type: "starry_map:block.eternal_energy", amount: 1 }
-		],
-		attrition: [
-			{ type: "starry_map:block.eternal_energy", amount: 1 }
-		],
-		rely: [
-			'trophy:stage_2'
-		],
-		onDone: [
-			'trophy:stage_3',
-			'trophy:stage_3.block.energy_crystal.eternal_energy'
 		]
 	}
 );

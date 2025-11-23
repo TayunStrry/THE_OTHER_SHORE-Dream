@@ -12,10 +12,7 @@ import { crops_map, solidify_output } from "../data/table";
  * 自定义组件
  */
 import * as customType from "./custom_type";
-/**
- * * 机关之门 的 关闭事件标识符
- */
-const tickId = new Map<string, number>();
+import updateComponent from "./update_component";
 /**
  ** 时间积分
  */
@@ -201,120 +198,6 @@ export function BelowTeleport(block: server.Block) {
             opal.ErrorMessage('<§l§b 魔晶下传 §r>§4 发生错误§r', block, { text: '实体传送失败, 请勿在<§l§m 世界边界 §r>或<§l§n 世界之外 §r>使用!!' });
             break;
         }
-    }
-};
-/**
- * * 开启 垂直放置 的 机关之门
- *
- * @param {server.Block} block - 机关门对象
- */
-export function verticalGate(block: server.Block) {
-    /**
-     * * 获取 机关门方向
-     */
-    const about = block.permutation.getState('STATE:about');
-    // 判断 门方向
-    if (about == 1 || about == 3) {
-        const east = block.east();
-        const west = block.west();
-        // 激活 东门
-        if (east?.typeId == block.typeId && east?.permutation.getState('STATE:rune_type') == 0)
-            opal.TrySetPermutation(east, 'STATE:rune_type', 1);
-        // 激活 西门
-        if (west?.typeId == block.typeId && west?.permutation.getState('STATE:rune_type') == 0)
-            opal.TrySetPermutation(west, 'STATE:rune_type', 3);
-    }
-    else if (about == 2 || about == 4) {
-        const north = block.north();
-        const south = block.south();
-        // 激活 北门
-        if (north?.typeId == block.typeId && north?.permutation.getState('STATE:rune_type') == 0)
-            opal.TrySetPermutation(north, 'STATE:rune_type', 2);
-        // 激活 南门
-        if (south?.typeId == block.typeId && south?.permutation.getState('STATE:rune_type') == 0)
-            opal.TrySetPermutation(south, 'STATE:rune_type', 4);
-    };
-    const above = block.above();
-    const below = block.below();
-    // 激活 上方机关门
-    if (above?.typeId == block.typeId && above?.permutation.getState('STATE:rune_type') == 0)
-        opal.TrySetPermutation(above, 'STATE:rune_type', 5);
-    // 激活 下方机关门
-    if (below?.typeId == block.typeId && below?.permutation.getState('STATE:rune_type') == 0)
-        opal.TrySetPermutation(below, 'STATE:rune_type', 6);
-    // 获取 时钟标识符
-    const toString = opal.Vector.toString(block.location);
-    // 复位机关门
-    const tick = server.system.runTimeout(
-        () => {
-            // 播放 关门音效
-            block.dimension.playSound('close.iron_door', block.location);
-            // 复位机关门
-            opal.TrySetPermutation(block, 'STATE:rune_type', 0);
-        }, 100);
-    // 设置定时器
-    tickId.set(toString, tick);
-};
-/**
- * * 开启 水平放置 的 机关之门
- *
- * @param {server.Block}  block - 机关门对象
- */
-export function horizontalGate(block: server.Block) {
-    // 获取周围的方块
-    const north = block.north();
-    const south = block.south();
-    const east = block.east();
-    const west = block.west();
-    // 激活 东门
-    if (east?.typeId == block.typeId && east?.permutation.getState('STATE:rune_type') == 0)
-        opal.TrySetPermutation(east, 'STATE:rune_type', 1);
-    // 激活 西门
-    if (west?.typeId == block.typeId && west?.permutation.getState('STATE:rune_type') == 0)
-        opal.TrySetPermutation(west, 'STATE:rune_type', 3);
-    // 激活 北门
-    if (north?.typeId == block.typeId && north?.permutation.getState('STATE:rune_type') == 0)
-        opal.TrySetPermutation(north, 'STATE:rune_type', 2);
-    // 激活 南门
-    if (south?.typeId == block.typeId && south?.permutation.getState('STATE:rune_type') == 0)
-        opal.TrySetPermutation(south, 'STATE:rune_type', 4);
-    // 获取 时钟标识符
-    const toString = opal.Vector.toString(block.location);
-    // 复位机关门
-    const tick = server.system.runTimeout(
-        () => {
-            // 播放 关门音效
-            block.dimension.playSound('close.iron_door', block.location);
-            // 复位机关门
-            opal.TrySetPermutation(block, 'STATE:rune_type', 0);
-        }, 100);
-    // 设置定时器
-    tickId.set(toString, tick);
-};
-/**
- * * 紧急关闭机关门
- *
- * @param {server.Block} object - 机关门对象
- */
-export function emergencyCloseMechanismDoor(object: server.Block) {
-    for (let x = -4; x < 4; x++) for (let y = -4; y < 4; y++) for (let z = -4; z < 4; z++) {
-        /**
-         * * 获取方块对象
-         */
-        const target = object.offset({ x, y, z });
-        if (target?.typeId != object.typeId) continue;
-        // 获取 时钟标识符
-        const toString = opal.Vector.toString(target?.location);
-        // 复位机关门
-        opal.TrySetPermutation(target, 'STATE:rune_type', 0);
-        /**
-         * * 获取 时钟标识符
-         */
-        const tick = tickId.get(toString);
-        if (!tick) continue;
-        // 移除定时器
-        server.system.clearRun(tick);
-        tickId.delete(toString);
     }
 };
 /**
@@ -595,19 +478,19 @@ export function signalCompilation(object: server.Block, type: string, states: se
     const blocks = resolveMagicCableNeighborsByType(object, type);
     //根据获得参数 进行 方块属性 设置
     switch (getContainer.getItem(getSlot)?.typeId) {
-        case 'starry_map:blue_energy': opal.TrySetPermutation(blocks, 'STATE:rune_type', 1); break;
+        case '能量水晶:诸海_魔晶石': opal.TrySetPermutation(blocks, 'STATE:rune_type', 1); break;
 
-        case 'starry_map:red_energy': opal.TrySetPermutation(blocks, 'STATE:rune_type', 2); break;
+        case '能量水晶:烛火_魔晶石': opal.TrySetPermutation(blocks, 'STATE:rune_type', 2); break;
 
-        case 'starry_map:green_energy': opal.TrySetPermutation(blocks, 'STATE:rune_type', 3); break;
+        case '能量水晶:界木_魔晶石': opal.TrySetPermutation(blocks, 'STATE:rune_type', 3); break;
 
-        case 'starry_map:orange_energy': opal.TrySetPermutation(blocks, 'STATE:rune_type', 4); break;
+        case '能量水晶:归忆_魔晶石': opal.TrySetPermutation(blocks, 'STATE:rune_type', 4); break;
 
-        case 'starry_map:purple_energy': opal.TrySetPermutation(blocks, 'STATE:rune_type', 5); break;
+        case '能量水晶:极雷_魔晶石': opal.TrySetPermutation(blocks, 'STATE:rune_type', 5); break;
 
         case '能量水晶:启程_魔晶石': opal.TrySetPermutation(blocks, 'STATE:rune_type', 6); break;
 
-        case '能量水晶:焚绝_魔晶石': opal.TrySetPermutation(blocks, 'STATE:rune_type', 7); break;
+        case '能量水晶:葬火_魔晶石': opal.TrySetPermutation(blocks, 'STATE:rune_type', 7); break;
 
         default: opal.TrySetPermutation(blocks, 'STATE:rune_type', 0); break;
     };
@@ -1225,25 +1108,105 @@ export function servoOmphalos(object: server.Block, type: string) {
     };
 };
 /**
- * * 伺服基座 < 30 能量消耗 >
+ * * 伺服驱动 前处理事件
  */
-export function Susceptor(object: server.Block, type: string) {
-    // 判断能量值 是否足够
-    if (!opal.ExpendEnergy(object, -30, true)) return;
-    /**
-     * * 获取 自身 的 方块属性
-     */
-    const getPermutation = object.permutation;
-    // 执行 伺服基座 移动许可
-    switch (type) {
-        case 'X+': object.setPermutation(getPermutation.withState('STATE:direction', 1)); break;
+export function servoDriveBeforeEvent(analysis: customType.TICK_COMPONENT, offsetY: number = -1) {
+    /** 方块信息解构 */
+    const { block, condition, state } = analysis;
+    // 检查条件是否为数字
+    if (typeof condition !== 'number') return;
+    /** 查询方块标签的辅助函数 */
+    const hasTag = (offset: server.Vector3, tag: string) => block.offset(offset)?.getTags().includes(tag) ?? false;
+    /** 方向配置映射 */
+    const directionConfig = [
+        { offset: { x: 1, y: offsetY, z: 0 }, checkOffset: opal.Vector.CONSTANT_EAST, direction: 'X+' },
+        { offset: { x: -1, y: offsetY, z: 0 }, checkOffset: opal.Vector.CONSTANT_WEST, direction: 'X-' },
+        { offset: { x: 0, y: offsetY, z: 1 }, checkOffset: opal.Vector.CONSTANT_SOUTH, direction: 'Z+' },
+        { offset: { x: 0, y: offsetY, z: -1 }, checkOffset: opal.Vector.CONSTANT_NORTH, direction: 'Z-' }
+    ];
+    // 处理方向逻辑
+    if (condition >= 1 && condition <= 4) {
+        /** 方向配置项 */
+        const config = directionConfig[condition - 1];
+        // 检查是否为有效方向且方向许可, 若许可 则 执行 伺服驱动前处理逻辑
+        if (hasTag(config.offset, 'tags:magic_cable.series') && !hasTag(config.checkOffset, 'tags:magic_cable.series')) {
+            // 判断能量值 是否足够
+            if (!opal.ExpendEnergy(block, -30, true)) return;
+            // 执行 伺服基座 移动许可
+            switch (config.direction) {
+                case 'X+': block.setPermutation(state.withState('STATE:direction', 1)); break;
 
-        case 'X-': object.setPermutation(getPermutation.withState('STATE:direction', 2)); break;
+                case 'X-': block.setPermutation(state.withState('STATE:direction', 2)); break;
 
-        case 'Z+': object.setPermutation(getPermutation.withState('STATE:direction', 3)); break;
+                case 'Z+': block.setPermutation(state.withState('STATE:direction', 3)); break;
 
-        case 'Z-': object.setPermutation(getPermutation.withState('STATE:direction', 4)); break;
+                case 'Z-': block.setPermutation(state.withState('STATE:direction', 4)); break;
+            }
+        }
     }
+    /** 方向向量配置 */
+    const vectorDirections = [
+        opal.Vector.CONSTANT_EAST,
+        opal.Vector.CONSTANT_WEST,
+        opal.Vector.CONSTANT_SOUTH,
+        opal.Vector.CONSTANT_NORTH
+    ];
+    // 使用for循环执行状态同步
+    for (let index = 0; index <= 5; index++) {
+        /** 状态标签 */
+        const tag = `tags:servo_machine.value.${index}`;
+        // 检查任一方向是否有对应标签
+        for (const direction of vectorDirections) {
+            // 检查是否有对应标签
+            if (!hasTag(direction, tag)) break;
+            // 同步状态
+            opal.TrySetPermutation(block, 'STATE:value', index);
+            // 找到后立即跳出循环
+            break;
+        }
+    }
+    // 复位状态
+    opal.TrySetPermutation(block, 'STATE:rune_type', 0);
+};
+/**
+ * * 伺服驱动 后处理事件
+ */
+export function servoDriveAfterEvent(analysis: customType.TICK_COMPONENT, multiplier: number = 1, callback: (dimension: server.Dimension, ...args: string[]) => void) {
+    /** 方块信息解构 */
+    const { block, state, dimension } = analysis;
+    /** 方块状态值 */
+    const direction = state.getState('STATE:direction') as number;
+    /** 当前状态值 */
+    const currentValue = state.getState('STATE:value');
+    // 复位状态
+    opal.TrySetPermutation(block, 'STATE:direction', 0);
+    /** 方向向量配置 */
+    const directionVectors = {
+        1: { move: opal.Vector.CONSTANT_EAST, offset: { x: 1, y: 0, z: 0 } },
+        2: { move: opal.Vector.CONSTANT_WEST, offset: { x: -1, y: 0, z: 0 } },
+        3: { move: opal.Vector.CONSTANT_SOUTH, offset: { x: 0, y: 0, z: 1 } },
+        4: { move: opal.Vector.CONSTANT_NORTH, offset: { x: 0, y: 0, z: -1 } }
+    };
+    /** 方向配置项 */
+    const dirConfig = directionVectors[direction as keyof typeof directionVectors];
+    // 检查方向配置是否存在
+    if (!dirConfig) return;
+    // 执行功能逻辑
+    for (let index = 0; index <= 5; index++) {
+        // 检查是否为当前状态值
+        if (index !== currentValue) continue;
+        /** 构建锚点坐标 */
+        const [anchor_0, anchor_1, anchor_2, anchor_3] = [
+            opal.Vector.toString(block, { delimiter: ' ' }),
+            opal.Vector.toString(block.offset(dirConfig.move) as server.Vector3, { delimiter: ' ' }),
+            opal.Vector.toString(block.offset({ x: dirConfig.offset.x, y: index * multiplier, z: dirConfig.offset.z }) as server.Vector3, { delimiter: ' ' }),
+            opal.Vector.toString(block.offset({ x: 0, y: index * multiplier, z: 0 }) as server.Vector3, { delimiter: ' ' })
+        ];
+        // 执行回调函数
+        callback(dimension, anchor_0, anchor_1, anchor_2, anchor_3);
+    }
+    // 更新附近的方块状态
+    updateComponent(block);
 };
 /**
  ** 初级造石单元 < 35 能量消耗 >

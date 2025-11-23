@@ -1407,7 +1407,7 @@ class WaspClusterRaidTrigger extends opal.Template {
         if (wasp instanceof server.Entity) wasp.nameTag = '§u野蜂 袭击§r';
         // 当事件结束时 生成战利品
         if (this.eventTimer >= 15) {
-            opal.TrySpawnItem(dimension, new server.ItemStack('starry_map:eternal_energy'), current);
+            opal.TrySpawnItem(dimension, new server.ItemStack('starry_map:energy_crystal.eternal'), current);
             opal.TrySpawnParticle(dimension, 'constant:fireworks_salvo_rune_red', current);
             opal.TrySpawnParticle(dimension, 'constant:disperse_rune_red', current);
             opal.TrySpawnParticle(dimension, 'constant:erupt_rune_red', current);
