@@ -118,7 +118,7 @@ function DisplayFloatingText(block: server.Block, text: string) {
 	 */
 	const textCase = new debug.DebugText(block.above(2)?.bottomCenter() || block.center(), text || '未知');
 	// 设置 显示时间
-	textCase.timeLeft = Clamp({ min: 100, max: 2000 }, text.length * 20);
+	textCase.timeLeft = Clamp({ min: 100, max: 2000 }, text.length * 2);
 	// 生成悬浮字信息
 	debug.debugDrawer.addShape(textCase);
 	// 添加 悬浮字信息 到 集合中
