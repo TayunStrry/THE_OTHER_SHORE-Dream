@@ -920,7 +920,7 @@ components.set(prefix[1] + 'crystal_tank',
 				opal.TrySpawnParticle(analysis.dimension, 'constant:smoke_rune_white', analysis.block.above()?.bottomCenter() as server.Vector3);
 				opal.TrySpawnParticle(analysis.dimension, 'constant:smoke_rune_white', analysis.block.above()?.bottomCenter() as server.Vector3);
 				// 显示提示
-				analysis.player?.sendMessage('§c容器已满载, 无法继续填充')
+				opal.DisplayFloatingText(analysis.block, '§c容器已满载, 无法继续填充');
 				// 赋值 方块状态
 				opal.TrySetPermutation(analysis.block, 'STATE:output', 2);
 			}
@@ -979,11 +979,11 @@ components.set(prefix[1] + 'region_display',
 			/**
 			 * * 检测当前区块是否有能量
 			 */
-			const testEnergy = opal.AlterEnergy(block, 0, false);
+			const testEnergy = opal.ControlStardustEnergy(block, 0);
 			/**
 			 * * 设定 区块显示 的 粒子类型
 			 */
-			const showType = testEnergy[0] == true ? 'constant:pulse_rune_green' : 'constant:pulse_rune_red';
+			const showType = testEnergy[1] == true ? 'constant:pulse_rune_green' : 'constant:pulse_rune_red';
 			// 显示 区块边界
 			opal.DisplayChunkBoundary(block);
 			//显示烟雾效果
@@ -1040,6 +1040,8 @@ components.set(prefix[1] + 'road_sign_presets',
 					 * * 获取 道标参数
 					 */
 					const value = Array.from(RoadSign.values());
+					// 检测星尘力是否足够
+					if (!opal.VisualizeUseStardustEnergy(block, -1000)) return opal.DisplayFloatingText(block, '§c星尘力不足, 无法使用< 诸界道标 >');
 					//执行传送流程 并 播放音效
 					player.teleport(value[option.selection].location, { dimension: value[option.selection].dimension });
 					server.system.runTimeout(() => player.playSound("mob.endermen.portal"), 5);
@@ -1108,7 +1110,7 @@ components.set(prefix[1] + 'enchantment_dissociation',
 				// 检测物品是否足够
 				if (!opal.CheckItemStack(container, [blockItem])) return opal.ErrorMessage('<§l§b 附魔分离 §r>§4 发生错误§r', block, { text: '未能在<§l§3 方块容器 §r>内获取到足够数量的<§l§u 书本 §r>' });
 				// 判断能量是否足够
-				if (!opal.ExpendEnergy(analysis.block, -number * 1000)) return;
+				if (!opal.VisualizeUseStardustEnergy(analysis.block, -number * 1000)) return;
 				// 删除 普通书本
 				opal.DeleteItemStack(container, blockItem);
 				// 添加 附魔书
@@ -1207,7 +1209,7 @@ components.set(prefix[1] + 'star_energy_infusion',
 				 */
 				const durabilityComponent = item?.getComponent('minecraft:durability');
 				// 检测能量是否足够
-				if (!durabilityComponent || durabilityComponent.damage == 0 || !energyConsumptionRate || !opal.ExpendEnergy(block, -durabilityComponent.damage * energyConsumptionRate)) return;
+				if (!durabilityComponent || durabilityComponent.damage == 0 || !energyConsumptionRate || !opal.VisualizeUseStardustEnergy(block, -durabilityComponent.damage * energyConsumptionRate)) return;
 				// 恢复耐久
 				durabilityComponent.damage = 0;
 				// 置换 玩家 手持的物品
@@ -1228,7 +1230,7 @@ components.set(prefix[1] + 'star_energy_infusion',
 				 */
 				const currentPower = item?.getDynamicProperty('energy:offline_vehicle_power') as number ?? 3500;
 				// 检测能量是否足够
-				if (!energyConsumptionRate || !opal.ExpendEnergy(block, -baseChargeValue * energyConsumptionRate) || currentPower >= 1000000) return;
+				if (!energyConsumptionRate || !opal.VisualizeUseStardustEnergy(block, -baseChargeValue * energyConsumptionRate) || currentPower >= 1000000) return;
 				/**
 				 * 实际的充能值
 				 */
@@ -1280,7 +1282,7 @@ components.set(prefix[1] + 'obsidian_furnace',
 					// 清除物品
 					opal.DeleteItemStack(analysis.container, new server.ItemStack(item.typeId));
 				}
-				else analysis.player.onScreenDisplay.setTitle('§d剩余空间不足, 无法填充');
+				else opal.DisplayFloatingText(analysis.block, '§d剩余空间不足, 无法填充');
 				// 播放音效
 				analysis.player?.playSound('use.stone');
 			};
@@ -1294,7 +1296,7 @@ components.set(prefix[1] + 'obsidian_furnace',
 				 */
 				const anchor = opal.Vector.toString(analysis.block.above()?.bottomCenter() as server.Vector3, { delimiter: ' ' });
 				// 检测方块状态
-				if (magma == 0) analysis.player.onScreenDisplay.setTitle('§d储备不足, 无法提取');
+				if (magma == 0) opal.DisplayFloatingText(analysis.block, '§d储备不足, 无法提取');
 				else {
 					analysis.dimension.runCommand(`loot spawn ${anchor} loot "iron_bucket/lava"`)
 					// 修改方块状态
@@ -1337,7 +1339,7 @@ components.set(prefix[1] + 'obsidian_storage_tank',
 				 */
 				const anchor = opal.Vector.toString(analysis.block.above()?.bottomCenter() as server.Vector3, { delimiter: ' ' });
 				// 检测方块状态
-				if (magma == 0) analysis.player.onScreenDisplay.setTitle('§d熔岩不足, 无法提取');
+				if (magma == 0) opal.DisplayFloatingText(analysis.block, '§d熔岩不足, 无法提取');
 				else {
 					analysis.dimension.runCommand(`loot spawn ${anchor} loot "iron_bucket/lava"`)
 					// 修改方块状态
@@ -1358,7 +1360,7 @@ components.set(prefix[1] + 'obsidian_storage_tank',
 				 */
 				const anchor = opal.Vector.toString(analysis.block.above()?.bottomCenter() as server.Vector3, { delimiter: ' ' });
 				// 检测方块状态
-				if (magma == 15) analysis.player.onScreenDisplay.setTitle('§d容量不足, 无法填充');
+				if (magma == 15) opal.DisplayFloatingText(analysis.block, '§d容量不足, 无法填充');
 				else {
 					analysis.dimension.runCommand(`loot spawn ${anchor} loot "iron_bucket/empty"`)
 					// 修改方块状态
@@ -1385,7 +1387,7 @@ components.set(prefix[1] + 'container_hub',
 			// 判断事件返回的对象是否完整可用
 			if (!player || !item || !container) return;
 			// 判断是否成功获取到能量
-			if (!opal.ExpendEnergy(block, -10)) return;
+			if (!opal.VisualizeUseStardustEnergy(block, -10)) return;
 			/**
 			 * 获取容器查询结果
 			 */
@@ -1583,7 +1585,7 @@ components.set(prefix[1] + 'diffusion_filling',
 					// 播放提示音效
 					player.playSound('chime.amethyst_block');
 					// 支付消耗
-					if (expense !== "create" && typeof expense == 'number') opal.ExpendEnergy(block, minedCount * -(expense || 100));
+					if (expense !== "create" && typeof expense == 'number') opal.VisualizeUseStardustEnergy(block, minedCount * -(expense || 100));
 					// 记录运行日志
 					//console.log(`[扩散填充] 操作终止 | 已替换 ${minedCount}/${maxNumber} 个方块 | 队列剩余 ${blocksToMine.length} | 扩散填充费用: ${expense}`);
 				};
@@ -1824,11 +1826,11 @@ components.set(prefix[1] + 'source_energy_hub',
 						/**
 						 * 获取当前区块范围中指定 ID 的动态属性的能量值
 						 */
-						const energy = opal.QueryEnergy(block);
+						const energy = opal.ControlStardustEnergy(block)[0];
 						// 如果能量值小于等于 100000, 则发送一条错误消息并返回
 						if (energy <= value) return player.sendMessage('当前区块中星尘能量不足, 请继续收集星尘能量!');
 						// 尝试从指定 ID 的动态属性中消耗 100000 点能量
-						opal.AlterEnergy(block, -value, false);
+						opal.ControlStardustEnergy(block, -value);
 						// 设置新的动态属性值
 						server.world.setDynamicProperty(typeid + opal.RandomFloor(10000, 99999), value);
 						// 发送一条消息通知玩家
@@ -1838,9 +1840,9 @@ components.set(prefix[1] + 'source_energy_hub',
 						// 清除被选中的动态属性
 						server.world.setDynamicProperty(getIds[index]);
 						// 尝试向指定 ID 的动态属性中添加 100000 点能量
-						opal.AlterEnergy(block, value, true);
+						opal.ControlStardustEnergy(block, value);
 						// 发送一条消息通知玩家
-						player.sendMessage(`已从${name}中取出 ${value} 点能量, 当前区块剩余能量: ` + opal.QueryEnergy(block) + ' 点');
+						player.sendMessage(`已从${name}中取出 ${value} 点能量, 当前区块剩余能量: ` + opal.ControlStardustEnergy(block)[0] + ' 点');
 					}
 				}
 			)
@@ -3595,7 +3597,7 @@ components.set(prefix[4] + 'mineral_machine',
 			// 如果参数对象为空, 则返回
 			if (!revise || !consumption || !probability || !doubling || !limit || !chunkSize) return;
 			// 判断能量值 是否足够
-			if (!opal.ExpendEnergy(block, -consumption)) {
+			if (!opal.VisualizeUseStardustEnergy(block, -consumption)) {
 				// 复位状态
 				opal.TrySetPermutation(block, 'STATE:rune_type', 0);
 				opal.TrySetPermutation(block, revise, 0);
@@ -3675,9 +3677,9 @@ components.set(prefix[4] + 'energy_node',
 			/**
 			 * * 补充 星尘能 消耗
 			 */
-			const energy = opal.AlterEnergy(block, value, true);
+			const energy = opal.ControlStardustEnergy(block, value);
 			// 显示 魔晶网络 - 星尘值
-			opal.AlterMessageNotify('<§l§b 能量节点 §r>§s 星尘力产出§r', block, { text: '<§l§d 星尘力 §r> : §l§u' + energy[1] + '§q↑§r' });
+			opal.AlterMessageNotify('<§l§b 能量节点 §r>§s 星尘力产出§r', block, { text: '<§l§d 星尘力 §r> : §l§u' + energy[0] + '§q↑§r' });
 			// 复位状态
 			opal.TrySetPermutation(block, 'STATE:stage', 0);
 		}
@@ -4080,7 +4082,7 @@ components.set(prefix[4] + 'planting_and_logging',
 				opal.TrySetPermutation(block, 'STATE:rune_type', 0);
 				opal.TrySetPermutation(block, 'STATE:stage', 0);
 				// 判断能量值 是否足够
-				if (!opal.ExpendEnergy(block, -50)) return;
+				if (!opal.VisualizeUseStardustEnergy(block, -50)) return;
 				/**
 				 * * 获取 方块
 				 */
@@ -4190,7 +4192,7 @@ components.set(prefix[4] + 'crop_detection',
 			// 播放音效
 			dimension.playSound('block.composter.ready', block.location);
 			// 判断能量值 是否足够
-			if (!opal.ExpendEnergy(block, -5)) return;
+			if (!opal.VisualizeUseStardustEnergy(block, -5)) return;
 			/**
 			 * * 定义 路径事件
 			 */
@@ -4377,7 +4379,7 @@ components.set(prefix[4] + 'energy_expend',
 			/**
 			 ** 查询剩余能量
 			 */
-			const energy = opal.ExpendEnergy(block, modify || -1);
+			const energy = opal.VisualizeUseStardustEnergy(block, modify || -1);
 			// 检测能量是否变动成功
 			if (energy) opal.TrySetPermutation(block, revise || 'default', 2);
 			else opal.TrySetPermutation(block, revise || 'default', 0);
@@ -4511,7 +4513,7 @@ components.set(prefix[4] + 'routine_logistics_sender',
 			 */
 			const frame = analysis.block.above()?.getItemStack(1);
 			// 检测 展示框 能量 请求数量 是否满足要求
-			if (!frame || !opal.ExpendEnergy(analysis.block, -20) || routineLogisticsRequest.size < 1) return;
+			if (!frame || !opal.VisualizeUseStardustEnergy(analysis.block, -20) || routineLogisticsRequest.size < 1) return;
 			/**
 			 ** 物品网络频道
 			 */
@@ -4595,7 +4597,7 @@ components.set(prefix[4] + 'surpass_logistics_sender',
 			 */
 			const frame = analysis.block.above()?.getItemStack(1);
 			// 检测 展示框 能量 请求数量 是否满足要求
-			if (!frame || !opal.ExpendEnergy(analysis.block, -30) || surpassDimensionRequest.size < 1) return;
+			if (!frame || !opal.VisualizeUseStardustEnergy(analysis.block, -30) || surpassDimensionRequest.size < 1) return;
 			/**
 			 ** 物品网络频道
 			 */
@@ -4668,12 +4670,12 @@ components.set(prefix[4] + 'container_arrange',
 				analysis.block.below()?.getComponent('inventory')?.container,
 			];
 			// 判断是否成功获取到能量
-			if (!opal.ExpendEnergy(analysis.block, -20)) return;
+			if (!opal.VisualizeUseStardustEnergy(analysis.block, -20)) return;
 			// 遍历容器列表, 对每个容器执行操作
 			containers.forEach(
 				container => {
 					// 如果容器不存在, 或者方块无法消耗能量, 则跳过当前循环
-					if (!container || !opal.ExpendEnergy(analysis.block, -5)) return;
+					if (!container || !opal.VisualizeUseStardustEnergy(analysis.block, -5)) return;
 					/**
 					 * 获取容器中的所有物品
 					 */
@@ -4724,7 +4726,7 @@ components.set(prefix[4] + 'residual_extraction',
 			 */
 			const targetContainer = block.offset(container)?.getComponent('inventory')?.container;
 			// 检测容器是否存在, 是否有空位, 是否消耗能量
-			if (!targetContainer || targetContainer.emptySlotsCount == 0 || !opal.ExpendEnergy(block, -consumption)) return;
+			if (!targetContainer || targetContainer.emptySlotsCount == 0 || !opal.VisualizeUseStardustEnergy(block, -consumption)) return;
 			/**
 			 * 当前方块的状态值
 			 */
@@ -4780,7 +4782,7 @@ components.set(prefix[4] + 'container_hub',
 			 */
 			let success = false;
 			// 判断是否成功获取到能量
-			if (!opal.ExpendEnergy(block, -50)) return;
+			if (!opal.VisualizeUseStardustEnergy(block, -50)) return;
 			// 判断事件返回的对象是否完整可用
 			if (!above || !container) return;
 			// 遍历上方容器中的物品槽位

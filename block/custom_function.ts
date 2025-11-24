@@ -129,7 +129,7 @@ export function AboveTeleport(block: server.Block) {
      */
     const entitys = block.dimension.getEntitiesAtBlockLocation(block);
     // 执行事件机制
-    if (!opal.ExpendEnergy(block, -30)) return;
+    if (!opal.VisualizeUseStardustEnergy(block, -30)) return;
     // 遍历 射线方向 的 128个 方块
     for (let index = 1; index < 128; index++) {
         try {
@@ -169,7 +169,7 @@ export function BelowTeleport(block: server.Block) {
      */
     const getEntityGroup = block.dimension.getEntitiesAtBlockLocation(block);
     // 执行事件机制
-    if (!opal.ExpendEnergy(block, -30)) return;
+    if (!opal.VisualizeUseStardustEnergy(block, -30)) return;
     // 遍历 射线方向 的 128个 方块
     for (let index = 1; index < 128; index++) {
         try {
@@ -738,7 +738,7 @@ export function activateConnectedMagicCables(object: server.Block, type: string,
  */
 export function materialCollection(block: server.Block, permutation: server.BlockPermutation) {
     // 判断能量值 是否足够
-    if (!opal.ExpendEnergy(block, -30)) return;
+    if (!opal.VisualizeUseStardustEnergy(block, -30)) return;
     /**
      * * 实体查询选项
      */
@@ -827,7 +827,7 @@ function FillingTest(block: server.Block, container: server.Container, location:
  */
 export function blockPlacement(block: server.Block) {
     // 判断能量值 是否足够
-    if (!opal.ExpendEnergy(block, -60)) return;
+    if (!opal.VisualizeUseStardustEnergy(block, -60)) return;
     /**
      * * 获取上方的方块对象
      */
@@ -861,7 +861,7 @@ export function blockPlacement(block: server.Block) {
  */
 export function packageDelivery(block: server.Block, type: string) {
     // 判断能量值 是否足够
-    if (!opal.ExpendEnergy(block, -60)) return;
+    if (!opal.VisualizeUseStardustEnergy(block, -60)) return;
     /**
      * * 定义 物品信息 的 缓存数组
      */
@@ -951,7 +951,7 @@ export function packageDelivery(block: server.Block, type: string) {
  */
 export function servoOmphalos(object: server.Block, type: string) {
     // 判断能量值 是否足够
-    if (!opal.ExpendEnergy(object, -120, true)) return;
+    if (!opal.ControlStardustEnergy(object, -120)[1]) return;
     /**
      * * 结构范围 上极限 坐标
      */
@@ -1131,7 +1131,7 @@ export function servoDriveBeforeEvent(analysis: customType.TICK_COMPONENT, offse
         // 检查是否为有效方向且方向许可, 若许可 则 执行 伺服驱动前处理逻辑
         if (hasTag(config.offset, 'tags:magic_cable.series') && !hasTag(config.checkOffset, 'tags:magic_cable.series')) {
             // 判断能量值 是否足够
-            if (!opal.ExpendEnergy(block, -30, true)) return;
+            if (!opal.ControlStardustEnergy(block, -30)[1]) return;
             // 执行 伺服基座 移动许可
             switch (config.direction) {
                 case 'X+': block.setPermutation(state.withState('STATE:direction', 1)); break;
@@ -1213,7 +1213,7 @@ export function servoDriveAfterEvent(analysis: customType.TICK_COMPONENT, multip
  */
 export function Solidify(object: server.Block) {
     // 判断能量值 是否足够
-    if (!opal.ExpendEnergy(object, -35)) return;
+    if (!opal.VisualizeUseStardustEnergy(object, -35)) return;
     /**
      ** 石材类型
      */
@@ -1235,7 +1235,7 @@ export function Solidify(object: server.Block) {
  */
 export function Destroy(object: server.Block, type: string) {
     // 判断能量值 是否足够
-    if (!opal.ExpendEnergy(object, -15)) return;
+    if (!opal.VisualizeUseStardustEnergy(object, -15)) return;
     /**
      ** 坐标组
      */
@@ -1280,7 +1280,7 @@ export function Destroy(object: server.Block, type: string) {
  */
 export function Forming(object: server.Block) {
     // 判断能量值 是否足够
-    if (!opal.ExpendEnergy(object, -15)) return;
+    if (!opal.VisualizeUseStardustEnergy(object, -15)) return;
     /**
      ** 获取 方块容器
      */
@@ -1468,7 +1468,7 @@ export function distributeLavaToStorageTanks(object: server.Block) {
  */
 export function consumeEnergyAndAdvanceStage(object: server.Block) {
     // 判断能量值 是否足够
-    if (!opal.ExpendEnergy(object, -45)) return;
+    if (!opal.VisualizeUseStardustEnergy(object, -45)) return;
     /**
      * * 获取 自身 的 方块状态
      */

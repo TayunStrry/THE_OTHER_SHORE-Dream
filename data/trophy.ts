@@ -628,8 +628,8 @@ entry.set('收集 64 枚魔晶石',
 			 * * 定义 坐标基准点
 			 */
 			const reference = mapping.add({ x: -32, y: -2, z: -32 });
-			// 检测 建筑结构
-			if (!template) return player.sendMessage([opal.translate(player), { text: '-> 未能获取到<§l§9 魔法工业展馆 §r>的结构数据文件' }]);
+			// 检测 建筑结构是否存在
+			if (!template) return player.onScreenDisplay.setTitle([opal.translate(player), { text: '-> 未能获取到<§l§9 魔法工业展馆 §r>的结构数据文件' }]);
 			// 放置 建筑结构
 			server.world.structureManager.place(template, dimension, reference);
 			// 赠送 星尘能量

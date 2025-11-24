@@ -679,7 +679,7 @@ export async function divineFavorGirlAttack(self: server.Entity, type: string): 
     // 判断 领航者所在方块 是否存在 且 是否为 实体方块
     if (!block || !block.isValid || !block.isSolid) return;
     // 设置 星尘能量值
-    opal.ExpendEnergy(block, returnEnergy, false, true);
+    opal.ControlStardustEnergy(block, returnEnergy);
 };
 /**
  * 神恩领航者 攻击中断系统
@@ -979,7 +979,7 @@ export async function tunnelDragonTravel(entity: server.Entity, type: string): P
                 .title(title)
                 .button(option[0], "textures/项目图标/神机操持/单人沙发")
                 .button(option[1], "textures/项目图标/神机操持/列车货架")
-            if (!player || trainParts.length >= 4) return player.sendMessage([opal.translate(player), { text: '-> 当前列车的<§l§9 扩展插槽 §r>已满载, 无法继续创建<§l§9 扩展组件 §r>' }]);
+            if (!player || trainParts.length >= 4) return player.onScreenDisplay.setActionBar([opal.translate(player), { text: '-> 当前列车的<§l§9 扩展插槽 §r>已满载, 无法继续创建<§l§9 扩展组件 §r>' }]);
             // 显示窗口界面
             display.show(player as server.Player).then(
                 option => {

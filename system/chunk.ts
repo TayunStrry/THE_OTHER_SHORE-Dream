@@ -17,7 +17,7 @@ import { PathExecute } from './plan';
 /*
  * 导出模块
  */
-export { DisplayChunkBoundary, RealmPropertyName, AlterEnergy, QueryEnergy };
+export { DisplayChunkBoundary, RealmPropertyName, ControlStardustEnergy };
 /**
  * * 显示 区块边界
  *
@@ -52,7 +52,7 @@ function DisplayChunkBoundary(source: type.LOCATION_AND_DIMENSION) {
 /**
  * * 获取 区域属性名称
  *
- * @param {server.Entity | server.Player | server.Block} object - 实体或方块
+ * @param {type.LOCATION_AND_DIMENSION} source - 用于查询区域属性名称的 坐标信息与维度信息
  *
  * @param {string} type - 区域属性类型
  *
@@ -60,7 +60,7 @@ function DisplayChunkBoundary(source: type.LOCATION_AND_DIMENSION) {
  *
  * @returns {string|undefined} - 属性名称
  */
-function RealmPropertyName(object: server.Entity | server.Player | server.Block, type: string, range: number): string | undefined {
+function RealmPropertyName(source: type.LOCATION_AND_DIMENSION, type: string, range: number): string | undefined {
 	/**
 	 * * 节点队列
 	 */
@@ -69,7 +69,7 @@ function RealmPropertyName(object: server.Entity | server.Player | server.Block,
 	server.world.getDynamicPropertyIds()
 		.filter(node => node.startsWith(`${type}•`))
 		.forEach(
-			node => node.split(/•/)[1] == object.dimension.id
+			node => node.split(/•/)[1] == source.dimension.id
 				? nodeQueue.push({ x: JSON.parse(node.split(/•/)[2]), y: 0, z: JSON.parse(node.split(/•/)[4]) })
 				: void 0
 		)
@@ -78,7 +78,7 @@ function RealmPropertyName(object: server.Entity | server.Player | server.Block,
 	/**
 	 * * 节点距离
 	 */
-	const distance = nodeQueue.map(node => Vector.distance(node, { x: Math.floor(object.location.x / 16), y: 0, z: Math.floor(object.location.z / 16) }));
+	const distance = nodeQueue.map(node => Vector.distance(node, { x: Math.floor(source.location.x / 16), y: 0, z: Math.floor(source.location.z / 16) }));
 	/**
 	 * * 最小节点距离
 	 */
@@ -90,100 +90,84 @@ function RealmPropertyName(object: server.Entity | server.Player | server.Block,
 		 */
 		const index = distance.indexOf(minDistance);
 		// 返回 节点属性名称
-		return `${type}•${object.dimension.id}•${nodeQueue[index].x}•0•${nodeQueue[index].z}`
+		return `${type}•${source.dimension.id}•${nodeQueue[index].x}•0•${nodeQueue[index].z}`
 	}
 	// 如果 范围内 无节点
 	else return;
 };
 /**
- * * 查询 与 修改星尘能
+ * 管理指定区域的星尘力能量值
  *
- * @param {server.Block | server.Entity | server.Player} object - 发起事件的实例对象
+ * @param source - 位置和维度信息
  *
- * @param {number} offset - 修改的数值
+ * @param expend - 能量变化量（正数为增加，负数为消耗）
  *
- * @param {boolean} create - 是否可以创建新的 星尘能 节点
+ * @returns [当前能量值, 操作是否成功]
  *
- * @returns {[boolean, number]} - 返回一个数组, 第一个元素表示是否修改成功, 第二个元素表示修改后的星尘能数量
+ * @example
+ * // 查询当前能量
+ * const [energy, success] = controlStardustEnergy(location);
+ *
+ * // 消耗1000能量
+ * const [newEnergy, success] = controlStardustEnergy(location, -1000);
+ *
+ * // 增加500能量
+ * const [newEnergy, success] = controlStardustEnergy(location, 500);
  */
-function AlterEnergy(object: server.Entity | server.Player | server.Block, offset: number, create: boolean): [boolean, number] {
-	/**
-	 * * 单一逻辑区块的最大星尘能
-	 */
+function ControlStardustEnergy(source: type.LOCATION_AND_DIMENSION, expend: number = 0): [number, boolean] {
+	/** 区域最大能量容量 */
 	const MAX_ENERGY = 10_000_000;
-	/**
-	 * * 当前节点名称
-	 */
-	const current = `stardust_energy•${object.dimension.id}•${Math.floor(object.location.x / 16)}•0•${Math.floor(object.location.z / 16)}`;
-	/**
-	 * * 类型前缀
-	 */
+	/** 区域初始能量值 */
+	const DEFAULT_ENERGY = 10_000;
+	/** 构建 区域能量属性 的 标识符 */
+	const current = `stardust_energy•${source.dimension.id}•${Math.floor(source.location.x / 16)}•0•${Math.floor(source.location.z / 16)}`;
+	/** 提取 区域能量属性 的 类型前缀 */
 	const typePrefix = current.split(/•/)[0];
-	/**
-	 * * 区域属性名称
-	 */
-	const realmName = RealmPropertyName(object, typePrefix, 16);
-	/**
-	 * 如果区域属性名称为空
-	 */
+	/** 获取可用的 区域能量属性 标识符 */
+	const realmName = RealmPropertyName(source, typePrefix, 16);
+	/** 区域当前能量值 */
+	let currentEnergy: number;
+	// 检查范围内是否有 区域能量属性
 	if (!realmName) {
-		// 如果可以创建新的星尘能节点
-		if (create) {
-			server.world.setDynamicProperty(current, offset);
-			// 返回能量修改成功
-			return [true, offset];
-		}
-		// 返回能量修改失败
-		return [false, offset];
+		// 如果范围内无 区域能量属性，则创建默认能量值
+		server.world.setDynamicProperty(current, DEFAULT_ENERGY);
+		// 初始化当前能量为默认值
+		currentEnergy = DEFAULT_ENERGY;
 	}
-	/**
-	 * * 区域属性-能量值
-	 */
-	const rawPrice = server.world.getDynamicProperty(realmName);
-	// 如果区域属性-能量值的类型不是数字
-	if (typeof rawPrice !== 'number') return [false, 0];
-	/**
-	 * 拷贝 区域属性-能量值
-	 */
-	const price = rawPrice;
-	/**
-	 * 计算后的 区域属性-能量值
-	 */
-	const newAmount = price + offset;
-	// 如果新的能量值小于等于0
+	else {
+		/** 区域当前能量值 */
+		const existingEnergy = server.world.getDynamicProperty(realmName);
+		// 验证能量值类型，类型错误时重置为默认值
+		if (typeof existingEnergy !== 'number') {
+			// 如果范围内有 区域能量属性，但类型错误，则重置为默认值
+			server.world.setDynamicProperty(current, DEFAULT_ENERGY);
+			// 初始化当前能量为默认值
+			currentEnergy = DEFAULT_ENERGY;
+		}
+		// 如果范围内有 区域能量属性，且类型正确，则直接赋值
+		else currentEnergy = existingEnergy;
+	}
+	/** 计算调整后的能量值 */
+	const newAmount = currentEnergy + expend;
+	// 能量值边界检查和处理
 	if (newAmount <= 0) {
-		// 如果新的能量值为0, 则删除区域属性
+		// 能量耗尽情况
 		if (newAmount === 0) {
-			server.world.setDynamicProperty(realmName, undefined);
+			// 恰好耗尽，更新存储值
+			server.world.setDynamicProperty(realmName || current, 0);
+			// 恰好耗尽，返回0
+			return [0, true];
 		}
-		// 返回能量修改失败
-		return [false, 0];
+		// 能量不足，操作失败
+		else return [0, false];
 	}
-	// 如果新的能量值超出最大容量限制
-	if (newAmount >= MAX_ENERGY) return [true, price];
-	// 在数值正确的前提下设置 区域属性-能量值
-	server.world.setDynamicProperty(realmName, newAmount);
-	// 返回能量修改成功
-	return [true, newAmount];
+	// 检查能量是否超出最大容量
+	if (newAmount >= MAX_ENERGY) {
+		// 超出上限，保持原值不变
+		return [currentEnergy, true];
+	}
+	// 更新区域能量值
+	server.world.setDynamicProperty(realmName || current, newAmount);
+	// 返回更新后的能量值和成功状态
+	return [newAmount, true];
 }
-/**
- * * 查询 区域属性 - 能量值
- *
- * @param {server.Block | server.Entity | server.Player} object - 发起事件的实例对象
- *
- * @returns {number} - 返回 区域属性-能量值
- */
-function QueryEnergy(object: server.Entity | server.Player | server.Block): number {
-	/**
-	 * * 当前节点名称
-	 */
-	const current = `stardust_energy•${object.dimension.id}•${Math.floor(object.location.x / 16)}•0•${Math.floor(object.location.z / 16)}`
-	/**
-	 * * 区域属性名称
-	 */
-	const realmName = RealmPropertyName(object, current.split(/•/)[0], 48);
-	// 如果 区域属性名称 为空
-	if (!realmName) return 0;
-	// 返回 区域属性-能量值
-	return server.world.getDynamicProperty(realmName) as number;
-};

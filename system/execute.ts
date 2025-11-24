@@ -27,7 +27,7 @@ import { ReplyMessages, material, isPlayerAuthorized } from './lexicon_v5';
 /*
  * 区块处理模块
  */
-import { AlterEnergy } from './chunk';
+import { ControlStardustEnergy } from './chunk';
 /*
  * 信息处理模块
  */
@@ -35,7 +35,7 @@ import { DisplayFloatingText, ErrorMessage } from './intel';
 /*
  * 导出模块
  */
-export { CompleteSummonAnimation, ParticleSummonAnimation, SprayParticleTrigger, ExpendEnergy, HealthHigher, HealthBelow, CompileSign, PlayPrompt, };
+export { CompleteSummonAnimation, ParticleSummonAnimation, SprayParticleTrigger, VisualizeUseStardustEnergy, HealthHigher, HealthBelow, CompileSign, PlayPrompt, };
 /**
  * * 水花粒子效果触发器
  */
@@ -190,30 +190,26 @@ function ParticleSummonAnimation(player: server.Player, location: server.Vector3
     );
 };
 /**
- * * 显示与消耗星尘能
+ * * 可视化 消耗星尘能 效果
  *
  * @param {server.Block} block - 发起事件的实例对象
  *
  * @param {number} modify - 修改的数值
  *
- * @param {boolean} noShow - 是否不显示悬浮字
- *
- * @param {boolean} create - 是否可以创建新的 星尘能 节点
- *
  * @returns {boolean} - 返回一个布尔值, 表示是否修改成功
  */
-function ExpendEnergy(block: server.Block, modify: number, noShow?: boolean, create: boolean = false): boolean {
+function VisualizeUseStardustEnergy(block: server.Block, modify: number): boolean {
     /**
      * * 获取 星尘能 数值
      */
-    const getEnergy = AlterEnergy(block, modify, create);
+    const getEnergy = ControlStardustEnergy(block, modify);
     /**
      * * 判断是否为耗能
      */
     const direction = modify > 0 ? '§q↑§r' : '§m↓§r';
     // 判断是否修改成功
-    if (getEnergy[0]) {
-        if (!noShow) DisplayFloatingText(block, '<§l§d 星尘力 §r> : §l§u' + getEnergy[1] + direction);
+    if (getEnergy[1]) {
+        DisplayFloatingText(block, '<§l§d 星尘力 §r> : §l§u' + getEnergy[0] + direction);
         return true;
     }
     else {

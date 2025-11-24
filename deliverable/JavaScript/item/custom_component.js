@@ -3484,6 +3484,9 @@ components.set(componentPrefix + 'blank_industrial_blueprint', {
              * * 获取 区域体积向量
              */
             const vector = opal.Vector.subtract(volume.getMax(), volume.getMin());
+            // 检测 区域体积是否过小
+            if (Math.abs(vector.x) + Math.abs(vector.y) + Math.abs(vector.z) <= 9)
+                return player.sendMessage('§c§l 当区域体积过小, 无法创建结构!');
             // 创建 结构
             server.world.structureManager.createFromWorld('mystructure:' + option.formValues[0]?.toString(), player.dimension, location_1, location_2, {
                 saveMode: server.StructureSaveMode.World,
@@ -3590,10 +3593,10 @@ components.set(componentPrefix + 'industrial_blueprint', {
         if (!player.isSneaking)
             return;
         // 消耗 能量 并确认 能量 是否充足
-        if (opal.QueryEnergy(block) <= volume * 1000)
+        if (opal.ControlStardustEnergy(block)[0] <= volume * 1000)
             return player.sendMessage('<§l§u 星尘力 §r>§c§l不足, 无法加载<§l§u 机械蓝图 §r>§c§l !');
         // 消耗 星尘能量
-        opal.ExpendEnergy(block, -volume * 1000);
+        opal.ControlStardustEnergy(block, -volume * 1000);
         // 创建 蓝图中保存的结构
         server.world.structureManager.place(structure, player.dimension, block.location, options);
     }
