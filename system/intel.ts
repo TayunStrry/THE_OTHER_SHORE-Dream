@@ -97,12 +97,6 @@ const textCaseMap = new Map<string, debug.DebugText>();
  * @param {string} text - 悬浮字信息的文本
  */
 function DisplayFloatingText(block: server.Block, text: string) {
-	/*
-	const typeId = 'starry_map:execute.name_display';
-	block.dimension.getEntitiesAtBlockLocation(block.center()).filter(entity => entity.typeId === typeId).forEach(entity => entity.remove());
-	const entity = TrySpawnEntity(block.dimension, typeId, block.bottomCenter());
-	if (entity instanceof server.Entity) entity.nameTag = text || '未知';
-	*/
 	/**
 	 * 悬浮字标识符
 	 */
@@ -118,7 +112,7 @@ function DisplayFloatingText(block: server.Block, text: string) {
 	 */
 	const textCase = new debug.DebugText(block.above(2)?.bottomCenter() || block.center(), text || '未知');
 	// 设置 显示时间
-	textCase.timeLeft = Clamp({ min: 100, max: 2000 }, text.length * 2);
+	textCase.timeLeft = Math.round(Clamp({ min: 2, max: 8 }, text.length / 4));
 	// 生成悬浮字信息
 	debug.debugDrawer.addShape(textCase);
 	// 添加 悬浮字信息 到 集合中

@@ -89,18 +89,15 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@minecraft/common@^1.0.0", "@minecraft/common@^1.1.0", "@minecraft/common@^1.2.0":
+"@minecraft/common@^1.0.0", "@minecraft/common@^1.2.0":
   "integrity" "sha512-JdmEq4P3Z/FtoBzhLijFgMSVFnFRrUoLwY8DHHrgtFo0mfLTOLTB1RErYjLMsA6b7BGVNxkX/pfFRiH7QZ0XwQ=="
   "resolved" "https://registry.npmjs.org/@minecraft/common/-/common-1.2.0.tgz"
   "version" "1.2.0"
 
-"@minecraft/debug-utilities@^1.0.0-beta.1.21.90-preview.20":
-  "integrity" "sha512-Ydts1XXc9DVSgbdAYbaIjKGWZ1fhYdao2glOH9ZNnLn4U/Da7TeI+ZNRVlLnIdCtDnErsZHUQWlIoIgQWWjcpw=="
-  "resolved" "https://registry.npmjs.org/@minecraft/debug-utilities/-/debug-utilities-1.0.0-beta.1.21.90-preview.20.tgz"
-  "version" "1.0.0-beta.1.21.90-preview.20"
-  dependencies:
-    "@minecraft/common" "^1.0.0"
-    "@minecraft/server" "^1.17.0 || ^2.0.0-rc.1.21.90-preview.20"
+"@minecraft/debug-utilities@^1.0.0-beta.1.21.130-preview.28":
+  "integrity" "sha512-F9/rtIDUJYYeFlzCfevmuknz8ZD4VKMuUScrb58a93TeECc1PjU1UplPhx0MpfCo186gmMT7Iu6+aFp5kjQhSQ=="
+  "resolved" "https://registry.npmjs.org/@minecraft/debug-utilities/-/debug-utilities-1.0.0-beta.1.21.130-preview.28.tgz"
+  "version" "1.0.0-beta.1.21.130-preview.28"
 
 "@minecraft/server-ui@^2.1.0-beta.1.21.90-preview.20":
   "integrity" "sha512-q8i5kAFSez3c1UMW4h531Am8CFLPevK6yTN9CRm5GogOPP1mv4BhQdtAVg0ldBZKkdPZbJndy0wC8hrC8DkK2g=="
@@ -110,22 +107,15 @@
     "@minecraft/common" "^1.0.0"
     "@minecraft/server" "^2.0.0-rc.1.21.90-preview.20"
 
-"@minecraft/server@^1.17.0 || ^2.0.0-rc.1.21.90-preview.20":
-  "integrity" "sha512-X3HKKezj3ZeUCBay6FJOtUq56rq8fnYRpgKaW7PgRcOJyIaLatuq/Ml01mQdUtxlKdMxZdkDS3w0SnENVfaudA=="
-  "resolved" "https://registry.npmjs.org/@minecraft/server/-/server-1.18.0.tgz"
-  "version" "1.18.0"
-  dependencies:
-    "@minecraft/common" "^1.1.0"
-
-"@minecraft/server@^2.5.0-beta.1.21.130-preview.28":
+"@minecraft/server@^1.17.0 || ^2.0.0", "@minecraft/server@^2.5.0-beta.1.21.130-preview.28":
   "integrity" "sha512-lyCuBabidgyDdB4yumQynr36GkkErjdQRhYn28e70ZAi/N4XAt+agbL2Kkl7QVwmcZGKDZgo4klFuYm7RlaiFA=="
   "resolved" "https://registry.npmjs.org/@minecraft/server/-/server-2.5.0-beta.1.21.130-preview.28.tgz"
   "version" "2.5.0-beta.1.21.130-preview.28"
 
-"@minecraft/vanilla-data@>=1.20.70", "@minecraft/vanilla-data@>=1.20.70 || 1.21.130-preview.28":
-  "integrity" "sha512-FXUx5hPkIcLsbIXlBrCw5JPGo1V3RwHE7I1qYjD/Z+HlajRJPHy9UzYwTcei+aRQW5NWR8Zg0vIhP3l2+Q2aMA=="
-  "resolved" "https://registry.npmjs.org/@minecraft/vanilla-data/-/vanilla-data-1.21.62.tgz"
-  "version" "1.21.62"
+"@minecraft/vanilla-data@>=1.20.70 || 1.21.130-preview.28":
+  "integrity" "sha512-n00ry2BCbDiQ4tbiHIBeU4QSvbyClg8O0weWDhKBM1tCsGJMI/+MGaZ3LWZs2H79k/OuDMaPlWwqt4drW6tHDA=="
+  "resolved" "https://registry.npmjs.org/@minecraft/vanilla-data/-/vanilla-data-1.21.124.tgz"
+  "version" "1.21.124"
 
 "@nodelib/fs.scandir@2.1.5":
   "integrity" "sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g=="
